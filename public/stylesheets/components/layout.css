@@ -1,11 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+::root{
+
+    /* Color palette */
+    --Green-50: #F8F9F1;
+    --Green-100: #E9EDD2;
+    --Green-200: #DAE0B4;
+    --Green-300: #CBD495;
+    --Green-400: #BBC777;
+    --Green-500: #ACBB59;
+    --Green-600: #95A343;
+    --Green-700: #7B8637;
+    --Green-800: #5F682B;
+    --Green-900: #434A1E;
+    --Green-950: #282B12;
+
+}
+
 *{
     font-family: 'Poppins';
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .poppins-thin {
