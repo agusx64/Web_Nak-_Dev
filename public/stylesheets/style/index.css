@@ -1,7 +1,22 @@
-h1{
-    color: blue;
+/* Resposive for mobile devices */
+@media only screen and (max-width: 767px) {
+
 }
 
-h2{
-    color: brown;
+/* Responsive for tablets */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* Responsive for laptops */
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* Responsive for desktops */
+
+@media only screen and (min-width: 1200px) {
+
 }
