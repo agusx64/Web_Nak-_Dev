@@ -6,26 +6,114 @@
   <title>Document</title>
 
   <link rel="stylesheet" href="/stylesheets/components/layout.css">
+  <link rel="stylesheet" href="/stylesheets/components/components.css">
   <link rel="stylesheet" href="/stylesheets/style/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <body>
+      <!-- Sección Inicio -->
+      <section id="inicio" class="seccion">
+          <div class="contenido">
+                  <!-- Navbar -->
+       <!-- Navbar -->
+<nav class="navbar">
+    <img class="logo" src="images/pngnaku.png" alt="Logo" class="logo">
+    
+    <ul>
+        <li><a href="#">INICIO</a></li>
+        <li><a href="#">NOSOTROS</a></li>
+        <li><a href="#">CONTACTO</a></li>
+        <li><a href="#">BLOG</a></li>
+    </ul>
+    
+    <div class="navbar-buttons">
+        <button class="menu-button" id="bi bi-cart4"><i class="bi bi-cart4"></i></i></button>
+        <button class="menu-button" id="menu-ventagall"><i class=><svg width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.277 15.5049C10.7644 15.5001 11.23 15.304 11.5717 14.9597C11.9134 14.6154 12.1033 14.151 12.0999 13.6683C12.0946 13.1947 11.9004 12.7424 11.5597 12.4101C11.219 12.0778 10.7595 11.8923 10.2813 11.8942C9.26498 11.8942 8.51169 12.6645 8.51026 13.6925C8.50882 14.6806 9.31673 15.5078 10.277 15.5049Z" fill="#E8ECD1"/>
+            <path d="M21.0001 13.7082C19.8338 14.6184 18.6679 15.5278 17.5025 16.4361C17.0511 16.7892 16.9979 17.0056 17.6175 17.3146C18.5074 17.7545 19.3253 18.3426 20.1936 18.8807C19.9162 19.1655 19.6373 19.0787 19.39 19.0801C18.0517 19.09 16.7147 19.0801 15.3763 19.0801C14.3068 19.0801 13.9546 19.5898 14.3355 20.5807C14.4929 20.9651 14.5567 21.3806 14.522 21.7939C14.4873 22.2072 14.355 22.6066 14.1357 22.9599C13.7792 23.5735 12.9497 23.9466 12.3215 23.7814C11.9092 23.6563 11.548 23.4041 11.2907 23.0613C11.0334 22.7186 10.8934 22.3035 10.8911 21.8764C10.9113 20.1536 11.4877 18.6501 12.8735 17.5267C15.3174 15.5491 14.7165 12.3485 12.7614 10.7068C12.1976 10.223 11.5266 9.87773 10.8029 9.69894C10.0791 9.52015 9.32296 9.51293 8.59583 9.67785C7.86871 9.84276 7.1911 10.1752 6.61802 10.6481C6.04494 11.121 5.59254 11.7211 5.29755 12.3997C5.06035 12.9365 4.86628 13.5387 4.90509 14.1752C5.04885 16.5116 4.28981 18.6373 3.26914 20.6889C2.85081 21.5318 2.50292 22.3889 2.51154 23.3414C2.51154 23.7244 2.36778 23.8483 2.0012 23.817C1.78844 23.7985 1.56993 23.817 1.35717 23.817C0.0432368 23.817 -0.196837 23.4796 0.133804 22.1953C0.498946 20.7715 1.1401 19.4759 1.75538 18.156C2.50004 16.5614 2.54892 14.8358 2.51873 13.1116C2.51873 12.7884 2.20534 12.7884 2.01989 12.6745C0.989157 12.0381 0.215745 11.2166 0.0935519 9.96648C-0.0502049 8.49998 0.5737 7.40368 1.89051 6.75016C2.3606 6.51666 2.50579 6.25184 2.51729 5.73074C2.51754 4.99267 2.70564 4.26657 3.06419 3.61955C3.42275 2.97253 3.94019 2.42547 4.5687 2.02891C6.18165 0.955385 7.8708 0.825821 9.54269 1.85094C10.0185 2.1357 10.2356 2.00613 10.5677 1.70856C11.7738 0.615102 13.1323 -0.0910921 14.8373 0.00999615C16.0337 0.0685654 17.184 0.485771 18.1356 1.20634C19.0873 1.92691 19.7955 2.91684 20.1663 4.04498C20.9153 6.27889 20.3748 8.28642 18.8624 10.0249C18.3647 10.5915 17.7295 11.0232 17.0166 11.2792C16.3841 11.5027 16.5206 11.937 16.5853 12.3784C16.65 12.8197 16.8355 13.1443 17.4148 13.1287C18.608 13.0945 19.8026 13.1287 20.9958 13.1387L21.0001 13.7082ZM5.60663 8.32628C4.88784 8.32628 4.26681 8.3092 3.64722 8.32628C2.87525 8.35761 2.30022 9.15777 2.53886 9.86966C2.59736 10.0475 2.69598 10.2098 2.82725 10.3442C2.95852 10.4787 3.11897 10.5817 3.29645 10.6456C3.68316 10.7795 3.72772 10.3409 3.87148 10.1402C5.26592 8.23231 7.17789 7.29262 9.51106 7.17018C11.4863 7.07193 13.1955 7.76959 14.6116 9.1535C14.8214 9.35995 15.0313 9.48666 15.3706 9.39839C16.755 9.04387 17.9582 7.73969 18.0732 6.33584C18.2026 4.82379 17.4148 3.15227 15.362 2.49164C14.0322 2.06308 12.3344 2.70521 11.5007 4.04641C11.1772 4.56609 10.8883 5.10854 10.6122 5.65385C10.4541 5.96851 10.1982 6.09238 10.053 5.7706C9.88196 5.39472 9.58869 5.1299 9.39462 4.78392C8.75059 3.6449 7.36765 3.28041 6.07815 3.88267C5.18542 4.29699 4.5802 5.69514 5.10492 6.7886C5.32774 7.24848 5.42406 7.76816 5.60663 8.32628Z" fill="#99A648"/>
+            <path d="M10.277 15.5049C9.31673 15.5049 8.50882 14.6806 8.51026 13.6925C8.51026 12.6645 9.26498 11.8999 10.2813 11.8942C10.7595 11.8923 11.219 12.0778 11.5597 12.4101C11.9004 12.7424 12.0946 13.1947 12.0999 13.6683C12.1033 14.151 11.9134 14.6154 11.5717 14.9597C11.23 15.304 10.7644 15.5001 10.277 15.5049Z" fill="#99A648"/>
+            </svg>
+            </i></button>
+        <button class="menu-button registro" id="menu-registro">Registro</button>
+    </div>
+</nav>
 
-</head>
-<body>
-  <h1>Nakù</h1>
-  <h2>Nakù</h2>
-  <h3>Nakù</h3>
-  <h4>Nakù</h4>
-  <h5>Nakù</h5>
-  <h6>Nakù</h6>
+  
+      <!-- Main Section -->
+      <header class="hero-section">
+          <div class="overlay">
+            <h1><span>Grupo</span> <span class="white-text">Na</span><tex class="orange-text">kú</text></h1>
+              <p class="since">Desde 2020</p>
+              <p class="subtitle">You've never made a website this fast before, complicate regular font, black space all the people this world is more expensive.</p>
+          </div>
+      </header>
+      
+      <!-- Footer -->
+      <footer>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,160L60,160C120,160,240,160,360,186.7C480,213,600,267,720,266.7C840,267,960,213,1080,192C1200,171,1320,181,1380,186.7L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+          <p >Definitivamente, empresa orgullosamente Mexicana.</p>
+          <div class="huevo">
+            <svg width="30" height="40" viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_301_236)">
+                <path d="M29.8199 23.34C29.8199 33.28 23.1999 39.83 14.7399 39.78C12.7986 39.788 10.875 39.4108 9.08041 38.6704C7.28585 37.93 5.65598 36.8409 4.28513 35.4664C2.91428 34.0918 1.82968 32.459 1.09411 30.6624C0.358541 28.8659 -0.0133874 26.9413 -0.000146803 25C-0.0262601 17.3234 2.71849 9.89521 7.72985 4.08C12.3599 -1.32 17.2499 -1.35 21.9199 3.92C26.5748 9.37428 29.3454 16.1851 29.8199 23.34Z" fill="#E9EDD2"/>
+                <path d="M14.3198 9.94C17.9498 9.85 20.0598 10.81 21.1398 13.46C22.2198 16.11 21.1398 18.21 19.1398 20.02C18.1398 20.91 16.9098 21.72 16.4498 22.84C15.8098 24.37 15.1698 25.9 13.5198 24.72C12.2098 23.78 12.8298 22.01 13.8898 20.82C14.7698 19.82 15.8098 19.02 16.7498 18.1C18.0698 16.81 18.6998 15.22 17.3398 13.75C17.0464 13.393 16.681 13.102 16.2673 12.8961C15.8537 12.6901 15.4012 12.5739 14.9395 12.555C14.4779 12.5362 14.0174 12.615 13.5883 12.7865C13.1593 12.958 12.7713 13.2181 12.4498 13.55C11.3398 14.66 11.0398 16.64 8.83975 15.87C8.65517 15.7521 8.50338 15.5894 8.39848 15.3971C8.29359 15.2048 8.23899 14.9891 8.23975 14.77C8.37927 13.7828 8.79087 12.8539 9.42846 12.0874C10.066 11.3208 10.9044 10.747 11.8498 10.43C12.6541 10.1823 13.4818 10.0181 14.3198 9.94Z" fill="#BBC777"/>
+                <path d="M14.4498 32C13.8686 32.019 13.3033 31.8082 12.8765 31.4132C12.4497 31.0182 12.1958 30.4709 12.1698 29.89C12.0998 28.25 13.3598 27.68 14.7398 27.72C15.9198 27.72 16.9998 28.37 16.9698 29.72C16.9398 31.38 15.8798 32 14.4498 32Z" fill="#BBC777"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_301_236">
+                <rect width="29.82" height="39.78" fill="white"/>
+                </clipPath>
+                </defs>
+                </svg>
+                
+          </div>
+      </footer>
+      </section>
+      
+<!----SEGUNDASECCION-->
 
-  <div class="twitter_frame">
-    <div class='sk-ww-twitter-feed' data-embed-id='25458561'></div><script src='https://widgets.sociablekit.com/twitter-feed/widget.js' async defer></script>  
-  </div>
 
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.23/build/spline-viewer.js"></script>
-  <spline-viewer url="https://prod.spline.design/RDTcQNDJ7yaXqScv/scene.splinecode"></spline-viewer>
-
-  <script src="/javascripts/common/index.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
-</html>
+      <!-- Sección Misión -->
+      <section id="mision" class="seccion">
+          <div class="contenido">
+              <h2>Misión</h2>
+              <p>Nuestra misión es hacer de este mundo un lugar más simple.</p>
+              <button>Leer Más</button>
+          </div>
+          <img src="2mision.jpg" alt="Imagen de la misión">
+      </section>
+  
+      <!-- Sección Personal -->
+      <section id="personal" class="seccion">
+          <h2>Nuestro Personal</h2>
+          <div class="tarjetas-personal">
+              <div class="tarjeta">
+                  <img src="3personal.jpg" alt="Imagen de personal 1">
+                  <p>Diseñador</p>
+                  <button>Leer Más</button>
+              </div>
+              <div class="tarjeta">
+                  <img src="3personal.jpg" alt="Imagen de personal 2">
+                  <p>Diseñador</p>
+                  <button>Leer Más</button>
+              </div>
+              <div class="tarjeta">
+                  <img src="3personal.jpg" alt="Imagen de personal 3">
+                  <p>Diseñador</p>
+                  <button>Leer Más</button>
+              </div>
+          </div>
+      </section>
+  
+      <!-- Sección Historia -->
+      <section id="historia" class="seccion">
+          <div class="contenido">
+              <h2>Historia</h2>
+              <p>Conoce la historia de cómo Grupo Nakú comenzó su viaje.</p>
+              <button>Leer Más</button>
+          </div>
+          <img src="4historia.jpg" alt="Imagen de la historia">
+      </section>
+  </body>
+  </html>

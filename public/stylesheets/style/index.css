@@ -1,4 +1,3 @@
-/* Resposive for mobile devices */
 @media only screen and (max-width: 767px) {
 
 }
@@ -21,8 +20,190 @@
 
 }
 
-.twitter_frame{
-    width: 800px;
-    height: 150px;
-    background-color: antiquewhite;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Estilos generales del Navbar */
+.navbar {
+    background-color: #E9EDD2;
+    padding: 10px;
+    height: 20%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinea verticalmente el contenido */
+}
+
+/* Estilos para la lista de enlaces del menú */
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinea verticalmente los items del menú */
+    margin: 0;
+}
+
+/* Espaciado entre los elementos del menú */
+.navbar li {
+    margin-left: 20px;
+}
+
+/* Estilos para los enlaces */
+.navbar a {
+    text-decoration: none;
+    font-family: inter;
+    color: #95A343;
+    font-size: 1.2rem;
+    display: block;
+
+}
+
+/* Contenedor de los botones en la esquina superior derecha */
+.navbar-buttons {
+    display: flex;
+    align-items: center;  /* Alinea verticalmente los botones */
+}
+
+/* Estilos generales para los botones del carrito y la tienda */
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 1.8rem;  /* Tamaño del icono */
+    cursor: pointer;
+    margin-left: 10px;  /* Espacio entre los botones */
+}
+
+/* Estilos específicos para el botón de registro */
+.menu-button.registro {
+    background-color: #95A343; /* Verde */
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    margin-left: 15px; /* Espacio más grande entre el botón registro y el anterior */
+    cursor: pointer;
+}
+
+/* Efecto hover para el botón de registro */
+.menu-button.registro:hover {
+    background-color: #95A343; /* Cambia el color al hacer hover */
+}
+
+
+.logo {
+    width: 100px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+}
+
+
+/* Botón de menú (tres rayas) */
+.menu-button {
+    background: none;
+    border: none;
+    color:#95A343;
+    font-size: 2rem; /* Tamaño del ícono */
+    cursor: pointer;
+    margin-right: 20px; /* Ajusta según tu diseño */
+}
+
+.menu-button i {
+    color:#95A343; /* Color del ícono */
+}
+
+.menu-button:focus {
+    outline: none; /* Quita el borde de enfoque */
+}
+
+/* Hero Section Styling */
+.hero-section {
+    background-image: url('images/huevos.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Mantener la altura de la pantalla completa */
+    position: relative;
+}
+
+.overlay {
+    background-color:#c3ffbe;
+    color: white;
+    text-align: center;
+    padding: 50px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.overlay h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.overlay h1  {
+    color: #95A343;
+}
+
+.overlay .since {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.overlay .subtitle {
+    font-size: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #95A343;
+    text-align: center;
+    padding: 50px 20px;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    clip-path: path('M 0 300 C 100 500, 400 -150, 100% 200 L 100% 100 V 400 H 0 Z');
+    transform: translateY(-150%); /* Mueve el footer hacia arriba */
+}
+
+
+
+    
+
+.orange-text {
+    color:#F4A568;
+}
+.white-text {
+    color: rgb(254, 253, 251);
+}
+/* Estilos opcionales para ajustar la imagen del logo */
+.logo {
+    width: 60px;
+    height: auto; 
+}
+.huevo {
+    position: absolute; 
+    top: 40%; 
+    left:90%; 
 }
