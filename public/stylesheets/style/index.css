@@ -1,25 +1,4 @@
-@media only screen and (max-width: 767px) {
-
-}
-
-/* Responsive for tablets */
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-
-}
-
-/* Responsive for laptops */
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-
-}
-
-/* Responsive for desktops */
-
-@media only screen and (min-width: 1200px) {
-
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
     margin: 0;
@@ -27,183 +6,173 @@
     box-sizing: border-box;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
-}
-
-/* Estilos generales del Navbar */
-.navbar {
-    background-color: #E9EDD2;
-    padding: 10px;
-    height: 20%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+.navbar_component{
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Alinea verticalmente el contenido */
+    align-items: center;
+    background-color: #e1f7c8;
+    position: relative;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    z-index: 1;
 }
 
-/* Estilos para la lista de enlaces del menú */
-.navbar ul {
-    list-style-type: none;
+.nav_menu{
     display: flex;
-    justify-content: center;
-    align-items: center; /* Alinea verticalmente los items del menú */
-    margin: 0;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    width: 50%;
+    height: 100%;
 }
 
-/* Espaciado entre los elementos del menú */
-.navbar li {
+.links_reference{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     margin-left: 20px;
 }
 
-/* Estilos para los enlaces */
-.navbar a {
+.text_link_reference{
     text-decoration: none;
-    font-family: inter;
-    color: #95A343;
-    font-size: 1.2rem;
-    display: block;
-
+    color: #64A519;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-weight: 500;
 }
 
-/* Contenedor de los botones en la esquina superior derecha */
-.navbar-buttons {
+.text_link_reference:hover{
+    color: #F4A568;
+    text-decoration: underline;
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.buttons_menu{
+    width: 50%;
+    height: 100%;
     display: flex;
-    align-items: center;  /* Alinea verticalmente los botones */
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 30px;
 }
 
-/* Estilos generales para los botones del carrito y la tienda */
-.menu-button {
-    background: none;
-    border: none;
-    font-size: 1.8rem;  /* Tamaño del icono */
-    cursor: pointer;
-    margin-left: 10px;  /* Espacio entre los botones */
+.logo_img{
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
 }
 
-/* Estilos específicos para el botón de registro */
-.menu-button.registro {
-    background-color: #95A343; /* Verde */
-    color: white;
-    font-size: 1rem;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px; /* Bordes redondeados */
-    margin-left: 15px; /* Espacio más grande entre el botón registro y el anterior */
-    cursor: pointer;
+.icons_button {
+    background-color: transparent;
+    border-style: none;
+    margin-left: 12px;
 }
 
-/* Efecto hover para el botón de registro */
-.menu-button.registro:hover {
-    background-color: #95A343; /* Cambia el color al hacer hover */
+.enter_button{
+    background-color: #81D520;
+    color: #FFF;
+    width: 80px;
+    height: 35px;
+    border-style: none;
+    border-radius: 5px;
+    font-weight: 400;
+    margin-left: 50px;
 }
 
-
-.logo {
-    width: 100px; /* Ajusta el tamaño de la imagen */
-    height: auto;
-}
-
-
-/* Botón de menú (tres rayas) */
-.menu-button {
-    background: none;
-    border: none;
-    color:#95A343;
-    font-size: 2rem; /* Tamaño del ícono */
-    cursor: pointer;
-    margin-right: 20px; /* Ajusta según tu diseño */
-}
-
-.menu-button i {
-    color:#95A343; /* Color del ícono */
-}
-
-.menu-button:focus {
-    outline: none; /* Quita el borde de enfoque */
-}
-
-/* Hero Section Styling */
-.hero-section {
-    background-image: url('images/huevos.jpg');
+.section_fullscreen{
+    width: 100%;
+    height: 100vh;
+    background-image: url(/images/huevos.jpg);
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    height: 100vh; /* Mantener la altura de la pantalla completa */
-    position: relative;
 }
 
-.overlay {
-    background-color:#c3ffbe;
-    color: white;
-    text-align: center;
-    padding: 50px;
-    height: 80%;
+.black_opacity_filter{
+    background-color: #00000061;
+    height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
+    align-items: center;
 }
 
-.overlay h1 {
-    font-size: 3.5rem;
-    margin-bottom: 10px;
+.logo{
+    width: 70px;
+    height: 70px;
+    margin-top: 15vh;
 }
 
-.overlay h1  {
-    color: #95A343;
-}
-
-.overlay .since {
-    font-size: 1.2rem;
+.title{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-size: 75px;
+    color: #81D520;
     margin-bottom: 20px;
 }
-
-.overlay .subtitle {
-    font-size: 1rem;
-    max-width: 700px;
-    margin: 0 auto;
+.na{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-size: 75px;
+    color: #FFF;
+}
+.ku{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-size: 75px;
+    color: #F4A568;
 }
 
-/* Footer Styling */
-footer {
-    background-color: #95A343;
+.subtitle{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-size: 25px;
+    color: #FFF;
+}
+
+.text_presentation{
+    font-size: 20px;
+    color: #FFF;
+    font-family: 'Times New Roman', Times, serif;
     text-align: center;
-    padding: 50px 20px;
-    color: #fff;
-    font-weight: bold;
+}
+
+.decorative_wave{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.down_text{
     position: relative;
-    z-index: 1;
-    clip-path: path('M 0 300 C 100 500, 400 -150, 100% 200 L 100% 100 V 400 H 0 Z');
-    transform: translateY(-150%); /* Mueve el footer hacia arriba */
+    bottom: -36vh;
+    font-family: 'Poppins';
+    color: #FFF;
+    font-weight: 600;
+    z-index: 0;
 }
 
-
-
-    
-
-.orange-text {
-    color:#F4A568;
+.mx{
+    color: #000;
+    font: 500;
 }
-.white-text {
-    color: rgb(254, 253, 251);
+
+.icon_help{
+    position: relative;
+    right: -100vh;
+    bottom: -35vh;
 }
-/* Estilos opcionales para ajustar la imagen del logo */
-.logo {
-    width: 60px;
-    height: auto; 
-}
-.huevo {
-    position: absolute; 
-    top: 40%; 
-    left:90%; 
+
+/* Second section */
+
+.section_vm{
+    width: 100%;
+    height: 100vh;
 }
