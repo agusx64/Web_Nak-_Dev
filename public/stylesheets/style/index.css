@@ -172,7 +172,19 @@
 
 /* Second section */
 
-.section_vm{
-    width: 100%;
+
+
+.section_vm {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
     height: 100vh;
+    background-color:#B8EC7E;
 }
+
+
+
+
+
+
