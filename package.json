@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "sass": "sass --watch src/scss:public/stylesheets/style"
   },
   "dependencies": {
     "@paypal/paypal-js": "^8.1.1",

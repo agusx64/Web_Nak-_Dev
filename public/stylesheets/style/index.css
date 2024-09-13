@@ -15,7 +15,7 @@
     width: 100%;
     height: 70px;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
 }
 
 .nav_menu{
@@ -69,6 +69,7 @@
     background-color: transparent;
     border-style: none;
     margin-left: 12px;
+
 }
 
 .enter_button{
@@ -80,7 +81,9 @@
     border-radius: 5px;
     font-weight: 400;
     margin-left: 50px;
+
 }
+
 
 .section_fullscreen{
     width: 100%;
@@ -172,19 +175,158 @@
 
 /* Second section */
 
-
-
 .section_vm {
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
     height: 100vh;
+    width: 100%;
     background-color:#B8EC7E;
+    padding-top: 20vh;
+    padding-left: 25vh;
+    padding-right: 25vh;
+}
+
+.vm_section_1{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.vm_section_2{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text_container{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: auto;
+    margin-left: 20vh;
+}
+
+.text_container2{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: auto;
+   
+}
+
+.img_vm{
+    width:450px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.button_read {
+    background-color: #90E033; 
+    color: white; 
+    border: none; 
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    font-size: 16px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+    
+}
+
+.svg_bottom{
+    position: relative;
+    bottom: 32vh;
+    z-index: 0;
+}
+
+.svg_container_under{
+    transform: rotate(180deg);
+    position: relative;
+    bottom: 4vh;
+}
+
+.vision_text {
+    z-index: 1;
+}
+.button_read {
+    z-index: 1;
+}
+
+.button_read:hover {
+    background-color:#F4A568; 
 }
 
 
+.button_read:active {
+    background-color:#F4A568 ; 
+}
 
+.vision_title{
+    color: #FFF;
+    font-weight: bold;
+}
 
+.mision_title{
+    color: #FFFF;
+    font-weight: bold;
+}
+.mision_text{
+    color: #000;
+    font-weight: normal;
+    font-size: 22px;
+}
+.vision_text{
+    color: #000;
+    font-weight: normal;
+    font-size: 22px;
+}
 
+.nosotros{
+    height: 100vh;
+    width: 100%;
+    background-color:#B8EC7E;   
+}
+.svg_container_under{
+    margin-top: -20%;
+}
 
+  
+  .svg_bottom, .svg_container_under svg {
+    width: 100%;
+    height: auto;
+  }
+  
+  .nosotros_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; 
+  }
+  
+  .cuadro {
+    background-color: #fff;
+    border-radius: 10px;
+    height:400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px; 
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: -150px;
+  }
+  
+  .cuadro:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
