@@ -1,5 +1,6 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,115 +10,382 @@
   <link rel="stylesheet" href="/stylesheets/style/index.css">
   <link rel="stylesheet" href="/stylesheets/style/carousel.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <body>
+<body>
 
-    <nav class="navbar_component">
+  <!-- sesion de inicio -->
+  <nav class="navbar_component">
 
-      <div class="nav_menu">
-        <img class="logo_img" src="/images/pngnaku.png" alt="img_logo">
-        <div class="links_reference">
-          <a class="text_link_reference" href="">INICIO</a>
-          <a class="text_link_reference" href="">NOSOTROS</a>
-          <a class="text_link_reference" href="">CONTACTO</a>
-          <a class="text_link_reference" href="">BLOG</a>
-        </div>
+    <div class="nav_menu">
+      <img class="logo_img" src="/images/pngnaku.png" alt="img_logo">
+      <div class="links_reference">
+        <a class="text_link_reference" href="">INICIO</a>
+        <a class="text_link_reference" href="">NOSOTROS</a>
+        <a class="text_link_reference" href="">CONTACTO</a>
+        <a class="text_link_reference" href="">BLOG</a>
+      </div>
+    </div>
+
+    <div class="buttons_menu">
+      <button class="icons_button">
+        <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0 1.21875C0 0.994974 0.0888949 0.780363 0.247129 0.622129C0.405362 0.463895 0.619974 0.375 0.84375 0.375H3.375C3.56321 0.375052 3.746 0.438029 3.8943 0.553917C4.0426 0.669804 4.14789 0.831948 4.19344 1.01456L4.87688 3.75H24.4688C24.5969 3.75004 24.7234 3.77927 24.8386 3.83548C24.9537 3.89169 25.0546 3.9734 25.1335 4.0744C25.2124 4.17541 25.2672 4.29307 25.2939 4.41843C25.3205 4.5438 25.3182 4.67358 25.2872 4.79794L22.7559 14.9229C22.7104 15.1056 22.6051 15.2677 22.4568 15.3836C22.3085 15.4995 22.1257 15.5624 21.9375 15.5625H6.75C6.56179 15.5624 6.379 15.4995 6.2307 15.3836C6.0824 15.2677 5.97711 15.1056 5.93156 14.9229L2.71688 2.0625H0.84375C0.619974 2.0625 0.405362 1.97361 0.247129 1.81537C0.0888949 1.65714 0 1.44253 0 1.21875ZM5.29875 5.4375L6.1425 8.8125H8.4375V5.4375H5.29875ZM10.125 5.4375V8.8125H13.5V5.4375H10.125ZM15.1875 5.4375V8.8125H18.5625V5.4375H15.1875ZM20.25 5.4375V8.8125H22.545L23.3888 5.4375H20.25ZM22.1231 10.5H20.25V13.875H21.2794L22.1231 10.5ZM18.5625 10.5H15.1875V13.875H18.5625V10.5ZM13.5 10.5H10.125V13.875H13.5V10.5ZM8.4375 10.5H6.56438L7.40812 13.875H8.4375V10.5ZM8.4375 18.9375C7.98995 18.9375 7.56073 19.1153 7.24426 19.4318C6.92779 19.7482 6.75 20.1774 6.75 20.625C6.75 21.0726 6.92779 21.5018 7.24426 21.8182C7.56073 22.1347 7.98995 22.3125 8.4375 22.3125C8.88505 22.3125 9.31427 22.1347 9.63074 21.8182C9.94721 21.5018 10.125 21.0726 10.125 20.625C10.125 20.1774 9.94721 19.7482 9.63074 19.4318C9.31427 19.1153 8.88505 18.9375 8.4375 18.9375ZM5.0625 20.625C5.0625 19.7299 5.41808 18.8715 6.05101 18.2385C6.68395 17.6056 7.54239 17.25 8.4375 17.25C9.33261 17.25 10.1911 17.6056 10.824 18.2385C11.4569 18.8715 11.8125 19.7299 11.8125 20.625C11.8125 21.5201 11.4569 22.3785 10.824 23.0115C10.1911 23.6444 9.33261 24 8.4375 24C7.54239 24 6.68395 23.6444 6.05101 23.0115C5.41808 22.3785 5.0625 21.5201 5.0625 20.625ZM20.25 18.9375C19.8024 18.9375 19.3732 19.1153 19.0568 19.4318C18.7403 19.7482 18.5625 20.1774 18.5625 20.625C18.5625 21.0726 18.7403 21.5018 19.0568 21.8182C19.3732 22.1347 19.8024 22.3125 20.25 22.3125C20.6976 22.3125 21.1268 22.1347 21.4432 21.8182C21.7597 21.5018 21.9375 21.0726 21.9375 20.625C21.9375 20.1774 21.7597 19.7482 21.4432 19.4318C21.1268 19.1153 20.6976 18.9375 20.25 18.9375ZM16.875 20.625C16.875 19.7299 17.2306 18.8715 17.8635 18.2385C18.4965 17.6056 19.3549 17.25 20.25 17.25C21.1451 17.25 22.0035 17.6056 22.6365 18.2385C23.2694 18.8715 23.625 19.7299 23.625 20.625C23.625 21.5201 23.2694 22.3785 22.6365 23.0115C22.0035 23.6444 21.1451 24 20.25 24C19.3549 24 18.4965 23.6444 17.8635 23.0115C17.2306 22.3785 16.875 21.5201 16.875 20.625Z"
+            fill="#81D520" />
+        </svg>
+      </button>
+
+      <button class="icons_button">
+        <svg width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_428_447)">
+            <path
+              d="M10.277 15.5049C10.7644 15.5001 11.23 15.304 11.5717 14.9597C11.9134 14.6154 12.1033 14.151 12.0999 13.6683C12.0946 13.1947 11.9004 12.7424 11.5597 12.4101C11.219 12.0778 10.7595 11.8923 10.2813 11.8942C9.26498 11.8942 8.51169 12.6645 8.51026 13.6925C8.50882 14.6806 9.31673 15.5078 10.277 15.5049Z"
+              fill="#E8ECD1" />
+            <path
+              d="M21.0001 13.7082C19.8338 14.6184 18.6679 15.5278 17.5025 16.4361C17.0511 16.7892 16.9979 17.0056 17.6175 17.3146C18.5074 17.7545 19.3253 18.3426 20.1936 18.8807C19.9162 19.1655 19.6373 19.0787 19.39 19.0801C18.0517 19.09 16.7147 19.0801 15.3763 19.0801C14.3068 19.0801 13.9546 19.5898 14.3355 20.5807C14.4929 20.9651 14.5567 21.3806 14.522 21.7939C14.4873 22.2072 14.355 22.6066 14.1357 22.9599C13.7792 23.5735 12.9497 23.9466 12.3215 23.7814C11.9092 23.6563 11.548 23.4041 11.2907 23.0613C11.0334 22.7186 10.8934 22.3035 10.8911 21.8764C10.9113 20.1536 11.4877 18.6501 12.8735 17.5267C15.3174 15.5491 14.7165 12.3485 12.7614 10.7068C12.1976 10.223 11.5266 9.87773 10.8029 9.69894C10.0791 9.52015 9.32296 9.51293 8.59583 9.67785C7.86871 9.84276 7.1911 10.1752 6.61802 10.6481C6.04494 11.121 5.59254 11.7211 5.29755 12.3997C5.06035 12.9365 4.86628 13.5387 4.90509 14.1752C5.04885 16.5116 4.28981 18.6373 3.26914 20.6889C2.85081 21.5318 2.50292 22.3889 2.51154 23.3414C2.51154 23.7244 2.36778 23.8483 2.0012 23.817C1.78844 23.7985 1.56993 23.817 1.35717 23.817C0.0432368 23.817 -0.196837 23.4796 0.133804 22.1953C0.498946 20.7715 1.1401 19.4759 1.75538 18.156C2.50004 16.5614 2.54892 14.8358 2.51873 13.1116C2.51873 12.7884 2.20534 12.7884 2.01989 12.6745C0.989157 12.0381 0.215745 11.2166 0.0935519 9.96648C-0.0502049 8.49998 0.5737 7.40368 1.89051 6.75016C2.3606 6.51666 2.50579 6.25184 2.51729 5.73074C2.51754 4.99267 2.70564 4.26657 3.06419 3.61955C3.42275 2.97253 3.94019 2.42547 4.5687 2.02891C6.18165 0.955385 7.8708 0.825821 9.54269 1.85094C10.0185 2.1357 10.2356 2.00613 10.5677 1.70856C11.7738 0.615102 13.1323 -0.0910921 14.8373 0.00999615C16.0337 0.0685654 17.184 0.485771 18.1356 1.20634C19.0873 1.92691 19.7955 2.91684 20.1663 4.04498C20.9153 6.27889 20.3748 8.28642 18.8624 10.0249C18.3647 10.5915 17.7295 11.0232 17.0166 11.2792C16.3841 11.5027 16.5206 11.937 16.5853 12.3784C16.65 12.8197 16.8355 13.1443 17.4148 13.1287C18.608 13.0945 19.8026 13.1287 20.9958 13.1387L21.0001 13.7082ZM5.60663 8.32628C4.88784 8.32628 4.26681 8.3092 3.64722 8.32628C2.87525 8.35761 2.30022 9.15777 2.53886 9.86966C2.59736 10.0475 2.69598 10.2098 2.82725 10.3442C2.95852 10.4787 3.11897 10.5817 3.29645 10.6456C3.68316 10.7795 3.72772 10.3409 3.87148 10.1402C5.26592 8.23231 7.17789 7.29262 9.51106 7.17018C11.4863 7.07193 13.1955 7.76959 14.6116 9.1535C14.8214 9.35995 15.0313 9.48666 15.3706 9.39839C16.755 9.04387 17.9582 7.73969 18.0732 6.33584C18.2026 4.82379 17.4148 3.15227 15.362 2.49164C14.0322 2.06308 12.3344 2.70521 11.5007 4.04641C11.1772 4.56609 10.8883 5.10854 10.6122 5.65385C10.4541 5.96851 10.1982 6.09238 10.053 5.7706C9.88196 5.39472 9.58869 5.1299 9.39462 4.78392C8.75059 3.6449 7.36765 3.28041 6.07815 3.88267C5.18542 4.29699 4.5802 5.69514 5.10492 6.7886C5.32774 7.24848 5.42406 7.76816 5.60663 8.32628Z"
+              fill="#81D520" />
+            <path
+              d="M10.277 15.5049C9.31673 15.5049 8.50882 14.6806 8.51026 13.6925C8.51026 12.6645 9.26498 11.8999 10.2813 11.8942C10.7595 11.8923 11.219 12.0778 11.5597 12.4101C11.9004 12.7424 12.0946 13.1947 12.0999 13.6683C12.1033 14.151 11.9134 14.6154 11.5717 14.9597C11.23 15.304 10.7644 15.5001 10.277 15.5049Z"
+              fill="#81D520" />
+          </g>
+          <defs>
+            <clipPath id="clip0_428_447">
+              <rect width="21" height="23.8269" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+
+      <button class="enter_button">Entrar</button>
+    </div>
+  </nav>
+
+  <section class="section_fullscreen">
+
+    <div class="black_opacity_filter">
+
+      <img class="logo" src="/images/pngnaku.png" alt="">
+      <h1 class="title">Grupo <span class="na">Na</span><span class="ku">kú</span></h1>
+      <h2 class="subtitle">Desde 2020</h2>
+      <p class="text_presentation">Somos una empresa comprometida con el desarrollo social,<br> impulsada por alcanzar
+        un mejor futuro para todos.</p>
+
+      <div class="decorative_wave">
+        <svg class="icon_help" width="30" height="40" viewBox="0 0 30 40" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_301_236)">
+            <path
+              d="M29.8199 23.34C29.8199 33.28 23.1999 39.83 14.7399 39.78C12.7986 39.788 10.875 39.4108 9.08041 38.6704C7.28585 37.93 5.65598 36.8409 4.28513 35.4664C2.91428 34.0918 1.82968 32.459 1.09411 30.6624C0.358541 28.8659 -0.0133874 26.9413 -0.000146803 25C-0.0262601 17.3234 2.71849 9.89521 7.72985 4.08C12.3599 -1.32 17.2499 -1.35 21.9199 3.92C26.5748 9.37428 29.3454 16.1851 29.8199 23.34Z"
+              fill="#E9EDD2" />
+            <path
+              d="M14.3198 9.94C17.9498 9.85 20.0598 10.81 21.1398 13.46C22.2198 16.11 21.1398 18.21 19.1398 20.02C18.1398 20.91 16.9098 21.72 16.4498 22.84C15.8098 24.37 15.1698 25.9 13.5198 24.72C12.2098 23.78 12.8298 22.01 13.8898 20.82C14.7698 19.82 15.8098 19.02 16.7498 18.1C18.0698 16.81 18.6998 15.22 17.3398 13.75C17.0464 13.393 16.681 13.102 16.2673 12.8961C15.8537 12.6901 15.4012 12.5739 14.9395 12.555C14.4779 12.5362 14.0174 12.615 13.5883 12.7865C13.1593 12.958 12.7713 13.2181 12.4498 13.55C11.3398 14.66 11.0398 16.64 8.83975 15.87C8.65517 15.7521 8.50338 15.5894 8.39848 15.3971C8.29359 15.2048 8.23899 14.9891 8.23975 14.77C8.37927 13.7828 8.79087 12.8539 9.42846 12.0874C10.066 11.3208 10.9044 10.747 11.8498 10.43C12.6541 10.1823 13.4818 10.0181 14.3198 9.94Z"
+              fill="#81D520" />
+            <path
+              d="M14.4498 32C13.8686 32.019 13.3033 31.8082 12.8765 31.4132C12.4497 31.0182 12.1958 30.4709 12.1698 29.89C12.0998 28.25 13.3598 27.68 14.7398 27.72C15.9198 27.72 16.9998 28.37 16.9698 29.72C16.9398 31.38 15.8798 32 14.4498 32Z"
+              fill="#81D520" />
+          </g>
+          <defs>
+            <clipPath id="clip0_301_236">
+              <rect width="29.82" height="39.78" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        <span class="down_text">Definitivamente, empresa orgullosamente <span class="mx">Mexicana.</span></span>
+        <svg fill="#A4E658" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill-opacity="1"
+            d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,202.7C1120,213,1280,203,1360,197.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+          </path>
+        </svg>
       </div>
 
-      <div class="buttons_menu">
-        <button class="icons_button">
-          <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 1.21875C0 0.994974 0.0888949 0.780363 0.247129 0.622129C0.405362 0.463895 0.619974 0.375 0.84375 0.375H3.375C3.56321 0.375052 3.746 0.438029 3.8943 0.553917C4.0426 0.669804 4.14789 0.831948 4.19344 1.01456L4.87688 3.75H24.4688C24.5969 3.75004 24.7234 3.77927 24.8386 3.83548C24.9537 3.89169 25.0546 3.9734 25.1335 4.0744C25.2124 4.17541 25.2672 4.29307 25.2939 4.41843C25.3205 4.5438 25.3182 4.67358 25.2872 4.79794L22.7559 14.9229C22.7104 15.1056 22.6051 15.2677 22.4568 15.3836C22.3085 15.4995 22.1257 15.5624 21.9375 15.5625H6.75C6.56179 15.5624 6.379 15.4995 6.2307 15.3836C6.0824 15.2677 5.97711 15.1056 5.93156 14.9229L2.71688 2.0625H0.84375C0.619974 2.0625 0.405362 1.97361 0.247129 1.81537C0.0888949 1.65714 0 1.44253 0 1.21875ZM5.29875 5.4375L6.1425 8.8125H8.4375V5.4375H5.29875ZM10.125 5.4375V8.8125H13.5V5.4375H10.125ZM15.1875 5.4375V8.8125H18.5625V5.4375H15.1875ZM20.25 5.4375V8.8125H22.545L23.3888 5.4375H20.25ZM22.1231 10.5H20.25V13.875H21.2794L22.1231 10.5ZM18.5625 10.5H15.1875V13.875H18.5625V10.5ZM13.5 10.5H10.125V13.875H13.5V10.5ZM8.4375 10.5H6.56438L7.40812 13.875H8.4375V10.5ZM8.4375 18.9375C7.98995 18.9375 7.56073 19.1153 7.24426 19.4318C6.92779 19.7482 6.75 20.1774 6.75 20.625C6.75 21.0726 6.92779 21.5018 7.24426 21.8182C7.56073 22.1347 7.98995 22.3125 8.4375 22.3125C8.88505 22.3125 9.31427 22.1347 9.63074 21.8182C9.94721 21.5018 10.125 21.0726 10.125 20.625C10.125 20.1774 9.94721 19.7482 9.63074 19.4318C9.31427 19.1153 8.88505 18.9375 8.4375 18.9375ZM5.0625 20.625C5.0625 19.7299 5.41808 18.8715 6.05101 18.2385C6.68395 17.6056 7.54239 17.25 8.4375 17.25C9.33261 17.25 10.1911 17.6056 10.824 18.2385C11.4569 18.8715 11.8125 19.7299 11.8125 20.625C11.8125 21.5201 11.4569 22.3785 10.824 23.0115C10.1911 23.6444 9.33261 24 8.4375 24C7.54239 24 6.68395 23.6444 6.05101 23.0115C5.41808 22.3785 5.0625 21.5201 5.0625 20.625ZM20.25 18.9375C19.8024 18.9375 19.3732 19.1153 19.0568 19.4318C18.7403 19.7482 18.5625 20.1774 18.5625 20.625C18.5625 21.0726 18.7403 21.5018 19.0568 21.8182C19.3732 22.1347 19.8024 22.3125 20.25 22.3125C20.6976 22.3125 21.1268 22.1347 21.4432 21.8182C21.7597 21.5018 21.9375 21.0726 21.9375 20.625C21.9375 20.1774 21.7597 19.7482 21.4432 19.4318C21.1268 19.1153 20.6976 18.9375 20.25 18.9375ZM16.875 20.625C16.875 19.7299 17.2306 18.8715 17.8635 18.2385C18.4965 17.6056 19.3549 17.25 20.25 17.25C21.1451 17.25 22.0035 17.6056 22.6365 18.2385C23.2694 18.8715 23.625 19.7299 23.625 20.625C23.625 21.5201 23.2694 22.3785 22.6365 23.0115C22.0035 23.6444 21.1451 24 20.25 24C19.3549 24 18.4965 23.6444 17.8635 23.0115C17.2306 22.3785 16.875 21.5201 16.875 20.625Z" fill="#81D520"/>
-          </svg>
-        </button>
+    </div>
+  </section>
 
-        <button class="icons_button">
-          <svg width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_428_447)"><path d="M10.277 15.5049C10.7644 15.5001 11.23 15.304 11.5717 14.9597C11.9134 14.6154 12.1033 14.151 12.0999 13.6683C12.0946 13.1947 11.9004 12.7424 11.5597 12.4101C11.219 12.0778 10.7595 11.8923 10.2813 11.8942C9.26498 11.8942 8.51169 12.6645 8.51026 13.6925C8.50882 14.6806 9.31673 15.5078 10.277 15.5049Z" fill="#E8ECD1"/><path d="M21.0001 13.7082C19.8338 14.6184 18.6679 15.5278 17.5025 16.4361C17.0511 16.7892 16.9979 17.0056 17.6175 17.3146C18.5074 17.7545 19.3253 18.3426 20.1936 18.8807C19.9162 19.1655 19.6373 19.0787 19.39 19.0801C18.0517 19.09 16.7147 19.0801 15.3763 19.0801C14.3068 19.0801 13.9546 19.5898 14.3355 20.5807C14.4929 20.9651 14.5567 21.3806 14.522 21.7939C14.4873 22.2072 14.355 22.6066 14.1357 22.9599C13.7792 23.5735 12.9497 23.9466 12.3215 23.7814C11.9092 23.6563 11.548 23.4041 11.2907 23.0613C11.0334 22.7186 10.8934 22.3035 10.8911 21.8764C10.9113 20.1536 11.4877 18.6501 12.8735 17.5267C15.3174 15.5491 14.7165 12.3485 12.7614 10.7068C12.1976 10.223 11.5266 9.87773 10.8029 9.69894C10.0791 9.52015 9.32296 9.51293 8.59583 9.67785C7.86871 9.84276 7.1911 10.1752 6.61802 10.6481C6.04494 11.121 5.59254 11.7211 5.29755 12.3997C5.06035 12.9365 4.86628 13.5387 4.90509 14.1752C5.04885 16.5116 4.28981 18.6373 3.26914 20.6889C2.85081 21.5318 2.50292 22.3889 2.51154 23.3414C2.51154 23.7244 2.36778 23.8483 2.0012 23.817C1.78844 23.7985 1.56993 23.817 1.35717 23.817C0.0432368 23.817 -0.196837 23.4796 0.133804 22.1953C0.498946 20.7715 1.1401 19.4759 1.75538 18.156C2.50004 16.5614 2.54892 14.8358 2.51873 13.1116C2.51873 12.7884 2.20534 12.7884 2.01989 12.6745C0.989157 12.0381 0.215745 11.2166 0.0935519 9.96648C-0.0502049 8.49998 0.5737 7.40368 1.89051 6.75016C2.3606 6.51666 2.50579 6.25184 2.51729 5.73074C2.51754 4.99267 2.70564 4.26657 3.06419 3.61955C3.42275 2.97253 3.94019 2.42547 4.5687 2.02891C6.18165 0.955385 7.8708 0.825821 9.54269 1.85094C10.0185 2.1357 10.2356 2.00613 10.5677 1.70856C11.7738 0.615102 13.1323 -0.0910921 14.8373 0.00999615C16.0337 0.0685654 17.184 0.485771 18.1356 1.20634C19.0873 1.92691 19.7955 2.91684 20.1663 4.04498C20.9153 6.27889 20.3748 8.28642 18.8624 10.0249C18.3647 10.5915 17.7295 11.0232 17.0166 11.2792C16.3841 11.5027 16.5206 11.937 16.5853 12.3784C16.65 12.8197 16.8355 13.1443 17.4148 13.1287C18.608 13.0945 19.8026 13.1287 20.9958 13.1387L21.0001 13.7082ZM5.60663 8.32628C4.88784 8.32628 4.26681 8.3092 3.64722 8.32628C2.87525 8.35761 2.30022 9.15777 2.53886 9.86966C2.59736 10.0475 2.69598 10.2098 2.82725 10.3442C2.95852 10.4787 3.11897 10.5817 3.29645 10.6456C3.68316 10.7795 3.72772 10.3409 3.87148 10.1402C5.26592 8.23231 7.17789 7.29262 9.51106 7.17018C11.4863 7.07193 13.1955 7.76959 14.6116 9.1535C14.8214 9.35995 15.0313 9.48666 15.3706 9.39839C16.755 9.04387 17.9582 7.73969 18.0732 6.33584C18.2026 4.82379 17.4148 3.15227 15.362 2.49164C14.0322 2.06308 12.3344 2.70521 11.5007 4.04641C11.1772 4.56609 10.8883 5.10854 10.6122 5.65385C10.4541 5.96851 10.1982 6.09238 10.053 5.7706C9.88196 5.39472 9.58869 5.1299 9.39462 4.78392C8.75059 3.6449 7.36765 3.28041 6.07815 3.88267C5.18542 4.29699 4.5802 5.69514 5.10492 6.7886C5.32774 7.24848 5.42406 7.76816 5.60663 8.32628Z" fill="#81D520"/><path d="M10.277 15.5049C9.31673 15.5049 8.50882 14.6806 8.51026 13.6925C8.51026 12.6645 9.26498 11.8999 10.2813 11.8942C10.7595 11.8923 11.219 12.0778 11.5597 12.4101C11.9004 12.7424 12.0946 13.1947 12.0999 13.6683C12.1033 14.151 11.9134 14.6154 11.5717 14.9597C11.23 15.304 10.7644 15.5001 10.277 15.5049Z" fill="#81D520"/></g><defs><clipPath id="clip0_428_447"><rect width="21" height="23.8269" fill="white"/></clipPath></defs>
-          </svg>
-        </button>
 
-        <button class="enter_button">Entrar</button>
+  <!-- segunda seccion de mision y vision -->
+  <section class="section_vm">
+
+    <div class="vm_section_1">
+      <img class="img_vm" src="/images/mision.jpg" alt="">
+      <div class="text_container">
+        <h3 class="mision_title">Mision</h3>
+        <p class="mision_text">La misión de NAKU, es crear valor a la
+          comunidad a través del aprovechamiento
+          y procesamiento de los productos del
+          campo...</p>
+        <button class="button_read">Leer mas...</button>
       </div>
-    </nav>
+    </div>
 
-    <section class="section_fullscreen">
-
-      <div class="black_opacity_filter">
-
-        <img class="logo" src="/images/pngnaku.png" alt="">
-        <h1 class="title">Grupo <span class="na">Na</span><span class="ku">kú</span></h1>
-        <h2 class="subtitle">Desde 2020</h2>
-        <p class="text_presentation">Somos una empresa comprometida con el desarrollo social,<br> impulsada por alcanzar un mejor futuro para todos.</p>
-
-        <div class="decorative_wave">
-          <svg class="icon_help" width="30" height="40" viewBox="0 0 30 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_301_236)">
-              <path
-                d="M29.8199 23.34C29.8199 33.28 23.1999 39.83 14.7399 39.78C12.7986 39.788 10.875 39.4108 9.08041 38.6704C7.28585 37.93 5.65598 36.8409 4.28513 35.4664C2.91428 34.0918 1.82968 32.459 1.09411 30.6624C0.358541 28.8659 -0.0133874 26.9413 -0.000146803 25C-0.0262601 17.3234 2.71849 9.89521 7.72985 4.08C12.3599 -1.32 17.2499 -1.35 21.9199 3.92C26.5748 9.37428 29.3454 16.1851 29.8199 23.34Z"
-                fill="#E9EDD2" />
-              <path
-                d="M14.3198 9.94C17.9498 9.85 20.0598 10.81 21.1398 13.46C22.2198 16.11 21.1398 18.21 19.1398 20.02C18.1398 20.91 16.9098 21.72 16.4498 22.84C15.8098 24.37 15.1698 25.9 13.5198 24.72C12.2098 23.78 12.8298 22.01 13.8898 20.82C14.7698 19.82 15.8098 19.02 16.7498 18.1C18.0698 16.81 18.6998 15.22 17.3398 13.75C17.0464 13.393 16.681 13.102 16.2673 12.8961C15.8537 12.6901 15.4012 12.5739 14.9395 12.555C14.4779 12.5362 14.0174 12.615 13.5883 12.7865C13.1593 12.958 12.7713 13.2181 12.4498 13.55C11.3398 14.66 11.0398 16.64 8.83975 15.87C8.65517 15.7521 8.50338 15.5894 8.39848 15.3971C8.29359 15.2048 8.23899 14.9891 8.23975 14.77C8.37927 13.7828 8.79087 12.8539 9.42846 12.0874C10.066 11.3208 10.9044 10.747 11.8498 10.43C12.6541 10.1823 13.4818 10.0181 14.3198 9.94Z"
-                fill="#81D520" />
-              <path
-                d="M14.4498 32C13.8686 32.019 13.3033 31.8082 12.8765 31.4132C12.4497 31.0182 12.1958 30.4709 12.1698 29.89C12.0998 28.25 13.3598 27.68 14.7398 27.72C15.9198 27.72 16.9998 28.37 16.9698 29.72C16.9398 31.38 15.8798 32 14.4498 32Z"
-                fill="#81D520" />
-            </g>
-            <defs>
-              <clipPath id="clip0_301_236">
-                <rect width="29.82" height="39.78" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-          <span class="down_text">Definitivamente, empresa orgullosamente <span class="mx">Mexicana.</span></span>
-          <svg fill="#A4E658" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,202.7C1120,213,1280,203,1360,197.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
-        </div>
-        
+    <div class="vm_section_2">
+      <div class="text_container2">
+        <h3 class="vision_title">Vision</h3>
+        <p class="vision_text">Ser reconocidos como líderes
+          en la creación de valor para las comunidades rurales
+          a través del aprovechamiento innovador de los productos
+          del campo...</p>
+        <button class="button_read">Leer mas...</button>
       </div>
-    </section>
+      <img class="img_vm" src="/images/vision.jpg" alt="">
+    </div>
 
+    <!--seccion de nosotros -->
+  </section>
+  <section class="nosotros">
+    <svg class="svg_bottom" fill="#FFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill-opacity="1"
+        d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,202.7C1120,213,1280,203,1360,197.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+      </path>
+    </svg>
+    <div class="svg_container_under">
+      <svg fill="#FFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill-opacity="1"
+          d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,202.7C1120,213,1280,203,1360,197.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+        </path>
+      </svg>
+    </div>
 
-    <section class="section_vm">
-
-      <div class="vm_section_1">
-        <img class="img_vm" src="/images/mision.jpg" alt="">
-        <div class="text_container">
-          <h3 class="mision_title">Mision</h3>
-          <p class="mision_text">La misión de NAKU, es crear valor a la
-            comunidad a través del aprovechamiento
-            y procesamiento de los productos del
-            campo...</p>
-            <button class="button_read">Leer mas...</button>
-        </div>
-      </div>
+    <div class="nosotros_info">
       
-      <div class="vm_section_2">
-        <div class="text_container2">
-          <h3 class="vision_title">Vision</h3>
-          <p class="vision_text">Ser reconocidos como líderes 
-            en la creación de valor para las comunidades rurales 
-            a través del aprovechamiento innovador de los productos
-              del campo...</p>
-              <button class="button_read">Leer mas...</button>
+      <div class="text_container_carousel">
+        <h2 class="tittle_granja">Historia</h2>
+        <p class="description">Granja Nakú se compromete al bienestar de las gallinas, brindándoles instalaciones
+          seguras y áreas de pastoreo que promueven su libertad y reducen el estrés.
+        <p>
+      </div>
+
+      <div class="carousel_component">
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+              aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+              aria-label="Slide 5"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="img_style_carousel" src="/images/carousel_1.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Some representative placeholder content for the first slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="img_style_carousel" src="/images/carousel_2.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Some representative placeholder content for the second slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="img_style_carousel" src="/images/carousel_3.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="img_style_carousel" src="/images/carousel_4.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="img_style_carousel" src="/images/carousel_5.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <img  class="img_vm" src="/images/vision.jpg" alt="">
+
       </div>
-   
-    </section>
-    <section class="nosotros">
-      <svg class="svg_bottom" fill="#FFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,202.7C1120,213,1280,203,1360,197.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
-      <div class="svg_container_under">
-        <svg fill="#FFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,202.7C1120,213,1280,203,1360,197.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+
+
+    </div>
+
+    <div class="svg_footer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#B8EC7E" fill-opacity="1"
+          d="M0,96L60,106.7C120,117,240,139,360,138.7C480,139,600,117,720,101.3C840,85,960,75,1080,80C1200,85,1320,107,1380,117.3L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+        </path>
+      </svg>
+    </div>
+
+  </section>
+  <!-- Seccion de personal -->
+
+  <section class="personal">
+    <div class="container_personal">
+      <div class="tarjetas_personal">
+        <img class="img_personal"
+          src="https://scontent-qro1-2.xx.fbcdn.net/v/t39.30808-6/375983853_10161261690848856_464832033954759072_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGOz5rpbyUFoiwZZ2qJpuJ8iw94jCkOQyeLD3iMKQ5DJ3jV-htKRI4M1M3TB-6avtvytWMhH5VjlNuefukf2qnu&_nc_ohc=wnAcbW7sLEYQ7kNvgFaAkVo&_nc_ht=scontent-qro1-2.xx&_nc_gid=AqBll6dA-0Xy0RFIE8koxU1&oh=00_AYA6KSh8rjSngcS-XnvKWCmvdwYfhDJHIFz--vVqAAtX_A&oe=66EE2289"
+          alt="Personal 1">
+        <h2 class="nombre_personal">Horacio Arguello</h2>
+        <p class="cargo_personal">Director general</p>
       </div>
-      <div class="nosotros_info">
-        <div class="cuadro">Cuadro 1</div>
-        <div class="cuadro">Cuadro 2</div>
-        <div class="cuadro">Cuadro 3</div>
+      <div class="tarjetas_personal">
+        <img class="img_personal" src="/images/vision.jpg" alt="Personal 1">
+        <h2 class="nombre_personal">Janeth Jimarez</h2>
+        <p class="cargo_personal">Area de administración</p>
       </div>
-    
-    </section>
-   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
-  </body>
-  </html> 
+      <div class="tarjetas_personal">
+        <img class="img_personal" src="/images/vision.jpg" alt="Personal 1">
+
+        <h2 class="nombre_personal">Samuel Arellano</h2>
+        <p class="cargo_personal">Transporte</p>
+      </div>
+      <div class="tarjetas_personal">
+        <img class="img_personal" src="/images/vision.jpg" alt="Personal 1">
+        <h2 class="nombre_personal">Juan Raul</h2>
+        <p class="cargo_personal">Medico veterinario</p>
+      </div>
+    </div>
+  </section>
+  <div class="svg_decorations">
+    <svg fill="#A4E658" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill-opacity="1"
+        d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,202.7C1120,213,1280,203,1360,197.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+      </path>
+    </svg>
+  </div>
+
+  <!-- Seccion de testimonios -->
+  <section class="testimonios">
+    <h3 class="titulo_testimonios">Testimonios</h3>
+    <p class="texto_test"> Estos testimonios destacan cómo Naku ha logrado combinar la calidad del producto con
+      prácticas éticas, creando una comunidad de consumidores y trabajadores que comparten un mismo objetivo</p>
+
+    <div class="contenedor_testimonios">
+      <div class="tarjeta_testimonios">
+        <div class="informacion_persona">
+          <img
+            src="https://scontent-qro1-1.xx.fbcdn.net/v/t39.30808-6/454873961_10161897457173856_4752736679020453498_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFwdkP1qxgzDFw2Ssw1sU8dzNT25Z23hZzM1PblnbeFnHAWWpB_5an4dI2RZhaIhJfxhGzpWxLp1_xjH5sDpR0_&_nc_ohc=vK6SkEsC7twQ7kNvgE6KEx2&_nc_ht=scontent-qro1-1.xx&oh=00_AYD2On-XSVXRZM0xXnepQ0Q27HD0qeWaCmrmQIHjVmsYJQ&oe=66EE34E5"
+            alt="" class="img_persona">
+          <span class="nombre">Agustin Mora</span>
+        </div>
+        <p class="testimonio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nostrum molestias
+          asperiores quidem! Beatae excepturi molestiae maiores, ducimus ipsum mollitia alias consequuntur recusandae
+          quia, consequatur, aperiam dolores blanditiis. Deserunt, fugit!</p>
+      </div>
+
+      <div class="tarjeta_testimonios">
+        <div class="informacion_persona">
+          <img
+            src="https://scontent-qro1-1.xx.fbcdn.net/v/t39.30808-6/454491638_10161880020458856_243077281210739769_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFX-ngy96riVXjEtshOU0DrMLaowN6AxIMwtqjA3oDEg0KeaMHOB__UkaCux1iT1xMuz_1p8jFH_18fY727BoQP&_nc_ohc=cnBFQ4soSMwQ7kNvgGAPjrA&_nc_ht=scontent-qro1-1.xx&_nc_gid=AtL7QporNMg5TsQ1K730Pdb&oh=00_AYC67XpqW97ol_EHYd7w1NN4JZMVRjs2v0dYCirM_-PZzQ&oe=66EE3E29"
+            alt="" class="img_persona">
+          <span class="nombre">Michelle Viveros</span>
+        </div>
+        <p class="testimonio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nostrum molestias
+          asperiores quidem! Beatae excepturi molestiae maiores, ducimus ipsum mollitia alias consequuntur recusandae
+          quia, consequatur, aperiam dolores blanditiis. Deserunt, fugit!</p>
+      </div>
+
+      <div class="tarjeta_testimonios">
+        <div class="informacion_persona">
+          <img
+            src="https://scontent-qro1-1.xx.fbcdn.net/v/t39.30808-6/453651641_10161863808578856_3019106100095748568_n.jpg?stp=cp6_dst-jpg&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEHJm7OdZdtTFrYnzxeWmZCHqsbWfvuHQkeqxtZ--4dCcTeLXxJPUbvS3rQmO1b6727sJq3cmz6PXR1cj2DIcj_&_nc_ohc=OaYyU_FNoIAQ7kNvgFuWpdH&_nc_ht=scontent-qro1-1.xx&_nc_gid=AFNf2P7FWMHX0A3Z5ISdxTZ&oh=00_AYBLk3_xlloofd2al6p8yt5h6LbJtJlDDsl3yj-vSdX0rg&oe=66EE35F7"
+            alt="" class="img_persona">
+          <span class="nombre">Eduardo Francisco</span>
+        </div>
+        <p class="testimonio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nostrum molestias
+          asperiores quidem! Beatae excepturi molestiae maiores, ducimus ipsum mollitia alias consequuntur recusandae
+          quia, consequatur, aperiam dolores blanditiis. Deserunt, fugit!</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="svg_onda">
+    <svg fill="#B8EC7E" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill-opacity="1"
+        d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,202.7C1120,213,1280,203,1360,197.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+      </path>
+    </svg>
+  </div>
+
+  <!-- Redes sociales -->
+  <div class="contenedor_redes_sociales">
+    <h4 class="texto_redes_sociales">Nos gustaría platicar contigo, ¿Por qué no nos sigues?</h4>
+    <div class="iconos">
+      <a href="" class="icono_social">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_562_1342)">
+          <path d="M36.0001 18.1103C36.0001 8.1068 27.9406 -0.00219727 18.0001 -0.00219727C8.05511 5.27343e-05 -0.00439453 8.1068 -0.00439453 18.1126C-0.00439453 27.1508 6.57911 34.6433 15.1831 36.0023V23.3461H10.6156V18.1126H15.1876V14.1188C15.1876 9.58055 17.8764 7.07405 21.9871 7.07405C23.9581 7.07405 26.0169 7.4273 26.0169 7.4273V11.8823H23.7466C21.5124 11.8823 20.8149 13.2796 20.8149 14.7128V18.1103H25.8054L25.0089 23.3438H20.8126V36C29.4166 34.6411 36.0001 27.1486 36.0001 18.1103Z" fill="#F5FCED"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_562_1342">
+          <rect width="36" height="36" fill="white"/>
+          </clipPath>
+          </defs>
+          </svg>
+          
+      </a>
+      <a href="" class="icono_social">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 0C13.1152 0 12.501 0.0225 10.5817 0.108C8.6625 0.198 7.35525 0.4995 6.21 0.945C5.00815 1.39573 3.91982 2.10465 3.02175 3.02175C2.10465 3.91982 1.39573 5.00815 0.945 6.21C0.4995 7.353 0.19575 8.6625 0.108 10.575C0.0225 12.4987 0 13.1108 0 18.0023C0 22.8893 0.0225 23.5013 0.108 25.4205C0.198 27.3375 0.4995 28.6447 0.945 29.79C1.40625 30.9735 2.0205 31.977 3.02175 32.9782C4.02075 33.9795 5.02425 34.596 6.20775 35.055C7.35525 35.5005 8.66025 35.8042 10.5773 35.892C12.4988 35.9775 13.1108 36 18 36C22.8892 36 23.499 35.9775 25.4205 35.892C27.3353 35.802 28.647 35.5005 29.7922 35.055C30.9933 34.604 32.0808 33.8951 32.9782 32.9782C33.9795 31.977 34.5938 30.9735 35.055 29.79C35.4982 28.6447 35.802 27.3375 35.892 25.4205C35.9775 23.5013 36 22.8892 36 18C36 13.1108 35.9775 12.4988 35.892 10.5773C35.802 8.6625 35.4982 7.353 35.055 6.21C34.6043 5.00815 33.8954 3.91982 32.9782 3.02175C32.0802 2.10465 30.9918 1.39573 29.79 0.945C28.6425 0.4995 27.333 0.19575 25.4182 0.108C23.4967 0.0225 22.887 0 17.9955 0H18ZM16.3867 3.2445H18.0023C22.8083 3.2445 23.3775 3.26025 25.2743 3.348C27.0292 3.42675 27.9832 3.7215 28.6178 3.96675C29.457 4.293 30.0578 4.6845 30.6877 5.3145C31.3177 5.9445 31.707 6.543 32.0333 7.3845C32.2808 8.01675 32.5732 8.97075 32.652 10.7257C32.7397 12.6225 32.7578 13.1918 32.7578 17.9955C32.7578 22.7992 32.7397 23.3707 32.652 25.2675C32.5732 27.0225 32.2785 27.9743 32.0333 28.6087C31.7426 29.3893 31.2823 30.0955 30.6855 30.6765C30.0555 31.3065 29.457 31.6958 28.6155 32.022C27.9855 32.2695 27.0315 32.562 25.2743 32.643C23.3775 32.7285 22.8083 32.7487 18.0023 32.7487C13.1963 32.7487 12.6248 32.7285 10.728 32.643C8.973 32.562 8.02125 32.2695 7.38675 32.022C6.60562 31.7323 5.8986 31.2728 5.31675 30.6765C4.71887 30.0951 4.25774 29.388 3.96675 28.6065C3.7215 27.9742 3.42675 27.0203 3.348 25.2653C3.2625 23.3685 3.2445 22.7992 3.2445 17.991C3.2445 13.1827 3.2625 12.618 3.348 10.7212C3.429 8.96625 3.7215 8.01225 3.969 7.37775C4.29525 6.5385 4.68675 5.93775 5.31675 5.30775C5.94675 4.67775 6.54525 4.2885 7.38675 3.96225C8.02125 3.71475 8.973 3.42225 10.728 3.34125C12.3885 3.26475 13.032 3.24225 16.3867 3.24V3.2445ZM27.6097 6.2325C27.3261 6.2325 27.0452 6.28837 26.7832 6.39692C26.5211 6.50547 26.283 6.66457 26.0824 6.86515C25.8818 7.06572 25.7227 7.30384 25.6142 7.5659C25.5056 7.82797 25.4497 8.10884 25.4497 8.3925C25.4497 8.67616 25.5056 8.95703 25.6142 9.2191C25.7227 9.48116 25.8818 9.71928 26.0824 9.91985C26.283 10.1204 26.5211 10.2795 26.7832 10.3881C27.0452 10.4966 27.3261 10.5525 27.6097 10.5525C28.1826 10.5525 28.732 10.3249 29.1371 9.91985C29.5422 9.51477 29.7698 8.96537 29.7698 8.3925C29.7698 7.81963 29.5422 7.27023 29.1371 6.86515C28.732 6.46007 28.1826 6.2325 27.6097 6.2325ZM18.0023 8.757C16.7762 8.73787 15.5585 8.96284 14.4202 9.41882C13.2819 9.87479 12.2457 10.5527 11.3718 11.413C10.498 12.2732 9.80407 13.2988 9.33039 14.4298C8.85672 15.5609 8.61278 16.7749 8.61278 18.0011C8.61278 19.2274 8.85672 20.4414 9.33039 21.5724C9.80407 22.7035 10.498 23.729 11.3718 24.5893C12.2457 25.4496 13.2819 26.1275 14.4202 26.5834C15.5585 27.0394 16.7762 27.2644 18.0023 27.2453C20.429 27.2074 22.7435 26.2168 24.4462 24.4873C26.1489 22.7578 27.1033 20.4281 27.1033 18.0011C27.1033 15.5741 26.1489 13.2444 24.4462 11.5149C22.7435 9.78545 20.429 8.79486 18.0023 8.757ZM18.0023 11.9993C18.7903 11.9993 19.5706 12.1545 20.2986 12.456C21.0267 12.7576 21.6882 13.1996 22.2454 13.7568C22.8026 14.314 23.2447 14.9756 23.5462 15.7036C23.8478 16.4317 24.003 17.212 24.003 18C24.003 18.788 23.8478 19.5683 23.5462 20.2964C23.2447 21.0244 22.8026 21.6859 22.2454 22.2432C21.6882 22.8004 21.0267 23.2424 20.2986 23.544C19.5706 23.8455 18.7903 24.0007 18.0023 24.0007C16.4108 24.0007 14.8844 23.3685 13.7591 22.2432C12.6337 21.1178 12.0015 19.5915 12.0015 18C12.0015 16.4085 12.6337 14.8822 13.7591 13.7568C14.8844 12.6315 16.4108 11.9993 18.0023 11.9993Z" fill="#F5FCED"/>
+          </svg>
+      </a>
+      <a href="" class="icono_social">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.5714 0H25.6629C26.0331 1.60875 27.0514 3.63825 28.8386 5.652C30.5871 7.62525 32.9066 9 36 9V13.5C31.4923 13.5 28.1057 11.6685 25.7143 9.38475V24.75C25.7143 26.975 24.9602 29.1501 23.5475 31.0002C22.1347 32.8502 20.1267 34.2922 17.7774 35.1436C15.428 35.9951 12.8429 36.2179 10.3488 35.7838C7.8548 35.3497 5.56388 34.2783 3.76578 32.7049C1.96767 31.1316 0.743148 29.127 0.247052 26.9448C-0.249043 24.7625 0.00557079 22.5005 0.978697 20.4448C1.95182 18.3891 3.59976 16.6321 5.7141 15.396C7.82845 14.1598 10.3142 13.5 12.8571 13.5V18C11.3314 18 9.83993 18.3959 8.57132 19.1376C7.30271 19.8793 6.31395 20.9335 5.73008 22.1669C5.1462 23.4003 4.99343 24.7575 5.29109 26.0669C5.58875 27.3762 6.32346 28.579 7.40232 29.523C8.48119 30.467 9.85574 31.1098 11.3522 31.3703C12.8486 31.6307 14.3997 31.4971 15.8093 30.9862C17.2189 30.4753 18.4237 29.6101 19.2713 28.5001C20.119 27.3901 20.5714 26.085 20.5714 24.75V0Z" fill="#F5FCED"/>
+          </svg>
+          
+      </a>
+      <a href="" class="icono_social">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30.7406 5.23361C29.083 3.56748 27.1087 2.24662 24.9329 1.34808C22.7571 0.449542 20.4234 -0.00868682 18.0678 0.000124706C8.19764 0.000124706 0.153692 8.0056 0.144651 17.8336C0.144651 20.9813 0.971873 24.0435 2.53365 26.7548L0 36L9.50176 33.5205C12.1292 34.9475 15.0748 35.6942 18.0678 35.6917H18.0768C27.9493 35.6917 35.991 27.6863 36 17.8493C36.002 15.505 35.5381 13.1834 34.6351 11.0182C33.7321 8.85306 32.41 6.88712 30.7406 5.23361ZM18.0678 32.6723C15.3989 32.6702 12.7795 31.9553 10.4827 30.6023L9.94023 30.2783L4.30336 31.7498L5.80864 26.2755L5.45605 25.7108C3.9639 23.349 3.17474 20.6146 3.18006 17.8246C3.18006 9.66609 9.86338 3.01061 18.0768 3.01061C20.0336 3.00712 21.9716 3.38923 23.7793 4.13492C25.587 4.8806 27.2285 5.97511 28.6092 7.35535C29.9945 8.73043 31.0927 10.3648 31.8406 12.1643C32.5885 13.9638 32.9712 15.8929 32.9668 17.8403C32.9578 26.028 26.2745 32.6723 18.0678 32.6723ZM26.2383 21.5708C25.7931 21.348 23.5939 20.2703 23.1803 20.1173C22.769 19.9711 22.4684 19.8946 22.1745 20.3401C21.8739 20.7833 21.0151 21.7935 20.7574 22.0838C20.4997 22.383 20.233 22.4168 19.7855 22.1963C19.3403 21.9713 17.896 21.5033 16.1873 19.9801C14.8538 18.7988 13.9611 17.3363 13.6944 16.8931C13.4367 16.4476 13.6695 16.2091 13.8933 15.9863C14.0899 15.7883 14.3385 15.4643 14.5623 15.2078C14.7883 14.9513 14.8629 14.7623 15.0098 14.4653C15.1567 14.1638 15.0866 13.9073 14.9759 13.6846C14.8629 13.4618 13.9701 11.2636 13.5927 10.3771C13.231 9.50184 12.8626 9.62334 12.5869 9.61209C12.3292 9.59634 12.0286 9.59634 11.728 9.59634C11.501 9.60209 11.2777 9.65442 11.072 9.75005C10.8662 9.84567 10.6825 9.98254 10.5324 10.1521C10.121 10.5976 8.97062 11.6753 8.97062 13.8736C8.97062 16.0718 10.5753 18.1846 10.8014 18.4838C11.0229 18.7831 13.952 23.2808 18.4475 25.2158C19.5098 25.677 20.3461 25.9493 20.9992 26.1563C22.0728 26.4983 23.0424 26.4465 23.8154 26.3363C24.6743 26.2058 26.4621 25.2563 26.8395 24.2145C27.2102 23.1705 27.2102 22.2795 27.0972 22.0928C26.9864 21.9038 26.6858 21.7935 26.2383 21.5708Z" fill="#F5FCED"/>
+          </svg>          
+      </a>
+      <a href="" class="icono_social">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.1173 0.535892C19.4656 0.184043 18.7385 0 18 0C17.2615 0 16.5344 0.184043 15.8827 0.535892L2.38275 7.82694C1.66293 8.2156 1.06098 8.7951 0.641282 9.50344C0.221582 10.2118 -8.1555e-05 11.0223 2.25088e-08 11.8484V12.5638L15.0953 21.5227L18 19.8868L20.9048 21.5227L36 12.5638V11.8484C36.0001 11.0223 35.7784 10.2118 35.3587 9.50344C34.939 8.7951 34.3371 8.2156 33.6172 7.82694L20.1173 0.535892ZM36 15.2046L23.1908 22.8078L36 30.0122V15.2046ZM35.8672 32.5459L18 22.4933L0.13275 32.5459C0.375758 33.5325 0.937668 34.4085 1.72906 35.0344C2.52044 35.6603 3.49583 36.0002 4.5 36H31.5C32.5042 36.0002 33.4796 35.6603 34.2709 35.0344C35.0623 34.4085 35.6242 33.5325 35.8672 32.5459ZM2.25088e-08 30.0145L12.8092 22.8078L2.25088e-08 15.2046V30.0145Z" fill="#F5FCED"/>
+          </svg>          
+      </a>
+    </div>
+  </div>
+  <div class="svg_root">
+    <svg fill="#B8EC7E" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill-opacity="1"
+        d="M0,128L80,128C160,128,320,128,480,144C640,160,800,192,960,202.7C1120,213,1280,203,1360,197.3L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+      </path>
+    </svg>
+  </div>
+  <!-- Seccion de ubicacion -->
+  <section class="ubicacion">
+    <div class="secciones_ubicacion">
+      <h3 class="titulo_Ubicacion">Ubicación</h3>
+      <p class="text_ubi">La nave matriz se encuentra en Gonzales Ortega perteneciente al  municipio de Lafragua Puebla. Grupo Nakú se complace en recibirte.</p>
+    </div>
+    <div class="secciones_ubicacion">
+      <iframe class="google_map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3544.7392523695953!2d-97.26914155475195!3d19.337152245290984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c533430e61c2a3%3A0x25d8ea8a5cbd6b77!2sNAKU!5e0!3m2!1sen!2smx!4v1726513213400!5m2!1sen!2smx" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>  
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
