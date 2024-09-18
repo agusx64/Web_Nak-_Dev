@@ -381,10 +381,10 @@
     padding: 15%;
     margin-top: -35%;
 }
-
+/*  */
 .svg_footer{
     position: relative;
-    bottom: 40vh;
+    bottom: 0vh;
     z-index: 1;
 }
 
@@ -400,6 +400,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
 }
 .tarjetas_personal{
     width: 300px;
@@ -447,17 +448,20 @@
     height: 100vh;
     background-color: #a4e658;
     position: relative;
-    bottom: 38vh;
+    bottom: 0%;
     display: flex;
     justify-content: start;
     align-items: center;
     flex-direction: column;
+
 }
 
 .titulo_testimonios{
     font-size: 60px;
-    color: #FFF;
     font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+    z-index: 1;
 }
 
 .texto_test{
@@ -466,6 +470,7 @@
     text-align: center;
     margin-top: 50px; 
     width: 40%;
+    z-index: 1;
 }
 
 .contenedor_testimonios{
@@ -474,7 +479,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 90px;
+  
     
 }
 
@@ -510,9 +515,11 @@
     font-size: 15px;
     color: #375A0E;
 }
+
 .svg_onda{
     position: relative;
-    bottom: 85vh;
+    bottom: 0%;
+    z-index: 1;
 }
 
 .contenedor_redes_sociales{
@@ -524,11 +531,10 @@
     align-items: center;
     flex-direction: column;
     position: relative;
-    bottom: 90vh;
+    bottom: 0;
 }
 
 .texto_redes_sociales{
-    margin-bottom: 45px;
     color: #FFF;
     font-size: 20px;
 }
@@ -540,19 +546,39 @@
     text-decoration: none;
 }
 .svg_root{
-    transform: rotate(180deg);
-    bottom: 90vh;
-    position:relative;
+        transform: rotate(180deg);
+        position: relative;
+        bottom: 0;
+        z-index: 1;
+        margin-bottom: 0; 
 }
+        /*  */
+  .svg_rooter {
+    position: absolute; 
+    bottom: 0; /* Lo colocamos en la parte inferior de la sección */
+    width: 100%; /* Abarca todo el ancho de la sección */
+    height: auto;
+    z-index: 0;
+    left: 0;
+  }
+ 
+  .svg_rooter svg {
+    width: 100%; 
+    height: auto; 
+  
+   
+  }
+
 
 .ubicacion{
     width: 100%;
-    height: auto;
+    height: 80vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    bottom: 130vh;
+    bottom: 0;
+    background-color: #ffffff;
 }
 
 .secciones_ubicacion{
@@ -562,11 +588,15 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  
 }
 
 .google_map{
-    width: 100%;
-    height: 100%;
+    width:790px;
+    height:950px;
+    position: relative;
+    bottom: 10vh;
+    left:0px;
 }
 
 .titulo_Ubicacion{
@@ -574,6 +604,9 @@
     color: #A4E658;
     font-weight: 600;
     text-align: center;
+    position: relative;
+    bottom: 30vh;
+    
 }
 .text_ubi{
     font-size: 30px;
@@ -581,4 +614,37 @@
     text-align: center;
     margin-top: 30px;
     padding: 5%;
+    position: relative;
+    bottom: 30vh;
 }
+.contenedor_redes_sociales2{
+    width: 500px;
+    height: 20vh;
+    background-color: #B8EC7E;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    position: relative;;
+   right: 76%;
+    z-index: 1;
+
+}
+.iconos_svg {
+    display: flex;
+  position: absolute;
+    align-items: center; 
+    gap: 30px;
+    justify-content: flex-start; 
+    left: 15%;
+  }
+  .text_icon{
+    font-size: 15px;
+    color: #375A0E;
+    text-align: center;
+    margin-top: 30px;
+    padding: 5%;
+    position: relative;
+    bottom: 35vh;
+  }
+  
