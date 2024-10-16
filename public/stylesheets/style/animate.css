@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+ /*Logo*/
+ .logo_img {
+    width: 6ch; /* Ajusta el valor según lo que necesites */
+    height: auto;
+    margin-right: 5ch;
+    margin-left: 0ch;
+}
+/*Cabecera*/
+header{
+    position:absolute;
+    top:0;
+    left: 0;
+    right: 5;
+    width: 100%;
+    height: 8ch;
+    padding: 30px 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 100;
+    background: #e1f7c8;
+}
+
+/* Estilo de los botones */
+.buttons_menu {
+    position: absolute;
+    top: 1px; /* Ajusta la posición de los botones encima del header */
+    right: 20px; /* Posiciona los botones a la derecha */
+    display: flex;
+    align-content: center;
+    gap: 10px; /* Espacio entre botones */
+}
+
+.icons_button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.icons_button svg {
+    fill: #81D520; /* Color de los íconos */
+}
+
+.buttons_menu{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 40px;
+}
+
+
+.icons_button {
+    background-color: transparent;
+    border-style: none;
+    margin-left: 12px;
+
+}
+
+.enter_button{
+    background-color: #81D520;
+    color: #FFF;
+    width: 80px;
+    height: 35px;
+    border-style: none;
+    border-radius: 5px;
+    font-weight: 500;
+    margin-left: 50px;
+
+}
+
+/*Primera sección*/
+.parallax {
+
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.parallax img {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 110%;
+    pointer-events: none;
+}
+
+.logo{
+    width: 70px;
+    height: 70px;
+    margin-top: 15vh;
+}
+
+.title{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-size: 75px;
+    color: #81D520;
+    margin-bottom: 20px;
+}
+.na{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-size: 75px;
+    color: #FFF;
+}
+.ku{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-size: 75px;
+    color: #F4A568;
+}
+
+.subtitle{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-size: 25px;
+    color: #FFF;
+}
+
+.text_presentation{
+    font-size: 20px;
+    color: #FFF;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+/*Cuerpo*/
+body {
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    overflow-x: hidden ;
+}
+
+
+/* Estilos para el scrollbar */
+body::-webkit-scrollbar {
+    width: 13px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #7eaba3; /* Color del pulgar del scrollbar */
+    border-radius: 50px;
+    border-right: 2px solid rgb(234, 234, 234);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #359381; /* Color del pulgar del scrollbar */
+}
+
+
+.navigation a {
+    text-decoration: none;
+    color: #359381;
+    padding: 6px 15px; /* Reducir el padding dentro de los enlaces */
+    margin: 0 5px; /* Reducir el margen entre los enlaces */
+    border-radius: 20px;
+    font-weight: 600;
+    margin-left: 10px;
+
+}
+
+.navigation a:hover, 
+.navigation a.active {
+    background: #81D520;
+    color: #fff;
+}
+
+
+
+/*Sección dos*/
+.sec {
+    position: relative;
+    background: #003329;
+    padding: 100px;
+    margin-top: 12vh; /* Añadir margen equivalente a la altura del viewport */
+}
+
+
+.sec h2{
+    font-size: 3em;
+    color:#fff;
+    margin-bottom: 10px;
+}
+
+.sec p{
+    font-size: 1em;
+    color:#fff;
+    font-weight: 300;
+}
+
+
+
+

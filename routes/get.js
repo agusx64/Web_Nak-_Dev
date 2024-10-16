@@ -22,6 +22,12 @@ router.get('/cambios_admin', function(req, res) {
 
     res.render('admin');
 
+});
+
+router.get('/animate', function(req, res) {
+
+    res.render('animate');
+
 })
 
 module.exports = router;
