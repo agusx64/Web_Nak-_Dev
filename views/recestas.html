@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deliciosos Huevos</title>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXlI1qUAA9mI+Lw3r4jyWbSkWVl1pksM48v3yE5t6bEAA/KiZAR+PpEgZZM8" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhG81rL3p2Ql+0Ik9eROG+AlrZZxEFP7AiYpmnsxI5axp4ANXhUW5K8AwTxB" crossorigin="anonymous"></script>  
+  <link rel="stylesheet" href="/stylesheets/components/layout.css">
+  <link rel="stylesheet" href="/stylesheets/style/recetas.css">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <button id="boton">
+        <svg width="40" height="40" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.9063 44.4063V33.6722C19.9063 32.9219 20.6719 32.1563 21.4375 32.1563H27.5625C28.3281 32.1563 29.0938 32.9219 29.0938 33.6876V44.4063C29.0938 44.8124 29.2551 45.2019 29.5422 45.4891C29.8294 45.7762 30.2189 45.9376 30.625 45.9376H42.875C43.2811 45.9376 43.6706 45.7762 43.9578 45.4891C44.2449 45.2019 44.4063 44.8124 44.4063 44.4063V22.9688C44.4066 22.7676 44.3673 22.5683 44.2906 22.3822C44.2139 22.1962 44.1012 22.0271 43.9591 21.8847L39.8125 17.7411V7.6563C39.8125 7.25019 39.6512 6.86071 39.364 6.57355C39.0768 6.28638 38.6874 6.12505 38.2813 6.12505H35.2188C34.8126 6.12505 34.4232 6.28638 34.136 6.57355C33.8488 6.86071 33.6875 7.25019 33.6875 7.6563V11.6161L25.5841 3.50968C25.4419 3.36708 25.2729 3.25394 25.0869 3.17674C24.9008 3.09955 24.7014 3.05981 24.5 3.05981C24.2986 3.05981 24.0992 3.09955 23.9131 3.17674C23.7271 3.25394 23.5581 3.36708 23.4159 3.50968L5.04088 21.8847C4.89877 22.0271 4.78614 22.1962 4.70942 22.3822C4.6327 22.5683 4.59339 22.7676 4.59375 22.9688V44.4063C4.59375 44.8124 4.75508 45.2019 5.04225 45.4891C5.32941 45.7762 5.71889 45.9376 6.125 45.9376H18.375C18.7811 45.9376 19.1706 45.7762 19.4578 45.4891C19.7449 45.2019 19.9063 44.8124 19.9063 44.4063Z" fill="#9CE24C"/>
+            </svg>
+            
+      </button>
+
+  <header class="header">
+    <img class="logo_img" src="/images/pngnaku.png" alt="img_logo" style="width: 70px; height: 70px;">
+    <div class="title-section">
+      <h1>Deliciosos Huevos</h1>
+      <p>Los huevos son la base perfecta para crear, nutrir y sorprender en cada plato.</p>
+    </div>
+    <div class="creator-info">  
+          <div class="menu-icon" id="menu-toggle">
+              <span>☰</span>
+          </div>
+          <nav class="nav-menu" id="nav-menu">
+              <ul>
+                  <li><a href="#">Inicio</a></li>
+                  <li><a href="#">Desayunos</a></li>
+                  <li><a href="#">Comida</a></li>
+                  <li><a href="#">Postres</a></li>
+              </ul>
+          </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <style>
+    .menu-container {
+      display: none;
+    }
+  </style>
+  <!-- Sección Inicio -->
+ <div class="inicio"> 
+    <h1>Deliciosos huevos</h1>
+    <p>Los huevos de calidad son esenciales en la cocina, reflejándose en su frescura y sabor. Elegir huevos de granjas locales, con gallinas bien alimentadas y libres, no solo mejora el gusto de los platos, sino que también promueve una cocina más saludable y sostenible.
+    </p>
+</div>
+  <!-- Sección Comida -->
+  <main class="menu-container" id="comida">
+    <div class="card-container">
+        <div class="card">
+            <img src="images/huevitoo.jpg" alt="comida">
+            <div class="card-content">
+              <h3>Huevos Rancheros</h3>
+              <p>Huevos fritos con salsa ranchera sobre tortillas de maíz.</p>
+              <p>Rp 75k</p>
+              <div class="card-actions">
+                <button class="add-btn">+</button>
+                <button class="like-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="extra-info">
+              <strong>Preparación:</strong>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/huevitoo.jpg" alt="comida">
+            <div class="card-content">
+              <h3>Huevos Rancheros</h3>
+              <p>Huevos fritos con salsa ranchera sobre tortillas de maíz.</p>
+              <p>Rp 75k</p>
+              <div class="card-actions">
+                <button class="add-btn">+</button>
+                <button class="like-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="extra-info">
+              <strong>Preparación:</strong>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="images/huevitoo.jpg" alt="comida">
+            <div class="card-content">
+              <h3>Huevos Rancheros</h3>
+              <p>Huevos fritos con salsa ranchera sobre tortillas de maíz.</p>
+              <p>Rp 75k</p>
+              <div class="card-actions">
+                <button class="add-btn">+</button>
+                <button class="like-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="extra-info">
+              <strong>Preparación:</strong>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/huevitoo.jpg" alt="comida">
+            <div class="card-content">
+              <h3>Huevos Rancheros</h3>
+              <p>Huevos fritos con salsa ranchera sobre tortillas de maíz.</p>
+              <p>Rp 75k</p>
+              <div class="card-actions">
+                <button class="add-btn">+</button>
+                <button class="like-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="extra-info">
+              <strong>Preparación:</strong>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+            </div>
+        </div>
+    
+       
+       
+          
+    
+  </main>
+
+  <!-- Sección Desayunos -->
+  <main class="menu-container" id="desayunos">
+    <div class="card-container">
+        <div class="card">
+            <img src="images/huevitoo.jpg" alt="desayuno">
+            <div class="card-content">
+              <h3>Huevos Rancheros</h3>
+              <p>Huevos fritos con salsa ranchera sobre tortillas de maíz.</p>
+              <p>Rp 75k</p>
+              <div class="card-actions">
+                <button class="add-btn">+</button>
+                <button class="like-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="extra-info">
+              <strong>Preparación:</strong>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/huevitoo.jpg" alt="desayuno">
+            <div class="card-content">
+              <h3>Huevos Rancheros</h3>
+              <p>Huevos fritos con salsa ranchera sobre tortillas de maíz.</p>
+              <p>Rp 75k</p>
+              <div class="card-actions">
+                <button class="add-btn">+</button>
+                <button class="like-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="extra-info">
+              <strong>Preparación:</strong>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="images/huevitoo.jpg" alt="desayuno">
+            <div class="card-content">
+              <h3>Huevos Rancheros</h3>
+              <p>Huevos fritos con salsa ranchera sobre tortillas de maíz.</p>
+              <p>Rp 75k</p>
+              <div class="card-actions">
+                <button class="add-btn">+</button>
+                <button class="like-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="extra-info">
+              <strong>Preparación:</strong>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/huevitoo.jpg" alt="desayuno">
+            <div class="card-content">
+              <h3>Huevos Rancheros</h3>
+              <p>Huevos fritos con salsa ranchera sobre tortillas de maíz.</p>
+              <p>Rp 75k</p>
+              <div class="card-actions">
+                <button class="add-btn">+</button>
+                <button class="like-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="extra-info">
+              <strong>Preparación:</strong>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+            </div>
+        </div>
+        </main>
+  <!-- Sección Postres -->
+  <main class="menu-container" id="postres">
+    <div class="card-container">
+        <div class="card">
+            <img src="images/huevitoo.jpg" alt="postre">
+            <div class="card-content">
+              <h3>Huevos Rancheros</h3>
+              <p>Huevos fritos con salsa ranchera sobre tortillas de maíz.</p>
+              <p>Rp 75k</p>
+              <div class="card-actions">
+                <button class="add-btn">+</button>
+                <button class="like-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="extra-info">
+              <strong>Preparación:</strong>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/huevitoo.jpg" alt="postre">
+            <div class="card-content">
+              <h3>Huevos Rancheros</h3>
+              <p>Huevos fritos con salsa ranchera sobre tortillas de maíz.</p>
+              <p>Rp 75k</p>
+              <div class="card-actions">
+                <button class="add-btn">+</button>
+                <button class="like-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="extra-info">
+              <strong>Preparación:</strong>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="images/huevitoo.jpg" alt="postre">
+            <div class="card-content">
+              <h3>Huevos Rancheros</h3>
+              <p>Huevos fritos con salsa ranchera sobre tortillas de maíz.</p>
+              <p>Rp 75k</p>
+              <div class="card-actions">
+                <button class="add-btn">+</button>
+                <button class="like-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="extra-info">
+              <strong>Preparación:</strong>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/huevitoo.jpg" alt="postre">
+            <div class="card-content">
+              <h3>Huevos Rancheros</h3>
+              <p>Huevos fritos con salsa ranchera sobre tortillas de maíz.</p>
+              <p>Rp 75k</p>
+              <div class="card-actions">
+                <button class="add-btn">+</button>
+                <button class="like-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="extra-info">
+              <strong>Preparación:</strong>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+              <p>Freír los huevos y añadir salsa ranchera.</p>
+            </div>
+        </div>
+        </main>
+
+
+           <!--  -->
+
+
+  <script>
+    // Script para mostrar más información al hacer clic en el botón
+    const addButtons = document.querySelectorAll('.add-btn');
+
+    addButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.card');
+        card.classList.toggle('active');
+      });
+    });
+
+// Seleccionamos el icono del menú y el menú en sí
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+// Añadimos un evento 'click' para que el menú aparezca y desaparezca
+menuToggle.addEventListener('click', () => {
+    navMenu.style.display = (navMenu.style.display === 'block') ? 'none' : 'block';
+});
+    // Esperar a que la página cargue
+    document.addEventListener("DOMContentLoaded", function () {
+      // Obtener las secciones y los enlaces
+      const inicioSection = document.querySelector(".inicio");
+      const desayunosSection = document.querySelector("#desayunos");
+      const comidaSection = document.querySelector("#comida");
+      const postresSection = document.querySelector("#postres");
+  
+      const navMenu = document.querySelectorAll(".nav-menu ul li a");
+  
+      // Función para ocultar todas las secciones
+      function hideAllSections() {
+        inicioSection.style.display = "none";
+        desayunosSection.style.display = "none";
+        comidaSection.style.display = "none";
+        postresSection.style.display = "none";
+      }
+  
+      // Evento para cada enlace del menú
+      navMenu.forEach((link, index) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault(); // Evitar el comportamiento por defecto del enlace
+//
+          // Ocultar todas las secciones primero
+          hideAllSections();
+  
+          // Mostrar la sección correspondiente según el enlace que se haga clic
+          if (index === 0) {
+            inicioSection.style.display = "block";
+          } else if (index === 1) {
+            desayunosSection.style.display = "block";
+          } else if (index === 2) {
+            comidaSection.style.display = "block";
+          } else if (index === 3) {
+            postresSection.style.display = "block";
+          }
+        });
+      });
+  
+      // Mostrar la sección de inicio al cargar la página
+      hideAllSections();
+      inicioSection.style.display = "block";
+    });
+  </script>
+</body>
+</html>
+

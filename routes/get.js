@@ -31,3 +31,26 @@ router.get('/animate', function(req, res) {
 })
 
 module.exports = router;
+
+router.get('/inicio_admin', function(req, res) {
+
+    res.render('insec');
+
+})
+
+module.exports = router;
+
+router.get('/chatbot', function(req, res) {
+
+    res.render('chathv');
+
+})
+
+module.exports = router;
+router.get('/recetas', function(req, res) {
+
+    res.render('recetas');
+
+})
+
+module.exports = router;

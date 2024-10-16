@@ -1,0 +1,589 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #4CAF50;
+    color: white;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/huevito2.jpg');
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #E9EDD2;
+    color: #060606;
+    font-family:"Lobster", serif;
+}
+
+.menu-icon {
+    font-size: 24px;
+}
+
+.title-section {
+    text-align: center;
+    font-family: "Lobster", sans-serif;
+}
+
+.title-section h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 800;
+    font-family:"Lobster", serif;
+}
+
+.title-section p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.creator-info {
+    font-size: 12px;
+    text-align: right;
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #A4E658;
+}
+
+.nav-tabs .tab {
+    background-color: white;
+    color: #4CAF50;
+    border: none;
+    margin: 0 5px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.menu-container {
+    padding: 20px;
+    display: grid;
+    gap: 80px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: none;
+}
+
+.menu-container_desayunos {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-container_comida,
+.menu-container_postres {
+    padding: 20px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card, .h1 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.card, .card-horizontal {
+    background-color: #a4e658cd !important;
+    color: #FFFFFF!important;
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease, color 0.1s ease;
+}
+
+.card:hover, .card-horizontal:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    background-color: #e1f7c8!important;
+    color: #040404 !important;
+}
+
+.tab:hover {
+    transition: 1s;
+    background-color: #f4a56886;
+}
+
+.card-horizontal {
+    flex-direction: row;
+}
+
+.card img, .card-horizontal img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.card-content {
+    text-align: center;
+}
+
+.card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.card p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.add-btn, .like-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.add-btn:hover, .like-btn:hover {
+    background-color: #F4A568;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color:#81D520;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.footer-icon {
+    background: none;
+    border: none;
+    font-size: 35px;
+    cursor: pointer;
+    color:#FFF;
+}
+
+.footer-icon:hover {
+    color: #F4A568;
+}
+
+.logo_img {
+    width: 70px;
+    height: 70px;
+}
+
+.inicio {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    justify-content: center;  /* Centra verticalmente el contenido */
+    align-items: center;    
+}
+
+.bienvenida {
+    text-align: center;
+    background-color: #F4A568;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.bienvenida h2 {
+    font-size: 2rem;
+    color: #fafbfa;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.bienvenida p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.bienvenida img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .bienvenida h2 {
+        font-size: 1.5rem;
+    }
+
+    .bienvenida p {
+        font-size: 0.9rem;
+    }
+
+    .inicio {
+        padding: 10px;
+    }
+}
+
+@media (min-width: 769px) {
+    .bienvenida h2 {
+        font-size: 2.5rem;
+    }
+
+    .bienvenida p {
+        font-size: 1.2rem;
+    }
+
+    .bienvenida img {
+        width: 70%;
+        margin-top: 15px;
+    }
+}
+
+.inicio {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/huevito2.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 251, 251);
+    font-weight: 500;
+
+}
+
+.inicio h1 {
+    color: #FFF;
+    font-weight: 800;
+    left: 80%;
+}
+
+.inicio p {
+    margin-left: 5%;
+}
+
+.extra-info {
+    padding: 10px;
+    display: none;
+}
+
+.card.active .extra-info {
+    display: block;
+}
+
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 15px;
+    color: white;
+    display: flex;
+    font-weight: 700;
+    justify-content: flex-end;
+    background-color: #E9EDD2;
+}
+
+.nav-menu {
+    display: none;
+    background-color: #f4a568b1;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    z-index: 3;
+    border-radius: 5px;
+}
+
+.nav-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-weight: 800;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-menu li {
+    border-bottom: 1px solid #040404;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-menu li:last-child {
+    border-bottom: none;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-menu a:hover {
+    background-color: #E9EDD2;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        width: 50%;
+    }
+}
+
+.menu-section {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+nav {
+    display: none;
+}
+
+.menu-open nav {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    nav {
+        display: block;
+    }
+}
+
+.inicio, .menu-container_desayunos, .menu-container_comida, .menu-container_postres {
+    display: none;
+}
+
+.inicio {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .card {
+        flex-direction: row; 
+        width: 48%; 
+    }
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px; 
+  justify-content: center; 
+  padding: 20px;
+}
+
+.card {
+  background-color: #a4e658cd !important; 
+  color: #FFFFFF!important;
+  border-radius: 20px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease, color 0.1s ease; 
+  width: 100%; 
+}
+.inicio {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/huevito2.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 76vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 251, 251);
+  font-weight: 500;
+  justify-content: center;  /* Centra verticalmente el contenido */
+  align-items: center;    
+
+}
+
+
+
+/* Alinear horizontalmente en pantallas grandes */
+@media (min-width: 768px) {
+  .card {
+      flex-direction: row; 
+      width: 48%; 
+      max-width: 48%; 
+  }
+}
+
+/* Estilo para las imágenes dentro de las tarjetas */
+.card img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+  .card img {
+      margin-bottom: 0; 
+      margin-right: 20px; 
+      
+      
+  }
+  
+}
+#boton {
+  position: fixed; 
+  left: 0; 
+  top: 60%;
+  transform: translateY(-50%); 
+  background-color: white;
+  border-top-right-radius: 50px;  
+  border-bottom-right-radius: 50px; 
+  padding: 20px;
+  width: 100px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  z-index: 3;
+  border: none;
+}
+#boton {
+  position: fixed;
+  left: -80px; 
+  top: 60%;
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+#boton:hover, #boton:focus {
+  left: 0; 
+}
+
+/* Opcional: Estilo para que una parte del botón esté visible inicialmente */
+#boton img {
+  max-width: 100px; 
+  height: auto;
+}
+
+#boton:hover{
+  background-color:#E9EDD2;
+  cursor: pointer;
+}
+#boton:hover svg path {
+  fill: #FFF; 
+}
+.svg{
+  height: 5px;
+  width: 5px;
+}
+
+
+/* Consultas de medios */
+@media (max-width: 768px) {
+  .inicio {
+    font-weight: 500;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Centra verticalmente el contenido */
+    align-items: center;      /* Centra horizontalmente el contenido */
+    background-color: white;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/huevito2.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 76vh; /* Ajusta según sea necesario */
+    color: rgb(255, 251, 251);
+    font-weight: 500;
+    text-align: center;       /* Alinea el texto al centro */
+  }
+  .inicio h1 {
+    color: #FFF;
+    font-weight: 800;
+    margin: 0; /* Elimina el margen para mejor alineación */
+    text-align: center;       /* Alinea el texto al centro */
+    margin-top: 60%;
+  }
+  
+  .inicio p {
+    margin: 10px 0; /* Margen para separar el párrafo del título */
+  }
+
+  .inicio {
+      padding: 70px;
+      bottom: 0%;/* Espaciado reducido */
+     
+  }
+}
+
+@media (min-width: 769px) {
+  .bienvenida h2 {
+      font-size: 2.5rem; /* Aumenta el tamaño en pantallas grandes */
+  }
+
+  .bienvenida p {
+      font-size: 1.2rem; /* Aumenta el tamaño en pantallas grandes */
+  }
+
+  .bienvenida img {
+      width: 70%; /* Ajusta el tamaño de la imagen en pantallas grandes */
+      margin-top: 15px;
+  }
+  .inicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Alínea el contenido hacia abajo */
+    align-items: center;       /* Centra horizontalmente */
+    text-align: center;        /* Alinea el texto al centro */
+    background-color: white;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/huevito2.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 85.5vh;             /* Altura del contenedor */
+    color: rgb(255, 251, 251);
+    font-weight: 500;
+    padding-bottom: 20px;     /* Espacio adicional en la parte inferior */
+  }
+  .inicio h1 {
+    color: #FFF;
+    font-weight: 800;
+    margin: 0; /* Elimina el margen para mejor alineación */
+    text-align: center;       /* Alinea el texto al centro */
+    margin-top: 13%;
+    
+  }
+  .inicio p {
+    margin: 10px 0; /* Margen para separar el párrafo del título */
+  }
+
+  .inicio {
+      padding: 70px;
+      bottom: 0%;/* Espaciado reducido */    
+  }
+}
