@@ -9,6 +9,7 @@ var axios = require('axios');
 var mysql = require('mysql2');
 var multer = require('multer');
 var fs = require('fs');
+require('dotenv').config();
 
 var get = require('./routes/get');
 var post = require('./routes/post');
