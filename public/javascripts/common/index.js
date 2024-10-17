@@ -2,6 +2,9 @@
 const logoTitleContainerup = document.getElementById('logoTitleContainer');
 const logoTitleContainerdown = document.getElementById('subtitle');
 const logoTitleContainerdown1 = document.getElementById('text_presentation');
+const buttonShop = document.getElementById('button_shop');
+const buttonRecipes = document.getElementById('recipe_button');
+const enterShopButton = document.getElementById('enter_shop_button');
 
 
 const documentHeight = document.documentElement.scrollHeight;
@@ -240,4 +243,22 @@ changeThemeUp();
 document.getElementById('icono-menu').addEventListener('click', function() {
     const navigation = document.querySelector('.navigation');
     navigation.classList.toggle('active');
+});
+
+buttonShop.addEventListener('click', function() {
+
+    window.location.href = '/shop_page'
+
+});
+
+buttonRecipes.addEventListener('click', function() {
+
+    window.location.href = '/recetas';
+
+})
+
+enterShopButton.addEventListener('click', function() {
+
+    window.location.href = '/shop_page';
+
 });
