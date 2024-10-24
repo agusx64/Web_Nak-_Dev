@@ -7,6 +7,7 @@ const equipoBtn = document.getElementById('equipo');
 const testimoniosBtn = document.getElementById('testimonios');
 const ubicacionBtn = document.getElementById('ubicacion');
 const recetasBtn = document.getElementById('recetas');
+const productosBtn = document.getElementById('productos');
 
 // Secciones de contenido
 const inicioContent = document.querySelector('.main-content_inicio');
@@ -17,6 +18,7 @@ const equipoContent = document.querySelector('.main-content_equipo');
 const testimoniosContent = document.querySelector('.main-content_testimonios');
 const ubicacionContent = document.querySelector('.main-content_ubicacion');
 const recetasContent = document.querySelector('.main-content_recetas');
+const productosContent = document.querySelector('.main-content_productos');
 
 // Función para ocultar todas las secciones
 function ocultarSecciones() {
@@ -28,6 +30,7 @@ function ocultarSecciones() {
     testimoniosContent.hidden = true;
     ubicacionContent.hidden = true;
     recetasContent.hidden = true;
+    productosContent.hidden = true;
 }
 
 // Evento para mostrar la sección de 'inicio'
@@ -71,13 +74,15 @@ recetasBtn.addEventListener('click', function() {
   ocultarSecciones();  
 recetasContent.hidden = false; 
 });
-
+// Evento para mostrar la sección de 'productos'
+productosBtn.addEventListener('click', function() {
+  ocultarSecciones();  
+productosContent.hidden = false; 
+});
 const toggleButton = document.querySelector('.menu-toggle');
 const sidebar = document.querySelector('.sidebar');
 
 toggleButton.addEventListener('click', () => {
     sidebar.classList.toggle('open');
 });
-
-
 

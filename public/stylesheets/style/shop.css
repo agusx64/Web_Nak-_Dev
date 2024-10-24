@@ -33,13 +33,6 @@
     margin-right: 15%;
 }
 
-.btncasa:hover{
-    background-color:#9CE24C;
-    cursor: pointer;
-}
-.btncasa:hover svg path {
-    fill: #FFF; 
-}
 .enviar:hover{
     background-color:#9CE24C;
     cursor: pointer;
@@ -152,7 +145,7 @@
     display: flex;
     position: relative;
     margin-left: -10%;
-    top: 18%;
+    top: 14%;
 
 }
 
@@ -565,18 +558,18 @@ p{
 @media (max-width: 768px) {
   
     .seccion_principal {
-        flex-direction: column; /* Apilar las secciones verticalmente */
-        height: auto; /* Ajustar la altura automáticamente */
-        padding: 0; /* Añadir padding vertical */
+        flex-direction: column; 
+        height: auto; 
+        padding: 0; 
     }
     .carousel_container {
-        width: 100%; /* Adaptar el tamaño del contenedor del carrusel */
+        width: 100%; 
     
     }
     .divisiones.shop_form,
 .divisiones {
-    width: 100%; /* Ocupar el 100% del ancho */
-    margin: 0; /* Eliminar márgenes laterales */
+    width: 100%; 
+    margin: 0; 
     z-index: 5; 
 }
 .container{
@@ -589,13 +582,13 @@ p{
 }
 
 .shop_form {
-    padding: 10px; /* Ajustar padding si es necesario */
-    margin-top: 10px; /* Añadir margen superior para separación */
+    padding: 10px; 
+    margin-top: 10px; 
 }
 
 .formulario {
-    width: 100%; /* Reducir el ancho para mejor visualización */
-    height: 550px !important; /* Ajustar la altura automáticamente */
+    width: 100%; 
+    height: 550px !important; 
 margin-top: -15%;
 }
 .top-content {
@@ -621,46 +614,46 @@ margin-top: -15%;
 
 
 .btncasa {
-    position: static; /* Resetear posición */
-    margin: 10px auto; /* Centrar el botón */
+    position: static; 
+    margin: 10px auto; 
     top:50%;
     bottom: 1%;
 }
 
-/* Ajustar tamaños de texto y botones */
+
 
 .input_component {
-    width: 100%; /* Ocupar todo el ancho disponible */
-    padding: 10px; /* Ajustar padding */
+    width: 100%; 
+    padding: 10px; 
 }
 
 .enviar {
-    width: 50%; /* Ajustar ancho del botón */
-    height: 40px; /* Aumentar altura para mejor toque */
-    font-size: 16px; /* Ajustar tamaño de fuente */
+    width: 50%; 
+    height: 40px; 
+    font-size: 16px; 
     
 }
 
-/* Ajustes adicionales para el texto */
+
 .carousel-caption {
-    position: static; /* Resetear posición */
-    text-align: center; /* Centrar el texto */
-    margin-top: 10px; /* Añadir margen superior */
+    position: static; 
+    text-align: center; 
+    margin-top: 10px; 
 }
 
 .top-content {
-    position: relative; /* Cambiar a relativo para evitar superposición */
-    margin-top: 20px; /* Añadir margen superior */
+    position: relative; 
+    margin-top: 20px; 
 }
 
 .bottom-content {
-    position: relative; /* Cambiar a relativo para evitar superposición */
-    margin-left: 0; /* Resetear margen */
-    margin-top: 20px; /* Añadir margen superior */
+    position: relative; 
+    margin-left: 0; 
+    margin-top: 20px; 
 }
 
 .prec {
-    font-size: 30px; /* Reducir tamaño de fuente en móviles */
+    font-size: 30px;
     -webkit-text-stroke: 1px rgba(183, 181, 181, 0.874); 
 }
 .contenedor_campos{
@@ -713,11 +706,26 @@ margin-top: -15%;
     right:  2%;
     z-index: 1;
 }
+.carousel_container{
+    display: none;
+}
+.bottom-content{
+    display: none !important;
+}
+.circle_bottom{
+    display: none !important;
+}
 }
 @media (max-width: 767px) {
     .divisiones.shop_form {
         width: 100%;
         height: 750px;
+    }
+    .divisiones{
+        background-color: #6C9F31;
+    }
+    .carousel_container{
+        background-color: #6C9F31;
     }
     .logo{
         height: 60px;
@@ -797,7 +805,7 @@ margin-top: -15%;
 }
 
 #botonCasa svg {
-    width: 40px !important; /* Toma el 80% del contenedor */
+    width: 40px !important;
     height: 40px !important;
 }
 .svg_bottom{
@@ -809,11 +817,10 @@ margin-top: -15%;
     height: 10px;
 }
 
-/* preubas */
-/* Botón inicialmente oculto fuera de la vista */
+
 .btncasa {
     cursor: pointer;
-    transition: left 0.5s ease; /* Transición suave al mostrar el botón */
+    transition: left 0.5s ease; 
 }
 
 .btncasa svg {
@@ -821,9 +828,8 @@ margin-top: -15%;
     height: 100px;
 }
 
-/* Cuando se haga clic en el botón, se moverá a la derecha */
 .btncasa.show {
-    left: 60px; /* Ajusta la posición que desees para que se muestre */
+    left: 60px; 
 }
 .top-content {
     text-align: center; 
@@ -843,9 +849,9 @@ margin-top: -15%;
 }
 
 
-/* Cuando se haga clic en el botón, se moverá a la derecha */
+
 .btncasa.show {
-    left: 60px; /* Ajusta la posición que desees para que se muestre */
+    left: 60px; 
 }
 .top-content {
     text-align: center; 

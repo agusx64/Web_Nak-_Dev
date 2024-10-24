@@ -2,9 +2,6 @@
 const logoTitleContainerup = document.getElementById('logoTitleContainer');
 const logoTitleContainerdown = document.getElementById('subtitle');
 const logoTitleContainerdown1 = document.getElementById('text_presentation');
-const buttonShop = document.getElementById('button_shop');
-const buttonRecipes = document.getElementById('recipe_button');
-const enterShopButton = document.getElementById('enter_shop_button');
 
 
 const documentHeight = document.documentElement.scrollHeight;
@@ -77,10 +74,7 @@ window.addEventListener('load', () => {
 });
 
 
-function toggleMenu() {
-    const nav = document.querySelector('.navigation');
-    nav.classList.toggle('nav-open'); // Alterna la clase nav-open para mostrar u ocultar los enlaces
-}
+
 
 //-----------------------------Butons Funciones-----------------------------//
 const buttons = document.querySelectorAll('.read-more-btn');
@@ -103,7 +97,7 @@ function startInactivityTimer() {
 
 // Añadir evento de clic a los botones
 buttons.forEach((button, index) => {
-  button.addEventListener('click', () => {
+  button.addEventListener('click', () => {length
     const textElement = textElements[index];
     textElement.classList.toggle('showText'); // Muestra u oculta el texto
 
@@ -140,9 +134,9 @@ function changeThemeShop() {
         // Verificamos si el SVG está en la misma altura que la sección
         if (sectionRect.top <= window.innerHeight / 2 && sectionRect.bottom >= window.innerHeight / 2) {
             // Aplicamos el tema claro si la sección es clara
-            if (section.classList.contains('section_fullscreen') || 
-                section.classList.contains('us') || 
-                section.classList.contains('ubicacion')) {
+            if (section.classList.contains('section_main') || 
+                section.classList.contains('section_history') || 
+                section.classList.contains('section_location')) {
                 
                 document.body.classList.add('dark-theme'); // Tema oscuro para el SVG
                 document.body.classList.remove('light-theme');
@@ -151,8 +145,8 @@ function changeThemeShop() {
             }
             // Aplicamos el tema oscuro si la sección es oscura
             else if (section.classList.contains('section_vm') || 
-                     section.classList.contains('personal') || 
-                     section.classList.contains('testimonios')) {
+                     section.classList.contains('section_personal') || 
+                     section.classList.contains('section_testimonials')) {
                 
                 document.body.classList.add('light-theme'); // Tema claro para el SVG
                 document.body.classList.remove('dark-theme');
@@ -177,7 +171,7 @@ function changeThemeEgg() {
         // Verificamos si el SVG está en la misma altura que la sección
         if (sectionRect.top <= window.innerHeight / 2 && sectionRect.bottom >= window.innerHeight / 2) {
             // Aplicamos el tema claro si la sección es clara
-            if (section.classList.contains('ubicacion')) {
+            if (section.classList.contains('section_ubicacion')) {
                 
                 document.body.classList.add('dark-theme_e'); // Tema oscuro para el SVG
                 document.body.classList.remove('light-theme_e');
@@ -185,9 +179,9 @@ function changeThemeEgg() {
 
             }
             // Aplicamos el tema oscuro si la sección es oscura
-            else if (section.classList.contains('section_fullscreen') ||
-                     section.classList.contains('us') ||
-                     section.classList.contains('personal')||
+            else if (section.classList.contains('section_main') ||
+                     section.classList.contains('section_history') ||
+                     section.classList.contains('section_personal')||
                      section.classList.contains('section_vm')) {
                 
                 document.body.classList.add('light-theme_e'); // Tema claro para el SVG
@@ -214,9 +208,9 @@ function changeThemeUp() {
         if (sectionRect.top <= window.innerHeight / 2 && sectionRect.bottom >= window.innerHeight / 2) {
             // Aplicamos el tema claro si la sección es clara
             if (section.classList.contains('section_vm') || 
-                section.classList.contains('us') ||  
-                section.classList.contains('testimonios') ||
-                section.classList.contains('ubicacion')) {
+                section.classList.contains('section_history') ||  
+                section.classList.contains('section_testimonials') ||
+                section.classList.contains('section_location')) {
                 
                 document.body.classList.add('dark-theme_i'); // Tema oscuro para el SVG
                 document.body.classList.remove('light-theme_i');
@@ -224,8 +218,8 @@ function changeThemeUp() {
 
             }
             // Aplicamos el tema oscuro si la sección es oscura
-            else if (section.classList.contains('section_fullscreen') || 
-                     section.classList.contains('personal')) {
+            else if (section.classList.contains('section_main') || 
+                     section.classList.contains('section_personal')) {
                 
                 document.body.classList.add('light-theme_i'); // Tema claro para el SVG
                 document.body.classList.remove('dark-theme_i');
@@ -239,26 +233,68 @@ window.addEventListener('scroll', changeThemeUp);
 // Establecemos el tema inicial
 changeThemeUp();
 
+//Linkear elementos del index para ootros html's
+const buttonShop = document.getElementById('button_shop');
+const buttonRecipes = document.getElementById('recipe_button');
+const enterShopButton = document.getElementById('enter_shop_button');
+const shophover = document.getElementById('shop_hover');
 
-document.getElementById('icono-menu').addEventListener('click', function() {
+
+// Contracción del menú hamburguesa
+document.getElementById('icono-menu').addEventListener('click', function(event) {
     const navigation = document.querySelector('.navigation');
-    navigation.classList.toggle('active');
+    navigation.classList.toggle('active'); // Abre o cierra el menú
 });
 
+// Evento para cerrar el menú al hacer clic fuera de él
+document.addEventListener('click', function(event) {
+    const navigation = document.querySelector('.navigation');
+    const iconoMenu = document.getElementById('icono-menu');
+
+    // Verifica si el clic fue fuera del menú y del ícono del menú
+    if (!navigation.contains(event.target) && !iconoMenu.contains(event.target) && navigation.classList.contains('active')) {
+        navigation.classList.remove('active'); // Cierra el menú
+    }
+});
+//
 buttonShop.addEventListener('click', function() {
-
-    window.location.href = '/shop_page'
-
+    window.location.href = '/shop_page';
 });
 
 buttonRecipes.addEventListener('click', function() {
-
     window.location.href = '/recetas';
-
-})
+});
 
 enterShopButton.addEventListener('click', function() {
-
     window.location.href = '/shop_page';
+});
 
+shophover.addEventListener('click', function() {
+    window.location.href = '/shop_page';
+});
+
+
+
+// Linkear en el mismo index
+function scrollToSection(id, event) {
+    if (event) event.preventDefault();  // Previene regresar al inicio por doble click
+    const section = document.getElementById(id);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// Id del elemento -- id del nombre de la sección
+document.getElementById('image_main').addEventListener('click', (event) => scrollToSection('sect_main', event));
+document.getElementById('us').addEventListener('click', (event) => scrollToSection('sect_vm', event));
+document.getElementById('history').addEventListener('click', (event) => scrollToSection('sect_hist', event));
+document.getElementById('team').addEventListener('click', (event) => scrollToSection('sect_pers', event));
+document.getElementById('testimony').addEventListener('click', (event) => scrollToSection('sect_testim', event));
+document.getElementById('location').addEventListener('click', (event) => scrollToSection('sect_loc', event));
+document.getElementById('go_up').addEventListener('click', (event) => scrollToSection('sect_main', event));
+
+
+document.getElementById('chat_bot_hover').addEventListener('click', function() {
+    const chatBox = document.getElementById('textInput');
+    chatBox.style.display = 'block'; // Muestra la caja de chat
 });

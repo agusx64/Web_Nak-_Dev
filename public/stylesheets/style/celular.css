@@ -1,0 +1,370 @@
+/* General settings */
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+    background-color:#E9EDD2;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.offers-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 1.5rem;
+}
+
+.offers-header span {
+    color: #A4E658;
+    font-family: "Lobster", sans-serif;
+}
+
+
+.icons i {
+    font-size: 1.2rem;
+    margin-left: 15px;
+}
+
+.offers {
+    padding: 15px;
+}
+
+.offer-item {
+    background-color:#A4E658;
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.offer-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 20%;
+}
+
+.offer-details {
+    padding-left: 15px;
+}
+
+.prices {
+    display: flex;
+    align-items: center;
+}
+
+.new-price {
+    color: #8cc63f;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.seasonal-salads h2 {
+    padding-left: 13px;
+}
+
+.salad-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+
+.salad-item {
+    flex: 1 1 calc(50% - 15px);
+    background-color: white;
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+/* Estilo de la imagen */
+.salad-item img {
+    width: 60%; 
+    height:85%; 
+    border-radius: 10px; 
+    object-fit: cover; 
+    margin-right: 10px; 
+}
+
+/* Ajustes de los detalles del texto */
+.salad-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.salad-details h3 {
+    margin: 0; 
+    font-size: 1rem; 
+}
+
+.salad-details p {
+    margin: 5px 0 0 0;
+    font-size: 1rem; 
+}
+
+
+/* Botón de agregar al carrito */
+.add-to-cart {
+    background-color: #8cc63f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-to-cart {
+    background-color: #8cc63f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+.hidden {
+    display: none;
+}
+
+.extra-info {
+    margin-top: 10px;
+    background-color: #FFFFFF;
+    padding: 10px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    text-align:start;
+}
+/* hhh */
+
+.add-to-cart:hover {
+    background-color: orange; /* Color cuando pasas el cursor */
+}
+
+
+.bottom-navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #8cc63f;
+    border-top: 1px solid #ddd;
+    border-radius: 35px;
+}
+
+.bottom-navigation i {
+    font-size: 1.5rem;
+}
+
+.center-icon {
+    background-color: #8cc63f;
+    border-radius: 50%;
+    padding: 10px;
+    align-items: center;
+    margin-left: 45%;
+    justify-content: center;
+}
+
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.salad-details img {
+    width: 100%;
+    border-radius: 30px;
+}
+
+.price-adjust {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.quantity-adjust {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-minus, .quantity-plus {
+    background-color: #8cc63f;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.ingredients {
+    padding: 20px 0;
+}
+
+.ingredient-icons img {
+    width: 50px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.description {
+    padding: 20px 0;
+}
+
+.add-to-cart-button {
+    background-color: #8cc63f;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    margin: 20px;
+}
+
+/* Media queries for larger screens (computers) */
+@media (min-width: 768px) {
+    /* Ajustes para pantallas pequeñas */
+.salad-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.salad-item {
+    flex: 1 1 calc(50% - 15px); /* En pantallas pequeñas, se muestran dos por fila */
+    background-color: white;
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Media query para pantallas grandes (computadoras) */
+@media (min-width: 768px) {
+    .salad-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
+
+    .salad-item {
+        flex: 1 1 auto;
+        flex-direction: column; 
+        text-align: center; 
+    }
+
+    .salad-item img {
+        width: 100%; 
+        height: auto;
+    }
+}
+
+    .app-container {
+        max-width: 1000px;
+    }
+    .offer-item img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-top: 1.5%;
+    }
+    
+
+    .salad-grid {
+        flex-wrap: nowrap;
+        gap: 20px;
+    }
+
+    .salad-item {
+        flex: 1 1 calc(33.33% - 20px);
+    }
+
+    .offers-screen, .details-screen {
+        padding: 20px;
+    }
+
+    .offer-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .offer-details {
+        padding-left: 30px;
+    }
+
+    .offer-item img {
+        width: 100px;
+    }
+    .salad-item {
+        flex: 1 1 calc(50% - 15px);
+        background-color: white;
+        border-radius: 20px;
+        padding: 15px;
+        display: flex; 
+        flex-direction: row; 
+        align-items: center;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+    }
+    
+    /* Estilo de la imagen */
+    .salad-item img {
+        width: 60%; 
+        height:85%; 
+        border-radius: 10px; 
+        object-fit: cover; 
+        margin-right: 10px; 
+    }
+    
+}
+.icon {
+    display: flex; 
+    gap: 15px; 
+    margin-top:-10%;
+}
+
+.icon a {
+    text-decoration: none; 
+    display: flex; 
+    align-items: center; 
+}
+
+.icon svg {
+    transition: transform 0.3s; 
+}

@@ -54,3 +54,11 @@ router.get('/recetas', function(req, res) {
 })
 
 module.exports = router;
+
+router.get('/celular', function(req, res) {
+
+    res.render('celular');
+
+})
+
+module.exports = router;
