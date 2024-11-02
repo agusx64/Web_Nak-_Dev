@@ -9,6 +9,8 @@
 body {
     display: flex;
     font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
 
 
 
@@ -29,7 +31,7 @@ body {
 display: flex;
 align-items: center;
   margin-left: 5%;
-  margin-top: 5%;
+  margin-top: 10%;
 }
 
 .logo img {
@@ -476,29 +478,6 @@ border-radius: 4px;
 /* codigo adaptado a pantallas pequeñas */
 
 
-/* Estilos generales */
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
-
-body {
-display: flex;
-font-family: Arial, sans-serif;
-}
-
-/* Ocultar parcialmente el menú en móviles */
-.sidebar {
-width: 25%;
-background-color: #A4E658;
-color: #fff;
-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-transition: transform 0.3s ease;
-}
 
 /* Botón para mostrar/ocultar menú */
 .menu-toggle {
@@ -556,4 +535,166 @@ cursor: pointer;
 .styled-table {
     min-width: 600px; /* Asegura que la tabla no se corte en pantallas pequeñas */
 }
+}
+
+
+
+
+/*----------------------------- General Styles----------------------------- */
+
+.upload_image {
+    background-color: #A7F545;
+    border-radius: 25px;
+    padding: 1vh 2.5vh ;
+    width: 400px;
+    position: fixed;
+    display: none;
+    z-index: 999;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.upload_text{
+    background-color: #A7F545;
+    border-radius: 25px;
+    padding: 20px;
+    width: 400px;
+    position: fixed;
+    display: none;
+    z-index: 999;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.image_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5vh 0 2.5vh 0;
+    padding: 0;
+}
+
+
+.logo_upload {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+
+
+.image_header h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin: 5px 0 0 0;
+    margin-right: auto; /* Esto asegura que el texto ocupe el espacio entre el logo y el botón */
+}
+
+.close-btn_text, .close-btn_image {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+
+p {
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Área de carga de imagen */
+.image-upload .upload-area,
+.upload-area {
+    background-color: #d7d5d5;
+    border-radius: 20px;
+    width: 100%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center;     /* Centra horizontalmente */
+    text-align: center;      /* Centra el texto si es necesario */
+    cursor: pointer;
+
+}
+
+
+/* Estilo del texto dentro del área de carga */
+.image-upload p {
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-align: center; /* Asegura que el texto también esté centrado */
+    margin: 0;
+}
+
+.upload-area:hover {
+    background-color: #929292;
+    color: white;
+}
+
+/* Ocultar input de archivo */
+.input-file {
+    display: none;
+}
+
+/* Footer */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding: .8vh 0 .8vh 0;
+}
+
+.cancel-btn, .confirm-btn {
+    margin-left: 1vh;
+    cursor: pointer;
+    height: 5vh;
+    width: 5vh;
+
+}
+
+#cancel-btn:hover{
+    fill:orange;
+
+}
+#confirm-btn:hover{
+    fill: #06b300;
+}
+
+
+
+/* --------------------------------------- */
+/* Ventana de Ingresar Texto (Text Input) */
+/* --------------------------------------- */
+
+.text-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E8E8E8;
+    border-radius: 25px;
+    padding: 10px;
+    height: 40px;
+}
+
+.inputtxt {
+    background-color: transparent;
+    border: none;
+    flex-grow: 1;
+    font-size: 1rem;
+    color: #666;
+    padding: 0;
+    margin: 0;
+}
+
+.inputtxt:focus {
+    outline: none;
+}
+
+.word-count {
+    color: #B0B0B0;
+    font-size: 0.9rem;
+    margin-left: 10px;
 }

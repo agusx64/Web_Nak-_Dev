@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=New+Amsterdam&display=swap');
 
 * {
     margin: 0;
@@ -13,12 +14,16 @@
     position: fixed;
     height: 11vh;
     display: flex;
-    justify-content: center;  /* Centra horizontalmente los elementos */
-    align-items: center;      /* Centra verticalmente los elementos */
+    justify-content: center;
+    /* Centra horizontalmente los elementos */
+    align-items: center;
+    /* Centra verticalmente los elementos */
     z-index: 100;
     background: #e1f7c8;
-    width: 100%;              /* Asegura que el header ocupe todo el ancho */
-    padding: 0 20px;          /* Espaciado interior para evitar que los elementos toquen los bordes */
+    width: 100%;
+    /* Asegura que el header ocupe todo el ancho */
+    padding: 0 20px;
+    /* Espaciado interior para evitar que los elementos toquen los bordes */
 }
 
 
@@ -154,6 +159,7 @@ body::-webkit-scrollbar-thumb:hover {
     cursor: pointer;
     transform: translateX(-50px);
     left: 0;
+
 }
 
 .shop:hover {
@@ -197,19 +203,18 @@ body.light-theme #egg3 {
     /* Fondo oscuro, colores claros para los huevos */
 }
 
-/*-----------------------Fin tienda-----------------------*/
-
-
 /*-----------------------Egg Help-----------------------*/
 
 .icon_help {
     position: fixed;
     bottom: 10vh;
-    right: 5.5vh;
+    right: 2.3vw;
     z-index: 9999;
     transition: transform 0.4s ease;
-    /* Usamos transform para la animación */
     cursor: pointer;
+    width: 42px;
+    /* Tamaño relativo */
+    height: 42px;
 }
 
 .icon_help:hover {
@@ -242,58 +247,17 @@ body.light-theme_e #int_egg {
 }
 
 
-.chat-box {
-    width: 300px;
-    height: 50px;
-    border: 2px solid #6C9F31;
-    border-radius: 20px;
-    padding: 10px 15px;
-    font-size: 16px;
-    display: none; /* Oculto inicialmente */
-    position: fixed; /* Se coloca encima */
-    bottom: 50px; /* Posición desde la parte inferior */
-    right: 20px; /* Posición desde la parte derecha */
-    background-color: white;
-    z-index: 9999; /* Asegura que esté por encima de otros elementos */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.chat-box input[type="text"] {
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 16px;
-}
-
-/* Estilo del botón SVG */
-.btn_in svg {
-    fill: white;
-}
-
-/* Triángulo debajo del cuadro de chat, para el estilo de burbuja */
-.chat-box:before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    bottom: -10px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: #6C9F31 transparent transparent transparent;
-}
-/*-----------------------Fin tienda-----------------------*/
-
 
 /*-----------------------UP-----------------------*/
 .up {
     position: fixed;
     bottom: 1vh;
-    right: 3.4vh;
+    right: 1.7vw;
     z-index: 9999;
     transition: transform 0.4s ease;
-    /* Usamos transform para la animación */
     cursor: pointer;
-    height: 58px;
     width: 58px;
+    height: 58px;
 }
 
 .up:hover {
@@ -312,7 +276,181 @@ body.light-theme_i #up_screen {
     /* Fondo claro, trazos oscuros */
 }
 
-/*-----------------------Fin tienda-----------------------*/
+/*-----------------------Chatbot-----------------------*/
+
+.chat-container {
+    width:50vh;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    position: fixed; /* Fijo en la pantalla */
+    bottom: 9vh; /* Puedes ajustar la distancia desde abajo */
+    right: 2vw; /* Puedes ajustar la distancia desde la derecha */
+    z-index: 10000; /* Asegura que esté encima de todo */
+}
+
+/* Estilo para el ícono de color */
+.color {
+    width: 28px; /* Ancho del ícono */
+    height: 28px; /* Alto del ícono */
+}
+
+/* Encabezado del chat */
+.chat-header {
+    background-color: #81D520; /* Color de fondo del encabezado */
+    color: white; /* Color del texto */
+    padding: 15px; /* Espaciado interno */
+    text-align: center; /* Alineación central del texto */
+    font-size: 1.5rem; /* Tamaño de fuente */
+    box-shadow: 0px 4px 10px rgba(20, 20, 20, 0.587); /* Sombra del encabezado */
+    border-top-left-radius: 25px; /* Bordes redondeados en la parte superior izquierda */
+    border-top-right-radius: 25px; /* Bordes redondeados en la parte superior derecha */
+}
+
+/* Caja de mensajes */
+.chat-box {
+    display: flex; /* Habilitar flexbox */
+    flex-direction: column; /* Organizar los mensajes en columnas */
+    flex: 1; /* Crece para ocupar el espacio disponible */
+    padding: 10px; /* Espaciado interno */
+    overflow-y: auto; /* Habilitar scroll vertical si es necesario */
+    max-height: 300px; /* Altura máxima de la caja */
+    border-bottom: 1px solid #81D520; /* Línea inferior */
+}
+
+/* Mensaje individual */
+.chat-box .message {
+    margin-bottom: 10px; /* Espaciado inferior entre los mensajes */
+    padding: 10px; /* Espaciado interno del mensaje */
+    border-radius: 10px; /* Bordes redondeados para los mensajes */
+    max-width: 70%; /* Ancho máximo del mensaje */
+    word-wrap: break-word; /* Permitir que las palabras largas se dividan y no desborden */
+    overflow-wrap: break-word; /* Soporte adicional para el ajuste de palabras */
+    white-space: pre-wrap; /* Mantiene el espacio en blanco y permite saltos de línea */
+}
+
+/* Mensaje del usuario, alineado a la derecha */
+.chat-box .user-message {
+    background-color: #81D520; /* Color de fondo del mensaje del usuario */
+    color: white; /* Color del texto del mensaje del usuario */
+    align-self: flex-end; /* Alinear el mensaje del usuario a la derecha */
+    border-radius: 25px; /* Bordes redondeados más pronunciados */
+}
+
+/* Mensaje del bot, alineado a la izquierda */
+.chat-box .bot-message {
+    background-color: #f1f0f0; /* Color de fondo del mensaje del bot */
+    color: black; /* Color del texto del mensaje del bot */
+    align-self: flex-start; /* Alinear el mensaje del bot a la izquierda */
+    border-radius: 25px; /* Bordes redondeados más pronunciados */
+}
+
+/* Contenedor de entrada de texto */
+.chat-input {
+    display: flex; /* Flexbox para alinear elementos internos */
+    padding: 10px; /* Espaciado interno */
+    background-color: #f9f9f9; /* Color de fondo del contenedor de entrada */
+}
+
+/* Campo de entrada de texto */
+.chat-input input {
+    flex: 1; /* Toma el espacio restante */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #81D520; /* Borde del campo */
+    border-radius: 25px; /* Bordes redondeados */
+}
+
+/* Botón de envío */
+.chat-input button {
+    background-color: #81D520; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    width: 50px; /* Ancho del botón */
+    height: 50px; /* Alto del botón */
+    border-radius: 50%; /* Bordes redondeados (círculo) */
+    display: flex; /* Flexbox para centrar el contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    z-index: 0; /* Z-index del botón */
+    margin-left: 5px; /* Espaciado a la izquierda */
+}
+
+/* Estado deshabilitado del botón */
+.chat-input button:disabled {
+    background-color: #a9cc82; /* Color de fondo cuando está deshabilitado */
+}
+
+/* Estilo del campo de entrada de texto */
+.inputtxt {
+    background-color: #E8E8E8; /* Color de fondo del campo de entrada */
+    border: none; /* Sin borde */
+}
+
+/* Estilo del campo al recibir foco */
+.inputtxt:focus {
+    border-color: #06b300; /* Color del borde al recibir foco */
+    box-shadow: #06b300; /* Sombra al recibir foco */
+}
+
+/* Estado hover del botón */
+.chat-input button:hover {
+    background-color: #06b300; /* Color de fondo al pasar el mouse */
+}
+
+/* Estilo del texto del encabezado */
+.h2txt {
+    font-size: 1rem; /* Tamaño de fuente */
+    margin-left: 8%; /* Margen izquierdo */
+}
+
+/* Contenedor de la imagen del huevo */
+.huevo {
+    display: flex; /* Flexbox para centrar */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+
+/* Imagen del huevo */
+.huevo img {
+    width: 50px; /* Ancho de la imagen */
+    height: 50px; /* Alto de la imagen */
+}
+
+/* Scrollbar personalizado para la caja de chat */
+.chat-box::-webkit-scrollbar {
+    width: 5px; /* Ancho de la barra de desplazamiento */
+}
+
+.chat-box::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color de fondo de la pista */
+    border-radius: 10px; /* Bordes redondeados de la pista */
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background-color: #7B8637; /* Color del "thumb" */
+    border-radius: 10px; /* Bordes redondeados del "thumb" */
+}
+
+.chat-box::-webkit-scrollbar-thumb:hover {
+    background-color: #06b300; /* Color del "thumb" al pasar el mouse */
+}
+
+/* Estilo alternativo para la barra de desplazamiento en navegadores */
+.chat-box {
+    scrollbar-color: #7B8637 #f1f1f1; /* Color del "thumb" y fondo de la pista */
+    scrollbar-width: thin; /* Ancho de la barra de desplazamiento */
+    border-radius: 10px; /* Bordes redondeados de la caja de chat */
+}
+
+
+/*------------------------------------------*/
 
 
 /*------------------------------------------Sección Inicio-------------------------------------------*/
@@ -323,7 +461,6 @@ body.light-theme_i #up_screen {
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
         url(/images/huevos.jpg);
-    background-attachment: fixed;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -331,7 +468,8 @@ body.light-theme_i #up_screen {
     justify-content: center;
     align-items: center;
     position: relative;
-    /* Para posicionar la ola con respecto a este contenedor */
+    background-attachment: fixed;
+    /* Esto se mantendrá para pantallas grandes */
 }
 
 .logo-title-container,
@@ -407,7 +545,7 @@ body.light-theme_i #up_screen {
 }
 
 .text_presentation {
-    font-size: 2.2vh;
+    font-size: 1rem;
     color: #FFF;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
@@ -416,6 +554,7 @@ body.light-theme_i #up_screen {
 }
 
 .down_text {
+    font-size: .9rem;
     color: white;
     position: absolute;
     bottom: 20px;
@@ -509,10 +648,10 @@ body.light-theme_i #up_screen {
     background-color: #81D520;
     color: #ffffff;
     border: none;
-    width: 30%;
+    width: 22%;
     height: 50px;
     text-align: center;
-    font-size: 16px;
+    font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -532,57 +671,24 @@ body.light-theme_i #up_screen {
     background-color: #549b03;
 }
 
-/*vm_section_2*/
-.vm_section_2 .read-more-btn {
-    background-color: #81D520;
-    color: #ffffff;
-    border: none;
-    width: 30%;
-    height: 50px;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 0;
-
-}
-
-.vm_section_2 .read-more-btn {
-    z-index: 1;
-}
-
-.vm_section_2 .read-more-btn:hover {
-    background-color: #67bd05;
-}
-
-.vm_section_2 .read-more-btn:active {
-    background-color: #549b03;
-}
-
+.mision_title,
 .vision_title {
+    font-size: 1.4rem;
     color: #FFFF;
     font-weight: bold;
     font-family: 'Inter', sans-serif;
     /* Cambiado a 'Inter' con estilo regular */
 }
 
-.mision_title {
-    color: #FFFF;
-    font-weight: bold;
-    font-family: 'Inter', sans-serif;
-    /* Cambiado a 'Inter' con estilo regular */
-}
 
-.mision_text {
+.mision_text,
+.vision_text {
     color: #375A0E;
     font-weight: normal;
     font-size: 1.1rem;
 }
 
-.vision_text {
-    color: #375A0E;
-    font-weight: normal;
+.section_vm .hideText {
     font-size: 1.1rem;
 }
 
@@ -632,6 +738,7 @@ body.light-theme_i #up_screen {
 }
 
 .left_section h2 {
+    font-size: 2rem;
     color: #81D520;
     text-align: start;
     /* Alinea el título al inicio (izquierda) */
@@ -646,6 +753,10 @@ body.light-theme_i #up_screen {
     font-size: 1.1rem;
 }
 
+.left_section .hideText {
+    font-size: 1.1rem;
+}
+
 .left_section .read-more-btn {
     background-color: #81D520;
     color: #ffffff;
@@ -653,7 +764,7 @@ body.light-theme_i #up_screen {
     width: auto;
     height: 50px;
     text-align: center;
-    font-size: 16px;
+    font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -829,7 +940,7 @@ body.light-theme_i #up_screen {
 .tarjetas_personal .cargo_personal {
     color: #FFF;
     margin-top: 5%;
-    font-size: 15px;
+    font-size: .9rem;
     font-weight: bold;
     align-items: start;
     text-align: center;
@@ -841,11 +952,16 @@ body.light-theme_i #up_screen {
 /* Descripción del personal */
 .descr_personal {
     color: #F5FCED;
-    font-size: 13px;
+    font-size: .8rem;
     text-align: c;
     padding-left: 13px;
     padding-right: 13px;
     margin-bottom: 10px;
+}
+
+.hideText {
+    font-size: .8rem;
+    display: none;
 }
 
 /* Estilo del botón */
@@ -855,7 +971,7 @@ body.light-theme_i #up_screen {
     border-radius: 25px;
     color: white;
     padding: 5px 16px;
-    font-size: 12px;
+    font-size: .7rem;
     cursor: pointer;
     display: inline;
     /* Mostrar el botón en la misma línea */
@@ -871,9 +987,7 @@ body.light-theme_i #up_screen {
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 3.05s;
 }
 
-.hideText {
-    display: none;
-}
+
 
 .showText {
     display: inline;
@@ -903,7 +1017,7 @@ body.light-theme_i #up_screen {
 /* Texto de la ola*/
 .svg_decorations_bottom p {
     color: #ffffff;
-    font-size: 14px;
+    font-size: .9rem;
     position: absolute;
     top: 45%;
     left: 50%;
@@ -955,7 +1069,7 @@ body.light-theme_i #up_screen {
 }
 
 .titulo_testimonios {
-    font-size: 60px;
+    font-size: 3.8rem;
     font-weight: 600;
     text-align: center;
     color: #ffffff;
@@ -991,7 +1105,7 @@ section.section_testimonials p.texto_test span.nk {
     background-color: #F5FCED;
     border-radius: 10px;
     padding: 20px;
-    z-index: 1;
+    z-index: 2;
     align-items: center;
     text-align: start;
 }
@@ -1011,12 +1125,13 @@ section.section_testimonials p.texto_test span.nk {
 }
 
 .nombre {
+    font-size: 1rem;
     color: #4D8013;
     font-weight: 700;
 }
 
 .testimonio {
-    font-size: 15px;
+    font-size: .9rem;
     color: #375A0E;
 }
 
@@ -1036,7 +1151,7 @@ section.section_testimonials p.texto_test span.nk {
 
 .test_decorations_bottom p {
     color: #375A0E;
-    font-size: 14px;
+    font-size: .9rem;
     position: absolute;
     top: 65%;
     left: 50%;
@@ -1071,7 +1186,7 @@ section.section_testimonials p.texto_test span.nk {
 /*Titulo Ubi*/
 .titulo_Ubicacion {
     color: #A4E658;
-    font-size: 60px;
+    font-size: 3.8rem;
     font-weight: 600;
     text-align: center;
     z-index: 1;
@@ -1080,14 +1195,14 @@ section.section_testimonials p.texto_test span.nk {
 
 /*Texto descriptivo*/
 .desc_text {
-    font-size: 18px;
+    font-size: 1.1rem;
     text-align: center;
     padding: 0 9% 0 9%;
 }
 
 /* Aviso legal */
 .aviso_legal {
-    font-size: 13px;
+    font-size: .8rem;
     text-align: center;
     width: 100%;
     color: #000000;
@@ -1105,28 +1220,51 @@ section.section_testimonials p.texto_test span.nk {
     height: 635px;
 }
 
-/*-------------------------------------Seccion test-------------------------------------*/
-
 
 /*--------------------------------------------Media Query---------------------------------------------*/
-/* Pantallas pequeñas (móviles) */
+@supports (-webkit-touch-callout: none) {
+    .section_main {
+        background-attachment: scroll;
+        /* Aplicar esta solución específicamente para iOS */
+    }
+}
+
+
+/* Pantallas pequeñas (móviles Listo) */
 @media screen and (max-width: 767px) {
+
 
     /*Elementos flotantes*/
 
     .shop {
         height: 9.5%;
-
     }
 
     .icon_help {
-        bottom: 10%;
-        right: 5.3%;
+        bottom: 10vh;
+        right: 3vw;
     }
 
     .up {
-        bottom: 2%;
-        right: 2%;
+        bottom: 1.8vh;
+        right: 1.2vw;
+    }
+
+    .chat-container {
+        width: 75%; /* Ancho del contenedor en pantallas pequeñas */
+        max-width: 350px; /* Máximo ancho para que no se expanda demasiado */
+    }
+    .chat-header {
+        font-size: 1.2rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+    }
+    .chat-input input {
+        padding: 8px; /* Reducir el espaciado interno */
+        width: 10px;
+    }
+    .chat-input button {
+        width: 40px; /* Reducir ancho del botón */
+        height: 40px; /* Reducir alto del botón */
+        font-size: 1rem; /* Tamaño de fuente más pequeño */
     }
 
     /*----------------------------------------Elements Header----------------------------------------*/
@@ -1139,7 +1277,7 @@ section.section_testimonials p.texto_test span.nk {
         right: 0;
         align-items: center;
     }
-    
+
     .header .title_mobile {
         font-family: 'Times New Roman', Times, serif;
         font-size: 1.8rem;
@@ -1150,7 +1288,7 @@ section.section_testimonials p.texto_test span.nk {
         margin: 0;
         padding: 0;
     }
-    
+
     /*Oculta la imagen*/
     .logo_img {
         display: none;
@@ -1176,27 +1314,35 @@ section.section_testimonials p.texto_test span.nk {
     }
 
     .buttons_menu {
-            display: flex;          /* Usar flexbox para organizar los hijos */
-            gap: 1vh;              /* Espacio entre los elementos hijos (botones) */
-            margin-left: auto;     /* Empuja el menú hacia la derecha */
-            padding: 0 0vh 0 0;
-            z-index: 100;
+        display: flex;
+        /* Usar flexbox para organizar los hijos */
+        gap: 1vh;
+        /* Espacio entre los elementos hijos (botones) */
+        margin-left: auto;
+        /* Empuja el menú hacia la derecha */
+        padding: 0 0vh 0 0;
+        z-index: 100;
     }
 
-/* Estilos específicos para el botón de car */
-.button_car svg {
-    width: 3.7vh; /* Asegúrate de usar unidades */
-    height: auto; /* Mantiene la relación de aspecto */
-    cursor: pointer;
-}
+    /* Estilos específicos para el botón de car */
+    .button_car svg {
+        width: 3.7vh;
+        /* Asegúrate de usar unidades */
+        height: auto;
+        /* Mantiene la relación de aspecto */
+        cursor: pointer;
+    }
 
-/* Estilos específicos para el botón de pollo */
-.button_chicken svg {
-    width: 2.7vh; /* Ocupa el 100% del contenedor */
-    height: auto; /* Mantiene la relación de aspecto */
-    margin: 0 0 0 2vw; /* Margen específico */
-    cursor: pointer;
-}
+    /* Estilos específicos para el botón de pollo */
+    .button_chicken svg {
+        width: 2.7vh;
+        /* Ocupa el 100% del contenedor */
+        height: auto;
+        /* Mantiene la relación de aspecto */
+        margin: 0 0 0 2vw;
+        /* Margen específico */
+        cursor: pointer;
+    }
 
 
     /*Oculta el boton*/
@@ -1261,12 +1407,12 @@ section.section_testimonials p.texto_test span.nk {
     }
 
     .logo-title-container1 .text_presentation {
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin: 2vh 5vh 0 5vh;
     }
 
     .down_text {
-        font-size: .8rem;
+        font-size: .7rem;
         bottom: 1%;
     }
 
@@ -1471,6 +1617,11 @@ section.section_testimonials p.texto_test span.nk {
         padding: 0;
     }
 
+    .informacion_persona .nombre {
+        font-size: .9rem;
+    }
+
+
     .contenedor_testimonios {
         display: flex;
         justify-content: center;
@@ -1485,7 +1636,7 @@ section.section_testimonials p.texto_test span.nk {
         width: 80%;
         height: 70%;
         margin: 1vh;
-        padding: 3.1%;
+        padding: 3.5%;
     }
 
     .testimonio {
@@ -1493,12 +1644,501 @@ section.section_testimonials p.texto_test span.nk {
         margin-bottom: .3vh;
     }
 
-    .informacion_persona .nombre {
+
+    .test_decorations_bottom p {
+        white-space: nowrap;
+        /* Evita que el texto se divida en varios renglones */
+    }
+
+    /*----------------------------------------section_location----------------------------------------*/
+    .section_location {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        height: auto;
+        gap: 0;
+    }
+
+    .texto_ubicacion {
+        width: 100%;
+        /* Asegura que el contenedor ocupe todo el ancho disponible */
+        padding: 0;
+        /* Elimina relleno */
+        text-align: center;
+        /* Centra el texto */
+        align-items: center;
+    }
+
+    .titulo_Ubicacion {
+        margin: 5vh 0 1vh 0;
+        font-size: 2.5rem;
+    }
+
+    .desc_text {
         font-size: .9rem;
+        width: 100%;
+        /* El ancho del párrafo será el 100% del contenedor */
+        margin: 0;
+        padding: 0 5vh 1.6vh 5vh;
+
+    }
+
+    .aviso_legal {
+        line-height: 1;
+        /* Ajusta la altura de línea para evitar espacios adicionales */
+
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        /* Centra el texto dentro del párrafo */
+        top: 63vh;
+        font-size: .6rem;
+        white-space: nowrap;
+        overflow: visible;
+
+        /* Evita que el texto se divida en varios renglones */
+    }
+
+
+
+    .map_ubicacion {
+        display: flex;
+        /* Asegúrate de que sea un contenedor flex */
+        justify-content: center;
+        /* Centra el contenido horizontalmente */
+        width: 100%;
+        /* Que ocupe todo el ancho del contenedor */
+        /* Añade un pequeño padding */
+    }
+
+    .google_map {
+        width: 90vw;
+        /* Ancho relativo al viewport para que no se desborde */
+        height: 60vh;
+        /* Ajusta la altura en relación al viewport */
+        max-width: 100%;
+        /* Asegura que no se sobrepase del contenedor */
+        margin-bottom: 4vh;
+    }
+
+}
+
+/* Entre móviles grandes y tabletas pequeñas (Listo) */
+@media screen and (min-width: 768px) and (max-width: 899px) {
+    /*Elementos flotantes*/
+
+    .shop {
+        height: 10%;
+    }
+
+    .icon_help {
+        bottom: 9vh;
+        right: 3vw;
+    }
+
+    .up {
+        bottom: 1.8vh;
+        right: 2vw;
+    }
+
+    /*----------------------------------------Elements Header----------------------------------------*/
+    .header {
+        height: 9%;
+        width: 100%;
+        background-color: #e1f7c8;
+        top: 0;
+        left: 0;
+        right: 0;
+        align-items: center;
+    }
+
+    .header .title_mobile {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 2.2rem;
+        color: #67bd05;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        margin: 0;
+        padding: 0;
+    }
+
+    /*Oculta la imagen*/
+    .logo_img {
+        display: none;
+    }
+
+    .hamburguer-menu {
+        color: #81D520;
+        position: absolute;
+        left: 4vh;
+        /* Coloca el ícono del menú hamburguesa a la derecha */
+        z-index: 1000;
+        /* Asegura que esté por encima de otros elementos */
+        font-size: 2.4rem;
+        /* Aumenta el tamaño de fuente si es un texto o símbolo */
+        cursor: pointer;
+    }
+
+    .hamburguer-menu:hover {
+        color: #67bd05;
+        transform: translateX(10px);
+        /* Desplaza 10px a la derecha */
+
+    }
+
+    .buttons_menu {
+        display: flex;
+        /* Usar flexbox para organizar los hijos */
+        gap: 1vh;
+        /* Espacio entre los elementos hijos (botones) */
+        margin-left: auto;
+        /* Empuja el menú hacia la derecha */
+        padding: 0 1vh 0 0;
+        z-index: 100;
+    }
+
+    /* Estilos específicos para el botón de car */
+    .button_car svg {
+        width: 4vh;
+        /* Asegúrate de usar unidades */
+        height: auto;
+        /* Mantiene la relación de aspecto */
+        cursor: pointer;
+    }
+
+    /* Estilos específicos para el botón de pollo */
+    .button_chicken svg {
+        width: 3vh;
+        /* Ocupa el 100% del contenedor */
+        height: auto;
+        /* Mantiene la relación de aspecto */
+        margin: 0 0 0 2vw;
+        /* Margen específico */
+        cursor: pointer;
+    }
+
+
+    /*Oculta el boton*/
+    .enter_button {
+        display: none;
+    }
+
+    /* Navegación oculta por defecto en móviles */
+    .navigation {
+        background-color: #e2efd3;
+        color: #375A0E;
+        display: flex;
+        /* Cambiar a flex para poder aplicar la animación */
+        flex-direction: column;
+        /* Apila los elementos en columna */
+        position: absolute;
+        /* Hace que aparezca debajo del botón de menú */
+        top: 100%;
+        margin: 0;
+        /* Ajusta la distancia desde la parte superior según sea necesario */
+        width: 100%;
+        /* Ocupa el ancho completo */
+        transform: translateY(-20px);
+        /* Mueve el menú hacia arriba inicialmente */
+        opacity: 0;
+        /* Inicialmente invisible */
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        /* Animaciones de transformación y opacidad */
+        padding: 1vh;
+    }
+
+    /* Cuando se activa, se muestra */
+    .navigation.active {
+        transform: translateY(0);
+        /* Restablece la posición */
+        opacity: 1;
+        /* Haz visible el menú */
+        display: flex;
+        /* Cambia a flex para el diseño en columna */
+    }
+
+    /* Estilo de los enlaces para que aparezcan en lista */
+    .navigation a {
+        font-size: 1.2rem;
+        display: block;
+        color: #77a345;
+        margin-left: 7vh;
+        padding: 1vh;
+    }
+
+    /*----------------------------------------section_main----------------------------------------*/
+    .section_main {
+        height: 100vh;
+    }
+
+    .title_log .title {
+        font-size: 3.2rem;
+    }
+
+    .logo-title-container1 .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .logo-title-container1 .text_presentation {
+        font-size: 1.3rem;
+        margin: 2vh 5vh 0 5vh;
+    }
+
+    .down_text {
+        font-size: 1rem;
+        bottom: 1%;
+    }
+
+    /*----------------------------------------Section_Vm----------------------------------------*/
+    /* Estilo para la versión móvil */
+    .section_vm {
+        display: flex;
+        flex-direction: column;
+        /* Mantiene la alineación en columna */
+        align-items: center;
+        /* Centra los elementos horizontalmente */
+        text-align: center;
+        /* Centra el texto */
+        padding: 4vh 5vw;
+        /* Espacio interior ajustado en vh y vw para responsividad */
+        height: auto;
+    }
+
+    .img_vm {
+        height: 30vh;
+        margin: 0;
+    }
+
+    .vm_section_1 {
+        padding-bottom: 1.8vh;
+        /* Agregar algo de padding para que el contenido no esté pegado a los bordes */
+    }
+
+    .vm_section_1 .read-more-btn {
+        background-color: #81D520;
+        color: #ffffff;
+        border: none;
+        width: 20%;
+        height: 4vh;
+        text-align: center;
+        font-size: .9rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin: 0;
+    }
+
+    /*----------------------------------------section_history----------------------------------------*/
+    .container_table {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* Centra el contenido horizontalmente */
+        text-align: center;
+        /* Centra el texto dentro del div */
+        height: auto;
+    }
+
+    .left_section {
+        width: 97%;
+        margin: 0;
+        padding: 0vh;
+        justify-content: center;
+        text-align: justify;
+    }
+
+    .left_section p {
+        margin: 0 0vh 0vh 0;
+    }
+
+    .left_section .read-more-btn {
+        margin: 2vh 0 2vh 0;
+        width: 20%;
+        height: 4vh;
+
+        font-size: .9rem;
+
+    }
+
+    .slider-frame {
+        width: 85vw;
+        /* Ajusta el ancho al 80% del viewport */
+        margin: 0;
+        /* Centra el contenedor horizontalmente */
+        overflow: hidden;
+        /* Oculta cualquier desbordamiento */
+        background-color: #000;
+        position: relative;
+        /* Necesario para mantener el tamaño de las imágenes */
+        padding-top: 100%;
+        /* Mantiene la relación de aspecto cuadrada (100% de ancho) */
+    }
+
+    .slider-frame ul {
+        display: flex;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        position: absolute;
+        /* Posiciona el ul dentro del contenedor */
+        top: 0;
+        /* Ajusta el ul al inicio del contenedor */
+        left: 0;
+        /* Alinea el ul a la izquierda del contenedor */
+    }
+
+    .slider-frame li {
+        flex: 1 0 100%;
+        /* Cada `li` ocupa el 100% del ancho del contenedor */
+    }
+
+    .slider-frame img {
+        width: 100%;
+        /* Ajusta la imagen al 100% del ancho del contenedor */
+        height: 100%;
+        /* Asegura que la imagen ocupe todo el contenedor */
+        object-fit: cover;
+        /* Recorta la imagen para llenar el contenedor cuadrado */
+        border-radius: 5px;
+    }
+
+    /*----------------------------------------section_personal----------------------------------------*/
+    .section_personal {
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container_personal {
+        height: auto;
+        width: 100%;
+        padding: 20vh 7vh 20vh 7vh;
+        overflow: hidden;
+        /* Evita que el contenido desborde */
+        box-sizing: border-box;
+        /* Asegura que el padding no cause desbordamiento */
+        word-wrap: break-word;
+        /* Ajusta palabras largas */
+        word-break: break-word;
+        /* Rompe palabras largas para evitar desbordamiento */
+    }
+
+    .tarjetas_personal .read-more-btn {
+        align-items: center;
+    }
+
+    .tarjetas_personal .cargo_personal {
+        font-size: 1.1rem;
+    }
+
+    .tarjetas_personal .descr_personal {
+        font-size: 1rem;
+        margin-left: 2vh;
+    }
+
+    .tarjetas_personal .hideText {
+        font-size: 1rem;
+    }
+
+    .read-more-btn {
+        font-size: .9rem;
+        display: block;
+        margin: 0 auto;
+        /* Centra el botón horizontalmente */
+    }
+
+    .svg_decorations_top {
+        margin: 0;
+        padding: 0;
+    }
+
+    .svg_decorations_bottom {
+        display: flex;
+        flex-direction: column;
+        /* Organiza los elementos en una columna */
+        align-items: center;
+        /* Centra los elementos horizontalmente */
+        justify-content: center;
+        /* Centra los elementos verticalmente si hay espacio disponible */
+        margin: 0;
+        padding: 0;
+    }
+
+    .svg_decorations_bottom p {
+        font-size: .9rem;
+        white-space: nowrap;
+        /* Evita que el texto se divida en varios renglones */
+        text-align: center;
+        margin-top: .2vh;
+    }
+
+    .center_redes {
+        height: auto;
+        margin-top: 2vh;
+    }
+
+    /*----------------------------------------section_testimonios----------------------------------------*/
+    .section_testimonials {
+        height: auto;
+        width: 100%;
+    }
+
+    .contenedor_testimonios {
+
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        margin-bottom: 12vh;
+    }
+
+    .titulo_testimonios {
+        margin: 9vh 0 0 0;
+
+        font-size: 2.8rem;
+    }
+
+    .texto_test {
+        font-size: 1.1rem;
+        width: 80%;
+        margin: 1vh 0 1vh 0;
+        padding: 0;
+    }
+
+    .contenedor_testimonios {
+        display: flex;
+        justify-content: center;
+        /* Centra horizontalmente */
+        align-items: center;
+        /* Centra verticalmente */
+        flex-direction: column;
+        /* Alinea los elementos en columna si es necesario */
+    }
+
+    .tarjeta_testimonios {
+        width: 80%;
+        height: 70%;
+        margin: 1vh;
+        padding: 4%;
+    }
+
+    .informacion_persona .nombre {
+        font-size: 1.03rem;
+    }
+
+    .testimonio {
+        font-size: 1.02rem;
+        margin-bottom: .3vh;
     }
 
     .test_decorations_bottom p {
         white-space: nowrap;
+        font-size: 1rem;
         /* Evita que el texto se divida en varios renglones */
 
     }
@@ -1523,13 +2163,14 @@ section.section_testimonials p.texto_test span.nk {
         align-items: center;
     }
 
-    .titulo_Ubicacion {
-        margin-top: 2vh;
+    .texto_ubicacion .titulo_Ubicacion {
+        margin-top: 4vh;
         margin-bottom: 2vh;
+        font-size: 2.8rem;
     }
 
     .desc_text {
-        font-size: .9rem;
+        font-size: 1rem;
         width: 100%;
         /* El ancho del párrafo será el 100% del contenedor */
         margin: 0;
@@ -1546,16 +2187,12 @@ section.section_testimonials p.texto_test span.nk {
         padding: 0;
         text-align: center;
         /* Centra el texto dentro del párrafo */
-        top: 63vh;
+        top: 68vh;
         font-size: .7rem;
         white-space: nowrap;
         /* Evita que el texto se divida en varios renglones */
     }
 
-    .titulo_Ubicacion {
-        margin: 5vh 0 0vh 0;
-        font-size: 2.5rem;
-    }
 
     .map_ubicacion {
         display: flex;
@@ -1570,7 +2207,529 @@ section.section_testimonials p.texto_test span.nk {
     .google_map {
         width: 90vw;
         /* Ancho relativo al viewport para que no se desborde */
-        height: 60vh;
+        height: 65vh;
+        /* Ajusta la altura en relación al viewport */
+        max-width: 100%;
+        /* Asegura que no se sobrepase del contenedor */
+        margin-bottom: 4vh;
+    }
+
+}/* Estilos para tabletas pequeñas y móviles grandes */
+
+/* Tablets o pantallas grandes (Listo) */
+@media screen and (min-width: 900px) and (max-width: 1023px) {
+    /*Elementos flotantes*/
+
+    .shop {
+        height: 11%;
+        width: 14vh;
+    }
+
+    .icon_help {
+        bottom: 10%;
+        right: 4vw;
+        width: auto;
+        height: 5.2vh;
+    }
+
+    .up {
+        height: auto;
+        width: 7.8vh;
+        right: 1.8vw;
+    }
+
+    /*----------------------------------------Elements Header----------------------------------------*/
+    .header {
+        height: 9%;
+        width: 100%;
+        background-color: #e1f7c8;
+        top: 0;
+        left: 0;
+        right: 0;
+        align-items: center;
+    }
+
+    .header .title_mobile {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 2.5rem;
+        color: #67bd05;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        margin: 0;
+        padding: 0;
+    }
+
+    /*Oculta la imagen*/
+    .logo_img {
+        display: none;
+    }
+
+    .hamburguer-menu {
+        color: #81D520;
+        position: absolute;
+        left: 4vh;
+        /* Coloca el ícono del menú hamburguesa a la derecha */
+        z-index: 1000;
+        /* Asegura que esté por encima de otros elementos */
+        font-size: 2.4rem;
+        /* Aumenta el tamaño de fuente si es un texto o símbolo */
+        cursor: pointer;
+    }
+
+    .hamburguer-menu:hover {
+        color: #67bd05;
+        transform: translateX(10px);
+        /* Desplaza 10px a la derecha */
+
+    }
+
+    .buttons_menu {
+        display: flex;
+        /* Usar flexbox para organizar los hijos */
+        gap: 1vh;
+        /* Espacio entre los elementos hijos (botones) */
+        margin-left: auto;
+        /* Empuja el menú hacia la derecha */
+        padding: 0 1vh 0 0;
+        z-index: 100;
+    }
+
+    /* Estilos específicos para el botón de car */
+    .button_car svg {
+        width: 4vh;
+        /* Asegúrate de usar unidades */
+        height: auto;
+        /* Mantiene la relación de aspecto */
+        cursor: pointer;
+    }
+
+    /* Estilos específicos para el botón de pollo */
+    .button_chicken svg {
+        width: 3vh;
+        /* Ocupa el 100% del contenedor */
+        height: auto;
+        /* Mantiene la relación de aspecto */
+        margin: 0 0 0 2vw;
+        /* Margen específico */
+        cursor: pointer;
+    }
+
+
+    /*Oculta el boton*/
+    .enter_button {
+        display: none;
+    }
+
+    /* Navegación oculta por defecto en móviles */
+    .navigation {
+        background-color: #e2efd3;
+        color: #375A0E;
+        display: flex;
+        /* Cambiar a flex para poder aplicar la animación */
+        flex-direction: column;
+        /* Apila los elementos en columna */
+        position: absolute;
+        /* Hace que aparezca debajo del botón de menú */
+        top: 100%;
+        margin: 0;
+        /* Ajusta la distancia desde la parte superior según sea necesario */
+        width: 100%;
+        /* Ocupa el ancho completo */
+        transform: translateY(-20px);
+        /* Mueve el menú hacia arriba inicialmente */
+        opacity: 0;
+        /* Inicialmente invisible */
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        /* Animaciones de transformación y opacidad */
+        padding: 1vh;
+    }
+
+    /* Cuando se activa, se muestra */
+    .navigation.active {
+        transform: translateY(0);
+        /* Restablece la posición */
+        opacity: 1;
+        /* Haz visible el menú */
+        display: flex;
+        /* Cambia a flex para el diseño en columna */
+    }
+
+    /* Estilo de los enlaces para que aparezcan en lista */
+    .navigation a {
+        font-size: 1.2rem;
+        display: block;
+        color: #77a345;
+        margin-left: 7vh;
+        padding: 1vh;
+    }
+
+    /*----------------------------------------section_main----------------------------------------*/
+    .section_main {
+        height: 100vh;
+    }
+
+    .title_log .title {
+        font-size: 4rem;
+    }
+
+    .logo-title-container1 .subtitle {
+        font-size: 1.5rem;
+    }
+
+    .logo-title-container1 .text_presentation {
+        font-size: 1.5rem;
+        margin: 2vh 5vh 0 5vh;
+    }
+
+    .down_text {
+        font-size: 1.2rem;
+        bottom: 1%;
+    }
+
+    /*----------------------------------------Section_Vm----------------------------------------*/
+    /* Estilo para la versión móvil */
+    .section_vm {
+        display: flex;
+        flex-direction: column;
+        /* Mantiene la alineación en columna */
+        align-items: center;
+        /* Centra los elementos horizontalmente */
+        text-align: center;
+        /* Centra el texto */
+        padding: 4vh 5vw;
+        /* Espacio interior ajustado en vh y vw para responsividad */
+        height: auto;
+    }
+
+    .img_vm {
+        height: 30vh;
+        margin: 0;
+    }
+
+    .vm_section_1 {
+        padding-bottom: 1.8vh;
+        /* Agregar algo de padding para que el contenido no esté pegado a los bordes */
+    }
+
+    .mision_title,
+    .vision_title {
+        font-size: 1.5rem;
+    }
+
+    .mision_text,
+    .vision_text {
+        font-size: 1.3rem;
+    }
+
+    .text_container .hideText {
+        font-size: 1.3rem;
+    }
+
+    .vm_section_1 .read-more-btn {
+        background-color: #81D520;
+        color: #ffffff;
+        border: none;
+        width: 20%;
+        height: 4vh;
+        text-align: center;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin: 0;
+    }
+
+    /*----------------------------------------section_history----------------------------------------*/
+    .container_table {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* Centra el contenido horizontalmente */
+        text-align: center;
+        /* Centra el texto dentro del div */
+        height: auto;
+    }
+
+    .left_section {
+        width: 97%;
+        margin: 0;
+        padding: 0vh;
+        justify-content: center;
+        text-align: justify;
+    }
+
+    .left_section h2 {
+        margin-top: 4vh;
+        font-size: 2.5rem;
+    }
+
+    .left_section p {
+        font-size: 1.3rem;
+        margin: 0 0vh 0vh 0;
+    }
+
+    .left_section .hideText {
+        font-size: 1.3rem;
+    }
+
+    .left_section .read-more-btn {
+        margin: 2vh 0 2vh 0;
+        width: 20%;
+        height: 4vh;
+        font-size: 1rem;
+    }
+
+    .slider-frame {
+        width: 85vw;
+        /* Ajusta el ancho al 80% del viewport */
+        margin: 0;
+        /* Centra el contenedor horizontalmente */
+        overflow: hidden;
+        /* Oculta cualquier desbordamiento */
+        background-color: #000;
+        position: relative;
+        /* Necesario para mantener el tamaño de las imágenes */
+        padding-top: 100%;
+        /* Mantiene la relación de aspecto cuadrada (100% de ancho) */
+    }
+
+    .slider-frame ul {
+        display: flex;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        position: absolute;
+        /* Posiciona el ul dentro del contenedor */
+        top: 0;
+        /* Ajusta el ul al inicio del contenedor */
+        left: 0;
+        /* Alinea el ul a la izquierda del contenedor */
+    }
+
+    .slider-frame li {
+        flex: 1 0 100%;
+        /* Cada `li` ocupa el 100% del ancho del contenedor */
+    }
+
+    .slider-frame img {
+        width: 100%;
+        /* Ajusta la imagen al 100% del ancho del contenedor */
+        height: 100%;
+        /* Asegura que la imagen ocupe todo el contenedor */
+        object-fit: cover;
+        /* Recorta la imagen para llenar el contenedor cuadrado */
+        border-radius: 5px;
+    }
+
+    /*----------------------------------------section_personal----------------------------------------*/
+    .section_personal {
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    .tarjetas_personal {
+        height: 50vh;
+        width: auto;
+    }
+
+    .container_personal {
+        height: auto;
+        width: 100%;
+        padding: 20vh 7vh 20vh 7vh;
+        overflow: hidden;
+        /* Evita que el contenido desborde */
+        box-sizing: border-box;
+        /* Asegura que el padding no cause desbordamiento */
+        word-wrap: break-word;
+        /* Ajusta palabras largas */
+        word-break: break-word;
+        /* Rompe palabras largas para evitar desbordamiento */
+    }
+
+    .tarjetas_personal .read-more-btn {
+        align-items: center;
+    }
+
+    .tarjetas_personal .cargo_personal {
+        font-size: 1.2rem;
+    }
+
+    .tarjetas_personal .descr_personal {
+        font-size: 1.1rem;
+        margin-left: 2vh;
+    }
+
+    .tarjetas_personal .hideText {
+        font-size: 1.1rem;
+    }
+
+    .read-more-btn {
+        font-size: .99rem;
+        display: block;
+        margin: 0 auto;
+        /* Centra el botón horizontalmente */
+    }
+
+    .svg_decorations_top {
+        margin: 0;
+        padding: 0;
+    }
+
+    .svg_decorations_bottom {
+        display: flex;
+        flex-direction: column;
+        /* Organiza los elementos en una columna */
+        align-items: center;
+        /* Centra los elementos horizontalmente */
+        justify-content: center;
+        /* Centra los elementos verticalmente si hay espacio disponible */
+        margin: 0;
+        padding: 0;
+    }
+
+    .svg_decorations_bottom p {
+        font-size: 1rem;
+        white-space: nowrap;
+        /* Evita que el texto se divida en varios renglones */
+        text-align: center;
+        margin-top: .2vh;
+    }
+
+    .center_redes {
+        width: 17rem;
+        height: auto;
+        margin-top: 2vh;
+    }
+
+    /*----------------------------------------section_testimonios----------------------------------------*/
+    .section_testimonials {
+        height: auto;
+        width: 100%;
+    }
+
+    .contenedor_testimonios {
+
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        margin-bottom: 12vh;
+    }
+
+    .titulo_testimonios {
+        margin: 9vh 0 0 0;
+        font-size: 3rem;
+    }
+
+    .texto_test {
+        font-size: 1.3rem;
+        width: 80%;
+        margin: 1vh 0 1vh 0;
+        padding: 0;
+    }
+
+    .contenedor_testimonios {
+        display: flex;
+        justify-content: center;
+        /* Centra horizontalmente */
+        align-items: center;
+        /* Centra verticalmente */
+        flex-direction: column;
+        /* Alinea los elementos en columna si es necesario */
+    }
+
+    .tarjeta_testimonios {
+        width: 80%;
+        height: 70%;
+        margin: 1vh;
+        padding: 4%;
+    }
+
+    .informacion_persona .nombre {
+        font-size: 1.2rem;
+    }
+
+    .testimonio {
+        font-size: 1.1rem;
+        margin-bottom: .3vh;
+    }
+
+    .test_decorations_bottom p {
+        white-space: nowrap;
+        font-size: 1.1rem;
+        /* Evita que el texto se divida en varios renglones */
+
+    }
+
+    /*----------------------------------------section_location----------------------------------------*/
+    .section_location {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        height: auto;
+        gap: 0;
+    }
+
+    .texto_ubicacion {
+        width: 100%;
+        /* Asegura que el contenedor ocupe todo el ancho disponible */
+        padding: 0;
+        /* Elimina relleno */
+        text-align: center;
+        /* Centra el texto */
+        align-items: center;
+    }
+
+    .texto_ubicacion .titulo_Ubicacion {
+        margin-top: 4vh;
+        margin-bottom: 2vh;
+        font-size: 3rem;
+    }
+
+    .desc_text {
+        font-size: 1.3rem;
+        width: 100%;
+        /* El ancho del párrafo será el 100% del contenedor */
+        margin: 0;
+        padding: 0 5vh 1.6vh 5vh;
+
+    }
+
+    .aviso_legal {
+        line-height: 1;
+        /* Ajusta la altura de línea para evitar espacios adicionales */
+
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        /* Centra el texto dentro del párrafo */
+        top: 68vh;
+        font-size: .9rem;
+        white-space: nowrap;
+        /* Evita que el texto se divida en varios renglones */
+    }
+
+
+    .map_ubicacion {
+        display: flex;
+        /* Asegúrate de que sea un contenedor flex */
+        justify-content: center;
+        /* Centra el contenido horizontalmente */
+        width: 100%;
+        /* Que ocupe todo el ancho del contenedor */
+        /* Añade un pequeño padding */
+    }
+
+    .google_map {
+        width: 90vw;
+        /* Ancho relativo al viewport para que no se desborde */
+        height: 65vh;
         /* Ajusta la altura en relación al viewport */
         max-width: 100%;
         /* Asegura que no se sobrepase del contenedor */
@@ -1579,14 +2738,363 @@ section.section_testimonials p.texto_test span.nk {
 
 }
 
-/* Tablets o pantallas medianas (como en el rango de 768px a 1023px) */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-    /* Estilos para tablets */
+/* Pantallas (Laptops X Peques) (process) */
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+    /*--------------------Header y elementos-----------------------*/
+
+    
+    .chat-container {
+        width: 75%; /* Ancho del contenedor en pantallas pequeñas */
+        max-width: 350px; /* Máximo ancho para que no se expanda demasiado */
+    }
+    .chat-header {
+        font-size: 1.2rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+    }
+    .chat-input input {
+        padding: 8px; /* Reducir el espaciado interno */
+        width: 10px;
+    }
+    .chat-input button {
+        width: 40px; /* Reducir ancho del botón */
+        height: 40px; /* Reducir alto del botón */
+        font-size: 1rem; /* Tamaño de fuente más pequeño */
+    }
+
+    /*Ocultar elementos*/
+    header h1 {
+        display: none;
+    }
+
+    .hamburguer-menu {
+        display: none;
+        cursor: pointer;
+    }
+
+    /*Ocultar elementos*/
+
+    /*Logo navegacion*/
+    .logo_img {
+        width: 55px;
+        height: 55px;
+    }
+
+    /*Navegacion botones*/
+    .button_chicken svg {
+        margin-left: 2vh;
+        /* Espaciado mayor entre los iconos */
+        margin-right: 1vh;
+        width: auto;
+        height: 5vh;
+    }
+
+    .button_car svg {
+        margin-left: 2vh;
+        /* Espaciado mayor entre los iconos */
+        margin-right: 1vh;
+        height: 5vh;
+        width: auto;
+    }
+
+    /*Ocultar hamburguesa*/
+    .hamburguer-button {
+        /*Oculta el menu*/
+        display: none;
+    }
+
+    /*Boton enter*/
+    .buttons_menu .enter_button {
+        font-size: 17px;
+        /* Tamaño del texto */
+        cursor: pointer;
+        /* Cambia el cursor cuando pases sobre el botón */
+        border-radius: 5px;
+        /* Bordes redondeados */
+        height: 6vh;
+        width: 9vw;
+    }
+
+    /*logo central*/
+    .logo-title-container .logo {
+        width: 15vh;
+        /* Asegúrate de que esto esté bien posicionado */
+        height: 15vh;
+    }
+
+    .header{
+        height: 15vh;
+    }
+
+    /*--------------------Elementos Main-----------------------*/
+ 
+    /*--------------------Elementos VM-----------------------*/
+    .section_vm{
+        height: 100%;
+    }
+    .vm_section_1 .read-more-btn {
+        background-color: #81D520;
+        color: #ffffff;
+        border: none;
+        width: 40%;
+        height: 7vh;
+        text-align: center;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0;
+    }
+
+    /*--------------------Elementos History-----------------------*/
+    .left_section .read-more-btn {
+        background-color: #81D520;
+        color: #ffffff;
+        border: none;
+        width: 40%;
+        height: 7vh;
+        text-align: center;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0;
+    }
+
+    /*----------------------------------------section_personal----------------------------------------*/
+
+    .section_personal{
+        height: 130vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .svg_decorations_top{
+        top: 0;
+    }
+
+    .container_personal {
+        height: auto;
+        width: 100%;
+    }
+    /*----------------------------------------section_testimonials----------------------------------------*/
+    .section_testimonials {
+        height: 130vh;
+    }
+
+
+    /*----------------------------------------section_location----------------------------------------*/
+    .section_location {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        gap: 0;
+    }
+
+    .texto_ubicacion {
+        width: 100%;
+        /* Asegura que el contenedor ocupe todo el ancho disponible */
+        padding: 0;
+        /* Elimina relleno */
+        text-align: center;
+        /* Centra el texto */
+        align-items: center;
+    }
+
+    .texto_ubicacion .titulo_Ubicacion {
+        margin-top: 4vh;
+        margin-bottom: 2vh;
+        font-size: 2.8rem;
+    }
+
+    .desc_text {
+        font-size: 1rem;
+        width: 100%;
+        /* El ancho del párrafo será el 100% del contenedor */
+        margin: 0;
+        padding: 0 5vh 1.6vh 5vh;
+
+    }
+
+    .aviso_legal {
+        line-height: 1;
+        /* Ajusta la altura de línea para evitar espacios adicionales */
+
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        /* Centra el texto dentro del párrafo */
+        top: 68vh;
+        font-size: .7rem;
+        white-space: nowrap;
+        /* Evita que el texto se divida en varios renglones */
+    }
+
+
+    .map_ubicacion {
+        display: flex;
+        /* Asegúrate de que sea un contenedor flex */
+        justify-content: center;
+        /* Centra el contenido horizontalmente */
+        width: 100%;
+        /* Que ocupe todo el ancho del contenedor */
+        /* Añade un pequeño padding */
+    }
+
+    .google_map {
+        width: 90vw;
+        /* Ancho relativo al viewport para que no se desborde */
+        height: 65vh;
+        /* Ajusta la altura en relación al viewport */
+        max-width: 100%;
+        /* Asegura que no se sobrepase del contenedor */
+        margin-bottom: 4vh;
+    }
+    
+
+
+
 }
 
-/* Pantallas (desktop) */
-@media screen and (min-width: 1024px) and (max-width: 1919px) {
+/* Pantallas (Laptops Peques) (Listo) */
+@media screen and (min-width: 1201px) and (max-width: 1439px) {
+    /*--------------------Header y elementos-----------------------*/
+    .chat-container {
+        width: 75%; /* Ancho del contenedor en pantallas pequeñas */
+        max-width: 350px; /* Máximo ancho para que no se expanda demasiado */
+    }
+    .chat-header {
+        font-size: 1.2rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+    }
+    .chat-input input {
+        padding: 8px; /* Reducir el espaciado interno */
+        width: 50px;
+    }
+    .chat-input button {
+        width: 40px; /* Reducir ancho del botón */
+        height: 40px; /* Reducir alto del botón */
+        font-size: 1rem; /* Tamaño de fuente más pequeño */
+    }
 
+    
+
+    /*Ocultar elementos*/
+    header h1 {
+        display: none;
+    }
+
+    .hamburguer-menu {
+        display: none;
+        cursor: pointer;
+    }
+
+    /*Ocultar elementos*/
+
+    /*Logo navegacion*/
+    .logo_img {
+        width: 55px;
+        height: 55px;
+    }
+
+    /*Navegacion botones*/
+    .button_chicken svg {
+        margin-left: 2vh;
+        /* Espaciado mayor entre los iconos */
+        margin-right: 1vh;
+        width: auto;
+        height: 3.5vh;
+    }
+
+    .button_car svg {
+        margin-left: 2vh;
+        /* Espaciado mayor entre los iconos */
+        margin-right: 1vh;
+        height: 3.5vh;
+        width: auto;
+    }
+
+    /*Ocultar hamburguesa*/
+    .hamburguer-button {
+        /*Oculta el menu*/
+        display: none;
+    }
+
+    /*Boton enter*/
+    .buttons_menu .enter_button {
+        font-size: 17px;
+        /* Tamaño del texto */
+        cursor: pointer;
+        /* Cambia el cursor cuando pases sobre el botón */
+        border-radius: 5px;
+        /* Bordes redondeados */
+        height: 5.5vh;
+        width: 9.5vh;
+    }
+
+    /*logo central*/
+    .logo-title-container .logo {
+        width: 15vh;
+        /* Asegúrate de que esto esté bien posicionado */
+        height: 15vh;
+    }
+
+
+    /*--------------------Elementos Main-----------------------*/
+    /*--------------------Elementos VM-----------------------*/
+    .vm_section_1 .read-more-btn {
+        background-color: #81D520;
+        color: #ffffff;
+        border: none;
+        width: 30%;
+        height: 7vh;
+        text-align: center;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0;
+    }
+
+    /*--------------------Elementos History-----------------------*/
+    .left_section .read-more-btn {
+        background-color: #81D520;
+        color: #ffffff;
+        border: none;
+        width: 30%;
+        height: 7vh;
+        text-align: center;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0;
+    }
+
+    /*----------------------------------------section_personal----------------------------------------*/
+
+    .section_personal{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .svg_decorations_top{
+        top: 0;
+    }
+
+    .container_personal {
+        height: auto;
+        width: 100%;
+    }
+
+    /*----------------------------------------section_testimonials----------------------------------------*/
+    /*----------------------------------------section_location----------------------------------------*/
+    .aviso_legal{
+        top: 27vh;
+    }
+
+    
+
+
+
+}
+
+/* Pantallas (Laptops Grandes) (Listo)*/
+@media screen and (min-width: 1440px) and (max-width: 1599px) {
 
     /*--------------------Header y elementos-----------------------*/
 
@@ -1644,9 +3152,6 @@ section.section_testimonials p.texto_test span.nk {
         width: 9vh;
     }
 
-    /*--------------------Elementos Flotantes-----------------------*/
-
-    /*--------------------Elementos primera sección-----------------------*/
     /*logo central*/
     .logo-title-container .logo {
         width: 15vh;
@@ -1654,14 +3159,165 @@ section.section_testimonials p.texto_test span.nk {
         height: 15vh;
     }
 
-    /*--------------------Elementos primera sección-----------------------*/
+}/* Estilos para laptops grandes */
 
-    /*--------------------Elementos segunda sección-----------------------*/
-}
+/* Para monitores grandes (Falta)*/
+@media screen and (min-width: 1600px) and (max-width: 1919px) {
+   
+       /*Ocultar elementos*/
+       header h1 {
+        display: none;
+    }
 
-/* Pantallas ultra anchas (2560x1080 o más) */
-@media only screen and (min-width: 1920px) and (max-width: 2560px) {
+    .hamburguer-menu {
+        display: none;
+        cursor: pointer;
+    }
+
+    header {
+        padding: 30px 100px;
+        /* Ajusta los padding para aprovechar mejor el espacio */
+        background: #e1f7c8;
+        height: 11vh;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        /* Corregido el valor de right */
+        width: 100%;
+        padding: 30px 80px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        z-index: 100;
+    }
+
+    /*Navegacion texto*/
+    .navigation a {
+        font-size: 1.2rem;
+        /* Tamaño del título */
+    }
+
+    /*Logo navegacion*/
+    .logo_img {
+        width: 55px;
+        height: 55px;
+    }
+
+    /*Navegacion botones*/
+    .button_chicken svg {
+        margin-left: 2vh;
+        /* Espaciado mayor entre los iconos */
+        margin-right: 1vh;
+        width: auto;
+        height: 3.5vh;
+    }
+
+    .button_car svg {
+        margin-left: 2vh;
+        /* Espaciado mayor entre los iconos */
+        margin-right: 1vh;
+        height: 3.5vh;
+        width: auto;
+    }
+
+    /*Ocultar hamburguesa*/
+    .hamburguer_menu {
+        /*Oculta el menu*/
+        display: none;
+
+    }
+
+    /*Boton enter*/
+    .enter_button {
+        font-size: 18px;
+        /* Tamaño del texto */
+        cursor: pointer;
+        /* Cambia el cursor cuando pases sobre el botón */
+        border-radius: 5px;
+        /* Bordes redondeados */
+
+    }
+
+    /*Icono Flotante*/
+    .icon_help {
+        top: 90vh;
+        right: 35px;
+        transition: transform 0.4s ease;
+        /* Usamos transform para la animación */
+        cursor: pointer;
+        height: 5vh;
+        width: 5vh;
+    }
+
+    /*logo central*/
+    .logo-title-container .logo {
+        margin-top: 8vh;
+        width: 100px;
+        /* Asegúrate de que esto esté bien posicionado */
+        height: 100px;
+    }
+
+    /*Titulo Central*/
+    .title_log .title {
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 600;
+        font-size: 90px;
+        color: #81D520;
+        transition: transform 1s ease;
+
+    }
+
+    /*Subtitulo Central*/
+    #subtitle {
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 500;
+        font-size: 23px;
+        color: #FFF;
+        margin-bottom: 15px;
+    }
+
+    /*Texto Presentacion*/
+    #text_presentation {
+        font-size: 19px;
+        color: #FFF;
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        text-align: center;
+        margin-top: 8px;
+
+        transform: translateY(20px);
+        transition: opacity 1s ease, transform 8s ease;
+        transition: transform 0.9s ease;
+        /* Usamos transform para la animación */
+    }
+
+    /*Texto Inferior*/
+    .down_text,
+    .mx {
+        position: absolute;
+        font-size: 1.3rem;
+        font-weight: 600;
+        padding-left: 1vh;
+        transition: transform 0.8s ease;
+    }
+
+}/* Estilos para monitores grandes */
+
+/* Entre monitores grandes y pantallas ultra-wide pequeñas (Falta)*/
+@media only screen and (min-width: 1920px) and (max-width: 2239px) {
     /* Estilos específicos para pantallas ultra anchas */
+
+       /*Ocultar elementos*/
+       header h1 {
+        display: none;
+    }
+
+    .hamburguer-menu {
+        display: none;
+        cursor: pointer;
+    }
 
     header {
         padding: 30px 100px;
@@ -1794,4 +3450,5 @@ section.section_testimonials p.texto_test span.nk {
 
 }
 
-/*------------------------------------------Sección Inicio-------------------------------------------*/
+
+/*------------------------------------------ Fin Query-------------------------------------------*/

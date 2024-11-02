@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=New+Amsterdam&display=swap');
 
 body {
     margin: 0;
@@ -9,6 +10,12 @@ body {
     background-color: #4CAF50;
     color: white;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/huevito2.jpg');
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif !important;
+    background-color: #f5f5f5;
 }
 
 header {
@@ -19,7 +26,7 @@ header {
     padding: 15px;
     background-color: #E9EDD2;
     color: #060606;
-    font-family:"Lobster", serif;
+    font-family: "Inter", sans-serif !important;
 }
 
 .menu-icon {
@@ -28,24 +35,26 @@ header {
 
 .title-section {
     text-align: center;
-    font-family: "Lobster", sans-serif;
+    font-family: "Inter", sans-serif !important;
 }
 
 .title-section h1 {
     margin: 0;
     font-size: 32px;
     font-weight: 800;
-    font-family:"Lobster", serif;
+    font-family: "Inter", sans-serif !important;
 }
 
 .title-section p {
     margin: 5px 0;
     font-size: 14px;
+    font-family: "Inter", sans-serif !important;
 }
 
 .creator-info {
     font-size: 12px;
     text-align: right;
+    font-family: "Inter", sans-serif !important;
 }
 
 .nav-tabs {
@@ -64,6 +73,7 @@ header {
     border-radius: 20px;
     cursor: pointer;
     font-weight: 700;
+    font-family: "Inter", sans-serif !important;
 }
 
 .menu-container {
@@ -89,7 +99,7 @@ header {
 }
 
 .card, .h1 {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Inter", sans-serif !important;
 }
 
 .card, .card-horizontal {
@@ -128,12 +138,14 @@ header {
 
 .card-content {
     text-align: center;
+    font-family:inherit !important;
 }
 
 .card h3 {
     margin: 10px 0;
     font-size: 18px;
     font-weight: 800;
+    font-family:inherit !important;
 }
 
 .card p {
@@ -197,7 +209,8 @@ header {
     align-items: center;
     background-color: white;
     justify-content: center;  /* Centra verticalmente el contenido */
-    align-items: center;    
+    align-items: center;  
+    font-family: "Inter", sans-serif !important;
 }
 
 .bienvenida {
@@ -209,6 +222,7 @@ header {
     max-width: 800px;
     width: 100%;
     overflow-y: auto;
+    font-family: "Inter", sans-serif !important;
 }
 
 .bienvenida h2 {
@@ -216,12 +230,14 @@ header {
     color: #fafbfa;
     font-weight: 700;
     margin-bottom: 15px;
+    font-family: "Inter", sans-serif !important;
 }
 
 .bienvenida p {
     font-size: 1rem;
     color: #333;
     margin-bottom: 20px;
+    font-family: "Inter", sans-serif !important;
 }
 
 .bienvenida img {
@@ -422,7 +438,7 @@ nav {
   align-items: center;
   color: rgb(255, 251, 251);
   font-weight: 500;
-  justify-content: center;  /* Centra verticalmente el contenido */
+  justify-content: center;  
   align-items: center;    
 
 }
@@ -488,21 +504,21 @@ nav {
 
 /* Opcional: Estilo para que una parte del botón esté visible inicialmente */
 #boton img {
-  max-width: 100px; 
-  height: auto;
-}
-
-#boton:hover{
-  background-color:#E9EDD2;
-  cursor: pointer;
-}
-#boton:hover svg path {
-  fill: #FFF; 
-}
-.svg{
-  height: 5px;
-  width: 5px;
-}
+    max-width: 100px; 
+    height: auto;
+  }
+  
+  #boton:hover{
+    background-color:#E9EDD2;
+    cursor: pointer;
+  }
+  #boton:hover svg path {
+    fill: #FFF; 
+  }
+  .svg{
+    height: 5px;
+    width: 5px;
+  }
 
 
 /* Consultas de medios */
@@ -512,78 +528,81 @@ nav {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;  /* Centra verticalmente el contenido */
-    align-items: center;      /* Centra horizontalmente el contenido */
+    justify-content: center; 
+    align-items: center;     
     background-color: white;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/huevito2.jpg);
     background-size: cover;
     background-position: center;
-    height: 76vh; /* Ajusta según sea necesario */
+    height: 76vh; 
     color: rgb(255, 251, 251);
     font-weight: 500;
-    text-align: center;       /* Alinea el texto al centro */
+    text-align: center;      
   }
   .inicio h1 {
     color: #FFF;
     font-weight: 800;
-    margin: 0; /* Elimina el margen para mejor alineación */
-    text-align: center;       /* Alinea el texto al centro */
+    margin: 0; 
+    text-align: center;      
     margin-top: 60%;
   }
   
   .inicio p {
-    margin: 10px 0; /* Margen para separar el párrafo del título */
+    margin: 10px 0; 
   }
 
   .inicio {
       padding: 70px;
-      bottom: 0%;/* Espaciado reducido */
+      bottom: 0%;
      
   }
 }
 
 @media (min-width: 769px) {
   .bienvenida h2 {
-      font-size: 2.5rem; /* Aumenta el tamaño en pantallas grandes */
+      font-size: 2.5rem; 
   }
 
   .bienvenida p {
-      font-size: 1.2rem; /* Aumenta el tamaño en pantallas grandes */
+      font-size: 1.2rem; 
   }
 
   .bienvenida img {
-      width: 70%; /* Ajusta el tamaño de la imagen en pantallas grandes */
+      width: 70%; 
       margin-top: 15px;
   }
   .inicio {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Alínea el contenido hacia abajo */
-    align-items: center;       /* Centra horizontalmente */
-    text-align: center;        /* Alinea el texto al centro */
+    justify-content: flex-end; 
+    align-items: center;
+    text-align: center; 
     background-color: white;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/huevito2.jpg);
     background-size: cover;
     background-position: center;
-    height: 85.5vh;             /* Altura del contenedor */
+    height: 85.5vh;
     color: rgb(255, 251, 251);
     font-weight: 500;
-    padding-bottom: 20px;     /* Espacio adicional en la parte inferior */
+    padding-bottom: 20px;
   }
   .inicio h1 {
     color: #FFF;
     font-weight: 800;
-    margin: 0; /* Elimina el margen para mejor alineación */
-    text-align: center;       /* Alinea el texto al centro */
+    margin: 0; 
+    text-align: center;
     margin-top: 13%;
     
   }
   .inicio p {
-    margin: 10px 0; /* Margen para separar el párrafo del título */
+    margin: 10px 0; 
   }
 
   .inicio {
       padding: 70px;
-      bottom: 0%;/* Espaciado reducido */    
-  }
+      bottom: 0%;
 }
+}
+
+
+

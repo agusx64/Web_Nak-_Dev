@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=New+Amsterdam&display=swap');
 
  * {
     box-sizing: border-box;
@@ -14,155 +15,323 @@ body {
     height: 100vh;
     background-color: #f4f4f4;
 }
-
+/* Contenedor principal del chat */
 .chat-container {
-    width: 400px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-	border-top-left-radius: 25px;
-	border-top-right-radius: 25px;
-}
-.color{
-	width: 28px;
-	height: 28px;
+    width: 400px; /* Ancho del contenedor */
+    background-color: white; /* Color de fondo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra del contenedor */
+    border-radius: 10px; /* Bordes redondeados del contenedor */
+    display: flex; /* Flexbox para organización interna */
+    flex-direction: column; /* Direccionalidad vertical */
+    overflow: hidden; /* Ocultar el desbordamiento */
+    border-top-left-radius: 25px; /* Bordes redondeados en la parte superior izquierda */
+    border-top-right-radius: 25px; /* Bordes redondeados en la parte superior derecha */
 }
 
+/* Estilo para el ícono de color */
+.color {
+    width: 28px; /* Ancho del ícono */
+    height: 28px; /* Alto del ícono */
+}
+
+/* Encabezado del chat */
 .chat-header {
-    background-color: #81D520;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-size: 1.5rem;
-	box-shadow: 0px 4px 10px rgba(20, 20, 20, 0.587);
-	border-top-left-radius: 25px;
-	border-top-right-radius: 25px;
-
+    background-color: #81D520; /* Color de fondo del encabezado */
+    color: white; /* Color del texto */
+    padding: 15px; /* Espaciado interno */
+    text-align: center; /* Alineación central del texto */
+    font-size: 1.5rem; /* Tamaño de fuente */
+    box-shadow: 0px 4px 10px rgba(20, 20, 20, 0.587); /* Sombra del encabezado */
+    border-top-left-radius: 25px; /* Bordes redondeados en la parte superior izquierda */
+    border-top-right-radius: 25px; /* Bordes redondeados en la parte superior derecha */
 }
 
+/* Caja de mensajes */
 .chat-box {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    max-height: 300px;
-    border-bottom: 1px solid 520#81D;
+    display: flex; /* Habilitar flexbox */
+    flex-direction: column; /* Organizar los mensajes en columnas */
+    flex: 1; /* Crece para ocupar el espacio disponible */
+    padding: 10px; /* Espaciado interno */
+    overflow-y: auto; /* Habilitar scroll vertical si es necesario */
+    max-height: 300px; /* Altura máxima de la caja */
+    border-bottom: 1px solid #81D520; /* Línea inferior */
 }
 
+/* Mensaje individual */
 .chat-box .message {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    max-width: 70%;
+    margin-bottom: 10px; /* Espaciado inferior entre los mensajes */
+    padding: 10px; /* Espaciado interno del mensaje */
+    border-radius: 10px; /* Bordes redondeados para los mensajes */
+    max-width: 70%; /* Ancho máximo del mensaje */
+    word-wrap: break-word; /* Permitir que las palabras largas se dividan y no desborden */
+    overflow-wrap: break-word; /* Soporte adicional para el ajuste de palabras */
+    white-space: pre-wrap; /* Mantiene el espacio en blanco y permite saltos de línea */
 }
 
+/* Mensaje del usuario, alineado a la derecha */
 .chat-box .user-message {
-    background-color: #81D520;
-    color: white;
-    align-self: flex-end;
-	border-radius: 25px;
+    background-color: #81D520; /* Color de fondo del mensaje del usuario */
+    color: white; /* Color del texto del mensaje del usuario */
+    align-self: flex-end; /* Alinear el mensaje del usuario a la derecha */
+    border-radius: 25px; /* Bordes redondeados más pronunciados */
 }
 
+/* Mensaje del bot, alineado a la izquierda */
 .chat-box .bot-message {
-    background-color: #f1f0f0;
-    color: black;
-    align-self: flex-start;
-	border-radius: 25px;
+    background-color: #f1f0f0; /* Color de fondo del mensaje del bot */
+    color: black; /* Color del texto del mensaje del bot */
+    align-self: flex-start; /* Alinear el mensaje del bot a la izquierda */
+    border-radius: 25px; /* Bordes redondeados más pronunciados */
 }
 
+/* Contenedor de entrada de texto */
 .chat-input {
-    display: flex;
-    padding: 10px;
-    background-color: #f9f9f9;
+    display: flex; /* Flexbox para alinear elementos internos */
+    padding: 10px; /* Espaciado interno */
+    background-color: #f9f9f9; /* Color de fondo del contenedor de entrada */
 }
 
+/* Campo de entrada de texto */
 .chat-input input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #81D520;
-    border-radius: 25px;
-	
+    flex: 1; /* Toma el espacio restante */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #81D520; /* Borde del campo */
+    border-radius: 25px; /* Bordes redondeados */
 }
 
+/* Botón de envío */
 .chat-input button {
-	background-color: #81D520;
-    color: white;
-    border: none;
-    width: 50px;  
-    height: 50px;
-    border-radius: 50%;  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 1.2rem;  
-	z-index: 0;
-	margin-left: 5px;
+    background-color: #81D520; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    width: 50px; /* Ancho del botón */
+    height: 50px; /* Alto del botón */
+    border-radius: 50%; /* Bordes redondeados (círculo) */
+    display: flex; /* Flexbox para centrar el contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    z-index: 0; /* Z-index del botón */
+    margin-left: 5px; /* Espaciado a la izquierda */
 }
+
+/* Estado deshabilitado del botón */
 .chat-input button:disabled {
-    background-color: #a9cc82;
+    background-color: #a9cc82; /* Color de fondo cuando está deshabilitado */
 }
 
-.inputtxt{
-	background-color: #E8E8E8;
-	border:none;
+/* Estilo del campo de entrada de texto */
+.inputtxt {
+    background-color: #E8E8E8; /* Color de fondo del campo de entrada */
+    border: none; /* Sin borde */
 }
+
+/* Estilo del campo al recibir foco */
 .inputtxt:focus {
-    border-color: #06b300;
-    box-shadow:#06b300; 
+    border-color: #06b300; /* Color del borde al recibir foco */
+    box-shadow: #06b300; /* Sombra al recibir foco */
 }
+
+/* Estado hover del botón */
 .chat-input button:hover {
-    background-color: #06b300;
-}
-.h2txt{
-    font-size: 1rem;
-	margin-left: 8%;
-}
-.huevo{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
- .huevo img{
-    width: 50px;
-    height: 50px;
+    background-color: #06b300; /* Color de fondo al pasar el mouse */
 }
 
-.chat-box {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    max-height: 300px;
-    border-bottom: 1px solid #ddd;
+/* Estilo del texto del encabezado */
+.h2txt {
+    font-size: 1rem; /* Tamaño de fuente */
+    margin-left: 8%; /* Margen izquierdo */
 }
 
+/* Contenedor de la imagen del huevo */
+.huevo {
+    display: flex; /* Flexbox para centrar */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
 
+/* Imagen del huevo */
+.huevo img {
+    width: 50px; /* Ancho de la imagen */
+    height: 50px; /* Alto de la imagen */
+}
+
+/* Scrollbar personalizado para la caja de chat */
 .chat-box::-webkit-scrollbar {
-    width: 5px;
-
+    width: 5px; /* Ancho de la barra de desplazamiento */
 }
 
 .chat-box::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
+    background: #f1f1f1; /* Color de fondo de la pista */
+    border-radius: 10px; /* Bordes redondeados de la pista */
 }
 
 .chat-box::-webkit-scrollbar-thumb {
-    background-color:#7B8637;
-    border-radius: 10px;
+    background-color: #7B8637; /* Color del "thumb" */
+    border-radius: 10px; /* Bordes redondeados del "thumb" */
 }
 
 .chat-box::-webkit-scrollbar-thumb:hover {
-    background-color: #06b300;
+    background-color: #06b300; /* Color del "thumb" al pasar el mouse */
 }
 
-
+/* Estilo alternativo para la barra de desplazamiento en navegadores */
 .chat-box {
-    scrollbar-color: #7B8637 #f1f1f1;
-    scrollbar-width: thin;
-	border-radius: 10px;
+    scrollbar-color: #7B8637 #f1f1f1; /* Color del "thumb" y fondo de la pista */
+    scrollbar-width: thin; /* Ancho de la barra de desplazamiento */
+    border-radius: 10px; /* Bordes redondeados de la caja de chat */
+}
+
+
+
+/*----------------------------- General Styles----------------------------- */
+
+.upload_image {
+    background-color: #A7F545;
+    border-radius: 25px;
+    padding: 20px;
+    width: 400px;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.upload_text{
+    background-color: #A7F545;
+    border-radius: 25px;
+    padding: 20px;
+    width: 400px;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.image_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribuye los elementos hacia los extremos */
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.image_header h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin: 0;
+    margin-right: auto; /* Esto asegura que el texto ocupe el espacio entre el logo y el botón */
+}
+
+.close-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+
+p {
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Área de carga de imagen */
+.image-upload .upload-area,
+.upload-area {
+    background-color: #d7d5d5;
+    border-radius: 20px;
+    width: 100%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center;     /* Centra horizontalmente */
+    text-align: center;      /* Centra el texto si es necesario */
+    cursor: pointer;
 
 }
 
+
+/* Estilo del texto dentro del área de carga */
+.image-upload p {
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-align: center; /* Asegura que el texto también esté centrado */
+    margin: 0;
+}
+
+.upload-area:hover {
+    background-color: #929292;
+    color: white;
+}
+
+/* Ocultar input de archivo */
+.input-file {
+    display: none;
+}
+
+/* Footer */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding: .8vh 0 .8vh 0;
+}
+
+.cancel-btn, .confirm-btn {
+    margin-left: 1vh;
+    cursor: pointer;
+    height: 5vh;
+    width: 5vh;
+
+}
+
+#cancel-btn:hover{
+    fill:orange;
+
+}
+#confirm-btn:hover{
+    fill: #06b300;
+}
+
+
+
+/* --------------------------------------- */
+/* Ventana de Ingresar Texto (Text Input) */
+/* --------------------------------------- */
+
+.text-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E8E8E8;
+    border-radius: 25px;
+    padding: 10px;
+    height: 40px;
+}
+
+.inputtxt {
+    background-color: transparent;
+    border: none;
+    flex-grow: 1;
+    font-size: 1rem;
+    color: #666;
+    padding: 0;
+    margin: 0;
+}
+
+.inputtxt:focus {
+    outline: none;
+}
+
+.word-count {
+    color: #B0B0B0;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
