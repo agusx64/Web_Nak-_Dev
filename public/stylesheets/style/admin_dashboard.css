@@ -27,7 +27,7 @@ body {
     justify-content: space-between;
 
 }
-.logo {
+.logo_naku {
 display: flex;
 align-items: center;
   margin-left: 5%;
@@ -322,6 +322,7 @@ margin-bottom: 5px; /* Ajusta el espacio entre el SVG y el texto */
     margin-top: 2%;
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-right: 70px;
 }
 
@@ -372,12 +373,7 @@ color: #000;
 margin-top: -15px;
 }
 
-.img_text {
-margin-top: 2%;
-display: flex;
-align-items: center;
-margin-right: 70px;
-}
+
 
 .logo {
 width: 60px;
@@ -579,6 +575,7 @@ cursor: pointer;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
+    margin-top: 10px;
 }
 
 
