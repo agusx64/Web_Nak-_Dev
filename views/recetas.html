@@ -15,7 +15,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-
 <body>
     <button id="boton">
         <svg width="40" height="40" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -349,6 +348,8 @@
 
 
   <script>
+
+    const btnInicio = document.getElementById('boton');
     // Script para mostrar más información al hacer clic en el botón
     const addButtons = document.querySelectorAll('.add-btn');
 
@@ -410,7 +411,12 @@ menuToggle.addEventListener('click', () => {
       hideAllSections();
       inicioSection.style.display = "block";
     });
+
+    btnInicio.addEventListener("click", function() {
+
+      window.location.href = '/';
+
+    });
   </script>
 </body>
 </html>
-

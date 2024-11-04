@@ -481,7 +481,7 @@ nav {
   border-bottom-right-radius: 50px; 
   padding: 20px;
   width: 100px;
-  height: 60px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -509,7 +509,7 @@ nav {
   }
   
   #boton:hover{
-    background-color:#E9EDD2;
+    background-color:#8cc63f;
     cursor: pointer;
   }
   #boton:hover svg path {

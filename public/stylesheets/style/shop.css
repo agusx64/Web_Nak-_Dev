@@ -7,6 +7,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
 .seccion_principal{
     width: 100%;
     height: 100vh ;
@@ -575,10 +581,19 @@ p{
     color: #1A4E4E;
     font-weight: 500;
 }
+.intero{
+    display: flex;
+    margin-left: 310px !important;
+}
 
 /* -------------------------------------------------------------------------------------------------------------------------- */
 /* Media Query para pantallas pequeñas (móviles y tablets) */
 @media (max-width: 768px) {
+ 
+    .intero{
+        display: flex;
+        margin-left: 330px !important;
+    }
     .shop_form{
         display: flex;
         flex-direction: column;
@@ -653,10 +668,27 @@ p{
     padding: 10px; 
     margin-top: 10px; 
 }
+.interrogation{
+    align-self: flex-end;
+    align-items: center;
+    justify-content: center;
+    margin:0 0 0 0 ;
+    cursor: pointer;
+}
+.intero{
+    display: flex;
+    margin-left: 0px;
+}
+
+#interr, #interr1 {
+    fill: #6C9F31;
+    stroke: #6C9F31; /* Agrega un borde más oscuro */
+    stroke-width: 2px; /* Aumenta el grosor del borde para dar efecto de "negrita" */
+}
 
 .formulario {
     width: 100%; 
-    height: 550px !important; 
+    height: 650px !important; 
 margin-top: -15%;
 }
 .top-content {
@@ -931,16 +963,19 @@ margin-top: -15%;
 }
 
 @media (min-width: 1440px) and (max-height: 900px) {
+    .intero{
+        display: flex;
+        margin-left: 410px !important;
+    }
     .shop_form{
     width: 50% !important;
     }
     .img_carousel_products {
         margin-left: 5% !important;
-    .btncasa {
-        width: 100px;
-        height: 90px;
-        margin-left: -90%;
-        margin-top: 30% !important;
+    }
+    .bottom_text{
+        font-size: 15px;
+        margin-left: 4.7px !important;
     }
 
     .formulario {
@@ -1375,7 +1410,7 @@ h5, p, .title_granj, .preci, .pe, .prec {
         font-size: 20px;
     }
 }
-}
+
 /* media tabletas volteadas */
 @media (max-width: 300px) and (max-height: 800px) {
     .seccion_principal {
@@ -1432,5 +1467,80 @@ h5, p, .title_granj, .preci, .pe, .prec {
     }
     .enviar{
         margin-left: 40px !important;
+    }
+}
+
+/*interrogation*/
+.interrogation{
+    align-self: flex-end;
+    align-items: center;
+    justify-content: center;
+    margin:0 0 0 0 ;
+    cursor: pointer;
+
+}
+
+#interr, #interr1 {
+    fill: #6C9F31;
+    stroke: #6C9F31; /* Agrega un borde más oscuro */
+    stroke-width: 2px; /* Aumenta el grosor del borde para dar efecto de "negrita" */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden; /* Oculto por defecto */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup h2{
+    font-size: 2rem;
+}
+
+.popup {
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    z-index: 1000;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .popup {
+        width: 70%;
     }
 }
