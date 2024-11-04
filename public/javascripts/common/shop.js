@@ -24,6 +24,7 @@ document.querySelector(".popup .close").addEventListener("click", function(e) {
     e.preventDefault();
     document.getElementById("popup1").classList.remove("show");
 });
+console.log(userDataJSON);
 
 let userDataJSON = {
 
@@ -33,8 +34,6 @@ let userDataJSON = {
     text: input_message.value
 
 }
-
-console.log(userDataJSON);
 
 //Metodo fecth
 // fetch('/send_email', {
