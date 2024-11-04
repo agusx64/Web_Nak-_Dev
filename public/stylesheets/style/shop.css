@@ -1376,60 +1376,61 @@ h5, p, .title_granj, .preci, .pe, .prec {
     }
 }
 }
-
 /* media tabletas volteadas */
-@media only screen and (width: 300px) and (height:1024px) {
-    .shop_form {
-        width: 100% !important;
-        padding: 15px !important;
-        justify-content: center !important;
-        align-items: center !important;
+@media (max-width: 300px) and (max-height: 800px) {
+    .seccion_principal {
+        flex-direction: column; 
+        height: auto; 
+        padding: 0;
     }
-    .btncasa{
-        margin-top:60%;
+
+    .shop_form {
+        width: 100%;
+        height: 100vh;
+        padding: 10px;
+    }
+    .bottom_text{
+        font-size: 12px;
     }
 
     .formulario {
-        width: 70% !important;
-        padding: 15px !important;
-        margin-top: 5% !important;
-        border-radius: 10px !important;
-        height: 60vh!important;
-        margin-top: -60% !important;
-
+        width: 95%;
+        height: auto;
+        margin-top: 10px;
     }
 
     .input_component {
-        width: 95% !important;
-        height: 80px !important;
-        padding: 20px !important;
-        margin-bottom: 25px !important;
-        font-size: 20px;
+        width: 80% !important;
+        height: 40px;
+        padding: 10px;
+        margin-left: -15px;
     }
 
     .style_input {
-        font-size: 26px !important;
-        margin-left: 10px;
+        font-size: 16px;
+        margin-left: 5px;
     }
-    .logo{
-        height: 80px;
+
+    .btncasa {
         width: 80px;
+        height: 60px;
+        margin-top: 20px;
     }
-    .enter_title{
-        font-size: 45px;
+
+    .prec {
+        font-size: 24px;
+        text-align: center;
     }
-    .since{
-        font-size: 2em ;
+
+    .carousel_container, .circle_bottom, .bottom-content {
+        display: none;
     }
-    .datos{
-        font-size:25px !important;
-    }
-    .bottom_text{
-        font-size: 20px;
+
+    .top-content {
+        margin-top: 10px;
+        text-align: center;
     }
     .enviar{
-        width: 200px;
-        height: 40px;
-        font-size: 20px;
+        margin-left: 40px !important;
     }
 }
