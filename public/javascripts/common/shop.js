@@ -3,6 +3,7 @@ let input_telephone = document.getElementById('telefono');
 let input_mail = document.getElementById('email');
 let input_nombre = document.getElementById('nombre');
 let input_message= document.getElementById('mensaje');
+let send_email = document.getElementById('botonEnviar');
 
 
 function showPopup() {
@@ -24,25 +25,30 @@ document.querySelector(".popup .close").addEventListener("click", function(e) {
     e.preventDefault();
     document.getElementById("popup1").classList.remove("show");
 });
-console.log(userDataJSON);
 
-let userDataJSON = {
+send_email.addEventListener('click', function(){
 
-    telephone: input_telephone.value,
-    mail: input_mail.value,
-    full_name: input_nombre.value,
-    text: input_message.value
 
-}
-
-//Metodo fecth
-// fetch('/send_email', {
-
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(userDataJSON)
+    let userDataJSON = {
     
-// })
-// .then(response => response.json());
+        telephone: input_telephone.value,
+        mail: input_mail.value,
+        full_name: input_nombre.value,
+        text: input_message.value
+    }
+
+    console.log(userDataJSON);
+
+    //Metodo fecth
+    fetch('/send_email', {
+
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userDataJSON)
+    
+    })
+    .then(response => response.json());
+
+});

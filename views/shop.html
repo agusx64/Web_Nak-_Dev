@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 
 <head>
     <meta charset="UTF-8">
@@ -92,7 +92,7 @@
                                 <path d="M16.2154 11.6875H12.375V10.3125H19.25C19.4323 10.3125 19.6072 10.3849 19.7361 10.5139C19.8651 10.6428 19.9375 10.8177 19.9375 11V12.375C19.9375 12.5573 19.8651 12.7322 19.7361 12.8611C19.6072 12.9901 19.4323 13.0625 19.25 13.0625H17.875C17.7847 13.0627 17.6952 13.045 17.6116 13.0106C17.5281 12.9761 17.4522 12.9256 17.3883 12.8618L16.2154 11.6875ZM6.875 9.625C6.875 10.384 6.259 9.625 5.5 9.625C4.741 9.625 4.125 10.384 4.125 9.625C4.125 9.26033 4.26987 8.91059 4.52773 8.65273C4.78559 8.39487 5.13533 8.25 5.5 8.25C5.86467 8.25 6.21441 8.39487 6.47227 8.65273C6.73013 8.91059 6.875 9.26033 6.875 9.625Z" fill="#1A4E4E"/>
                                 </svg>                                
                         </div>
-                        <input class="style_input" type="text" id="email" placeholder="Email">
+                        <input class="style_input" type="email" id="email" placeholder="Email">
                     </div>
 
                     <div class="input_component">
@@ -273,6 +273,11 @@
                     mensajeExito.style.display = 'block'; // Mostrar mensaje de éxito
                     setTimeout(() => {
                         mensajeExito.style.display = 'none'; // Ocultar después de 3 segundos
+                        document.getElementById("telefono").value = '';
+                        document.getElementById("nombre").value = '';
+                        document.getElementById("email").value = '';
+                        document.getElementById("mensaje").value = '';
+                
                     }, 3000);
                 }
             });
