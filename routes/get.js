@@ -39,22 +39,17 @@ router.get('/inicio_admin', function(req, res) {
 
 })
 
-module.exports = router;
-
 router.get('/chatbot', function(req, res) {
 
     res.render('chathv');
 
 })
 
-module.exports = router;
 router.get('/recetas', function(req, res) {
 
     res.render('recetas');
 
 })
-
-module.exports = router;
 
 router.get('/celular', function(req, res) {
 

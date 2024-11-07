@@ -3,9 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Página No Encontrada - Error 404</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <p>error</p>
+  <div class="error-container">
+      <h1>404</h1>
+      <img width="350" height="350" src="/images/waitting.png" alt="sitdown">
+      <h2>Página No Encontrada</h2>
+      <p>Lo sentimos, la página que buscas no existe o ha sido movida.</p>
+      <a href="/" class="btn-home">Volver al Inicio</a>
+  </div>
 </body>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=New+Amsterdam&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.error-container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 6rem;
+    color: #A4E658;
+    margin-bottom: 10px;
+    font-family: "Inter", sans-serif;
+
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-family: "Inter", sans-serif;
+
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #666;
+    font-family: "Inter", sans-serif;
+
+}
+
+.btn-home {
+    font-family: "Inter", sans-serif;
+    text-decoration: none;
+    color: #fff;
+    background-color: #92c559;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+a.btn-home{
+  color: #fff;
+}
+
+.btn-home:hover {
+    background-color: #72b229;
+}
+
+@media (max-width: 768px) {
+
+  body{
+    margin: 0;
+    padding: 0;
+  }
+  .error-container{
+    width: 85%;
+    height: 85%;
+  }
+  img{
+    width: 70%;
+    height: auto;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .btn-home {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+</style>
 </html>

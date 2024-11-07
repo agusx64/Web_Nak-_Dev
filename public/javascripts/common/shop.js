@@ -5,6 +5,11 @@ let input_nombre = document.getElementById('nombre');
 let input_message= document.getElementById('mensaje');
 let send_email = document.getElementById('botonEnviar');
 
+btninicio.addEventListener('click', function() {
+
+    window.location.href = '/'
+
+})
 
 function showPopup() {
     document.getElementById('popup').style.display = 'block';
