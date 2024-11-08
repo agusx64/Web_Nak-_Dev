@@ -3387,7 +3387,7 @@ section.section_testimonials p.texto_test span.nk {
 
     /*Icono Flotante*/
     .icon_help {
-        top: 90vh;
+        bottom: 7vh;
         right: 35px;
         transition: transform 0.4s ease;
         /* Usamos transform para la animación */

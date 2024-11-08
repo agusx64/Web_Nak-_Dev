@@ -695,3 +695,49 @@ p {
     font-size: 0.9rem;
     margin-left: 10px;
 }
+/* adaptacion a pantalla 1920x1080 */
+@media (min-width: 1920px) and (min-height: 1080px) {
+  
+
+    .sidebar {
+        width: 20%;
+        background-color: #A4E658;
+        color: #fff;
+        height: 70rem !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+   
+    .main-content_inicio,
+    .main-content_tienda,
+    .main-content_nosotros,
+    .main-content_historia,
+    .main-content_productos,
+    .main-content_equipo,
+    .main-content_testimonios,
+    .main-content_ubicacion,
+    .main-content_recetas {
+        width: 100%;
+        height: 70rem !important;
+        background-color: #B8EC7E;
+        padding: 30px;
+        border-top-left-radius: 5%;
+        border-bottom-left-radius: 5%;
+    }
+
+    .naku {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 70rem !important; 
+        background-color: #A4E658;
+        z-index: 0;
+        position: relative;
+        }
+
+   
+}
