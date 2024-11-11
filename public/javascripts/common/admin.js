@@ -1,3 +1,5 @@
+let insertDBChange;
+
 // Elementos del menú
 const inicioBtn = document.getElementById('inicio');
 const tiendaBtn = document.getElementById('tienda');
@@ -8,6 +10,21 @@ const testimoniosBtn = document.getElementById('testimonios');
 const ubicacionBtn = document.getElementById('ubicacion');
 const recetasBtn = document.getElementById('recetas');
 const productosBtn = document.getElementById('productos');
+const logo_home = document.getElementById('logo_return');
+
+logo_home.addEventListener('click', function() {
+
+  window.location.href = '/';
+
+});
+
+// Fetchs de envio de de cambios a la pagina web
+function insertNewDescription(){
+
+
+
+}
+
 
 // Secciones de contenido
 const inicioContent = document.querySelector('.main-content_inicio');
@@ -36,13 +53,63 @@ function ocultarSecciones() {
 // Evento para mostrar la sección de 'inicio'
 inicioBtn.addEventListener('click', function() {
     ocultarSecciones();  // Oculta todas las secciones
-    inicioContent.hidden = false;  // Muestra la sección de 'inicio'
+    inicioContent.hidden = false;
+    
+    const button_description = document.getElementById('btn_text_home');
+    const button_slogan = document.getElementById('btn_text_home1');
+
+    button_slogan.addEventListener('click', function() {
+
+      insertDBChange = document.getElementById('idSwitcher');
+      insertDBChange.id = 'insert_slogan';
+
+      insert_slogan.addEventListener('click', function() {
+
+        
+
+      });
+
+    });
+
+    button_description.addEventListener('click', function() {
+
+      insertDBChange = document.getElementById('idSwitcher');
+      insertDBChange.id = 'insert_description';
+
+      insert_description.addEventListener('click', function() {
+
+        const insertDescription = document.getElementById('send_text_component');
+
+        let description = {
+
+          description: insertDescription.value
+
+        }
+
+        // Fetch para insertar descripción
+        fetch('/insert_description', {
+
+          method: 'POST',
+          headers: {
+
+            'Content-Type': 'application/json'
+
+          },
+          body: JSON.stringify(description)
+  
+      });
+
+    });
+
+  });
+
 });
 
 // Evento para mostrar la sección de 'tienda'
 tiendaBtn.addEventListener('click', function() {
     ocultarSecciones(); 
     tiendaContent.hidden = false;  
+
 });
 // Evento para mostrar la sección de 'nosotros'
 nosotrosBtn.addEventListener('click', function() {
@@ -198,11 +265,3 @@ setupModalToggle('btn_image_recipes', 'upload_image_id');
 setupModalToggle('btn_text_product', 'upload_text_id');
 setupModalToggle('btn_text_product1', 'upload_text_id');
 setupModalToggle('btn_image_product', 'upload_image_id');
-
-
-
-
-
-
-
-

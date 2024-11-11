@@ -1,3 +1,5 @@
+const home = document.getElementById('redirect_home');
+
 function toggleInfo(button) {
     var info = button.nextElementSibling;
     if (info.classList.contains("hidden")) {
@@ -8,3 +10,9 @@ function toggleInfo(button) {
         info.style.maxHeight = null; // Vuelve a colapsar
     }
 }
+
+home.addEventListener('click', function() {
+
+    window.location.href = '/'
+
+});

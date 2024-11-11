@@ -18,7 +18,7 @@
 
     <div class="sidebar">
         <div class="logo_naku">
-            <img class="logo" src="/images/pngnaku.png" alt="img_logo">
+            <img class="logo" src="/images/pngnaku.png" alt="img_logo" id="logo_return">
             <div class="logo-text">
                 <h2 class="Gr">Grupo</h2>
                 <h2 class="Na">Nakú</h2>
@@ -183,12 +183,12 @@
         </div>
         <p>Ingrese el texto que desee cambiar.</p>
         <div class="text-input">
-            <input type="text" class="inputtxt" placeholder="Ingrese el texto que desee cambiar.">
+            <input id="send_text_component" type="text" class="inputtxt" placeholder="Ingrese el texto que desee cambiar.">
             <span class="word-count">6/250 Palabras</span>
         </div>
         <div class="modal-footer">
 
-            <svg class="confirm-btn" width="35" height="35" viewBox="0 0 35 35" fill="none"
+            <svg id="idSwitcher" class="confirm-btn" width="35" height="35" viewBox="0 0 35 35" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_663_246)">
                     <path id="confirm-btn"
@@ -1005,16 +1005,7 @@
                         <p class="cb">Cambiar texto</p>
                     </h2>
                 </button>
-                <button class="btn_in" id="btn_text_testim3">
-                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M13.2812 2.73438V6.97813L13.3546 6.975C13.8421 6.95625 14.514 6.95 14.9968 7.04688C15.4343 7.13438 15.8453 7.32812 16.15 7.49687C16.5765 7.73438 16.8624 8.09844 17.0249 8.5L17.2312 8.48125C17.7187 8.44375 18.4718 8.42188 19.0406 8.65C19.6187 8.88125 20.1171 9.41094 20.4156 9.76875C20.5333 9.91146 20.6348 10.0406 20.7203 10.1562H21.6296C22.0662 10.1563 22.498 10.2478 22.897 10.4249C23.2961 10.6019 23.6536 10.8607 23.9466 11.1844C24.2395 11.5081 24.4614 11.8896 24.5979 12.3043C24.7344 12.7191 24.7825 13.1578 24.739 13.5922L24.314 17.8344C24.2377 18.5985 24.0013 19.338 23.6203 20.0047L21.4406 23.8188C21.2357 24.1775 20.9396 24.4757 20.5823 24.6831C20.2251 24.8905 19.8193 24.9999 19.4062 25H9.55933C9.12383 25 8.69696 24.8786 8.32658 24.6496C7.9562 24.4205 7.65697 24.0928 7.46245 23.7031L5.56401 19.9062L1.67183 13.4203C1.37639 12.9244 1.2721 12.3376 1.37853 11.7703C1.48496 11.2029 1.79478 10.6938 2.24987 10.3387C2.70496 9.98349 3.27402 9.8066 3.85026 9.8412C4.4265 9.87579 4.97031 10.1195 5.37964 10.5266L7.81245 12.9578V2.73438C7.81245 2.00917 8.10054 1.31367 8.61333 0.80088C9.12613 0.288085 9.82162 0 10.5468 0C11.272 0 11.9675 0.288085 12.4803 0.80088C12.9931 1.31367 13.2812 2.00917 13.2812 2.73438Z"
-                            fill="#6C9F31" />
-                    </svg>
-                    <h2 class="des">Redes sociales
-                        <p class="cb">Cambiar red social</p>
-                    </h2>
-                </button>
+
             </div>
             <div class="rounded-box">
                 <div class="ico_tex">

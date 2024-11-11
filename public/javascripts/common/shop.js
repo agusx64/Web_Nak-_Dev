@@ -56,4 +56,6 @@ send_email.addEventListener('click', function(){
     })
     .then(response => response.json());
 
+    window.location.href = '/celular'
+
 });
