@@ -51,59 +51,80 @@ function ocultarSecciones() {
 }
 
 // Evento para mostrar la sección de 'inicio'
+let currentAction = null;  // Variable global para almacenar la acción actual
+
+// Configura los botones del menú
 inicioBtn.addEventListener('click', function() {
     ocultarSecciones();  // Oculta todas las secciones
     inicioContent.hidden = false;
     
     const button_description = document.getElementById('btn_text_home');
     const button_slogan = document.getElementById('btn_text_home1');
+    const button_image = document.getElementById('btn_image_home');
+    
+    const textConfirmButton = document.getElementById('idSwitcher');  // Botón de confirmación para texto
+    const imageConfirmButton = document.getElementById('confirm-btn');  // Botón de confirmación para imágenes
+
+    // Al hacer clic en cada botón, se establece la acción actual
+    button_image.addEventListener('click', function() {
+      currentAction = 'insert_image';  // Asigna la acción de imagen
+    });
 
     button_slogan.addEventListener('click', function() {
-
-      insertDBChange = document.getElementById('idSwitcher');
-      insertDBChange.id = 'insert_slogan';
-
-      insert_slogan.addEventListener('click', function() {
-
-        
-
-      });
-
+      currentAction = 'insert_slogan';  // Asigna la acción de slogan
     });
 
     button_description.addEventListener('click', function() {
-
-      insertDBChange = document.getElementById('idSwitcher');
-      insertDBChange.id = 'insert_description';
-
-      insert_description.addEventListener('click', function() {
-
-        const insertDescription = document.getElementById('send_text_component');
-
-        let description = {
-
-          description: insertDescription.value
-
-        }
-
-        // Fetch para insertar descripción
-        fetch('/insert_description', {
-
-          method: 'POST',
-          headers: {
-
-            'Content-Type': 'application/json'
-
-          },
-          body: JSON.stringify(description)
-  
-      });
-
+      currentAction = 'insert_description';  // Asigna la acción de descripción
     });
-
-  });
-
 });
+
+// Evento de clic en el botón de confirmación para imágenes
+const imageConfirmButton = document.getElementById('confirm-btn');
+imageConfirmButton.addEventListener('click', function() {
+  if (currentAction === 'insert_image') {
+    const insertImage = document.getElementById('file-upload');
+    const form_data = new FormData();
+    form_data.append('background_image', insertImage.files[0]);
+
+    // Fetch para insertar imagen
+    fetch('/insert_image', {
+      method: 'POST',
+      body: form_data  // FormData maneja el Content-Type automáticamente
+    });
+  }
+});
+
+// Evento de clic en el botón de confirmación para texto (slogan o descripción)
+const textConfirmButton = document.getElementById('idSwitcher');
+textConfirmButton.addEventListener('click', function() {
+  if (currentAction === 'insert_slogan') {
+    const insertSlogan = document.getElementById('send_text_component');
+
+    let slogan = { slogan: insertSlogan.value };
+
+    // Fetch para insertar slogan
+    fetch('/insert_slogan', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(slogan)
+    });
+  }
+  else if (currentAction === 'insert_description') {
+    const insertDescription = document.getElementById('send_text_component');
+
+    let description = { description: insertDescription.value };
+
+    // Fetch para insertar descripción
+    fetch('/insert_description', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(description)
+    });
+  }
+});
+
+
 
 // Evento para mostrar la sección de 'tienda'
 tiendaBtn.addEventListener('click', function() {
