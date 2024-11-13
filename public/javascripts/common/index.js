@@ -1,3 +1,10 @@
+document.addEventListener('DOMContentLoaded', function() {
+    getChanges();
+    getUsChanges();
+});
+
+
+
 // Variables y elementos iniciales
 const logoTitleContainerup = document.getElementById('logoTitleContainer');
 const logoTitleContainerdown = document.getElementById('subtitle');
@@ -348,6 +355,7 @@ function sendMessage() {
 
     };
 
+
     // Realiza la llamada al servidor con el fetch
     fetch('/api_response', {
 
@@ -397,3 +405,48 @@ document.getElementById("userInput").addEventListener("keydown", function(event)
 
 });
 
+function getChanges () {
+    fetch('/get_start_changes')
+    .then(response => response.json())
+    .then(data => {  
+    let changes = data;
+
+    const descripcion = document.getElementById('text_presentation');
+    const slogan = document.getElementById('text_slogan');
+    const background = document.getElementById('sect_main');
+
+    descripcion.textContent = changes[0].descripcion;
+    slogan.textContent = changes[0].slogan;
+    background.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${changes[0].img_producto})`;
+
+ 
+    console.log(changes);
+    })
+    .catch(error => {
+        console.error('Error al obtener los cambios:', error);
+    });
+}
+
+function getUsChanges () {
+    fetch('/get_us_changes')
+    .then(response => response.json())
+    .then(data => {  
+    let changes = data;
+
+    const mision = document.getElementById('text_mision');
+    const image_mision = document.getElementById('imgMision');
+    const vision = document.getElementById('text_vision');
+    const image_vision = document.getElementById('imgVision');
+
+    mision.textContent = changes[0].mision;
+    image_mision.src = changes[0].img_mision;
+    vision.textContent = changes[0].vision;
+    image_vision.src = changes[0].img_vision;
+    
+
+    console.log(changes);
+    })
+    .catch(error => {
+        console.error('Error al obtener los cambios:', error);
+    });
+}

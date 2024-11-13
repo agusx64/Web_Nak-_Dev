@@ -28,7 +28,7 @@ let connection = mysql.createConnection({
 
 connection.connect(function(err) {
     if (err) { throw err; }
-    console.log('Connected to database');
+    console.log('Connected to database from posts');
 });
 
 router.post('/insert_description', function(req, res){
@@ -113,6 +113,93 @@ router.post('/insert_slogan', function(req, res){
     })
 
 });
+    
+router.post('/insert_mision', function(req, res){
+
+    let data = req.body.mision;
+    let insert_text = 'INSERT INTO registro_nosotros (mision) VALUES (?)'
+    connection.query(insert_text, [data], function(error, results){
+        if (error) throw error
+        console.log('Mision changed successfully', results);
+    });
+
+});
+
+router.post('/insert_image_mision', upload.single('image'), async function(req, res){
+
+    let data = req.file.path;
+    const result = await cloudinary.uploader.upload(data,{
+        folder: 'imagenes_nosotros'
+    })
+
+    const imageURL = result.secure_url;
+    console.log('Image uploaded successfully', imageURL);
+    
+    let insert_query = `UPDATE registro_nosotros
+                        SET img_mision = ?
+                        WHERE id = (
+                            SELECT id FROM ( 
+                                SELECT id
+                                FROM registro_nosotros
+                                ORDER BY created_at DESC
+                                LIMIT 1
+                            ) AS temp
+                        );`
+    connection.query(insert_query, [imageURL], function(error, results){
+        if (error) throw error
+        console.log('Image changed successfully', results);
+    });
+
+});
+
+router.post('/insert_vision', function(req, res){
+
+    let data = req.body.vision;
+    let insert_query = `UPDATE registro_nosotros
+                        SET vision = ?
+                        WHERE id = (
+                            SELECT id FROM (
+                                SELECT id
+                                FROM registro_nosotros
+                                ORDER BY created_at DESC
+                                LIMIT 1
+                            ) AS temp
+                        );`
+    connection.query(insert_query, [data], function(error, results){
+        if (error) throw error
+        console.log('Vision changed successfully', results);
+    });
+});
+
+router.post('/insert_image_vision', upload.single('image'), async function(req, res){
+
+    let data = req.file.path
+    const result = await cloudinary.uploader.upload(data,{
+        folder: 'imagenes_nosotros'
+    })
+
+    const imageURL = result.secure_url;
+    console.log('Image uploaded successfully', imageURL);
+    
+    let insert_query = `UPDATE registro_nosotros
+                        SET img_vision = ?
+                        WHERE id = (
+                            SELECT id FROM (
+                                SELECT id
+                                FROM registro_nosotros
+                                ORDER BY created_at DESC
+                                LIMIT 1
+                            ) AS temp
+                        );`
+    connection.query(insert_query, [imageURL], function(error, results){
+        if (error) throw error
+        console.log('Image changed successfully', results);
+    });
+    
+    
+
+});
+
 
 
 module.exports = router;

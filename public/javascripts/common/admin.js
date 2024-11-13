@@ -58,6 +58,7 @@ inicioBtn.addEventListener('click', function() {
     ocultarSecciones();  // Oculta todas las secciones
     inicioContent.hidden = false;
     
+    //Botones del menu
     const button_description = document.getElementById('btn_text_home');
     const button_slogan = document.getElementById('btn_text_home1');
     const button_image = document.getElementById('btn_image_home');
@@ -136,12 +137,136 @@ tiendaBtn.addEventListener('click', function() {
 nosotrosBtn.addEventListener('click', function() {
     ocultarSecciones();  
     nosotrosContent.hidden = false;  
+
+    const button_mision = document.getElementById('btn_text_us');
+    const button_imgMision = document.getElementById('btn_image_us');
+    const button_vision = document.getElementById('btn_text_us1');
+    const button_imgVision = document.getElementById('btn_image_us1');
+  
+
+    button_mision.addEventListener('click', function() {
+      currentAction = 'insert_mision';  // Asigna la acción de descripción
+    })
+
+    button_imgMision.addEventListener('click', function() {
+      currentAction = 'insert_image_mision';  // Asigna la acción de imagen
+    })
+
+    button_vision.addEventListener('click', function() {
+      currentAction = 'insert_vision';  
+    })
+
+    button_imgVision.addEventListener('click', function() {
+      currentAction = 'insert_image_vision';  // Asigna la acción de imagen
+    })
+
 });
+
+imageConfirmButton.addEventListener('click', function() {
+
+  if (currentAction === 'insert_image_mision') {
+    const insertImage = document.getElementById('file-upload');
+    const form_data = new FormData();
+    form_data.append('image', insertImage.files[0]);
+    
+    fetch('/insert_image_mision', {
+      method: 'POST',
+      body: form_data  // FormData maneja el Content-Type automáticamente
+    });
+
+  } else if (currentAction === 'insert_image_vision'){
+
+    const insertImage = document.getElementById('file-upload');
+    const form_data = new FormData();
+    form_data.append('image', insertImage.files[0]);
+    
+    fetch('/insert_image_vision', {
+      method: 'POST',
+      body: form_data  // FormData maneja el Content-Type automáticamente
+    });
+
+  }
+
+});
+textConfirmButton.addEventListener('click',function(){
+  
+  if (currentAction === 'insert_mision'){
+    const insertMision = document.getElementById('send_text_component');
+
+    let mision = { mision: insertMision.value };
+
+    // Fetch para insertar slogan
+    fetch('/insert_mision', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(mision)
+    });
+
+  } else if (currentAction === 'insert_vision'){
+    const insertVision = document.getElementById('send_text_component');
+
+    let vision = { vision: insertVision.value };
+
+    // Fetch para insertar slogan
+    fetch('/insert_vision', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(vision)
+    });
+
+
+  }
+
+
+})
 // Evento para mostrar la sección de 'historia'
 historiaBtn.addEventListener('click', function() {
     ocultarSecciones();  
   historiaContent.hidden = false; 
+
+  const button_historia = document.getElementById('btn_text_hist');
+  const button_image_historia = document.getElementById('btn_image_hist'); 
+
+  button_historia.addEventListener('click', function() {
+    currentAction = 'insert_historia';  
+  })
+
+  button_image_historia.addEventListener('click', function() {
+    currentAction = 'insert_image_historia';  
+  })
+
 });
+
+imageConfirmButton.addEventListener('click', function() {
+  if (currentAction === 'insert_image_historia'){
+    const insertImgHist = document.getElementById('file-upload');
+    const form_data = new FormData();
+    form_data.append('image', insertImgHist.files[0]);
+
+    fetch('/insert_image_historia',{
+      method: 'POST',
+      body: form_data
+    });
+  } 
+
+});
+
+textConfirmButton.addEventListener('click', function() {
+  
+  if (currentAction === 'insert_historia'){
+    const insertHistoria = document.getElementById('send_text_component');
+
+    let historia = { historia: insertHistoria.value };
+
+    fetch('/insert_historia',{
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(historia)
+
+    });
+  }
+
+})
 // Evento para mostrar la sección de 'equipo'
 equipoBtn.addEventListener('click', function() {
     ocultarSecciones();  
@@ -260,6 +385,8 @@ setupModalToggle('btn_text_shop3', 'upload_text_id');
 //US (2)
 setupModalToggle('btn_text_us', 'upload_text_id');
 setupModalToggle('btn_image_us', 'upload_image_id');
+setupModalToggle('btn_text_us1', 'upload_text_id');
+setupModalToggle('btn_image_us1', 'upload_image_id');
 //History (2)
 setupModalToggle('btn_text_hist', 'upload_text_id');
 setupModalToggle('btn_image_hist', 'upload_image_id');

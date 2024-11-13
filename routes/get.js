@@ -2,6 +2,19 @@ var express = require('express');
 const mysql = require('mysql2');
 var router = express.Router();
 
+let connection = mysql.createConnection({
+    host: process.env.HOST,
+    port: '3306',
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
+});
+
+connection.connect(function(err) {
+    if (err) { throw err; }
+    console.log('Connected to database from gets');
+});
+
 /* GET home page. */
 router.get('/', function(req, res) {
 
@@ -57,6 +70,28 @@ router.get('/celular', function(req, res) {
 
 })
 
-router.get('/get_start_changes')
+router.get('/get_start_changes',function(req, res) {
+
+    let select_query = 'SELECT * FROM registro_inicio ORDER BY created_at DESC LIMIT 1;'
+    
+    connection.query(select_query, function (err, result) {
+
+        if (err) throw err;
+        res.json(result);
+
+    });
+
+})
+
+router.get('/get_us_changes', function(req, res) {
+
+    let select_query = 'SELECT * FROM registro_nosotros ORDER BY created_at DESC LIMIT 1;'
+
+    connection.query(select_query, function (err, result) {
+
+        if (err) throw err;
+        res.json(result);
+    });
+});
 
 module.exports = router;
