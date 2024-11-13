@@ -14,7 +14,6 @@ require('dotenv').config();
 var get = require('./routes/get');
 var post = require('./routes/post');
 var api = require('./routes/api');
-var sql = require('./routes/sql');
 
 var app = express();
 
@@ -31,7 +30,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', get);
 app.use('/', post);
 app.use('/', api);
-app.use('/', sql);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

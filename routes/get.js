@@ -1,5 +1,5 @@
 var express = require('express');
-var sql  = require('./sql');
+const mysql = require('mysql2');
 var router = express.Router();
 
 /* GET home page. */
@@ -56,5 +56,7 @@ router.get('/celular', function(req, res) {
     res.render('celular');
 
 })
+
+router.get('/get_start_changes')
 
 module.exports = router;
