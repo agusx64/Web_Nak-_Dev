@@ -70,6 +70,7 @@ router.get('/celular', function(req, res) {
 
 })
 
+//Selección de valor mas reciente para actualizacioón de index
 router.get('/get_start_changes',function(req, res) {
 
     let select_query = 'SELECT * FROM registro_inicio ORDER BY created_at DESC LIMIT 1;'
@@ -83,6 +84,20 @@ router.get('/get_start_changes',function(req, res) {
 
 })
 
+//Selección para historial de cambios
+router.get('/start_log', function (req, res) {
+
+    let select_query = 'SELECT * FROM registro_inicio ORDER BY created_at DESC'
+
+    connection.query(select_query, function (err, results) {
+
+        if (err) throw err;
+        res.json(results);
+
+    });
+
+});
+
 router.get('/get_us_changes', function(req, res) {
 
     let select_query = 'SELECT * FROM registro_nosotros ORDER BY created_at DESC LIMIT 1;'
@@ -93,5 +108,19 @@ router.get('/get_us_changes', function(req, res) {
         res.json(result);
     });
 });
+
+
+router.get('/get_hist_changes', function(req, res) {
+
+    let select_query = 'SELECT * FROM registro_historia ORDER BY created_at DESC LIMIT 1;'
+
+    connection.query(select_query, function (err, result){
+
+        if (err) throw err;
+        res.json(result);
+
+    });
+});
+
 
 module.exports = router;

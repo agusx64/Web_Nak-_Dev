@@ -200,6 +200,96 @@ router.post('/insert_image_vision', upload.single('image'), async function(req, 
 
 });
 
+router.post('/insert_historia', function(req, res){
+
+    let data = req.body.historia;
+    let insert_text = 'INSERT INTO registro_historia (texto_historia) VALUES (?)'
+    connection.query(insert_text, [data], function(error, results){
+        if (error) throw error
+        console.log('Historia changed successfully', results);
+    });
+});
+
+router.post('/insert_image_historia', upload.single('image'), async function(req, res){
+
+    let data = req.file.path;
+    const result = await cloudinary.uploader.upload(data,{
+        folder: 'imagenes_historia'
+    })
+
+    const imageURL = result.secure_url;
+    console.log('Image uploaded successfully', imageURL);
+
+    let insert_query = `UPDATE registro_historia
+                        SET img_carousel_1 =?
+                        WHERE id = (
+                            SELECT id FROM (
+                                SELECT id
+                                FROM registro_historia
+                                ORDER BY created_at DESC
+                                LIMIT 1
+                            ) AS temp
+                        );`
+    connection.query(insert_query, [imageURL], function(error, results){
+        if (error) throw error
+        console.log('Image changed successfully', results);
+    });
+
+})
+
+router.post('/insert_image_historia1', upload.single('image'), async function(req, res){
+
+    let data = req.file.path;
+    const result = await cloudinary.uploader.upload(data,{
+        folder: 'imagenes_historia'
+    })
+
+    const imageURL = result.secure_url;
+    console.log('Image uploaded successfully', imageURL);
+
+    let insert_query = `UPDATE registro_historia
+                        SET img_carousel_2 =?
+                        WHERE id = (
+                            SELECT id FROM (
+                                SELECT id
+                                FROM registro_historia
+                                ORDER BY created_at DESC
+                                LIMIT 1
+                            ) AS temp
+                        );`
+    connection.query(insert_query, [imageURL], function(error, results){
+        if (error) throw error
+        console.log('Image changed successfully', results);
+    });
+
+})
+
+router.post('/insert_image_historia2', upload.single('image'), async function(req, res){
+
+    let data = req.file.path;
+    const result = await cloudinary.uploader.upload(data,{
+        folder: 'imagenes_historia'
+    })
+
+    const imageURL = result.secure_url;
+    console.log('Image uploaded successfully', imageURL);
+
+    let insert_query = `UPDATE registro_historia
+                        SET img_carousel_3 = ?
+                        WHERE id = (
+                            SELECT id FROM (
+                                SELECT id
+                                FROM registro_historia
+                                ORDER BY created_at DESC
+                                LIMIT 1
+                            ) AS temp
+                        );`
+    connection.query(insert_query, [imageURL], function(error, results){
+        if (error) throw error
+        console.log('Image changed successfully', results);
+    });
+
+})
 
 
 module.exports = router;

@@ -53,6 +53,12 @@ function ocultarSecciones() {
 // Evento para mostrar la sección de 'inicio'
 let currentAction = null;  // Variable global para almacenar la acción actual
 
+document.addEventListener('DOMContentLoaded', function() {
+
+  setInterval(getStartLog(), 5000)
+
+});
+
 // Configura los botones del menú
 inicioBtn.addEventListener('click', function() {
     ocultarSecciones();  // Oculta todas las secciones
@@ -226,6 +232,8 @@ historiaBtn.addEventListener('click', function() {
 
   const button_historia = document.getElementById('btn_text_hist');
   const button_image_historia = document.getElementById('btn_image_hist'); 
+  const button_image_historia1 = document.getElementById('btn_image_hist1');
+  const button_image_historia2 = document.getElementById('btn_image_hist2');
 
   button_historia.addEventListener('click', function() {
     currentAction = 'insert_historia';  
@@ -233,6 +241,14 @@ historiaBtn.addEventListener('click', function() {
 
   button_image_historia.addEventListener('click', function() {
     currentAction = 'insert_image_historia';  
+  })
+
+  button_image_historia1.addEventListener('click', function() {
+    currentAction = 'insert_image_historia1';  
+  })
+
+  button_image_historia2.addEventListener('click', function() {
+    currentAction = 'insert_image_historia2';  
   })
 
 });
@@ -250,6 +266,35 @@ imageConfirmButton.addEventListener('click', function() {
   } 
 
 });
+
+imageConfirmButton.addEventListener('click', function() {
+  if (currentAction === 'insert_image_historia1'){
+    const insertImgHist1 = document.getElementById('file-upload');
+    const form_data = new FormData();
+    form_data.append('image', insertImgHist1.files[0]);
+
+    fetch('/insert_image_historia1',{
+      method: 'POST',
+      body: form_data
+    });
+  } 
+
+});
+
+imageConfirmButton.addEventListener('click', function() {
+  if (currentAction === 'insert_image_historia2'){
+    const insertImgHist2 = document.getElementById('file-upload');
+    const form_data = new FormData();
+    form_data.append('image', insertImgHist2.files[0]);
+
+    fetch('/insert_image_historia2',{
+      method: 'POST',
+      body: form_data
+    });
+  } 
+
+});
+
 
 textConfirmButton.addEventListener('click', function() {
   
@@ -346,9 +391,14 @@ document.querySelectorAll('.close-btn_text').forEach(btn => {
     closeModal('upload_text_id');
   });
 });
-document.querySelectorAll('.close-btn_image').forEach(btn => {
+document.querySelectorAll('.close-btn_image1').forEach(btn => {
   btn.addEventListener('click', function() {
     closeModal('upload_image_id');
+  });
+});
+document.querySelectorAll('.close-btn_text_and_image').forEach(btn => {
+  btn.addEventListener('click', function() {
+    closeModal('upload_image_and_text_id');
   });
 });
 
@@ -382,26 +432,25 @@ setupModalToggle('btn_text_shop1', 'upload_text_id');
 setupModalToggle('btn_image_shop', 'upload_image_id');
 setupModalToggle('btn_text_shop2', 'upload_text_id');
 setupModalToggle('btn_text_shop3', 'upload_text_id');
-//US (2)
+//US (4)
 setupModalToggle('btn_text_us', 'upload_text_id');
 setupModalToggle('btn_image_us', 'upload_image_id');
 setupModalToggle('btn_text_us1', 'upload_text_id');
 setupModalToggle('btn_image_us1', 'upload_image_id');
-//History (2)
+//History (4)
 setupModalToggle('btn_text_hist', 'upload_text_id');
 setupModalToggle('btn_image_hist', 'upload_image_id');
-//Team (4)
-setupModalToggle('btn_image_team', 'upload_image_id');
-setupModalToggle('btn_text_team', 'upload_text_id');
-setupModalToggle('btn_text_team1', 'upload_text_id');
-setupModalToggle('btn_text_team2', 'upload_text_id');
-//Testimonials (6)
+setupModalToggle('btn_image_hist1', 'upload_image_id');
+setupModalToggle('btn_image_hist2', 'upload_image_id');
+//Team (3)
+setupModalToggle('btn_image_team', 'upload_image_and_text_id');
+setupModalToggle('btn_image_team1', 'upload_image_and_text_id');
+setupModalToggle('btn_image_team2', 'upload_image_and_text_id');
+//Testimonials (4)
 setupModalToggle('btn_text_testim', 'upload_text_id');
-setupModalToggle('btn_image_testim', 'upload_image_id');
-setupModalToggle('btn_text_testim1', 'upload_text_id');
-setupModalToggle('btn_image_testim1', 'upload_image_id');
-setupModalToggle('btn_text_testim2', 'upload_text_id');
-setupModalToggle('btn_text_testim3', 'upload_text_id');
+setupModalToggle('btn_image_testim', 'upload_image_and_text_id');
+setupModalToggle('btn_image_testim1', 'upload_image_and_text_id');
+setupModalToggle('btn_image_testim2', 'upload_image_and_text_id');
 //Location (1)
 setupModalToggle('btn_text_location', 'upload_text_id');
 //Recipes (4)
@@ -413,3 +462,40 @@ setupModalToggle('btn_image_recipes', 'upload_image_id');
 setupModalToggle('btn_text_product', 'upload_text_id');
 setupModalToggle('btn_text_product1', 'upload_text_id');
 setupModalToggle('btn_image_product', 'upload_image_id');
+
+function getStartLog() {
+  fetch('/start_log')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+
+      const tableBody = document.getElementById('table_body');
+      tableBody.innerHTML = '';
+
+      data.forEach(row => {
+
+        const tableRow = document.createElement('tr');
+
+        tableRow.innerHTML = `
+          <td><svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="13" height="13" rx="4" stroke="#D2D2D2" stroke-width="2" />
+              </svg>
+          </td>
+          <td>${row.id}</td>
+          <td>${row.descripcion}</td>
+          <td><a href="${row.img_producto}">Imagen cargada</a></td>
+          <td>${row.slogan}</td>
+          <td>${row.created_at}</td>
+        `;
+
+        tableBody.appendChild(tableRow);
+      });
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
+
+

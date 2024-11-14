@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     getChanges();
     getUsChanges();
+    getHistChanges();
 });
 
 
@@ -152,8 +153,8 @@ function changeThemeShop() {
             }
             // Aplicamos el tema oscuro si la sección es oscura
             else if (section.classList.contains('section_vm') || 
-                     section.classList.contains('section_personal') || 
-                     section.classList.contains('section_testimonials')) {
+                    section.classList.contains('section_personal') || 
+                    section.classList.contains('section_testimonials')) {
                 
                 document.body.classList.add('light-theme'); // Tema claro para el SVG
                 document.body.classList.remove('dark-theme');
@@ -187,9 +188,9 @@ function changeThemeEgg() {
             }
             // Aplicamos el tema oscuro si la sección es oscura
             else if (section.classList.contains('section_main') ||
-                     section.classList.contains('section_history') ||
-                     section.classList.contains('section_personal')||
-                     section.classList.contains('section_vm')) {
+                    section.classList.contains('section_history') ||
+                    section.classList.contains('section_personal')||
+                    section.classList.contains('section_vm')) {
                 
                 document.body.classList.add('light-theme_e'); // Tema claro para el SVG
                 document.body.classList.remove('dark-theme_e');
@@ -226,7 +227,7 @@ function changeThemeUp() {
             }
             // Aplicamos el tema oscuro si la sección es oscura
             else if (section.classList.contains('section_main') || 
-                     section.classList.contains('section_personal')) {
+                    section.classList.contains('section_personal')) {
                 
                 document.body.classList.add('light-theme_i'); // Tema claro para el SVG
                 document.body.classList.remove('dark-theme_i');
@@ -419,7 +420,7 @@ function getChanges () {
     slogan.textContent = changes[0].slogan;
     background.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${changes[0].img_producto})`;
 
- 
+
     console.log(changes);
     })
     .catch(error => {
@@ -449,4 +450,30 @@ function getUsChanges () {
     .catch(error => {
         console.error('Error al obtener los cambios:', error);
     });
+}
+
+function getHistChanges () {
+    fetch('/get_hist_changes')
+    .then(response => response.json())
+    .then(data => {  
+    let changes = data;
+
+    const historia = document.getElementById('text_hist');
+    const image_hist1 = document.getElementById('img1');
+    const image_hist2 = document.getElementById('img2');
+    const image_hist3 = document.getElementById('img3');
+
+    historia.textContent = changes[0].texto_historia;
+    image_hist1.src = changes[0].img_carousel_1;
+    image_hist2.src = changes[0].img_carousel_2;
+    image_hist3.src = changes[0].img_carousel_3;
+
+
+
+    console.log(changes);
+    })
+    .catch(error => {
+        console.error('Error al obtener los cambios:', error);
+    });
+
 }
