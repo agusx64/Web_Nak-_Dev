@@ -113,6 +113,174 @@ router.post('/insert_slogan', function(req, res){
     })
 
 });
+
+router.post('/insert_product_1', upload.single('imagen'), async function(req, res){
+
+    try {
+
+        let image = req.file;
+        let product = req.body;
+        const path = image.path;
+
+        const result = await cloudinary.uploader.upload(path, {
+
+            folder: 'producto_1'
+            
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Product 1 uploaded successfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_producto1 (titulo, descripcion, img, slogan, precio) VALUES(?, ?, ?, ?, ?);'
+
+        connection.query(insert_query, [product.titulo, product.descripcion, imageURL, product.slogan, product.precio], function (err, result){
+
+            if (err) {
+                
+                throw err;
+
+
+            }else {
+                
+                console.log('Inserted product on table 1');
+                
+            }
+            
+        });
+
+        
+    }catch {
+
+        console.error("Error al subir la imagen:", err);
+        res.status(500).send("Hubo un error al subir la imagen.");
+        
+    }
+    
+})
+
+router.post('/insert_product_2', upload.single('imagen'), async function(req, res){
+
+    try {
+
+        let image = req.file;
+        let product = req.body;
+        const path = image.path;
+
+        const result = await cloudinary.uploader.upload(path, {
+
+            folder: 'producto_2'
+            
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Product 2 uploaded successfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_producto2  (titulo, descripcion, img, slogan, precio) VALUES(?, ?, ?, ?, ?);'
+
+        connection.query(insert_query, [product.titulo, product.descripcion, imageURL, product.slogan, product.precio], function (err, result){
+
+            if (err) {
+                
+                throw err;
+
+
+            }else {
+                
+                console.log('Inserted product on table 2');
+            }
+            
+        });
+
+        
+    } catch {
+
+        console.error("Error al subir la imagen:", err);
+        res.status(500).send("Hubo un error al subir la imagen.");
+        
+    }
+    
+})
+
+router.post('/insert_product_3', upload.single('imagen'), async function(req, res){
+    
+    try{ 
+        let image = req.file;
+        let product = req.body;
+        const path_img = image.path;
+
+        const result = await cloudinary.uploader.upload(path_img, {
+
+            folder: 'producto_3'
+            
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Product 3 uploaded succesfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_producto3 (titulo, descripcion, img, slogan, precio) VALUES(?, ?, ?, ?, ?);'
+        
+        connection.query(insert_query, [product.titulo, product.descripcion, imageURL, product.slogan, product.precio], function (err, result){
+
+            if (err) {
+                
+                throw err;
+
+
+            }else {
+                
+                console.log('Inserted product on table 3');
+
+            }
+            
+        });
+
+    } catch (err) {
+
+        console.error(err);
+    }
+}); 
+
+router.post('/insert_product_4', upload.single('imagen'), async function(req, res) {
+
+    try{
+
+        let image = req.file;
+        let product = req.body;
+        const path_img = image.path;
+
+        const result = await cloudinary.uploader.upload(path_img, {
+
+            folder: 'producto_4'
+
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Product 4 uploaded succesfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_producto4 (titulo, descripcion, img, slogan, precio) VALUES(?, ?, ?, ?, ?);'
+
+        connection.query(insert_query, [product.titulo, product.descripcion, imageURL, product.slogan, product.precio], function (err, result) {
+
+            if (err) {
+
+                throw err;
+
+            } else {
+
+                console.log('Inserted product on table 4');
+
+            }
+
+        });
+
+    } catch (err) {
+
+        console.error(err);
+
+    }
+
+});
+
     
 router.post('/insert_mision', function(req, res){
 
@@ -290,6 +458,5 @@ router.post('/insert_image_historia2', upload.single('image'), async function(re
     });
 
 })
-
 
 module.exports = router;

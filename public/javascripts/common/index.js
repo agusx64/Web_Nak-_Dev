@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-    getChanges();
-    getUsChanges();
-    getHistChanges();
+
+    setInterval(getChanges(), 4000);
+    setInterval(getUsChanges(), 4000);
+    setInterval(getHistChanges(), 4000);
+    // setInterval(getDescHistChangues(), 4000);
+    
+    
 });
 
 
@@ -476,4 +480,15 @@ function getHistChanges () {
         console.error('Error al obtener los cambios:', error);
     });
 
-}
+};
+
+// function getDescHistChangues(){
+
+//     fetch('/modify_description_json')
+//     .then(response => response.json())
+//     .then(data => {
+
+//         console.log(data);
+
+//     })
+// }

@@ -18,13 +18,6 @@ logo_home.addEventListener('click', function() {
 
 });
 
-// Fetchs de envio de de cambios a la pagina web
-function insertNewDescription(){
-
-
-
-}
-
 
 // Secciones de contenido
 const inicioContent = document.querySelector('.main-content_inicio');
@@ -55,7 +48,10 @@ let currentAction = null;  // Variable global para almacenar la acción actual
 
 document.addEventListener('DOMContentLoaded', function() {
 
-  setInterval(getStartLog(), 5000)
+  setInterval(getStartLog(), 4000);
+  setInterval(getUsLog(), 4000);
+  setInterval(getHistoryLog(), 4000);
+  setInterval(getProductsChanges(), 4000);
 
 });
 
@@ -138,7 +134,147 @@ tiendaBtn.addEventListener('click', function() {
     ocultarSecciones(); 
     tiendaContent.hidden = false;  
 
+    const button_product_1 = document.getElementById('btn_text_shop');
+    const button_product_2 = document.getElementById('btn_text_shop1');
+    const button_product_3 = document.getElementById('btn_text_shop2');
+    const button_product_4 = document.getElementById('btn_text_shop3');
+
+    button_product_1.addEventListener('click', function() {
+      currentAction = 'insert_product_1';  // Asigna la acción de producto 1
+    });
+  
+    button_product_2.addEventListener('click', function() {
+      currentAction = 'insert_product_2';  // Asigna la acción de producto 2
+    });
+
+    button_product_3.addEventListener('click', function() {
+      currentAction = 'insert_product_3';  // Asigna la acción de producto 3
+    });
+    
+    button_product_4.addEventListener('click', function() {
+      currentAction = 'insert_product_4';  // Asigna la acción de producto 4
+    });
+
 });
+
+const button_insert_data = document.getElementById('arrowShop');
+button_insert_data.addEventListener('click', function() {
+
+  if (currentAction === 'insert_product_1') {
+
+    const image = document.getElementById('file-upload3');
+    const title = document.getElementById('send_text_title');
+    const description = document.getElementById('send_text_description');
+    const slogan = document.getElementById('send_text_slogan');
+    const price = document.getElementById('send_text_price');
+
+    let valueTitle = title.value;
+    let valueDescription = description.value;
+    let valueSlogan = slogan.value;
+    let valuePrice = price.value;
+
+    let formData = new FormData();
+    formData.append('imagen', image.files[0]);
+    formData.append('titulo', valueTitle
+    
+    );
+    formData.append('descripcion', valueDescription);
+    formData.append('slogan', valueSlogan);
+    formData.append('precio', valuePrice);
+
+    fetch('/insert_product_1',{
+
+      method: 'POST',
+      body: formData
+
+    })
+
+  } else if (currentAction === 'insert_product_2') {
+
+    const image = document.getElementById('file-upload3');
+    const title = document.getElementById('send_text_title');
+    const description = document.getElementById('send_text_description');
+    const slogan = document.getElementById('send_text_slogan');
+    const price = document.getElementById('send_text_price');
+
+    let valueTitle = title.value;
+    let valueDescription = description.value;
+    let valueSlogan = slogan.value;
+    let valuePrice = price.value;
+
+    let formData = new FormData();
+    formData.append('imagen', image.files[0]);
+    formData.append('titulo', valueTitle);
+    formData.append('descripcion', valueDescription);
+    formData.append('slogan', valueSlogan);
+    formData.append('precio', valuePrice);
+
+    fetch('/insert_product_2',{
+
+      method: 'POST',
+      body: formData
+
+    })
+
+  } else if (currentAction === 'insert_product_3') {
+
+    const image = document.getElementById('file-upload3');
+    const title = document.getElementById('send_text_title');
+    const description = document.getElementById('send_text_description');
+    const slogan = document.getElementById('send_text_slogan');
+    const price = document.getElementById('send_text_price');
+
+    let valueTitle = title.value;
+    let valueDescription = description.value;
+    let valueSlogan = slogan.value;
+    let valuePrice = price.value;
+
+    let formData = new FormData();
+    formData.append('imagen', image.files[0]);
+    formData.append('titulo', valueTitle);
+    formData.append('descripcion', valueDescription);
+    formData.append('slogan', valueSlogan);
+    formData.append('precio', valuePrice);
+
+    fetch('/insert_product_3',{
+
+      method: 'POST',
+      body: formData
+
+    })
+
+  } else if (currentAction === 'insert_product_4') {
+
+    const image = document.getElementById('file-upload3');
+    const title = document.getElementById('send_text_title');
+    const description = document.getElementById('send_text_description');
+    const slogan = document.getElementById('send_text_slogan');
+    const price = document.getElementById('send_text_price');
+
+    
+    let valueTitle = title.value;
+    let valueDescription = description.value;
+    let valueSlogan = slogan.value;
+    let valuePrice = price.value;
+
+    let formData = new FormData();
+    formData.append('imagen', image.files[0]);
+    formData.append('titulo', valueTitle);
+    formData.append('descripcion', valueDescription);
+    formData.append('slogan', valueSlogan);
+    formData.append('precio', valuePrice);
+
+    fetch('/insert_product_4',{
+
+      method: 'POST',
+      body: formData
+
+    })
+
+  }
+
+})
+
 // Evento para mostrar la sección de 'nosotros'
 nosotrosBtn.addEventListener('click', function() {
     ocultarSecciones();  
@@ -315,13 +451,24 @@ textConfirmButton.addEventListener('click', function() {
 // Evento para mostrar la sección de 'equipo'
 equipoBtn.addEventListener('click', function() {
     ocultarSecciones();  
- equipoContent.hidden = false; 
+  equipoContent.hidden = false; 
 });
+
+  const button_perfil_1 = document.getElementById('button_perfil_1');
+
+
+
+
+
+
 // Evento para mostrar la sección de 'testimonios'
 testimoniosBtn.addEventListener('click', function() {
     ocultarSecciones();  
   testimoniosContent.hidden = false; 
 });
+
+
+
 // Evento para mostrar la sección de 'ubicacion'
 ubicacionBtn.addEventListener('click', function() {
     ocultarSecciones();  
@@ -401,6 +548,17 @@ document.querySelectorAll('.close-btn_text_and_image').forEach(btn => {
     closeModal('upload_image_and_text_id');
   });
 });
+document.querySelectorAll('.close-btn_text_and_image3').forEach(btn => {
+  btn.addEventListener('click', function() {
+    closeModal('upload_image_and_text3_id');
+  });
+});
+document.querySelectorAll('.close-btn_text_and_image4').forEach(btn => {
+  btn.addEventListener('click', function() {
+    closeModal('upload_image_and_text4_id');
+  });
+});
+
 
 // Función para abrir y cerrar un modal con clics dentro y fuera de él
 function setupModalToggle(buttonId, modalId) {
@@ -427,11 +585,10 @@ setupModalToggle('btn_text_home', 'upload_text_id');
 setupModalToggle('btn_text_home1', 'upload_text_id');
 setupModalToggle('btn_image_home', 'upload_image_id');
 //Shop (5)
-setupModalToggle('btn_text_shop', 'upload_text_id');
-setupModalToggle('btn_text_shop1', 'upload_text_id');
-setupModalToggle('btn_image_shop', 'upload_image_id');
-setupModalToggle('btn_text_shop2', 'upload_text_id');
-setupModalToggle('btn_text_shop3', 'upload_text_id');
+setupModalToggle('btn_text_shop', 'upload_image_and_text4_id');
+setupModalToggle('btn_text_shop1', 'upload_image_and_text4_id');
+setupModalToggle('btn_text_shop2', 'upload_image_and_text4_id');
+setupModalToggle('btn_text_shop3', 'upload_image_and_text4_id');
 //US (4)
 setupModalToggle('btn_text_us', 'upload_text_id');
 setupModalToggle('btn_image_us', 'upload_image_id');
@@ -458,10 +615,12 @@ setupModalToggle('btn_text_recipes', 'upload_text_id');
 setupModalToggle('btn_text_recipes1', 'upload_text_id');
 setupModalToggle('btn_text_recipes2', 'upload_text_id');
 setupModalToggle('btn_image_recipes', 'upload_image_id');
-//Products (3)
-setupModalToggle('btn_text_product', 'upload_text_id');
-setupModalToggle('btn_text_product1', 'upload_text_id');
-setupModalToggle('btn_image_product', 'upload_image_id');
+//Products (4)
+setupModalToggle('btn_text_product', 'upload_image_and_text3_id');
+setupModalToggle('btn_text_product1', 'upload_image_and_text3_id');
+setupModalToggle('btn_text_product2', 'upload_image_and_text3_id');
+setupModalToggle('btn_text_product3', 'upload_image_and_text3_id');
+
 
 function getStartLog() {
   fetch('/start_log')
@@ -483,9 +642,9 @@ function getStartLog() {
               </svg>
           </td>
           <td>${row.id}</td>
-          <td>${row.descripcion}</td>
+          <td>${truncateText(row.descripcion, 30)}</td>
           <td><a href="${row.img_producto}">Imagen cargada</a></td>
-          <td>${row.slogan}</td>
+          <td>${truncateText(row.slogan, 30)}</td>
           <td>${row.created_at}</td>
         `;
 
@@ -497,5 +656,130 @@ function getStartLog() {
     });
 }
 
+function  getUsLog() {
 
+  fetch ('/us_log')
 
+  .then(response => response.json())
+  .then(data => {
+
+    console.log(data);
+    const tableBodyUs = document.getElementById('table_body_us');
+
+    tableBodyUs.innerHTML = '';
+
+    data.forEach(row => {
+
+      const tableRow = document.createElement('tr');
+
+      tableRow.innerHTML = `
+      <td><svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="13" height="13" rx="4" stroke="#D2D2D2" stroke-width="2" />
+          </svg>
+      </td>
+      <td>${row.id}</td>
+      <td>${truncateText(row.mision, 30)}</td>
+      <td><a href="${row.img_mision}">Imagen cargada</a></td>
+      <td>${truncateText(row.vision, 30)}</td>
+      <td><a href="${row.img_vision}">Imagen cargada</a></td>
+      <td>${row.created_at}</td>
+    `;
+
+    tableBodyUs.appendChild(tableRow);
+
+    })
+
+  }) 
+
+  .catch(error => {
+
+    console.error(error);
+
+  })
+
+}
+
+function getHistoryLog() {
+
+  fetch('/history_log')
+  .then(response => response.json())
+  .then(data => {
+
+    console.log(data);
+
+    const tableBodyHistory = document.getElementById('table_body_history');
+    tableBodyHistory.innerHTML = '';
+
+    data.forEach(row => {
+
+      const tableRow = document.createElement('tr');
+
+      tableRow.innerHTML = `
+      <td><svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="13" height="13" rx="4" stroke="#D2D2D2" stroke-width="2" />
+          </svg>
+      </td>
+      <td>${row.id}</td>
+      <td>${truncateText(row.texto_historia, 30)}</td>
+      <td><a href="${row.img_carousel_1}">Imagen 1</a></td>
+      <td><a href="${row.img_carousel_2}">Imagen 2</a></td>
+      <td><a href="${row.img_carousel_3}">Imagen 3</a></td>
+      <td>${row.created_at}</td>
+    `;
+    
+    tableBodyHistory.appendChild(tableRow);
+
+    });
+
+  })
+  .catch(error => {
+
+    console.error(error);
+
+  });
+
+}
+
+function getProductsChanges() {
+
+  fetch('/get_products_log')
+
+  .then(response => response.json())
+  .then(data => {
+
+    console.log(data);
+    
+    const tableBodyProducts = document.getElementById('table_body_products');
+    tableBodyProducts.innerHTML = '';
+    
+    data.forEach(row => {
+
+      const tableRow = document.createElement('tr');
+      tableRow.innerHTML = `
+      <td><svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="13" height="13" rx="4" stroke="#D2D2D2" stroke-width="2" />
+          </svg>
+      </td>
+      <td>${row.id}</td>
+      <td>${truncateText(row.titulo, 30)}</td>
+      <td>${truncateText(row.descripcion, 30)}</td>
+      <td>${truncateText(row.precio, 30)}</td>
+      <td><a href="${row.img}">Imagen</a></td>
+      <td>${truncateText(row.slogan, 30)}</td>
+      <td>${row.created_at}</td>
+    `;
+    
+    tableBodyProducts.appendChild(tableRow);
+
+    })
+
+  })
+
+}
+
+function truncateText(text, maxLength) {
+  return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+}

@@ -98,6 +98,74 @@ router.get('/start_log', function (req, res) {
 
 });
 
+router.get('/us_log', function (req, res) {
+
+    let select_query = 'SELECT * FROM registro_nosotros ORDER BY created_at DESC'
+
+    connection.query(select_query, function (err, results) {
+
+        if (err) throw err;
+        res.json(results);
+
+    });
+
+});
+
+router.get('/history_log', function (req, res) {
+
+    let select_query = 'SELECT * FROM registro_historia ORDER BY created_at DESC';
+
+    connection.query(select_query, function (err, results) {
+
+        if (err) throw err;
+        res.json(results);
+
+    });
+    
+});
+
+
+router.get('/get_products_changes', function (req, res) {
+
+    let select_query = `(SELECT * FROM registro_producto1 ORDER BY created_at DESC LIMIT 1)
+                        UNION ALL
+                        (SELECT * FROM registro_producto2 ORDER BY created_at DESC LIMIT 1)
+                        UNION ALL
+                        (SELECT * FROM registro_producto3 ORDER BY created_at DESC LIMIT 1)
+                        UNION ALL
+                        (SELECT * FROM registro_producto4 ORDER BY created_at DESC LIMIT 1)`;
+
+    connection.query(select_query, function (err, results) {
+        
+        if (err) throw err;
+        res.json(results);
+
+    }); 
+
+});
+
+router.get('/get_products_log', function (req, res) {
+
+    let insert_query = `(SELECT * FROM registro_producto1)
+                        UNION ALL
+                        (SELECT * FROM registro_producto2)
+                        UNION ALL
+                        (SELECT * FROM registro_producto3)
+                        UNION ALL
+                        (SELECT * FROM registro_producto4)`;
+    
+    connection.query(insert_query, function (err, result) {
+
+        if (err) throw err;
+        res.json(result);
+
+    });
+
+});
+
+
+
+
 router.get('/get_us_changes', function(req, res) {
 
     let select_query = 'SELECT * FROM registro_nosotros ORDER BY created_at DESC LIMIT 1;'
@@ -106,7 +174,9 @@ router.get('/get_us_changes', function(req, res) {
 
         if (err) throw err;
         res.json(result);
+
     });
+    
 });
 
 
@@ -124,3 +194,4 @@ router.get('/get_hist_changes', function(req, res) {
 
 
 module.exports = router;
+
