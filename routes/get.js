@@ -144,6 +144,26 @@ router.get('/get_products_changes', function (req, res) {
 
 });
 
+router.get('/get_team_changes', function (req, res) {
+
+    let select_query = `(SELECT * FROM  registro_perfil1 ORDER BY created_at DESC LIMIT 1)
+                        UNION ALL
+                        (SELECT * FROM  registro_perfil2 ORDER BY created_at DESC LIMIT 1)
+                        UNION ALL
+                        (SELECT * FROM  registro_perfil3 ORDER BY created_at DESC LIMIT 1)`;
+
+    connection.query(select_query, function (err, results) {
+        
+        if (err) throw err;
+        res.json(results);
+                    
+    }); 
+                    
+
+
+
+});
+
 router.get('/get_products_log', function (req, res) {
 
     let insert_query = `(SELECT * FROM registro_producto1)

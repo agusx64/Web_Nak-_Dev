@@ -459,4 +459,138 @@ router.post('/insert_image_historia2', upload.single('image'), async function(re
 
 })
 
+
+router.post('/insert_team_image1', upload.single('imagen'), async function(req, res){
+
+    try {
+
+        let image = req.file;
+        let team = req.body;
+        const path = image.path;
+
+        const result = await cloudinary.uploader.upload(path, {
+
+            folder: 'perfil_1'
+            
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Team 1 uploaded successfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_perfil1 (img_perfil, cargo, descripcion_perfil) VALUES(?, ?, ?);'
+
+        connection.query(insert_query, [imageURL, team.cargo, team.descripcion], function (err, result){
+
+            if (err) {
+                
+                throw err;
+
+
+            }else {
+                
+                console.log('Inserted team on table 1');
+                
+            }
+            
+        });
+
+        
+    }catch {
+
+        console.error("Error al subir la imagen:", err);
+        res.status(500).send("Hubo un error al subir la imagen.");
+        
+    }
+    
+})
+
+router.post('/insert_team_image2', upload.single('imagen'), async function(req, res){
+
+    try {
+
+        let image = req.file;
+        let team = req.body;
+        const path = image.path;
+
+        const result = await cloudinary.uploader.upload(path, {
+
+            folder: 'perfil_2'
+            
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Team 2 uploaded successfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_perfil2 (img_perfil, cargo, descripcion_perfil) VALUES(?, ?, ?);'
+
+        connection.query(insert_query, [imageURL, team.cargo, team.descripcion], function (err, result){
+
+            if (err) {
+                
+                throw err;
+
+
+            }else {
+                
+                console.log('Inserted team on table 2');
+                
+            }
+            
+        });
+
+        
+    }catch {
+
+        console.error("Error al subir la imagen:", err);
+        res.status(500).send("Hubo un error al subir la imagen.");
+        
+    }
+    
+})
+
+router.post('/insert_team_image3', upload.single('imagen'), async function(req, res){
+
+    try {
+
+        let image = req.file;
+        let team = req.body;
+        const path = image.path;
+
+        const result = await cloudinary.uploader.upload(path, {
+
+            folder: 'perfil_3'
+            
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Team 3 uploaded successfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_perfil3 (img_perfil, cargo, descripcion_perfil) VALUES(?, ?, ?);'
+
+        connection.query(insert_query, [imageURL, team.cargo, team.descripcion], function (err, result){
+
+            if (err) {
+                
+                throw err;
+
+
+            }else {
+                
+                console.log('Inserted team on table 3');
+                
+            }
+            
+        });
+
+        
+    }catch {
+
+        console.error("Error al subir la imagen:", err);
+        res.status(500).send("Hubo un error al subir la imagen.");
+        
+    }
+    
+})
+
+
 module.exports = router;

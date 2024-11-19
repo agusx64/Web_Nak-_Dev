@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(getChanges(), 4000);
     setInterval(getUsChanges(), 4000);
     setInterval(getHistChanges(), 4000);
+    setInterval(getTeamChanges(), 4000);
+    
     // setInterval(getDescHistChangues(), 4000);
     
     
@@ -481,6 +483,49 @@ function getHistChanges () {
     });
 
 };
+
+function getTeamChanges() {
+
+    fetch('/get_team_changes')
+    .then(response => response.json())
+    .then(data => {
+
+    let changes = data;
+
+    const img_team = document.getElementById('team1');
+    const position = document.getElementById('position1');
+    const des_team = document.getElementById('des_team1');
+
+    img_team.src = changes[0].img_perfil;
+    position.textContent = changes[0].cargo;
+    des_team.textContent = changes[0].descripcion_perfil;
+
+    const img_team2 = document.getElementById('team2');
+    const position2 = document.getElementById('position2');
+    const des_team2 = document.getElementById('des_team2');
+
+    img_team2.src = changes[1].img_perfil;
+    position2.textContent = changes[1].cargo;
+    des_team2.textContent = changes[1].descripcion_perfil;
+
+    const img_team3 = document.getElementById('team3');
+    const position3 = document.getElementById('position3');
+    const des_team3 = document.getElementById('des_team3');
+
+    img_team3.src = changes[2].img_perfil;
+    position3.textContent = changes[2].cargo;
+    des_team3.textContent = changes[2].descripcion_perfil;
+
+
+
+    console.log(changes);
+    })
+    .catch(error => {
+        console.error('Error al obtener los cambios:', error);
+    });
+
+};
+
 
 // function getDescHistChangues(){
 

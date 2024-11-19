@@ -452,9 +452,103 @@ textConfirmButton.addEventListener('click', function() {
 equipoBtn.addEventListener('click', function() {
     ocultarSecciones();  
   equipoContent.hidden = false; 
+
+
+  const button_perfil_1 = document.getElementById('btn_image_team');
+  const button_perfil_2 = document.getElementById('btn_image_team1');
+  const button_perfil_3 = document.getElementById('btn_image_team2');
+
+  button_perfil_1.addEventListener('click', function() {
+    currentAction = 'insert_team_image1';  
+
+  });
+
+  button_perfil_2.addEventListener('click', function() {
+    currentAction = 'insert_team_image2'; 
+
+  });
+
+  button_perfil_3.addEventListener('click', function() {
+    currentAction = 'insert_team_image3'; 
+
+  });
+  
+
 });
 
-  const button_perfil_1 = document.getElementById('button_perfil_1');
+
+  const button_insert_team = document.getElementById('arrowTeam');
+
+  button_insert_team.addEventListener('click', function() { 
+
+    if (currentAction === 'insert_team_image1') {
+
+      const image_team = document.getElementById('file-upload1');
+      const position =  document.getElementById('position_team');
+      const description_team = document.getElementById('description_team');
+
+
+      let valuePosition = position.value;
+      let valueDescription = description_team.value;
+
+      let formData = new FormData();
+      formData.append('imagen', image_team.files[0]);
+      formData.append('cargo', valuePosition);
+      formData.append('descripcion', valueDescription);
+
+      fetch('/insert_team_image1', {
+        method: 'POST',
+        body: formData
+        
+      })
+
+
+  }else  if (currentAction === 'insert_team_image2') {
+
+      const image_team = document.getElementById('file-upload1');
+      const position =  document.getElementById('position_team');
+      const description_team = document.getElementById('description_team');
+
+
+      let valuePosition = position.value;
+      let valueDescription = description_team.value;
+
+      let formData = new FormData();
+      formData.append('imagen', image_team.files[0]);
+      formData.append('cargo', valuePosition);
+      formData.append('descripcion', valueDescription);
+
+      fetch('/insert_team_image2', {
+        method: 'POST',
+        body: formData
+        
+      })
+
+
+  }else if (currentAction === 'insert_team_image3'){
+
+      const image_team = document.getElementById('file-upload1');
+      const position =  document.getElementById('position_team');
+      const description_team = document.getElementById('description_team');
+
+
+      let valuePosition = position.value;
+      let valueDescription = description_team.value;
+
+      let formData = new FormData();
+      formData.append('imagen', image_team.files[0]);
+      formData.append('cargo', valuePosition);
+      formData.append('descripcion', valueDescription);
+
+      fetch('/insert_team_image3', {
+        method: 'POST',
+        body: formData
+        
+      })
+
+  }
+  
+});
 
 
 
