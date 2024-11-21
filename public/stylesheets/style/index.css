@@ -927,9 +927,9 @@ body.light-theme_i #up_screen {
 /* Estilo de la imagen */
 .img_personal {
     width: 100%;
-    height: auto;
+    height: 250px;
     /* Ajustado para mostrar la cabeza completa */
-    object-fit: contain;
+    object-fit: cover;
     /* Ajuste que respeta la proporción completa */
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;

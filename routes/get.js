@@ -158,9 +158,40 @@ router.get('/get_team_changes', function (req, res) {
         res.json(results);
                     
     }); 
-                    
 
+});
 
+router.get('/get_team_log', function (req, res) {
+
+    let insert_query = `(SELECT * FROM registro_perfil1 ORDER BY created_at DESC)
+                        UNION ALL
+                        (SELECT * FROM registro_perfil2 ORDER BY created_at DESC)
+                        UNION ALL
+                        (SELECT * FROM registro_perfil3 ORDER BY created_at DESC)`
+    
+    connection.query(insert_query, function (err, results) {
+
+        if (err) throw err
+        res.json(results);
+
+    });
+
+});
+
+router.get('/get_test_logs', function (req, res){
+
+     const insert_query =  `(SELECT * FROM registro_testimonio1 ORDER BY created_at DESC)
+                            UNION ALL
+                            (SELECT * FROM registro_testimonio2 ORDER BY created_at DESC)
+                            UNION ALL
+                            (SELECT * FROM registro_testimonio3 ORDER BY created_at DESC)`;
+
+    connection.query(insert_query, function (err, result) {
+
+        if (err) throw err;
+        res.json(result);
+
+    });
 
 });
 
@@ -183,8 +214,66 @@ router.get('/get_products_log', function (req, res) {
 
 });
 
+router.get('/get_recipe_random', function (req, res) {
 
+    let insert_query = `SELECT * 
+                        FROM (
+                            SELECT * FROM registro_desayuno
+                            UNION ALL
+                            SELECT * FROM registro_comida
+                            UNION ALL
+                            SELECT * FROM registro_postre
+                        ) AS union_result
+                        ORDER BY RAND()
+                        LIMIT 1;`;
+    
+    connection.query(insert_query, function (err, result) {
 
+        if (err ) throw err;
+        res.json(result);
+
+    });
+
+})
+
+router.get('/get_breakfast_list', function (req, res) {
+
+    let insert_query = 'SELECT * FROM registro_desayuno ORDER BY created_at DESC';
+
+    connection.query(insert_query, function (err, result) {
+
+        if (err) throw err;
+        res.json(result);
+        
+    });
+
+});
+
+router.get('/get_food_list', function (req, res) {
+
+    let insert_query = 'SELECT * FROM registro_comida ORDER BY created_at DESC'
+    
+    connection.query(insert_query, function (err, result) {
+
+        if (err) throw err;
+        res.json(result);
+
+    });
+
+});
+
+router.get('/get_dessert_list', function (req, res) {
+
+    let insert_query = 'SELECT * FROM registro_postre ORDER BY created_at DESC'
+
+    connection.query(insert_query, function (err, result) {
+
+        if (err) throw err;
+        res.json(result);
+
+    });
+
+});
 
 router.get('/get_us_changes', function(req, res) {
 
@@ -210,6 +299,69 @@ router.get('/get_hist_changes', function(req, res) {
         res.json(result);
 
     });
+});
+
+
+
+router.get('/get_testimony_changes', function(req, res) {
+
+    let select_query = `(SELECT * FROM registro_testimonio1 ORDER BY created_at DESC LIMIT 1)
+                        UNION ALL
+                        (SELECT * FROM registro_testimonio2 ORDER BY created_at DESC LIMIT 1)
+                        UNION ALL
+                        (SELECT * FROM registro_testimonio3 ORDER BY created_at DESC LIMIT 1)`;
+
+        connection.query(select_query, function (err, result) {
+
+            if (err) throw err;
+            res.json(result);
+                    
+        });
+                    
+});
+
+router.get('/get_descriptionTestimony_changes', function(req, res) {
+
+    let select_query = 'SELECT * FROM registro_testimonio ORDER BY created_at DESC LIMIT 1;'
+
+    connection.query(select_query, function (err, result){
+
+        if (err) throw err;
+        res.json(result);
+
+    });
+});
+
+router.get('/get_location_changes',function(req, res) {
+
+    let select_query = 'SELECT * FROM registro_ubicacion ORDER BY created_at DESC LIMIT 1;'
+    
+    connection.query(select_query, function (err, result) {
+
+        if (err) throw err;
+        res.json(result);
+
+    });
+
+});
+
+router.get('/get_huevo_changes', function(req, res) {
+
+    let select_query = `(SELECT * FROM registro_cono_huevo ORDER BY created_at DESC LIMIT 1)
+                        UNION ALL
+                        (SELECT * FROM registro_caja_huevo ORDER BY created_at DESC LIMIT 1)
+                        UNION ALL
+                        (SELECT * FROM registro_alimento ORDER BY created_at DESC LIMIT 1)
+                        UNION ALL
+                        (SELECT * FROM registro_gallinas ORDER BY created_at DESC LIMIT 1)`;
+
+        connection.query(select_query, function (err, result) {
+
+            if (err) throw err;
+            res.json(result);
+                    
+        });
+                    
 });
 
 

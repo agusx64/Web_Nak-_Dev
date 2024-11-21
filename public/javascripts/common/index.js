@@ -4,7 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(getUsChanges(), 4000);
     setInterval(getHistChanges(), 4000);
     setInterval(getTeamChanges(), 4000);
-    
+    setInterval(getTestimonyChanges(), 4000);
+    setInterval(getDescTestimonyChanges(), 4000);
+    setInterval( getLocationChanges(), 4000);
+    setInterval(getHuevoChanges(), 4000);
     // setInterval(getDescHistChangues(), 4000);
     
     
@@ -527,13 +530,93 @@ function getTeamChanges() {
 };
 
 
-// function getDescHistChangues(){
+function getTestimonyChanges(){
+    
+    fetch('/get_testimony_changes')
+    .then(response => response.json())
+    .then(data => {
 
-//     fetch('/modify_description_json')
-//     .then(response => response.json())
-//     .then(data => {
+    let changes = data;
 
-//         console.log(data);
+    const img_testimony = document.getElementById('imgTestim1');
+    const name_testimony = document.getElementById('nombre1');
+    const testimony = document.getElementById('testim1');
 
-//     })
-// }
+    img_testimony.src = changes[0].img_testimonio;
+    name_testimony.textContent = changes[0].nombre;
+    testimony.textContent = changes[0].descripcion_testimonio;
+
+    const img_testimony2 = document.getElementById('imgTestim2');
+    const name_testimony2 = document.getElementById('nombre2');
+    const testimony2 = document.getElementById('testim2');
+
+    img_testimony2.src = changes[1].img_testimonio;
+    name_testimony2.textContent = changes[1].nombre;
+    testimony2.textContent = changes[1].descripcion_testimonio;
+
+    const img_testimony3 = document.getElementById('imgTestim3');
+    const name_testimony3 = document.getElementById('nombre3');
+    const testimony3 = document.getElementById('testim3');
+
+    img_testimony3.src = changes[2].img_testimonio;
+    name_testimony3.textContent = changes[2].nombre;
+    testimony3.textContent = changes[2].descripcion_testimonio;
+
+    console.log(changes);
+})
+.catch(error => {
+    console.error('Error al obtener los cambios:', error);
+
+    });
+
+
+};
+
+function getDescTestimonyChanges(){
+
+    fetch('/get_descriptionTestimony_changes')
+    .then(response => response.json())
+    .then(data => {
+
+    let changes = data;
+
+    const desc_testimony = document.getElementById('descTestim');
+
+    desc_testimony.textContent = changes[0].descripcion_testimonio;
+
+    console.log(changes);
+    })
+
+    .catch(error => {
+        console.error('Error al obtener los cambios:', error);
+    });
+
+
+};
+
+function getLocationChanges(){
+
+    fetch('/get_location_changes')
+    .then(response => response.json())
+    .then(data => {
+
+        let changes = data;
+
+        const desc_location = document.getElementById('desc_loca')
+        const location = document.getElementById('locationSRC')
+
+        desc_location.textContent = changes[0].desc_ubicacion;
+        location.textContent = changes[0].ubicacion;
+
+        console.log(changes);
+
+    })
+
+    .catch(error => {
+        console.error('Error al obtener los cambios:', error);
+    });
+
+    
+
+};
+

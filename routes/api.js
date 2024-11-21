@@ -43,7 +43,6 @@ router.post('/api_response', async function(req, res) {
 
 });
 
-//dqhk isys zsux htwi
 const transporter = nodemailer.createTransport({
 
     service: 'gmail',
@@ -65,20 +64,32 @@ router.post('/send_email', async function(req, res) {
         from: 'naku0824@gmail.com',
         to: 'naku0824@gmail.com',
         subject: 'Solicitud de Información',
-        html: `
-            <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
-                <img src="https://res.cloudinary.com/dj4jsxc1l/image/upload/v1730838948/vrjiyx487qxcuubcl7kw.png" alt="logo" />
-                <h2 style="color: #4CAF50;">Solicitud de Información</h2>
-                <p><strong>Nombre:</strong> ${userData.full_name}</p>
-                <p><strong>Teléfono:</strong> ${userData.telephone}</p>
-                <p><strong>Correo Electrónico:</strong> ${userData.mail}</p>
-                <p><strong>Mensaje:</strong></p>
-                <p style="background: #f9f9f9; padding: 15px; border-radius: 5px; color: #555;">${userData.text}</p>
-                <footer style="margin-top: 20px; text-align: center; color: #aaa; font-size: 12px;">
-                    <p>Este mensaje fue enviado automáticamente desde el formulario de contacto.</p>
-                </footer>
-            </div>
-        `
+        html: `<div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+            <!-- Contenedor centrado para la imagen y el texto -->
+            <table width="100%" cellpadding="0" cellspacing="0" style="text-align: center;">
+                <tr>
+                    <td>
+                        <img style="width: 50px; height: 50px;" src="https://res.cloudinary.com/dj4jsxc1l/image/upload/v1730838948/vrjiyx487qxcuubcl7kw.png" alt="logo" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h1 style="font-size: 30px; font-family: 'Times New Roman', serif; color: #4CAF50; margin: 10px 0;">NAKÚ</h1>
+                    </td>
+                </tr>
+            </table>
+            <!-- Información del usuario -->
+            <h2 style="color: #4CAF50;">Solicitud de Información</h2>
+            <p><strong>Nombre:</strong> ${userData.full_name}</p>
+            <p><strong>Teléfono:</strong> ${userData.telephone}</p>
+            <p><strong>Correo Electrónico:</strong> ${userData.mail}</p>
+            <p><strong>Mensaje:</strong></p>
+            <p style="background: #f9f9f9; padding: 15px; border-radius: 5px; color: #555;">${userData.text}</p>
+            <!-- Pie de página -->
+            <footer style="margin-top: 20px; text-align: center; color: #aaa; font-size: 12px;">
+                <p>Este mensaje fue enviado automáticamente desde el formulario de contacto.</p>
+            </footer>
+        </div>`
     };
     
 

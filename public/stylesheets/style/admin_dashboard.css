@@ -114,6 +114,20 @@ nav ul li a {
 .icon-list li:hover span {
     color: #242725; 
 }
+/*----------------------------Active----------------------------*/
+.icon-list li.active {
+    background-color: #B8EC7E; /* Mismo color que el hover */
+}
+
+.icon-list li.active svg path {
+    fill: #242725; /* Mismo color que el hover */
+}
+
+.icon-list li.active span {
+    color: #242725; /* Mismo color que el hover */
+}
+/*----------------------------Active----------------------------*/
+
 
 footer {
     font-size: 12px;
@@ -398,6 +412,25 @@ color: #000;
 margin-top: -15px;
 }
 
+/* Ajusta el espacio entre el SVG y el texto */
+#preview-container {
+    position: fixed;
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border: 1vh solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    pointer-events: none;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    display: none; 
+}
+
+  
 .cuadro_tabla{
 border-collapse: collapse;
 width: 100%;
@@ -567,10 +600,11 @@ cursor: pointer;
     width: 400px;
     position: fixed;
     z-index: 999;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(19, 19, 19, 0.1);
     padding: 1vh 2.5vh ;
     display: none;
 }
+
 
 .upload_image{
     background-color: #A7F545;
@@ -581,6 +615,15 @@ cursor: pointer;
     display: none;
     z-index: 999;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+   
+}
+.upload-area.active {
+    background-color: #FFD700; /* Cambia el color */
+    border: 2px solid #000; /* Añade un borde */
+}
+
+.upload_text_2 .text-input{
+    margin-bottom: 1vh;
 }
 
 .upload_text{
@@ -589,10 +632,22 @@ cursor: pointer;
     padding: 20px;
     width: 400px;
     position: fixed;
-    display: none;
     z-index: 999;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: none;
 }
+
+.upload_text_2{
+    background-color: #A7F545;
+    border-radius: 25px;
+    padding: 20px;
+    width: 400px;
+    position: fixed;
+    z-index: 999;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
 
 .image_header {
     display: flex;
@@ -621,7 +676,7 @@ cursor: pointer;
     margin-right: auto; /* Esto asegura que el texto ocupe el espacio entre el logo y el botón */
 }
 
-.close-btn_text, .close-btn_image1, .close-btn_text_and_image, .close-btn_text_and_image3, .close-btn_text_and_image4{
+.close-btn_text, .close-btn_image1, .close-btn_text_and_image, .close-btn_text_and_image3, .close-btn_text_and_image4, .close-btn_text2{
     background-color: transparent;
     border: none;
     font-size: 1.5rem;
@@ -651,7 +706,22 @@ p {
     align-items: center;     /* Centra horizontalmente */
     text-align: center;      /* Centra el texto si es necesario */
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Efecto de transición */
 
+}
+
+
+.upload-area.uploaded {
+    background-color: #d7d5d5; 
+}
+
+label.upload-area {
+  
+    transition: none;
+}
+
+label.upload-area.active {
+    background-color: #4D8013; /* Color al estar activo */
 }
 
 
@@ -778,3 +848,12 @@ p {
 
    
 }
+
+
+/* limite de palabras */
+
+
+.word-count.over-limit {
+    color: red; /* Color rojo cuando se excede el límite */
+    font-weight: bold;
+  }

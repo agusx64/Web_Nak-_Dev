@@ -573,10 +573,456 @@ router.post('/insert_team_image3', upload.single('imagen'), async function(req, 
                 
                 throw err;
 
-
             }else {
                 
                 console.log('Inserted team on table 3');
+                
+            }
+            
+        });
+
+        
+    }catch {
+
+        console.error("Error al subir la imagen:", err);
+        res.status(500).send("Hubo un error al subir la imagen.");
+        
+    }
+    
+})
+
+router.post('/insert_testimony1', upload.single('imagen'), async function(req, res){
+
+    try {
+
+        let image = req.file;
+        let testim = req.body;
+        const path = image.path;
+
+        const result = await cloudinary.uploader.upload(path, {
+
+            folder: 'testimonio_1'
+            
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Testimony 1 uploaded successfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_testimonio1 (img_testimonio, nombre, descripcion_testimonio) VALUES(?, ?, ?);'
+
+        connection.query(insert_query, [imageURL, testim.nombre, testim.testimonio], function (err, result){
+
+            if (err) {
+                
+                throw err;
+
+
+            }else {
+                
+                console.log('Inserted testimony on table 1');
+                
+            }
+            
+        });
+
+        
+    }catch {
+
+        console.error("Error al subir la imagen:", err);
+        res.status(500).send("Hubo un error al subir la imagen.");
+        
+    }
+    
+})
+
+
+router.post('/insert_testimony2', upload.single('imagen'), async function(req, res){
+
+    try {
+
+        let image = req.file;
+        let testim = req.body;
+        const path = image.path;
+
+        const result = await cloudinary.uploader.upload(path, {
+
+            folder: 'testimonio_2'
+            
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Testimony 2 uploaded successfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_testimonio2 (img_testimonio, nombre, descripcion_testimonio) VALUES(?, ?, ?);'
+
+        connection.query(insert_query, [imageURL, testim.nombre, testim.testimonio], function (err, result){
+
+            if (err) {
+                
+                throw err;
+
+
+            }else {
+                
+                console.log('Inserted testimony on table 2');
+                
+            }
+            
+        });
+
+        
+    }catch {
+
+        console.error("Error al subir la imagen:", err);
+        res.status(500).send("Hubo un error al subir la imagen.");
+        
+    }
+    
+})
+
+
+router.post('/insert_testimony3', upload.single('imagen'), async function(req, res){
+
+    try {
+
+        let image = req.file;
+        let testim = req.body;
+        const path = image.path;
+
+        const result = await cloudinary.uploader.upload(path, {
+
+            folder: 'testimonio_3'
+            
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Testimony 3 uploaded successfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_testimonio3 (img_testimonio, nombre, descripcion_testimonio) VALUES(?, ?, ?);'
+
+        connection.query(insert_query, [imageURL, testim.nombre, testim.testimonio], function (err, result){
+
+            if (err) {
+                
+                throw err;
+
+
+            }else {
+                
+                console.log('Inserted testimony on table 3');
+                
+            }
+            
+        });
+
+        
+    }catch {
+
+        console.error("Error al subir la imagen:", err);
+        res.status(500).send("Hubo un error al subir la imagen.");
+        
+    }
+    
+})
+
+
+router.post('/insert_description_testimony', function(req, res){
+
+    let data = req.body.descriptionTestimony;
+    let insert_text = 'INSERT INTO registro_testimonio (descripcion_testimonio) VALUES (?)'
+    connection.query(insert_text, [data], function(error, results){
+        if (error) throw error
+        console.log('DescriptionTestimony changed successfully', results);
+    });
+
+});
+
+router.post('/insert_desayunos', upload.single('imagen'), async function(req, res){
+
+    try {
+
+        let image = req.file;
+        let desayuno = req.body;
+        let path = image.path;    
+
+        const result = await cloudinary.uploader.upload(path, {
+
+            folder: 'recetas_desayunos'
+
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Desayunos uploaded successfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_desayuno (nombre, descripcion, caloria, preparacion, imagen) VALUES (?, ?, ?, ?, ?)';
+
+        connection.query(insert_query, [desayuno.nombre, desayuno.descripcion, desayuno.calorias, desayuno.preparacion, imageURL], function (err, result) {
+
+            if (err) throw err;
+            console.log('Inserted desayunos on table');
+
+        })
+
+    } catch (err) {
+
+        console.log('Error inserting data into table', err);
+
+    }
+
+});
+
+router.post('/insert_comidas', upload.single('imagen'), async function(req, res){
+
+    try {
+
+        let image = req.file;
+        let comida = req.body;
+        let path = image.path;
+
+        const result = await cloudinary.uploader.upload(path, {
+
+            folder: 'recetas_comidas'
+
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Comidas uploaded successfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_comida (nombre, descripcion, caloria, preparacion, imagen) VALUES (?, ?, ?, ?, ?)';
+
+        connection.query(insert_query, [comida.nombre, comida.descripcion, comida.calorias, comida.preparacion, imageURL], function (err, result) {
+
+            if (err) throw err;
+            console.log('Inserted comidas on table');
+
+        });
+
+    } catch (err) {
+
+        console.log('Error inserting data into table', err);
+
+    }
+
+});
+
+router.post('/insert_postres', upload.single('imagen'), async function(req, res){
+
+    try {
+
+        let image = req.file;
+        let postre = req.body;
+        let path = image.path;
+
+        const result = await cloudinary.uploader.upload(path, {
+
+            folder: 'recetas_postres'
+
+        });
+
+        const imageURL = result.secure_url;
+        console.log('Postres uploaded successfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_postre (nombre, descripcion, caloria, preparacion, imagen) VALUES (?, ?, ?, ?, ?)';
+
+        connection.query(insert_query, [postre.nombre, postre.descripcion, postre.calorias, postre.preparacion, imageURL], function (err, result) {
+
+            if (err) throw err;
+            console.log('Inserted postres on table');
+
+        });
+
+    } catch (err) {
+
+        console.log('Error inserting data into table', err);
+
+    }
+
+});
+
+
+router.post('/insert_location', upload.none(), function (req, res) {
+    let location = req.body;
+    console.log('Datos recibidos:', location);
+
+    if (!location.descripcion || !location.ubicacion) {
+        return res.status(400).json({ error: "Descripción y ubicación son requeridos." });
+    }
+
+    let insert_query = 'INSERT INTO registro_ubicacion (desc_ubicacion, ubicacion) VALUES(?, ?);';
+
+    connection.query(insert_query, [location.descripcion, location.ubicacion], function (err, result) {
+        if (err) {
+            console.error("Error al insertar datos en la tabla:", err);
+            return res.status(500).json({ error: "Error al insertar datos en la tabla." });
+        }
+
+        console.log('Ubicación insertada correctamente.');
+        res.status(200).json({ message: "Ubicación insertada correctamente.", result });
+    });
+});
+
+
+router.post('/insert_product1', upload.single('imagen'), async function(req, res){
+
+    try {
+
+        let image = req.file;
+        let product = req.body;
+        const path = image.path;
+
+        const result = await cloudinary.uploader.upload(path, {
+
+            folder: 'producto_1'
+            
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Product 1 uploaded successfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_cono_huevo (imagen, nombre, precio, descripcion) VALUES(?, ?, ?, ?);'
+
+        connection.query(insert_query, [imageURL, product.nombre, product.precio, product.descripcion], function (err, result){
+
+            if (err) {
+                
+                throw err;
+
+
+            }else {
+                
+                console.log('Inserted product on table 1');
+                
+            }
+            
+        });
+
+        
+    }catch {
+
+        console.error("Error al subir la imagen:", err);
+        res.status(500).send("Hubo un error al subir la imagen.");
+        
+    }
+    
+})
+
+router.post('/insert_product2', upload.single('imagen'), async function(req, res){
+
+    try {
+
+        let image = req.file;
+        let product = req.body;
+        const path = image.path;
+
+        const result = await cloudinary.uploader.upload(path, {
+
+            folder: 'producto_2'
+            
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Product 2 uploaded successfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_caja_huevo (imagen, nombre, precio, descripcion) VALUES(?, ?, ?, ?);'
+
+        connection.query(insert_query, [imageURL, product.nombre, product.precio, product.descripcion], function (err, result){
+
+            if (err) {
+                
+                throw err;
+
+
+            }else {
+                
+                console.log('Inserted product on table 2');
+                
+            }
+            
+        });
+
+        
+    }catch {
+
+        console.error("Error al subir la imagen:", err);
+        res.status(500).send("Hubo un error al subir la imagen.");
+        
+    }
+    
+})
+
+router.post('/insert_product3', upload.single('imagen'), async function(req, res){
+
+    try {
+
+        let image = req.file;
+        let product = req.body;
+        const path = image.path;
+
+        const result = await cloudinary.uploader.upload(path, {
+
+            folder: 'producto_3'
+            
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Product 3 uploaded successfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_alimento (imagen, nombre, precio, descripcion) VALUES(?, ?, ?, ?);'
+
+        connection.query(insert_query, [imageURL, product.nombre, product.precio, product.descripcion], function (err, result){
+
+            if (err) {
+                
+                throw err;
+
+
+            }else {
+                
+                console.log('Inserted product on table 3');
+                
+            }
+            
+        });
+
+        
+    }catch {
+
+        console.error("Error al subir la imagen:", err);
+        res.status(500).send("Hubo un error al subir la imagen.");
+        
+    }
+    
+})
+
+router.post('/insert_product4', upload.single('imagen'), async function(req, res){
+
+    try {
+
+        let image = req.file;
+        let product = req.body;
+        const path = image.path;
+
+        const result = await cloudinary.uploader.upload(path, {
+
+            folder: 'producto_4'
+            
+        })
+
+        const imageURL = result.secure_url;
+        console.log('Product 4 uploaded successfully', imageURL);
+
+        let insert_query = 'INSERT INTO registro_gallinas (imagen, nombre, precio, descripcion) VALUES(?, ?, ?, ?);'
+
+        connection.query(insert_query, [imageURL, product.nombre, product.precio, product.descripcion], function (err, result){
+
+            if (err) {
+                
+                throw err;
+
+
+            }else {
+                
+                console.log('Inserted product on table 4');
                 
             }
             
