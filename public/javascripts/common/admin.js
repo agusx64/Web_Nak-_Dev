@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
   setInterval(getProductsChanges(), 4000);
   setInterval(getTeamLog(), 4000);
   setInterval(getTestLog(), 4000);
+  setInterval(getRecipesLog(), 4000);
 
 });
 
@@ -1439,6 +1440,51 @@ function getTestLog() {
   })
 
 }
+
+function getRecipesLog() {
+
+  fetch('/get_recipes_log')
+  .then(response => response.json())
+  .then(data => {
+
+    console.log(data);
+
+    const tableBodyRecipes = document.getElementById('table_body_recipes')
+    tableBodyRecipes.innerHTML = '';
+
+    data.forEach(row => {
+
+      let id = row.id || 'N/A';
+      let nombre = row.nombre || 'Nombre nulo';
+      let descripcion = row.descripcion || 'Sin descripcion';
+      let ingredientes = row.caloria || 'Sin ingredientes';
+      let preparacion = row.preparacion || 'Sin preparacion';
+      let img = row.imagen || 'Sin imagen';
+      let created_at = row.created_at || 'Sin fecha';
+
+      const tableRow = document.createElement('tr');
+      tableRow.innerHTML = `
+      <td><svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="13" height="13" rx="4" stroke="#D2D2D2" stroke-width="2" />
+          </svg>
+      </td>
+      <td>${id}</td>
+      <td>${truncateText(nombre, 30)}</td>
+      <td>${truncateText(descripcion, 30)}</td>
+      <td>${truncateText(ingredientes, 30)}</td>
+      <td>${truncateText(preparacion, 30)}</td>
+      <td><a href="${img}" class="preview-link" target="_blank" data-img="${img}">Imagen</a></td>
+      <td>${created_at}</td>`;
+
+      tableBodyRecipes.appendChild(tableRow);
+
+    })
+
+  })
+
+}
+
 //Ubicación
 function getLocation() {
   fetch('/get_location')

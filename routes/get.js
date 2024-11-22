@@ -240,6 +240,8 @@ router.get('/get_breakfast_list', function (req, res) {
 
     let insert_query = 'SELECT * FROM registro_desayuno ORDER BY created_at DESC';
 
+    let jsonTitle = { Title_list: 'Breakfast List'}
+
     connection.query(insert_query, function (err, result) {
 
         if (err) throw err;
@@ -266,6 +268,23 @@ router.get('/get_dessert_list', function (req, res) {
 
     let insert_query = 'SELECT * FROM registro_postre ORDER BY created_at DESC'
 
+    connection.query(insert_query, function (err, result) {
+
+        if (err) throw err;
+        res.json(result);
+
+    });
+
+});
+
+router.get('/get_recipes_log', function (req, res) {
+
+    let insert_query = `(SELECT * FROM registro_desayuno ORDER BY created_at DESC)
+                        UNION ALL
+                        (SELECT * FROM registro_comida ORDER BY created_at DESC)
+                        UNION ALL
+                        (SELECT * FROM registro_postre ORDER BY created_at DESC)`
+    
     connection.query(insert_query, function (err, result) {
 
         if (err) throw err;
