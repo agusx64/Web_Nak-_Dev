@@ -849,42 +849,20 @@ body.light-theme_i #up_screen {
 
 /* Animación para mostrar una imagen a la vez */
 @keyframes slide {
-    0% {
+    0%, 20% {
         transform: translateX(0%);
     }
-
-    20% {
-        transform: translateX(0%);
-    }
-
-    25% {
+    25%, 45% {
         transform: translateX(-100%);
     }
-
-    45% {
-        transform: translateX(-100%);
-    }
-
-    50% {
+    50%, 70% {
         transform: translateX(-200%);
     }
-
-    70% {
-        transform: translateX(-200%);
-    }
-
-    75% {
-        transform: translateX(-300%);
-    }
-
-    95% {
-        transform: translateX(-300%);
-    }
-
-    75% {
+    75%, 95% {
         transform: translateX(0%);
     }
 }
+
 
 /*-------------------------------------Seccion tres-------------------------------------*/
 /* Ajustes de la sección */

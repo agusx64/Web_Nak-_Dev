@@ -299,9 +299,15 @@ header {
     margin-left: 5%;
 }
 
-.extra-info {
+.extra-info  {
     padding: 10px;
     display: none;
+}
+
+.extra-info strong{
+    display: block;
+    align-items: center;
+    text-align: center;
 }
 
 .card.active .extra-info {
@@ -606,3 +612,25 @@ nav {
 
 
 
+.extra-info {
+    display: none;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.extra-info.visible {
+    display: block;
+    opacity: 1;
+    max-height: 500px; /* Ajusta este valor según el contenido */
+}
+
+@media only screen and (width: 1920px) and (height: 1080px) {
+    .inicio{
+        height: 100vh
+    }
+    
+
+
+}

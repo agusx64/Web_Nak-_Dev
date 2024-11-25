@@ -90,9 +90,6 @@ window.addEventListener('load', () => {
     }
 });
 
-
-
-
 //-----------------------------Butons Funciones-----------------------------//
 const buttons = document.querySelectorAll('.read-more-btn');
 const textElements = document.querySelectorAll('.hideText');

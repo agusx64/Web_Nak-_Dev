@@ -66,7 +66,7 @@ function getBreakFastList() {
             breakFastList.appendChild(cardBody);
             
         });
-
+        attachToggleExtraInfo();
     })
 
 }
@@ -110,22 +110,20 @@ function getFoodList() {
             foodList.appendChild(cardBody);
 
         });
-
+        attachToggleExtraInfo();
     })
 
 }
 
 function getDessertsList() {
-
     fetch('/get_dessert_list')
     .then(response => response.json())
     .then(data => {
 
         console.log(data);
-
         const dessertList = document.getElementById('dinamyc_card_container_dessert');
         dessertList.innerHTML = '';
-
+        
         data.forEach(row => {
 
             const cardBody = document.createElement('div');
@@ -153,8 +151,31 @@ function getDessertsList() {
 
             dessertList.appendChild(cardBody);
 
-        });
+        })
+        attachToggleExtraInfo();
+   })
+}
 
-    })
 
+
+
+// funcion de mostrar información extra
+function attachToggleExtraInfo() {
+    // Seleccionar todos los botones con la clase 'add-btn'
+    const toggleButtons = document.querySelectorAll('.card-actions .add-btn');
+    
+    toggleButtons.forEach(button => {
+        button.removeEventListener('click', handleButtonClick); // Para evitar múltiples asignaciones
+        button.addEventListener('click', handleButtonClick);
+    });
+}
+//agregar el evento de nuevo
+function handleButtonClick(event) {
+    const button = event.target;
+    const card = button.closest('.card');
+    const extraInfo = card.querySelector('.extra-info');
+
+    if (extraInfo) {
+        extraInfo.classList.toggle('visible');
+    }
 }
