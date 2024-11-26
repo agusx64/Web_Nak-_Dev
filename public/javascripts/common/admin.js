@@ -87,6 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
   setInterval(getTeamLog(), 4000);
   setInterval(getTestLog(), 4000);
   setInterval(getRecipesLog(), 4000);
+  setInterval(getEggLog(), 4000);
+  
 
 });
 
@@ -1406,8 +1408,7 @@ function getTestLog() {
 
   fetch('/get_test_logs')
   .then(response => response.json())
-  .then(data => {
-
+  .then(data => { 
     console.log(data); 
     
     const tableBodyTest = document.getElementById('table_body_test');
@@ -1425,7 +1426,7 @@ function getTestLog() {
       <td><svg width="15" height="15" viewBox="0 0 15 15" fill="none"
               xmlns="http://www.w3.org/2000/svg">
             <rect x="1" y="1" width="13" height="13" rx="4" stroke="#D2D2D2" stroke-width="2" />
-          </svg>
+          </svg> 
       </td>
       <td>${id}</td>
       <td>${truncateText(nombre, 30)}</td>
@@ -1481,6 +1482,42 @@ function getRecipesLog() {
 
     })
 
+  })
+
+}
+
+
+function getEggLog() {
+
+  fetch('/get_egg_log')
+  .then(response => response.json())
+  .then(data => { 
+    console.log(data); 
+    
+    const tableBodyTest = document.getElementById('table_egg_text');
+    tableBodyTest.innerHTML = '';
+
+    data.forEach(row => {
+      const id = row.id || 'N/A';
+      const nombre = row.nombre || 'Sin nombre';
+      const descripcion = row.descripcion || 'Sin descripción';
+      const img = row.img_testimonio || '#';
+      const precio = row.precio || 'Sin precio';
+      const createdAt = row.created_at || 'Fecha no disponible';
+    
+      const tableRow = document.createElement('tr');
+      tableRow.innerHTML = `;  
+      <td>${id}</td>
+      <td>${truncateText(nombre, 30)}</td>
+      <td>${truncateText(descripcion, 30)}</td>
+      <td><a href="${img}" class="preview-link" target="_blank" data-img="${img}">Imagen</a></td>
+      <td>${truncateText(precio, 30)}</td>
+      <td>${createdAt}</td>`;
+      tableBodyTest.appendChild(tableRow);
+    });
+    
+      // Agrega los eventos para la previsualización
+      addPreviewEvents();
   })
 
 }

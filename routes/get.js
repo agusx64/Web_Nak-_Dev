@@ -384,5 +384,25 @@ router.get('/get_huevo_changes', function(req, res) {
 });
 
 
+router.get('/get_egg_log', function (req, res) {
+
+    let insert_query = `(SELECT * FROM registro_alimento ORDER BY created_at DESC)
+                        UNION ALL
+                        (SELECT * FROM registro_caja_huevo ORDER BY created_at DESC)
+                        UNION ALL
+                        (SELECT * FROM registro_cono_huevo ORDER BY created_at DESC)
+                        UNION ALL
+                        (SELECT * FROM registro_gallinas ORDER BY created_at DESC)`;
+    
+    connection.query(insert_query, function (err, result) {
+
+        if (err) throw err;
+        res.json(result);
+
+    });
+
+});
+
+
 module.exports = router;
 

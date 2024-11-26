@@ -925,17 +925,23 @@ body.light-theme_i #up_screen {
     /* Alineado a la izquierda */
     width: 100%;
     /* Para que ocupe todo el ancho del contenedor */
+    overflow: hidden;
 }
 
 /* Descripción del personal */
 .descr_personal {
     color: #F5FCED;
     font-size: .8rem;
-    text-align: c;
+    text-align: center;
     padding-left: 13px;
     padding-right: 13px;
     margin-bottom: 10px;
+    overflow: hidden;
+    word-wrap: break-word; /* Permite que las palabras largas se dividan */
+    white-space: normal; /* Asegura que el texto se envuelva correctamente */
+    width: 100%; /* Asegura que el contenido ocupe el ancho completo */
 }
+
 
 .hideText {
     font-size: .8rem;
@@ -3430,3 +3436,72 @@ section.section_testimonials p.texto_test span.nk {
 
 
 /*------------------------------------------ Fin Query-------------------------------------------*/
+
+
+/* boton leer mas */
+
+
+/* este es el codigo de mostrar mas  */
+#text_hist {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Mostrar solo 3 líneas */
+    -webkit-box-orient: vertical;
+    max-height: 4.5em; /* Altura aproximada para 3 líneas */
+    transition: max-height 0.3s ease-in-out;
+  
+  }
+
+  /* Cuando el texto se expande */
+  #text_hist.expanded {
+    -webkit-line-clamp: unset; /* Quitar la restricción */
+    max-height: none; /* Permitir altura dinámica */
+  }
+
+  #text_mision{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Mostrar solo 3 líneas */
+    -webkit-box-orient: vertical;
+    max-height: 4.5em; /* Altura aproximada para 3 líneas */
+    transition: max-height 0.3s ease-in-out;
+  
+  }
+
+  /* Cuando el texto se expande */
+  #text_mision.expanded {
+    -webkit-line-clamp: unset; /* Quitar la restricción */
+    max-height: none; /* Permitir altura dinámica */
+  }
+
+  #text_vision{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Mostrar solo 3 líneas */
+    -webkit-box-orient: vertical;
+    max-height: 4.5em; /* Altura aproximada para 3 líneas */
+    transition: max-height 0.3s ease-in-out;
+  
+  }
+
+  /* Cuando el texto se expande */
+  #text_vision.expanded {
+    -webkit-line-clamp: unset; /* Quitar la restricción */
+    max-height: none; /* Permitir altura dinámica */
+  }
+ 
+  #des_team1, #des_team2, #des_team3{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Mostrar solo 3 líneas */
+    -webkit-box-orient: vertical;
+    max-height: 4.5em; /* Altura aproximada para 3 líneas */
+    transition: max-height 0.3s ease-in-out;
+  
+  }
+
+  /* Cuando el texto se expande */
+  #des_team1.expanded,  #des_team2.expanded,  #des_team3.expanded{
+    -webkit-line-clamp: unset; /* Quitar la restricción */
+    max-height: none; /* Permitir altura dinámica */
+  }

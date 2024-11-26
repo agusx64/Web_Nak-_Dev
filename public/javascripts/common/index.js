@@ -91,48 +91,9 @@ window.addEventListener('load', () => {
 });
 
 //-----------------------------Butons Funciones-----------------------------//
-const buttons = document.querySelectorAll('.read-more-btn');
-const textElements = document.querySelectorAll('.hideText');
-let inactivityTimer;
 
-// Función para restablecer todos los elementos a su estado inicial
-function resetToInitialState() {
-  textElements.forEach((textElement, index) => {
-    textElement.classList.remove('showText'); // Oculta el texto
-    buttons[index].textContent = 'Leer más...'; // Restablece el texto del botón
-  });
-}
 
-// Función para manejar la inactividad y reiniciar el estado
-function startInactivityTimer() {
-  clearTimeout(inactivityTimer); // Reinicia el temporizador si hay actividad
-  inactivityTimer = setTimeout(resetToInitialState, 5000); // 5 segundos de inactividad para restablecer
-}
 
-// Añadir evento de clic a los botones
-buttons.forEach((button, index) => {
-  button.addEventListener('click', () => {length
-    const textElement = textElements[index];
-    textElement.classList.toggle('showText'); // Muestra u oculta el texto
-
-    // Cambia el texto del botón
-    if (textElement.classList.contains('showText')) {
-      button.textContent = 'Leer menos...';
-    } else {
-      button.textContent = 'Leer más...';
-    }
-
-    startInactivityTimer(); // Inicia el temporizador de inactividad
-  });
-});
-
-// Escucha cualquier movimiento o clic en la página para reiniciar el temporizador
-window.addEventListener('mousemove', startInactivityTimer);
-window.addEventListener('scroll', startInactivityTimer);
-window.addEventListener('click', startInactivityTimer);
-
-// Establece el estado inicial al cargar la página
-resetToInitialState();
 //-----------------------------Butons Funciones-----------------------------//
 
 
@@ -617,3 +578,107 @@ function getLocationChanges(){
 
 };
 
+//-----------------------------Butons Funciones-----------------------------//
+// Funcion de boton leer más de historia
+document.addEventListener("DOMContentLoaded", () => {
+    const textElement = document.getElementById("text_hist");
+    const button = document.getElementById("read-more-btn");
+
+    button.addEventListener("click", () => {
+      if (textElement.classList.contains("expanded")) {
+        // Contraer el texto
+        textElement.classList.remove("expanded");
+        button.textContent = "Leer más...";
+      } else {
+        // Expandir el texto
+        textElement.classList.add("expanded");
+        button.textContent = "Leer menos";
+      }
+    });
+  });
+// mostrar informacion de mision
+  document.addEventListener("DOMContentLoaded", () => {
+    const textElement = document.getElementById("text_mision");
+    const button = document.getElementById("read-more-btn2");
+
+    button.addEventListener("click", () => {
+      if (textElement.classList.contains("expanded")) {
+        // Contraer el texto
+        textElement.classList.remove("expanded");
+        button.textContent = "Leer más...";
+      } else {
+        // Expandir el texto
+        textElement.classList.add("expanded");
+        button.textContent = "Leer menos";
+      }
+    });
+  });
+// mostrar mas informacion de vision
+  document.addEventListener("DOMContentLoaded", () => {
+    const textElement = document.getElementById("text_vision");
+    const button = document.getElementById("read-more-btn3");
+
+    button.addEventListener("click", () => {
+      if (textElement.classList.contains("expanded")) {
+        // Contraer el texto
+        textElement.classList.remove("expanded");
+        button.textContent = "Leer más...";
+      } else {
+        // Expandir el texto
+        textElement.classList.add("expanded");
+        button.textContent = "Leer menos";
+      }
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const textElement = document.getElementById("des_team1");
+    const button = document.getElementById("read-more-btn4");
+
+    button.addEventListener("click", () => {
+      if (textElement.classList.contains("expanded")) {
+        // Contraer el texto
+        textElement.classList.remove("expanded");
+        button.textContent = "Leer más...";
+      } else {
+        // Expandir el texto
+        textElement.classList.add("expanded");
+        button.textContent = "Leer menos";
+      }
+    });
+  });
+
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const textElement = document.getElementById("des_team2");
+    const button = document.getElementById("read-more-btn5");
+
+    button.addEventListener("click", () => {
+      if (textElement.classList.contains("expanded")) {
+        // Contraer el texto
+        textElement.classList.remove("expanded");
+        button.textContent = "Leer más...";
+      } else {
+        // Expandir el texto
+        textElement.classList.add("expanded");
+        button.textContent = "Leer menos";
+      }
+    });
+  });
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const textElement = document.getElementById("des_team3");
+    const button = document.getElementById("read-more-btn6");
+
+    button.addEventListener("click", () => {
+      if (textElement.classList.contains("expanded")) {
+        // Contraer el texto
+        textElement.classList.remove("expanded");
+        button.textContent = "Leer más...";
+      } else {
+        // Expandir el texto
+        textElement.classList.add("expanded");
+        button.textContent = "Leer menos";
+      }
+    });
+  });
