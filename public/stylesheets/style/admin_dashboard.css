@@ -850,10 +850,13 @@ label.upload-area.active {
 }
 
 
-/* limite de palabras */
+.confirm-btn.disabled {
+    opacity: 0.5; /* Apariencia deshabilitada */
+    pointer-events: none; /* Bloquear clics */
+}
 
-
-.word-count.over-limit {
-    color: red; /* Color rojo cuando se excede el límite */
-    font-weight: bold;
-  }
+#arrowLocation {
+    opacity: 0.5; /* Deshabilitado, opaco */
+    pointer-events: none; /* Deshabilitado, no puede ser clickeado */
+    transition: opacity 0.3s, pointer-events 0.3s; /* Suaviza la transición */
+}

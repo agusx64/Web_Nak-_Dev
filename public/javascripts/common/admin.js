@@ -1687,7 +1687,7 @@ closeButton.addEventListener("click", function () {
 document.addEventListener("DOMContentLoaded", () => {
   const inputField = document.getElementById("send_text_component");
   const wordCountDisplay = document.querySelector(".word-count");
-  const maxWords = 250; // Límite máximo de palabras
+  const maxWords = 310; // Límite máximo de palabras
 
   if (inputField && wordCountDisplay) {
     inputField.addEventListener("input", () => {
@@ -1712,7 +1712,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const inputs = document.querySelectorAll('.text-input input'); // Todos los campos de texto
-  const maxChars = 250; // Límite de caracteres
+  const maxChars = 310; // Límite de caracteres
   
   inputs.forEach(input => {
     const charCountDisplay = input.nextElementSibling; // El span de contador de caracteres
@@ -1736,8 +1736,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+//Co
 document.addEventListener('DOMContentLoaded', () => {
-  const maxLength = 250;
+  const maxLength = 310;
 
   // Referencias a los elementos de los inputs y los contadores
   const positionInput = document.getElementById('position_team');
@@ -1755,3 +1756,158 @@ document.addEventListener('DOMContentLoaded', () => {
   positionInput.addEventListener('input', () => updateCharCount(positionInput, positionCounter));
   descriptionInput.addEventListener('input', () => updateCharCount(descriptionInput, descriptionCounter));
 });
+
+
+
+// desabilitar boton 2 campos de texto 
+document.addEventListener("DOMContentLoaded", function () {
+  const descLocationInput = document.getElementById("descLocation");
+  const locationInput = document.getElementById("location");
+  const confirmButton = document.getElementById("arrowLocation");
+
+  // Función para habilitar o deshabilitar el botón
+  function toggleConfirmButton() {
+      if (descLocationInput.value.trim() !== "" && locationInput.value.trim() !== "") {
+          confirmButton.classList.remove("disabled");
+          confirmButton.style.pointerEvents = "auto"; // Habilitar clic
+          confirmButton.style.opacity = "1"; // Restaurar opacidad
+      } else {
+          confirmButton.classList.add("disabled");
+          confirmButton.style.pointerEvents = "none"; // Deshabilitar clic
+          confirmButton.style.opacity = "0.5"; // Reducir opacidad
+      }
+  }
+
+  // Evitar que el botón funcione si los campos están vacíos
+  confirmButton.addEventListener("click", function (event) {
+      if (descLocationInput.value.trim() === "" || locationInput.value.trim() === "") {
+          event.preventDefault(); // Prevenir la acción predeterminada
+          alert("Por favor, complete todos los campos antes de continuar.");
+      }
+  });
+
+  // Escuchar cambios en los campos
+  descLocationInput.addEventListener("input", toggleConfirmButton);
+  locationInput.addEventListener("input", toggleConfirmButton);
+
+  // Deshabilitar el botón al cargar la página
+  toggleConfirmButton();
+});
+
+
+// desabilitar boton 1 imagen y 2 textos
+document.addEventListener("DOMContentLoaded", function () {
+  const fileInput = document.getElementById("file-upload1");
+  const positionInput = document.getElementById("position_team");
+  const descriptionInput = document.getElementById("description_team");
+  const confirmButton = document.getElementById("arrowTeam");
+
+  // Deshabilita el botón al cargar la página
+  confirmButton.style.pointerEvents = "none"; 
+  confirmButton.style.opacity = "0.5";
+
+  // Función para verificar si todos los campos están completos
+  function checkInputs() {
+      const isFileUploaded = fileInput.files.length > 0;
+      const isPositionFilled = positionInput.value.trim() !== "";
+      const isDescriptionFilled = descriptionInput.value.trim() !== "";
+
+      if (isFileUploaded && isPositionFilled && isDescriptionFilled) {
+          confirmButton.style.pointerEvents = "auto"; // Activa el botón
+          confirmButton.style.opacity = "1"; 
+      } else {
+          confirmButton.style.pointerEvents = "none"; // Desactiva el botón
+          confirmButton.style.opacity = "0.5"; 
+      }
+  }
+
+  // Eventos para verificar cambios en los inputs
+  fileInput.addEventListener("change", checkInputs);
+  positionInput.addEventListener("input", checkInputs);
+  descriptionInput.addEventListener("input", checkInputs);
+});
+
+
+// Obtener los elementos del DOM
+const fileInpution = document.getElementById('file-upload2');
+const nameInput = document.getElementById('name_product');
+const priceInput = document.getElementById('price_product');
+const descriptionInput = document.getElementById('description_product');
+const confirmButton = document.getElementById('arrowProduct');
+
+// Verificar si el input de archivo está correctamente obtenido
+if (!fileInpution) {
+    console.error("Elemento con ID 'file-upload2' no encontrado.");
+}
+
+// Función para validar los campos
+function validateInputs() {
+    // Verificar si todos los campos están llenos
+    const isFileSelected = fileInpution.files.length > 0;
+    const isNameFilled = nameInput.value.trim() !== '';
+    const isPriceFilled = priceInput.value.trim() !== '';
+    const isDescriptionFilled = descriptionInput.value.trim() !== '';
+
+    // Habilitar o deshabilitar el botón de confirmar
+    if (isFileSelected && isNameFilled && isPriceFilled && isDescriptionFilled) {
+        confirmButton.classList.remove('disabled'); // Remueve la clase "disabled"
+        confirmButton.style.cursor = 'pointer'; // Cambiar el cursor a "puntero"
+    } else {
+        confirmButton.classList.add('disabled'); // Agrega la clase "disabled"
+        confirmButton.style.cursor = 'not-allowed'; // Cambiar el cursor a "no permitido"
+    }
+}
+
+// Agregar eventos para escuchar cambios en los inputs
+fileInpution.addEventListener('change', validateInputs);
+nameInput.addEventListener('input', validateInputs);
+priceInput.addEventListener('input', validateInputs);
+descriptionInput.addEventListener('input', validateInputs);
+
+
+// funcion para una imagen y 4 textos
+document.addEventListener("DOMContentLoaded", () => {
+  const inputs = document.querySelectorAll("#send_text_title, #send_text_description, #send_text_slogan, #send_text_price");
+  const imageInput = document.getElementById("file-upload3");
+  const confirmButton = document.querySelector("#arrowShop");
+
+  // Función para validar si todos los inputs están llenos
+  const validateForm = () => {
+      const allInputsFilled = Array.from(inputs).every(input => input.value.trim() !== "");
+      const imageSelected = imageInput.files.length > 0;
+
+      // Habilitar o deshabilitar el botón según las validaciones
+      confirmButton.style.pointerEvents = (allInputsFilled && imageSelected) ? "auto" : "none";
+      confirmButton.style.opacity = (allInputsFilled && imageSelected) ? "1" : "0.5"; // Cambia la opacidad para dar una pista visual
+  };
+
+  // Agregar eventos a todos los inputs de texto
+  inputs.forEach(input => {
+      input.addEventListener("input", validateForm);
+  });
+});
+
+// boton de desabilitado de solo un texto
+// Seleccionar los campos de texto y el botón de confirmación
+const input1 = document.getElementById('descLocation');
+const input2 = document.getElementById('location');
+const confirmBtn = document.getElementById('arrowLocation');
+
+// Función para verificar si ambos campos tienen texto
+function checkInput() {
+    // Comprobar si ambos campos tienen texto
+    if (input1.value.trim() !== '' && input2.value.trim() !== '') {
+        confirmBtn.style.pointerEvents = 'auto';  // Habilitar el botón
+        confirmBtn.style.opacity = 1;  // Hacerlo visible
+    } else {
+        confirmBtn.style.pointerEvents = 'none';  // Deshabilitar el botón
+        confirmBtn.style.opacity = 0.5;  // Hacerlo más opaco para indicar que está deshabilitado
+    }
+}
+
+// Agregar los event listeners a ambos inputs
+input1.addEventListener('input', checkInput);
+input2.addEventListener('input', checkInput);
+
+// Llamar a la función al cargar para asegurarnos de que el estado inicial sea correcto
+checkInput();

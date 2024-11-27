@@ -550,7 +550,7 @@ body.light-theme_i #up_screen {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     text-align: center;
-    margin-top: 4vh;
+    margin: 4vh 25vw 0 25vw;
 }
 
 .down_text {
@@ -3505,3 +3505,4 @@ section.section_testimonials p.texto_test span.nk {
     -webkit-line-clamp: unset; /* Quitar la restricción */
     max-height: none; /* Permitir altura dinámica */
   }
+  
