@@ -1736,7 +1736,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-//Co
+//Contador de Team
 document.addEventListener('DOMContentLoaded', () => {
   const maxLength = 310;
 
