@@ -10,6 +10,8 @@ const openai = new OpenAI({
 
 });
 
+//Hola
+
 //Here must be a code functions
 router.post('/api_response', async function(req, res) {
 

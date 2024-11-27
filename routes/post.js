@@ -19,11 +19,11 @@ cloudinary.config({
 })
 
 let connection = mysql.createConnection({
-    host: process.env.HOST,
-    port: '3306',
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE
+    host: process.env.MYSQLHOST,
+    port: process.env.MYSQLPORT,
+    user: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQLDATABASE
 });
 
 connection.connect(function(err) {
