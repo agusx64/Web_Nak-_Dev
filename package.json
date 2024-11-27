@@ -29,5 +29,8 @@
   "description": "La página web servirá como plataforma central para informar sobre los productos, destacar las calidad y frescura de los huevos, y facilitar la interacción con los clientes, mediante funcionalidades como; pedidos en línea, blogs de información nutricional, casos de éxito, información de contacto y atención a cliente (Chatbot o Correos electrónicos).",
   "main": "app.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.9"
+  }
 }

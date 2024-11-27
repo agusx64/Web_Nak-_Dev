@@ -1888,26 +1888,3 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // boton de desabilitado de solo un texto
-// Seleccionar los campos de texto y el botón de confirmación
-const input1 = document.getElementById('descLocation');
-const input2 = document.getElementById('location');
-const confirmBtn = document.getElementById('arrowLocation');
-
-// Función para verificar si ambos campos tienen texto
-function checkInput() {
-    // Comprobar si ambos campos tienen texto
-    if (input1.value.trim() !== '' && input2.value.trim() !== '') {
-        confirmBtn.style.pointerEvents = 'auto';  // Habilitar el botón
-        confirmBtn.style.opacity = 1;  // Hacerlo visible
-    } else {
-        confirmBtn.style.pointerEvents = 'none';  // Deshabilitar el botón
-        confirmBtn.style.opacity = 0.5;  // Hacerlo más opaco para indicar que está deshabilitado
-    }
-}
-
-// Agregar los event listeners a ambos inputs
-input1.addEventListener('input', checkInput);
-input2.addEventListener('input', checkInput);
-
-// Llamar a la función al cargar para asegurarnos de que el estado inicial sea correcto
-checkInput();
