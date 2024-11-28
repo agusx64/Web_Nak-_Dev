@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for web-nak-dev on 2024-11-27T12:33:36-06:00
+# fly.toml app configuration file generated for naku on 2024-11-28T08:54:56-06:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'web-nak-dev'
-primary_region = 'qro'
+app = 'naku'
+primary_region = 'dfw'
 
 [build]
 
@@ -17,6 +17,6 @@ primary_region = 'qro'
   processes = ['app']
 
 [[vm]]
-  memory = '1gb'
+  memory = '2gb'
   cpu_kind = 'shared'
-  cpus = 1
+  cpus = 2

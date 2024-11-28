@@ -1685,77 +1685,57 @@ closeButton.addEventListener("click", function () {
 // limite de palabras
 
 document.addEventListener("DOMContentLoaded", () => {
-  const inputField = document.getElementById("send_text_component");
-  const wordCountDisplay = document.querySelector(".word-count");
-  const maxWords = 310; // Límite máximo de palabras
+  // Configuración de los límites de caracteres para los inputs
+  const inputLimits = {
+    text_presentation: 122, // Limite para inputs con esta clase o ID
+    down_text: 68,          // Limite para inputs con esta clase o ID
+  };
 
-  if (inputField && wordCountDisplay) {
-    inputField.addEventListener("input", () => {
-      const text = inputField.value.trim(); // Elimina espacios innecesarios
-      const words = text === "" ? [] : text.split(/\s+/); // Separa palabras por espacios
-      const wordCount = words.length; // Cuenta las palabras
+  // Función para actualizar el contador de caracteres/palabras
+  function updateCounter(input, counter, limit, isWordCount = false) {
+    const text = input.value.trim();
+    const count = isWordCount ? (text === "" ? 0 : text.split(/\s+/).length) : text.length;
 
-      // Actualiza el contador de palabras dinámicamente
-      wordCountDisplay.textContent = `${wordCount}/${maxWords} Palabras`;
+    counter.textContent = `${count}/${limit} ${isWordCount ? "Palabras" : "Caracteres"}`;
 
-      // Cambia el color si excede el límite
-      if (wordCount > maxWords) {
-        wordCountDisplay.classList.add("over-limit");
-      } else {
-        wordCountDisplay.classList.remove("over-limit");
+    // Cambiar el estilo si excede el límite
+    if (count > limit) {
+      counter.classList.add("over-limit");
+    } else {
+      counter.classList.remove("over-limit");
+    }
+
+    // Cortar el texto si excede el límite en el caso de caracteres
+    if (!isWordCount && count > limit) {
+      input.value = text.slice(0, limit);
+    }
+  }
+
+  // Seleccionar todos los inputs con contadores
+  const inputs = document.querySelectorAll("input[data-limit]");
+
+  inputs.forEach((input) => {
+    const limit = parseInt(input.dataset.limit, 10); // Limite configurado en el atributo data-limit
+    const counter = input.nextElementSibling;       // Suponemos que el span de contador está al lado del input
+    const isWordCount = input.dataset.type === "words"; // Revisar si es un contador de palabras
+
+    if (counter) {
+      input.addEventListener("input", () => updateCounter(input, counter, limit, isWordCount));
+    }
+  });
+
+  // Configuración dinámica para inputs específicos
+  Object.entries(inputLimits).forEach(([classOrId, limit]) => {
+    const inputs = document.querySelectorAll(`.${classOrId}, #${classOrId}`);
+    inputs.forEach((input) => {
+      const counter = input.nextElementSibling; // Suponemos que el contador está en un span siguiente
+      if (counter) {
+        input.addEventListener("input", () => updateCounter(input, counter, limit));
       }
     });
-  } else {
-    console.error("No se encontraron los elementos 'send_text_component' o 'word-count'.");
-  }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const inputs = document.querySelectorAll('.text-input input'); // Todos los campos de texto
-  const maxChars = 310; // Límite de caracteres
-  
-  inputs.forEach(input => {
-    const charCountDisplay = input.nextElementSibling; // El span de contador de caracteres
-    if (input && charCountDisplay) {
-      input.addEventListener("input", () => {
-        const text = input.value; // Captura el texto del campo
-        const charCount = text.length; // Calcula el número de caracteres
-
-        // Actualiza el contador de caracteres
-        charCountDisplay.textContent = `${charCount}/${maxChars} Caracteres`;
-
-        // Cambia el estilo si excede el límite
-        if (charCount > maxChars) {
-          charCountDisplay.classList.add("over-limit"); // Aplica estilo para exceso de caracteres
-          input.value = text.slice(0, maxChars); // Limita el número de caracteres
-        } else {
-          charCountDisplay.classList.remove("over-limit"); // Remueve el estilo si está dentro del límite
-        }
-      });
-    }
   });
 });
 
-//Contador de Team
-document.addEventListener('DOMContentLoaded', () => {
-  const maxLength = 310;
-
-  // Referencias a los elementos de los inputs y los contadores
-  const positionInput = document.getElementById('position_team');
-  const descriptionInput = document.getElementById('description_team');
-  const positionCounter = document.getElementById('word-count-position');
-  const descriptionCounter = document.getElementById('word-count-description');
-
-  // Función para actualizar el contador de caracteres
-  function updateCharCount(inputElement, counterElement) {
-      const currentLength = inputElement.value.length;
-      counterElement.textContent = `${currentLength}/${maxLength} Letras`;
-  }
-
-  // Añadir eventos de entrada de texto para ambos campos
-  positionInput.addEventListener('input', () => updateCharCount(positionInput, positionCounter));
-  descriptionInput.addEventListener('input', () => updateCharCount(descriptionInput, descriptionCounter));
-});
 
 
 
