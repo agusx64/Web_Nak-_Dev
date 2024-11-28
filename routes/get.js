@@ -12,7 +12,7 @@ let connection = mysql.createConnection({
 
 connection.connect(function(err) {
     if (err) { throw err; }
-    console.log('Connected to database from gets');
+    console.log('Connected to database from GET');
 });
 
 /* GET home page. */
@@ -69,6 +69,12 @@ router.get('/celular', function(req, res) {
     res.render('celular');
 
 })
+
+router.get('/password_recovery', function(req, res) {
+
+    res.render('get_mail');
+
+});
 
 //Selección de valor mas reciente para actualizacioón de index
 router.get('/get_start_changes',function(req, res) {

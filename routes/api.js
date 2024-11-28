@@ -1,8 +1,24 @@
 var express = require('express');
 const OpenAI = require("openai");
 const nodemailer = require('nodemailer');
+const mysql = require('mysql2');
+const bcrypt = require('bcrypt');
+const crypto = require('crypto');
 require('dotenv').config();
 var router = express.Router();
+
+let connection = mysql.createConnection({
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
+});
+
+connection.connect(function(err) {
+    if (err) { throw err; }
+    console.log('Connected to database from API');
+});
 
 const openai = new OpenAI({
 
@@ -112,5 +128,91 @@ router.post('/send_email', async function(req, res) {
     
 
 })
+
+router.post('/forgot_password', function(req, res) {
+
+    let email = req.body.mail;
+    
+    const query = 'SELECT * FROM usuarios WHERE email = ?'
+
+    connection.query(query, function(err, result) {
+
+        if (err) return res.status(500).json({ message: 'Error en el servidor' });
+        if (results.length === 0) return res.status(404).json({ message: 'Usuario no encontrado' });
+
+        const token = crypto.randomBytes(20).toString('hex');
+        const expires = Date.now() + 3600000;
+
+        const updateQuery = 'UPDATE usuarios SET reset_token = ?, reset_token_expires = ? WHERE email = ?'
+
+        connection.query(updateQuery, [token, expires, email], function(err, result) {
+
+            if (err) return res.status(500).json({ message: 'Error al guardar el token' });
+
+            const mailOptions = {
+
+                from: process.env.USER_EMAIL,
+                to: email,
+                subject: 'Recuperar contraseña',
+                text: `Haz clic en el siguiente enlace para reestablecer tu contraseña: http://localhost:3000/reset_password/${token}`
+
+            }
+
+            transporter.sendMail(mailOptions, function(err, info){
+
+                if (err) return res.status(500).json({ message: 'Error al enviar el correo' });
+                res.status(200).json({ message: 'Correo enviado con éxito' });
+
+            })
+
+        });
+
+    });
+
+});
+
+router.get('/reset_password/:token', function(req, res){
+
+    const { token } = req.params;
+    const query = 'SELECT * FROM usuarios WHERE reset_token = ? AND reset_token_expires > ?';
+
+    connection.query(query, [token, Date.now()], function(err, result) {
+
+        if (err) return res.status(500).send('Error en el servidor');
+        if (results.length === 0) return res.status(400).send('Token inválido o expirado');
+        res.render('update_password', { token }); // Envía el token a la vista
+
+    });
+
+})
+
+router.post('/reset_password/:token', function(req, res) {
+
+    const token = req.params;
+    const password = req.body;
+    const query = 'SELECT * FROM usuarios WHERE reset_token = ? AND reset_token_expires > ?'
+
+    connection.query(query, [token, Date.now()], function(err, result) {
+
+        if (err) return res.status(500).send('Error en el servidor');
+        if (results.length === 0) return res.status(400).send('Token inválido o expirado');
+
+        bcrypt.hash(password, 10, function(err, hashedPassword) {
+
+            if (err) return res.status(500).send('Error al hashear la contraseña');
+            const updateQuery = 'UPDATE usuarios SET contrasena = ?, reset_token = NULL, reset_token_expires = NULL WHERE id = ?'
+
+            connection.query(updateQuery, [hashedPassword, result[0].id], function(err, result){
+
+                if (err) return res.status(500).send('Error al actualizar la contraseña');
+                res.render('insec', { message: '¡Contraseña actualizada con éxito!' });
+
+            });
+            
+        });
+
+    });
+
+});
 
 module.exports = router;

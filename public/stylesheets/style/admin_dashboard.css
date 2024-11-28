@@ -865,15 +865,30 @@ label.upload-area.active {
     pointer-events: none;
     cursor: not-allowed;
 }
+
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+#idSwitcher.disabled {
+    opacity: 0.5; /* Deshabilitado, opaco */
+    pointer-events: none; /* Deshabilitado, no puede ser clickeado */
+    transition: opacity 0.3s, pointer-events 0.3s; /* Suaviza la transición */
+}
+#idSwitcher.enabled {
+    opacity: 1;
+    pointer-events: all;
+    cursor: pointer;
+}
 .confirm-btn.disabled {
     opacity: 0.5;
     pointer-events: none;
-    cursor: not-allowed;
 }
 
-.confirm-btn {
+.confirm-btn.enabled {
     opacity: 1;
-    pointer-events: auto;
+    pointer-events: all;
     cursor: pointer;
-    transition: opacity 0.3s;
 }
+
