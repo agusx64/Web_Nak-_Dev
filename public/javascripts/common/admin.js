@@ -1867,26 +1867,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// boton de desabilitado de solo un texto
-document.addEventListener("DOMContentLoaded", function () {
-  const inputField = document.getElementById("send_text_component");
-  const confirmButton = document.getElementById("idSwitcher");
-
-  // Verificar el contenido del campo al escribir
-  inputField.addEventListener("input", function () {
-      if (inputField.value.trim() !== "") {
-          confirmButton.classList.remove("disabled"); // Elimina la clase que lo deshabilita
-          confirmButton.style.pointerEvents = "auto"; // Asegura que sea clickeable
-          confirmButton.style.opacity = "1"; // Asegura que sea visible al 100%
-      } else {
-          confirmButton.classList.add("disabled"); // Agrega la clase que lo deshabilita
-          confirmButton.style.pointerEvents = "none"; // Evita clics
-          confirmButton.style.opacity = "0.5"; // Cambia la visibilidad
-      }
-  });
-});
-
-
 // boton desabiltado solo cuando se ingrese una imagen
 // Selección de elementos
 // Selección de elementos
@@ -1912,3 +1892,28 @@ fileInputt.addEventListener('change', () => {
 // Supongamos que hay un botón o acción para abrir el pop-up
 const openPopUpButton = document.querySelector('.open-popup-btn'); // Reemplaza con el selector de tu botón
 openPopUpButton.addEventListener('click', initializePopUp);
+
+// un texto
+// Seleccionar elementos
+const confirmBtn2 = document.getElementById('idSwitcher');
+const textInput = document.getElementById('send_text_component');
+const openPopupBtn = document.querySelector('.open-popup-btn'); // Cambiar según el botón que abre el pop-up
+const popup = document.getElementById('upload_text_id');
+
+// Función para inicializar el estado del pop-up
+function initializePopup() {
+    confirmBtn2.classList.add('disabled'); // Deshabilitar el botón
+    textInput.value = ""; // Limpiar el campo de texto
+}
+
+// Escuchar el evento de entrada en el campo de texto
+textInput.addEventListener('input', () => {
+    if (textInput.value.trim().length > 0) {
+        confirmBtn2.classList.remove('disabled'); // Activar el botón
+    } else {
+        confirmBtn2.classList.add('disabled'); // Deshabilitar el botón
+    }
+});
+
+// Escuchar el evento de clic en el botón que abre el pop-up
+openPopupBtn.addEventListener('click', initializePopup);
