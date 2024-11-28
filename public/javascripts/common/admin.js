@@ -1888,3 +1888,47 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // boton de desabilitado de solo un texto
+document.addEventListener("DOMContentLoaded", function () {
+  const inputField = document.getElementById("send_text_component");
+  const confirmButton = document.getElementById("idSwitcher");
+
+  // Verificar el contenido del campo al escribir
+  inputField.addEventListener("input", function () {
+      if (inputField.value.trim() !== "") {
+          confirmButton.classList.remove("disabled"); // Elimina la clase que lo deshabilita
+          confirmButton.style.pointerEvents = "auto"; // Asegura que sea clickeable
+          confirmButton.style.opacity = "1"; // Asegura que sea visible al 100%
+      } else {
+          confirmButton.classList.add("disabled"); // Agrega la clase que lo deshabilita
+          confirmButton.style.pointerEvents = "none"; // Evita clics
+          confirmButton.style.opacity = "0.5"; // Cambia la visibilidad
+      }
+  });
+});
+
+
+// boton desabiltado solo cuando se ingrese una imagen
+// Selección de elementos
+// Selección de elementos
+const fileInputt = document.getElementById('file-upload');
+const confirmBtn = document.querySelector('.confirm-btn');
+const popUp = document.getElementById('upload_image_id');
+
+// Función para deshabilitar el botón al abrir el pop-up
+function initializePopUp() {
+    confirmBtn.classList.add('disabled'); // Desactiva el botón
+    fileInput.value = ""; // Resetea el input de archivo
+}
+
+// Escucha el evento de cambio en el input de archivo
+fileInputt.addEventListener('change', () => {
+    if (fileInputt.files.length > 0) {
+        confirmBtn.classList.remove('disabled'); // Activa el botón si hay archivo
+    } else {
+        confirmBtn.classList.add('disabled'); // Asegura que permanezca desactivado si no hay archivo
+    }
+});
+
+// Supongamos que hay un botón o acción para abrir el pop-up
+const openPopUpButton = document.querySelector('.open-popup-btn'); // Reemplaza con el selector de tu botón
+openPopUpButton.addEventListener('click', initializePopUp);

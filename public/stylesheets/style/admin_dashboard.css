@@ -860,3 +860,8 @@ label.upload-area.active {
     pointer-events: none; /* Deshabilitado, no puede ser clickeado */
     transition: opacity 0.3s, pointer-events 0.3s; /* Suaviza la transición */
 }
+.confirm-btn.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+}
