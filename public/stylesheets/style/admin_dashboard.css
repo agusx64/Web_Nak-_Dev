@@ -865,3 +865,15 @@ label.upload-area.active {
     pointer-events: none;
     cursor: not-allowed;
 }
+.confirm-btn.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.confirm-btn {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}

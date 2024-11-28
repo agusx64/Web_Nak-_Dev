@@ -74,7 +74,7 @@
     align-items: center;
     background: linear-gradient(#dbefc5, #9ce24c);
     padding: 0px; 
-    width: 50%;
+    width: 100% !important;
     height: 100vh;
     margin:0;
 }

@@ -93,42 +93,93 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Configura los botones del menú
-inicioBtn.addEventListener('click', function() {
-    ocultarSecciones();
-    inicioContent.hidden = false;
-    
-    //Botones del menu
-    const button_description = document.getElementById('btn_text_home');
-    const button_slogan = document.getElementById('btn_text_home1');
-    const button_image = document.getElementById('btn_image_home');
-    
-    const textConfirmButton = document.getElementById('idSwitcher');
-    const imageConfirmButton = document.getElementById('confirm-btn');
+inicioBtn.addEventListener('click', function () {
+  ocultarSecciones();
+  inicioContent.hidden = false;
 
-    button_image.addEventListener('click', function() {
-      currentAction = 'insert_image';
+  // Botones del menú
+  const button_description = document.getElementById('btn_text_home');
+  const button_slogan = document.getElementById('btn_text_home1');
+  const button_image = document.getElementById('btn_image_home');
 
-      input_upload_tag.textContent = 'Sube una imagen para el fondo principal'
+  const textConfirmButton = document.getElementById('idSwitcher');
+  const imageConfirmButton = document.getElementById('confirm-btn');
 
+  // Configuración de límites de caracteres
+  const characterLimits = {
+    insert_description: 122, // Límite para descripción
+    insert_slogan: 68,       // Límite para slogan
+    insert_image: null,      // Sin límite para imágenes
+  };
+
+  // Referencia al contador de caracteres específico
+  const counterDescription = document.getElementById('counter_description'); // Contador fijo
+
+  // Función para manejar límites de caracteres y contador
+  function handleCharacterLimitWithCounter(input, limit, counter) {
+    // Mostrar contador y reiniciar texto
+    if (counter) {
+      counter.style.display = 'block'; // Asegurarse de que el contador sea visible
+      counter.textContent = `0/${limit} Caracteres`; // Reiniciar contador
+    }
+
+    input.addEventListener('input', function () {
+      const text = input.value;
+      const charCount = text.length;
+
+      // Actualizar contador
+      if (counter) {
+        counter.textContent = `${charCount}/${limit} Caracteres`;
+      }
+
+      // Truncar texto si excede el límite
+      if (limit && charCount > limit) {
+        input.value = text.slice(0, limit);
+        if (counter) {
+          counter.textContent = `${limit}/${limit} Caracteres`;
+        }
+      }
     });
+  }
 
-    button_slogan.addEventListener('click', function() {
-      currentAction = 'insert_slogan';
+  button_image.addEventListener('click', function () {
+    currentAction = 'insert_image';
 
-      input_tag_text.textContent = 'Escribe un slogan aqui';
-      input_placeholder.placeholder = 'Slogan';
+    input_upload_tag.textContent = 'Sube una imagen para el fondo principal';
 
-    });
+    // Ocultar contador (no se aplica a imágenes)
+    if (counterDescription) {
+      counterDescription.style.display = 'none';
+    }
+  });
 
-    button_description.addEventListener('click', function() {
-      currentAction = 'insert_description';
+  button_slogan.addEventListener('click', function () {
+    currentAction = 'insert_slogan';
 
-      input_tag_text.textContent = 'Escribe una descripción aqui';
-      input_placeholder.placeholder = 'Descripción';
+    input_tag_text.textContent = 'Escribe un slogan aqui';
+    input_placeholder.placeholder = 'Slogan';
 
-    });
+    // Ocultar contador (el contador es solo para descripción)
+    if (counterDescription) {
+      counterDescription.style.display = 'none';
+    }
+  });
 
+  button_description.addEventListener('click', function () {
+    currentAction = 'insert_description';
+
+    input_tag_text.textContent = 'Escribe una descripción aqui';
+    input_placeholder.placeholder = 'Descripción';
+
+    // Mostrar y actualizar el contador con el límite configurado para descripción
+    if (counterDescription) {
+      handleCharacterLimitWithCounter(input_placeholder, characterLimits[currentAction], counterDescription);
+    }
+  });
 });
+
+
+
 
 
 const imageConfirmButton = document.getElementById('confirm-btn');
@@ -172,8 +223,6 @@ textConfirmButton.addEventListener('click', function() {
     });
   }
 });
-
-
 
 // Evento para mostrar la sección de 'tienda'
 tiendaBtn.addEventListener('click', function() {
@@ -477,7 +526,6 @@ imageConfirmButton.addEventListener('click', function() {
 
 });
 
-
 textConfirmButton.addEventListener('click', function() {
   
   if (currentAction === 'insert_historia'){
@@ -520,7 +568,6 @@ equipoBtn.addEventListener('click', function() {
   });
 
 });
-
 
   const button_insert_team = document.getElementById('arrowTeam');
 
@@ -1683,56 +1730,69 @@ closeButton.addEventListener("click", function () {
 
 
 // limite de palabras
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Configuración de los límites de caracteres para los inputs
+  // Configuración de los límites para cada ID
   const inputLimits = {
-    text_presentation: 122, // Limite para inputs con esta clase o ID
-    down_text: 68,          // Limite para inputs con esta clase o ID
+    // Inicio
+    text_presentation: 122,
+    text_slogan: 68,
+
+    // Nosotros
+    text_mision: 275,
+    text_vision: 275,
+
+    // Historia
+    text_hist: 310,
+
+    // Equipo
+    position1: 18,
+    des_team1: 95,
+    position2: 18,
+    des_team2: 95,
+    position3: 18,
+    des_team3: 95,
+
+    // Testimonios
+    descTestim: 180,
+    nombre1: 14,
+    testim1: 120,
+    nombre2: 14,
+    testim2: 120,
+    nombre3: 14,
+    testim3: 120,
+
+    // Ubicación
+    desc_loca: 120,
   };
 
-  // Función para actualizar el contador de caracteres/palabras
-  function updateCounter(input, counter, limit, isWordCount = false) {
+  // Función para actualizar el contador de caracteres
+  function updateCounter(input, counter, limit) {
     const text = input.value.trim();
-    const count = isWordCount ? (text === "" ? 0 : text.split(/\s+/).length) : text.length;
+    const charCount = text.length;
 
-    counter.textContent = `${count}/${limit} ${isWordCount ? "Palabras" : "Caracteres"}`;
+    // Actualizar el contador de caracteres
+    counter.textContent = `${charCount}/${limit} Caracteres`;
 
-    // Cambiar el estilo si excede el límite
-    if (count > limit) {
+    // Cambiar estilo si se excede el límite
+    if (charCount > limit) {
       counter.classList.add("over-limit");
+      input.value = text.slice(0, limit); // Limitar el texto al máximo permitido
     } else {
       counter.classList.remove("over-limit");
     }
-
-    // Cortar el texto si excede el límite en el caso de caracteres
-    if (!isWordCount && count > limit) {
-      input.value = text.slice(0, limit);
-    }
   }
 
-  // Seleccionar todos los inputs con contadores
-  const inputs = document.querySelectorAll("input[data-limit]");
+  // Iterar sobre cada configuración en `inputLimits`
+  Object.entries(inputLimits).forEach(([id, limit]) => {
+    const input = document.getElementById(id); // Buscar el input por ID
+    const counter = input?.nextElementSibling; // Suponemos que el contador es el span adyacente
 
-  inputs.forEach((input) => {
-    const limit = parseInt(input.dataset.limit, 10); // Limite configurado en el atributo data-limit
-    const counter = input.nextElementSibling;       // Suponemos que el span de contador está al lado del input
-    const isWordCount = input.dataset.type === "words"; // Revisar si es un contador de palabras
-
-    if (counter) {
-      input.addEventListener("input", () => updateCounter(input, counter, limit, isWordCount));
+    if (input && counter) {
+      // Escuchar el evento `input` para actualizar el contador
+      input.addEventListener("input", () => updateCounter(input, counter, limit));
+    } else {
+      console.error(`No se encontró el input o contador asociado al ID: ${id}`);
     }
-  });
-
-  // Configuración dinámica para inputs específicos
-  Object.entries(inputLimits).forEach(([classOrId, limit]) => {
-    const inputs = document.querySelectorAll(`.${classOrId}, #${classOrId}`);
-    inputs.forEach((input) => {
-      const counter = input.nextElementSibling; // Suponemos que el contador está en un span siguiente
-      if (counter) {
-        input.addEventListener("input", () => updateCounter(input, counter, limit));
-      }
-    });
   });
 });
 
@@ -1872,7 +1932,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Selección de elementos
 const fileInputt = document.getElementById('file-upload');
 const confirmBtn = document.querySelector('.confirm-btn');
-const popUp = document.getElementById('upload_image_id');
+const openPop = document.getElementById('upload_image_id');
 
 // Función para deshabilitar el botón al abrir el pop-up
 function initializePopUp() {
@@ -1890,30 +1950,28 @@ fileInputt.addEventListener('change', () => {
 });
 
 // Supongamos que hay un botón o acción para abrir el pop-up
-const openPopUpButton = document.querySelector('.open-popup-btn'); // Reemplaza con el selector de tu botón
+const openPopUpButton1 = document.querySelector('.open-popup-btn'); // Reemplaza con el selector de tu botón
 openPopUpButton.addEventListener('click', initializePopUp);
 
-// un texto
-// Seleccionar elementos
-const confirmBtn2 = document.getElementById('idSwitcher');
-const textInput = document.getElementById('send_text_component');
-const openPopupBtn = document.querySelector('.open-popup-btn'); // Cambiar según el botón que abre el pop-up
-const popup = document.getElementById('upload_text_id');
+// un texto solamenteeeeeeeeeeeeeeeeeeeeeeee
+const openPopUpButton4 = document.getElementById('upload_text_id'); // Corregido el selector del botón
+const confirmBtn5 = document.querySelector('.confirm-btn'); // Referencia al botón de confirmación
+const fileInputo = document.getElementById('send_text_component'); // Referencia al input de texto
 
-// Función para inicializar el estado del pop-up
-function initializePopup() {
-    confirmBtn2.classList.add('disabled'); // Deshabilitar el botón
-    textInput.value = ""; // Limpiar el campo de texto
+// Función para deshabilitar el botón al abrir el pop-up
+function initializePopUp() {
+    confirmBtn5.classList.add('disabled'); // Desactiva el botón
+    fileInputo.value = ""; // Resetea el input de texto
 }
 
-// Escuchar el evento de entrada en el campo de texto
-textInput.addEventListener('input', () => {
-    if (textInput.value.trim().length > 0) {
-        confirmBtn2.classList.remove('disabled'); // Activar el botón
+// Escucha el evento de cambio en el input de archivo
+fileInputo.addEventListener('input', () => {
+    if (fileInputo.value.trim().length > 0) {
+        confirmBtn5.classList.remove('disabled'); // Activa el botón si hay texto
     } else {
-        confirmBtn2.classList.add('disabled'); // Deshabilitar el botón
+        confirmBtn5.classList.add('disabled'); // Asegura que permanezca desactivado si no hay texto
     }
 });
 
-// Escuchar el evento de clic en el botón que abre el pop-up
-openPopupBtn.addEventListener('click', initializePopup);
+// Abre el pop-up cuando se hace clic en el botón correspondiente
+openPopUpButton4.addEventListener('click', initializePopUp);
