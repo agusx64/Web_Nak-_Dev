@@ -892,3 +892,7 @@ label.upload-area.active {
     cursor: pointer;
 }
 
+.modal-footer svg.cancel-btn {
+    position: relative;  /* Asegura que el SVG se posicione respecto a su contenedor */
+    z-index: 10;  /* Un valor mayor para asegurar que esté encima de otros elementos */
+}

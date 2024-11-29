@@ -561,12 +561,19 @@ function getLocationChanges(){
         let changes = data;
 
         const desc_location = document.getElementById('desc_loca')
-        const location = document.getElementById('locationSRC')
+        const div_location_container = document.getElementById('mapContainer');
+        var map = changes[0].ubicacion;
 
         desc_location.textContent = changes[0].desc_ubicacion;
-        location.textContent = changes[0].ubicacion;
+        div_location_container.innerHTML = map;
 
-        console.log(changes);
+        const iframe = document.querySelector('iframe');
+        if(iframe) {
+
+            iframe.classList.add('google_map');
+            iframe.id = 'locationSRC';
+
+        }
 
     })
 

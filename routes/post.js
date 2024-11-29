@@ -2,6 +2,7 @@ var express = require('express');
 const OpenAI = require("openai");
 const multer = require('multer');
 const mysql = require('mysql2');
+const bcrypt = require('bcrypt');
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 require('dotenv').config();
@@ -1036,7 +1037,63 @@ router.post('/insert_product4', upload.single('imagen'), async function(req, res
         
     }
     
-})
+});
+
+router.post("/login", function (req, res) {
+
+    const { email, contrasena } = req.body;
+    console.log(email, contrasena);
+
+    try {
+        // Validar que los campos no estén vacíos
+        if (!email || !contrasena) {
+
+            return res.json({ success: false, message: "Todos los campos son obligatorios." });
+
+        }
+
+        let query = 'SELECT * FROM usuarios WHERE email = ?'
+
+        connection.query(query, [email], function (err, result) {
+
+            if (err) {
+
+                throw err;
+
+            } else {
+
+                console.log(result);
+                if (result.length === 0) {
+
+                    return res.json({ success: false, message: "Email o contraseña incorrectos." });
+
+                }
+
+                const usuario = result[0];
+                const match = bcrypt.compare(contrasena, usuario.contrasena);
+
+                if (match) {
+
+                    res.json({ success: true});
+
+                } else  {
+
+                    res.json({ success: false, message: "Email o contraseña incorrectos." });
+
+                }
+
+            }
+
+        });
+
+    } catch (error) {
+
+        console.error(error);
+        res.status(500).json({ success: false, message: "Error del servidor." });
+
+    }
+
+});
 
 
 module.exports = router;

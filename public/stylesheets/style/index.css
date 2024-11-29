@@ -1069,6 +1069,7 @@ body.light-theme_i #up_screen {
     margin-bottom: 35px;
     width: 40%;
     z-index: 1;
+    overflow-wrap: break-word;
 }
 
 .contenedor_testimonios {

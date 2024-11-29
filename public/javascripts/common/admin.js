@@ -19,6 +19,47 @@ logo_home.addEventListener('click', function() {
 
 });
 
+
+// Función que limita la cantidad de caracteres en un input (Global)
+function limitCharacters(inputElement, characters) {
+  // Verifica si el input ya tiene el listener
+  if (!inputElement.hasAttribute('data-limit-applied')) {
+      inputElement.addEventListener('input', () => {
+          if (inputElement.value.length > characters) {
+              inputElement.value = inputElement.value.slice(0, characters); // Limita la longitud del valor
+          }
+      });
+      inputElement.setAttribute('data-limit-applied', 'true'); // Marca el input como ya procesado
+  }
+}
+
+// Función global para manejar límites de caracteres
+function handleCharacterLimitWithCounter(inputElement, limit) {
+  const counterElement = inputElement.closest('div').querySelector('.word-counter');
+
+  inputElement.addEventListener('input', function () {
+      const currentLength = inputElement.value.length;
+
+      // Actualiza el texto del contador
+      counterElement.textContent = `${currentLength}/${limit} Caracteres`;
+
+      // Limita el texto si excede el máximo
+      if (currentLength > limit) {
+          inputElement.value = inputElement.value.slice(0, limit);
+          counterElement.textContent = `${limit}/${limit} Caracteres`;
+      }
+
+      // Cambia el estilo del contador si está en el límite
+      if (currentLength === limit) {
+          counterElement.classList.add('at-limit'); // Clase opcional para el estilo
+      } else {
+          counterElement.classList.remove('at-limit');
+      }
+  });
+}
+
+
+
 //Etiquetas de elemntos diamicos
 
 //Venta de un solo texto
@@ -179,8 +220,6 @@ inicioBtn.addEventListener('click', function () {
     );
   });
 });
-
-
 
 const imageConfirmButton = document.getElementById('confirm-btn');
 imageConfirmButton.addEventListener('click', function() {
@@ -681,6 +720,14 @@ textConfirmButton.addEventListener('click', function() {
 equipoBtn.addEventListener('click', function() {
   ocultarSecciones();  
 equipoContent.hidden = false;
+
+//Ubicar el nombre del input del pop up (Id)
+const teampop = document.getElementById('position_team');
+limitCharacters(teampop, 18); // Aplica el límite de caracteres
+
+const teampop1 = document.getElementById('description_team');
+limitCharacters(teampop1, 95); // Aplica el límite de caracteres
+
 const button_perfil_1 = document.getElementById('btn_image_team');
 const button_perfil_2 = document.getElementById('btn_image_team1');
 const button_perfil_3 = document.getElementById('btn_image_team2');
@@ -776,172 +823,154 @@ button_perfil_3.addEventListener('click', function() {
 });
 
 
-
 // Evento para mostrar la sección de 'testimonios'
-	
 
+testimoniosBtn.addEventListener('click', function () {
+  ocultarSecciones();
+  testimoniosContent.hidden = false;
 
+//Ubicar el nombre del input del pop up (Id)
+const testimon = document.getElementById('position_team');
+limitCharacters(testimon, 14); // Aplica el límite de caracteres
 
+const testimon1 = document.getElementById('description_team');
+limitCharacters(testimon1, 120); // Aplica el límite de caracteres
 
+  // Elementos necesarios
+  const inputDescriptionTestimony = document.getElementById('send_text_component'); // Campo de entrada
+  const wordCountTestimony = document.querySelector('.word-count'); // Elemento del contador
+  const descriptionTestimonyLimit = 150; // Límite de caracteres
 
-testimoniosBtn.addEventListener('click', function() {
-  ocultarSecciones();  
-testimoniosContent.hidden = false; 
+  // Configuración inicial del campo y contador
+  if (inputDescriptionTestimony && wordCountTestimony) {
+    inputDescriptionTestimony.placeholder = 'Escribe la descripción del testimonio aquí';
+    wordCountTestimony.textContent = `0/${descriptionTestimonyLimit} Caracteres`;
 
+    // Manejo de caracteres y actualización del contador
+    inputDescriptionTestimony.addEventListener('input', () => {
+      const currentLength = inputDescriptionTestimony.value.length;
 
-const button_testimony1 = document.getElementById('btn_image_testim'); 
+      // Actualiza el contador
+      wordCountTestimony.textContent = `${currentLength}/${descriptionTestimonyLimit} Caracteres`;
+
+      // Restringe el texto si excede el límite
+      if (currentLength > descriptionTestimonyLimit) {
+        inputDescriptionTestimony.value = inputDescriptionTestimony.value.slice(0, descriptionTestimonyLimit);
+        wordCountTestimony.textContent = `${descriptionTestimonyLimit}/${descriptionTestimonyLimit} Caracteres`;
+      }
+
+      // Cambia estilos cuando se alcanza el límite
+      wordCountTestimony.classList.toggle('at-limit', currentLength === descriptionTestimonyLimit);
+    });
+  }
+});
+
+// Eventos para los botones de testimonios
+const button_testimony1 = document.getElementById('btn_image_testim');
 const button_testimony2 = document.getElementById('btn_image_testim1');
 const button_testimony3 = document.getElementById('btn_image_testim2');
-
 const button_description_testimony = document.getElementById('btn_text_testim');
 
-button_description_testimony.addEventListener('click', function() {
-  currentAction = 'insert_description_testimony';
-});
+// Función para configurar la acción actual
+function setCurrentAction(action) {
+  currentAction = action;
+}
 
-button_testimony1.addEventListener('click', function() {
-  currentAction = 'insert_testimony1';  
+// Asignar eventos a los botones
+if (button_description_testimony) {
+  button_description_testimony.addEventListener('click', () => setCurrentAction('insert_description_testimony'));
+}
+if (button_testimony1) {
+  button_testimony1.addEventListener('click', () => setCurrentAction('insert_testimony1'));
+}
+if (button_testimony2) {
+  button_testimony2.addEventListener('click', () => setCurrentAction('insert_testimony2'));
+}
+if (button_testimony3) {
+  button_testimony3.addEventListener('click', () => setCurrentAction('insert_testimony3'));
+}
 
-});
+// Confirmación para descripción de testimonios
+textConfirmButton.addEventListener('click', function () {
+  if (currentAction === 'insert_description_testimony') {
+    const insertDescriptionTestimony = document.getElementById('send_text_component');
 
-button_testimony2.addEventListener('click', function() {
-  currentAction = 'insert_testimony2';  
+    if (insertDescriptionTestimony) {
+      const descriptionTestimony = { descriptionTestimony: insertDescriptionTestimony.value };
 
-});
-
-button_testimony3.addEventListener('click', function() {
-  currentAction = 'insert_testimony3';  
-
-});
-
-
-});
-
-textConfirmButton.addEventListener('click', function() {
-
-if (currentAction === 'insert_description_testimony'){
-  const insertDescriptionTestimony = document.getElementById('send_text_component');
-
-  let descriptionTestimony = {descriptionTestimony: insertDescriptionTestimony.value};
-
-  fetch('/insert_description_testimony',{
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(descriptionTestimony)
-
-    });
-
+      fetch('/insert_description_testimony', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(descriptionTestimony),
+      });
+    }
   }
-
 });
 
+// Insertar testimonios con imágenes
 const button_insert_testimony = document.getElementById('arrowTeam');
+button_insert_testimony.addEventListener('click', function () {
+  const image_testimony = document.getElementById('file-upload1');
+  const name_testimony = document.getElementById('position_team');
+  const description_testimony = document.getElementById('description_team');
 
-button_insert_testimony.addEventListener('click', function() {
+  if (image_testimony && name_testimony && description_testimony) {
+    const valueName = name_testimony.value;
+    const valueDescriptionTestimony = description_testimony.value;
 
-  if (currentAction === 'insert_testimony1') {
-
-    const image_testimony = document.getElementById('file-upload1');
-    const name_testimony = document.getElementById('position_team');
-    const description_testimony = document.getElementById('description_team');
-  
-    let valueName = name_testimony.value;
-    let valueDescriptionTestimony = description_testimony.value;
-
-    console.log("Nombre:", valueName); // Depuración
-    console.log("Descripción:", valueDescriptionTestimony);
-  
     let formData = new FormData();
     formData.append('imagen', image_testimony.files[0]);
     formData.append('nombre', valueName);
     formData.append('testimonio', valueDescriptionTestimony);
-    
-  
 
-    fetch('/insert_testimony1', {
-      method: 'POST',
-      body: formData
-      
-    })
+    let endpoint = '';
+    if (currentAction === 'insert_testimony1') {
+      endpoint = '/insert_testimony1';
+    } else if (currentAction === 'insert_testimony2') {
+      endpoint = '/insert_testimony2';
+    } else if (currentAction === 'insert_testimony3') {
+      endpoint = '/insert_testimony3';
+    }
 
-    
-  }else if (currentAction === 'insert_testimony2') {
-
-    const image_testimony = document.getElementById('file-upload1');
-    const name_testimony = document.getElementById('position_team');
-    const testimony = document.getElementById('description_team');
-  
-
-    let valueName = name_testimony.value;
-    let valueTestimony = testimony.value;
-  
-
-    let formData = new FormData();
-    formData.append('imagen', image_testimony.files[0]);
-    formData.append('nombre', valueName);
-    formData.append('testimonio', valueTestimony);
-+
-
-    fetch('/insert_testimony2', {
-      method: 'POST',
-      body: formData
-      
-    })
-
-  }else if (currentAction == 'insert_testimony3') {
-
-    const image_testimony = document.getElementById('file-upload1');
-    const name_testimony = document.getElementById('position_team');
-    const testimony = document.getElementById('description_team');
-  
-
-    let valueName = name_testimony.value;
-    let valueTestimony = testimony.value;
-  
-
-    let formData = new FormData();
-    formData.append('imagen', image_testimony.files[0]);
-    formData.append('nombre', valueName);
-    formData.append('testimonio', valueTestimony);
-  
-
-    fetch('/insert_testimony3', {
-      method: 'POST',
-      body: formData
-      
-    })
-
+    if (endpoint) {
+      fetch(endpoint, {
+        method: 'POST',
+        body: formData,
+      });
+    }
   }
-
 });
-  
-	
+
 
 
 // Evento para mostrar la sección de 'ubicacion'
-ubicacionBtn.addEventListener('click', function() {
-    ocultarSecciones();  
-  ubicacionContent.hidden = false; 
+ubicacionBtn.addEventListener('click', function () {
+  ocultarSecciones();
+  ubicacionContent.hidden = false;
 
   const button_location = document.getElementById('btn_text_location');
-  
-
-  button_location.addEventListener('click', function() {
-    currentAction = 'insert_location';  
+  button_location.addEventListener('click', function () {
+      currentAction = 'insert_location';
+      
+      //Ubicar el nombre del input del pop up (Id)
+      const descLocation = document.getElementById('descLocation');
+      limitCharacters(descLocation, 120); // Aplica el límite de caracteres
   });
-
-
 });
+
+
+
 
 const button_insert_location = document.getElementById('arrowLocation');
 
 button_insert_location.addEventListener('click', function () {
     if (currentAction === 'insert_location') {
-        const descLocation = document.getElementById('descLocation').value;
+
+        const descLocation = document.getElementById('descLocation'); // Seleccionamos el input directamente
         const location = document.getElementById('location').value;
 
         const data = {
-            descripcion: descLocation,
+            descripcion: descLocation.value, // Ahora usamos el valor del input
             ubicacion: location,
         };
 
@@ -957,6 +986,7 @@ button_insert_location.addEventListener('click', function () {
             .catch((error) => console.error('Error:', error));
     }
 });
+
 
 
 
@@ -1868,99 +1898,338 @@ closeButton.addEventListener("click", function () {
 
 
  
-// limite de palabras 310
+
+
+// // Sección de uborrar un texto y que se habilite el boton para cuando se ingrese el input
+// un texto 
 document.addEventListener('DOMContentLoaded', () => {
   const inputField = document.getElementById('send_text_component');
   const confirmButton = document.getElementById('idSwitcher');
+  const resetButton = document.getElementById('reset_inputs');
 
-  // Función para habilitar o deshabilitar el botón
+  // Función para habilitar o deshabilitar el botón de confirmación
   const toggleButtonState = () => {
-      const inputValue = inputField.value.trim();
-      console.log('Input value:', inputValue); // Verifica el contenido del campo
-      if (inputValue.length > 0) {
+    const inputValue = inputField.value.trim();
+    console.log('Input value:', inputValue);
+    if (inputValue.length > 0) {
+      confirmButton.classList.remove('disabled');
+      confirmButton.style.pointerEvents = 'auto';
+      confirmButton.style.opacity = '1';
+      console.log('Botón habilitado');
+    } else {
+      confirmButton.classList.add('disabled');
+      confirmButton.style.pointerEvents = 'none';
+      confirmButton.style.opacity = '0.5';
+      console.log('Botón deshabilitado');
+    }
+  };
+  
+  inputField.addEventListener('input', toggleButtonState);
+
+  resetButton.addEventListener('click', function() {
+    inputField.value = ''; // Borra el texto
+    toggleButtonState(); // Llama a la función para actualizar el estado del botón
+  });
+
+  // Inicializar el estado del botón al cargar la página
+  toggleButtonState();
+});
+
+// dos textos
+document.addEventListener('DOMContentLoaded', () => {
+  const inputDescLocation = document.getElementById('descLocation');
+  const inputLocation = document.getElementById('location');
+  const confirmButton = document.getElementById('arrowLocation');
+  const resetButton = document.getElementById('reset_inputs2');
+
+  // Función para habilitar o deshabilitar el botón de confirmación
+  const toggleButtonState = () => {
+    const inputDescValue = inputDescLocation.value.trim();
+    const inputLocationValue = inputLocation.value.trim();
+    console.log('Input descLocation value:', inputDescValue); // Verifica el contenido del campo
+    console.log('Input location value:', inputLocationValue);
+
+    // Si ambos campos tienen texto, habilitar el botón de confirmación
+    if (inputDescValue.length > 0 && inputLocationValue.length > 0) {
+      confirmButton.classList.remove('disabled');
+      confirmButton.style.pointerEvents = 'auto';
+      confirmButton.style.opacity = '1';
+      console.log('Botón habilitado');
+    } else {
+      confirmButton.classList.add('disabled');
+      confirmButton.style.pointerEvents = 'none';
+      confirmButton.style.opacity = '0.5';
+      console.log('Botón deshabilitado');
+    }
+  };
+
+  // Escuchar eventos de entrada en los campos de texto para habilitar/deshabilitar el botón
+  inputDescLocation.addEventListener('input', toggleButtonState);
+  inputLocation.addEventListener('input', toggleButtonState);
+
+  // Escuchar el evento de reset (cuando se hace clic en el botón de cancelar)
+  resetButton.addEventListener('click', function() {
+    inputDescLocation.value = ''; // Borra el texto
+    inputLocation.value = ''; // Borra el texto
+    toggleButtonState(); // Llama a la función para actualizar el estado del botón
+  });
+
+  // Inicializar el estado del botón al cargar la página
+  toggleButtonState();
+});
+
+
+// // funcion para borrar imagen y dos textos
+document.addEventListener('DOMContentLoaded', () => {
+  const inputField1 = document.getElementById('position_team');
+  const inputField2 = document.getElementById('description_team');
+  const confirmButton = document.getElementById('arrowTeam');
+  const resetButton = document.getElementById('reset_inputs3');
+  const fileInput = document.getElementById('file-upload1');
+  
+  // Función para habilitar o deshabilitar el botón de confirmación
+  const toggleButtonState = () => {
+      const inputValue1 = inputField1.value.trim();
+      const inputValue2 = inputField2.value.trim();
+      const isImageSelected = fileInput.files.length > 0;
+
+      // Verificar si ambos campos de texto tienen contenido y si se ha seleccionado una imagen
+      if (inputValue1.length > 0 && inputValue2.length > 0 && isImageSelected) {
           confirmButton.classList.remove('disabled');
-          console.log('Botón habilitado');
+          confirmButton.style.pointerEvents = 'auto';
+          confirmButton.style.opacity = '1';
       } else {
           confirmButton.classList.add('disabled');
-          console.log('Botón deshabilitado');
+          confirmButton.style.pointerEvents = 'none';
+          confirmButton.style.opacity = '0.5';
       }
   };
 
-  // Escuchar eventos de entrada en el campo de texto
-  inputField.addEventListener('input', toggleButtonState);
+  // Escuchar eventos de entrada en los campos de texto y en la carga de archivos
+  inputField1.addEventListener('input', toggleButtonState);
+  inputField2.addEventListener('input', toggleButtonState);
+  fileInput.addEventListener('change', toggleButtonState);
+
+  // Escuchar el evento de reset (cuando se hace clic en el botón de cancelar)
+  resetButton.addEventListener('click', function() {
+      inputField1.value = ''; // Borra el texto del primer campo
+      inputField2.value = ''; // Borra el texto del segundo campo
+      fileInput.value = ''; // Borra la imagen seleccionada
+      toggleButtonState(); // Actualiza el estado del botón
+  });
+
+  // Inicializar el estado del botón al cargar la página
+  toggleButtonState();
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Función común para habilitar/deshabilitar el botón
-  const toggleButtonState = (button, isEnabled) => {
-      if (isEnabled) {
-          button.classList.remove("disabled");
-          button.style.pointerEvents = "auto";
-          button.style.opacity = "1";
+// uma imagen 3 textos
+document.addEventListener('DOMContentLoaded', () => {
+  const inputField1 = document.getElementById('name_product');
+  const inputField2 = document.getElementById('price_product');
+  const inputField3 = document.getElementById('description_product');
+  let confirmButton = document.getElementById('arrowProduct');
+  const resetButton = document.getElementById('reset_inputs4');
+  let fileInput = document.getElementById('file-upload2');
+
+  // Función para habilitar o deshabilitar el botón de confirmación
+  const toggleButtonState = () => {
+      const inputValue1 = inputField1.value.trim();
+      const inputValue2 = inputField2.value.trim();
+      const inputValue3 = inputField3.value.trim();
+      const isImageSelected = fileInput.files.length > 0;
+
+      // Verificar si ambos campos de texto tienen contenido y si se ha seleccionado una imagen
+      if (inputValue1.length > 0 && inputValue2.length > 0 && inputValue3.length > 0 && isImageSelected) {
+          confirmButton.classList.remove('disabled');
+          confirmButton.style.pointerEvents = 'auto';
+          confirmButton.style.opacity = '1';
       } else {
-          button.classList.add("disabled");
-          button.style.pointerEvents = "none";
-          button.style.opacity = "0.5";
+          confirmButton.classList.add('disabled');
+          confirmButton.style.pointerEvents = 'none';
+          confirmButton.style.opacity = '0.5';
       }
   };
 
-  // Función de validación para texto e imagen
-  const validateInputsAndFile = (inputs, fileInput, button) => {
-      const allTextFilled = Array.from(inputs).every(input => input.value.trim() !== "");
-      const isFileSelected = fileInput?.files.length > 0;
-      toggleButtonState(button, allTextFilled && isFileSelected);
+  // Escuchar eventos de entrada en los campos de texto y en la carga de archivos
+  inputField1.addEventListener('input', toggleButtonState);
+  inputField2.addEventListener('input', toggleButtonState);
+  inputField3.addEventListener('input', toggleButtonState);
+  fileInput.addEventListener('change', toggleButtonState);
+
+  // Escuchar el evento de reset (cuando se hace clic en el botón de cancelar)
+  resetButton.addEventListener('click', function() {
+      // Borrar los campos de texto
+      inputField1.value = ''; 
+      inputField2.value = ''; 
+      inputField3.value = ''; 
+
+      // Borrar la imagen seleccionada
+      fileInput.value = ''; 
+
+      // Reemplazar el input de archivo para eliminar cualquier estado previo
+      const fileInputClone = fileInput.cloneNode(true);
+      fileInput.parentNode.replaceChild(fileInputClone, fileInput);
+
+      // Volver a asignar la referencia para seguir usándolo
+      fileInput = fileInputClone;
+
+      // Desactivar el botón de confirmación
+      confirmButton.classList.add('disabled');
+      confirmButton.style.pointerEvents = 'none';
+      confirmButton.style.opacity = '0.5';
+
+      toggleButtonState(); // Actualizar el estado del botón de confirmación
+  });
+
+  // Inicializar el estado del botón al cargar la página
+  toggleButtonState();
+});
+// una imagen y tres textos:
+document.addEventListener('DOMContentLoaded', () => {
+  const inputFields = [
+      document.getElementById('send_text_title'),
+      document.getElementById('send_text_description'),
+      document.getElementById('send_text_slogan'),
+      document.getElementById('send_text_price')
+  ];
+  let fileInput = document.getElementById('file-upload3');
+  const confirmButton = document.getElementById('arrowShop');
+  const resetButton = document.getElementById('reset_inputs5');
+
+  // Función para habilitar o deshabilitar el botón de confirmación
+  const toggleButtonState = () => {
+      const allFieldsFilled = inputFields.every(input => input.value.trim().length > 0);
+      const isImageSelected = fileInput.files.length > 0;
+
+      if (allFieldsFilled && isImageSelected) {
+          confirmButton.classList.remove('disabled');
+          confirmButton.style.pointerEvents = 'auto';
+          confirmButton.style.opacity = '1';
+      } else {
+          confirmButton.classList.add('disabled');
+          confirmButton.style.pointerEvents = 'none';
+          confirmButton.style.opacity = '0.5';
+      }
   };
 
-  // Sección 1: Dos campos de texto
-  const descLocationInput = document.getElementById("descLocation");
-  const locationInput = document.getElementById("location");
-  const confirmButtonLocation = document.getElementById("arrowLocation");
-  [descLocationInput, locationInput].forEach(input =>
-      input.addEventListener("input", () =>
-          toggleButtonState(confirmButtonLocation, descLocationInput.value.trim() !== "" && locationInput.value.trim() !== "")
-      )
-  );
-  toggleButtonState(confirmButtonLocation, false);
+  // Escuchar eventos en los campos de texto y en el input de archivo
+  inputFields.forEach(input => input.addEventListener('input', toggleButtonState));
+  fileInput.addEventListener('change', toggleButtonState);
 
-  // Sección 2: Imagen y 2 campos de texto
-  const fileInput1 = document.getElementById("file-upload1");
-  const positionInput = document.getElementById("position_team");
-  const descriptionInput = document.getElementById("description_team");
-  const confirmButtonTeam = document.getElementById("arrowTeam");
-  [positionInput, descriptionInput, fileInput1].forEach(element =>
-      element.addEventListener("input", () =>
-          validateInputsAndFile([positionInput, descriptionInput], fileInput1, confirmButtonTeam)
-      )
-  );
-  toggleButtonState(confirmButtonTeam, false);
+  // Función para reiniciar los campos y el estado del botón
+  const resetForm = () => {
+      inputFields.forEach(input => (input.value = ''));
+      fileInput.value = '';
 
-  // Sección 3: Producto (Imagen y campos de texto)
-  const fileInput2 = document.getElementById("file-upload2");
-  const nameInput = document.getElementById("name_product");
-  const priceInput = document.getElementById("price_product");
-  const descriptionProductInput = document.getElementById("description_product");
-  const confirmButtonProduct = document.getElementById("arrowProduct");
-  [nameInput, priceInput, descriptionProductInput, fileInput2].forEach(element =>
-      element.addEventListener("input", () =>
-          validateInputsAndFile([nameInput, priceInput, descriptionProductInput], fileInput2, confirmButtonProduct)
-      )
-  );
-  toggleButtonState(confirmButtonProduct, false);
+      // Clonar y reemplazar el input de archivo para eliminar cualquier estado previo
+      const fileInputClone = fileInput.cloneNode(true);
+      fileInput.parentNode.replaceChild(fileInputClone, fileInput);
+      fileInput = fileInputClone;
 
-  // Sección 4: 4 campos de texto y una imagen
-  const inputsShop = document.querySelectorAll("#send_text_title, #send_text_description, #send_text_slogan, #send_text_price");
-  const imageInputShop = document.getElementById("file-upload3");
-  const confirmButtonShop = document.getElementById("arrowShop");
-  [...inputsShop, imageInputShop].forEach(element =>
-      element.addEventListener("input", () =>
-          validateInputsAndFile(inputsShop, imageInputShop, confirmButtonShop)
-      )
-  );
-  toggleButtonState(confirmButtonShop, false);
+      // Reasignar eventos al nuevo input
+      fileInput.addEventListener('change', toggleButtonState);
 
-  // Sección 5: Solo imagen
-  const fileInputt = document.getElementById("file-upload");
-  const confirmBtn = document.querySelector(".confirm-btn");
-  fileInputt.addEventListener("change", () => validateInputsAndFile([], fileInputt, confirmBtn));
-  toggleButtonState(confirmBtn, false);
+      // Desactivar el botón de confirmación
+      confirmButton.classList.add('disabled');
+      confirmButton.style.pointerEvents = 'none';
+      confirmButton.style.opacity = '0.5';
+
+      toggleButtonState();
+  };
+
+  // Escuchar el evento de reset
+  resetButton.addEventListener('click', resetForm);
+
+  // Inicializar el estado del botón al cargar la página
+  toggleButtonState();
 });
+// cargar imagen
+// Seleccionar los elementos necesarios
+// Seleccionar los elementos necesarios
+// Seleccionar los elementos necesarios
+const cancelButton = document.querySelector('.cancel-btn');
+const fileInputon = document.querySelector('#file-upload');
+const confirmButton = document.querySelector('.confirm-btn');
+const uploadSection = document.querySelector('#upload_image_id');
+
+// Habilitar el botón de confirmar al seleccionar una imagen
+fileInputon.addEventListener('change', () => {
+    if (fileInputon.files.length > 0) {
+        confirmButton.classList.remove('disabled');
+    } else {
+        confirmButton.classList.add('disabled');
+    }
+});
+
+// Agregar un evento al botón de cancelar
+cancelButton.addEventListener('click', () => {
+    // Limpiar el campo de imagen
+    fileInputon.value = '';
+
+    // Restaurar el botón de confirmar a su estado original
+    confirmButton.classList.add('disabled');
+
+    // Ocultar la sección en lugar de cerrar la pestaña
+    uploadSection.style.display = 'none';
+});
+
+
+
+
+// // Reinicio del input de texto 'position_team'
+
+// const reset_input3 = document.getElementById('reset_inputs3'); 
+// reset_inputs3.addEventListener('click', function () {
+  
+//     let input4 = document.getElementById('position_team');
+//     input4.value = '';
+
+//     let input3 = document.getElementById('description_team');
+//     input3.value = '';
+// });
+
+
+
+
+
+// var eiqueta = document.getElementById('eiqueta'); //input
+// reset_inputs(etiqueta, 255);
+
+// function restInputs(tag, characterLimits) {
+
+
+
+// }
+
+
+// Elemento Index (id) ---- Elemento dashboard (id)
+// Inicio -->
+// 	text_presentation/send_text_component (122 caracteres).
+// 	text_slogan/send_text_component (68 caracteres).
+
+// Nosotros -->
+// 	text_mision/send_text_component (275 caracteres).
+// 	text_vision/send_text_component (275 caracteres).
+
+// Historia -->
+// 	text_hist/send_text_component (310 caracteres).
+
+// Equipo -->
+// 	position1/position_team (18 caracteres).
+// 	des_team1/description_team (95 caracteres).
+// 	position2/position_team (18 caracteres).
+// 	des_team2 description_team (95 caracteres).
+// 	position3/position_team (18 caracteres).
+// 	des_team3 description_team (95 caracteres).
+	
+// Testimonios -->
+// 	descTestim/send_text_component (180 caracteres).
+// 	nombre1/position_team (14 caracteres).
+// 	testim1 /description_team(120 caracteres).
+// 	nombre2/position_team (14 caracteres).
+// 	testim2 /description_team(120 caracteres).
+// 	nombre3/position_team (14 caracteres).
+// 	testim3 /description_team(120 caracteres).
+
+// Ubicacion -->
+// 	desc_loca/descLocation (120 caracteres).

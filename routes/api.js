@@ -132,16 +132,19 @@ router.post('/send_email', async function(req, res) {
 router.post('/forgot_password', function(req, res) {
 
     let email = req.body.mail;
+    console.log(email);
     
     const query = 'SELECT * FROM usuarios WHERE email = ?'
 
-    connection.query(query, function(err, result) {
+    connection.query(query, [email], function(err, result) {
 
         if (err) return res.status(500).json({ message: 'Error en el servidor' });
-        if (results.length === 0) return res.status(404).json({ message: 'Usuario no encontrado' });
+        if (result.length === 0) return res.status(404).json({ message: 'Usuario no encontrado' });
 
         const token = crypto.randomBytes(20).toString('hex');
         const expires = Date.now() + 3600000;
+
+        console.log(token, expires, result);
 
         const updateQuery = 'UPDATE usuarios SET reset_token = ?, reset_token_expires = ? WHERE email = ?'
 
@@ -154,7 +157,7 @@ router.post('/forgot_password', function(req, res) {
                 from: process.env.USER_EMAIL,
                 to: email,
                 subject: 'Recuperar contraseña',
-                text: `Haz clic en el siguiente enlace para reestablecer tu contraseña: http://localhost:3000/reset_password/${token}`
+                text: `Haz clic en el siguiente enlace para reestablecer tu contraseña: http://naku.fly.dev/reset_password/${token}`
 
             }
 
@@ -179,7 +182,7 @@ router.get('/reset_password/:token', function(req, res){
     connection.query(query, [token, Date.now()], function(err, result) {
 
         if (err) return res.status(500).send('Error en el servidor');
-        if (results.length === 0) return res.status(400).send('Token inválido o expirado');
+        if (result.length === 0) return res.status(400).send('Token inválido o expirado');
         res.render('update_password', { token }); // Envía el token a la vista
 
     });
@@ -188,14 +191,14 @@ router.get('/reset_password/:token', function(req, res){
 
 router.post('/reset_password/:token', function(req, res) {
 
-    const token = req.params;
-    const password = req.body;
+    const token = req.params.token;
+    const password = req.body.password;
     const query = 'SELECT * FROM usuarios WHERE reset_token = ? AND reset_token_expires > ?'
 
     connection.query(query, [token, Date.now()], function(err, result) {
 
         if (err) return res.status(500).send('Error en el servidor');
-        if (results.length === 0) return res.status(400).send('Token inválido o expirado');
+        if (result.length === 0) return res.status(400).send('Token inválido o expirado');
 
         bcrypt.hash(password, 10, function(err, hashedPassword) {
 
