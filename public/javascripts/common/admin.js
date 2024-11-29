@@ -675,6 +675,7 @@ textConfirmButton.addEventListener('click', function() {
   }
 
 })
+
 // Evento para mostrar la sección de 'equipo'
 
 equipoBtn.addEventListener('click', function() {
@@ -775,136 +776,147 @@ button_perfil_3.addEventListener('click', function() {
 });
 
 
+
 // Evento para mostrar la sección de 'testimonios'
-let contadorTestimonios = 1; // Inicializamos el contador
+	
+
+
+
+
 
 testimoniosBtn.addEventListener('click', function() {
   ocultarSecciones();  
-  testimoniosContent.hidden = false; 
+testimoniosContent.hidden = false; 
 
-  const button_testimony1 = document.getElementById('btn_image_testim'); 
-  const button_testimony2 = document.getElementById('btn_image_testim1');
-  const button_testimony3 = document.getElementById('btn_image_testim2');
-  const button_testimony4 = document.getElementById('btn_image_testim3');
 
-  const button_description_testimony = document.getElementById('btn_text_testim');
+const button_testimony1 = document.getElementById('btn_image_testim'); 
+const button_testimony2 = document.getElementById('btn_image_testim1');
+const button_testimony3 = document.getElementById('btn_image_testim2');
 
-  // Función para cambiar los placeholders dependiendo del contador
-  function cambiarPlaceholdersTestimonio() {
-    const nameInput = document.getElementById('position_team');
-    const descriptionInput = document.getElementById('description_team');
-    
-    // Primer campo: descripción de testimonios
-    descriptionInput.placeholder = "Descripción de testimonios"; 
+const button_description_testimony = document.getElementById('btn_text_testim');
 
-    if (contadorTestimonios === 1) {
-      nameInput.placeholder = "Ingrese el nombre del primer testimonio";
-    } else if (contadorTestimonios === 2) {
-      nameInput.placeholder = "Ingrese el nombre del segundo testimonio";
-    } else if (contadorTestimonios === 3) {
-      nameInput.placeholder = "Ingrese el nombre del tercer testimonio";
-    } else if (contadorTestimonios === 4) {
-      nameInput.placeholder = "Ingrese el nombre del cuarto testimonio";
-    }
-  }
+button_description_testimony.addEventListener('click', function() {
+  currentAction = 'insert_description_testimony';
+});
 
-  // Función para manejar límites de caracteres
-  function handleCharacterLimitWithCounter(inputElement, limit, wordCount) {
-    inputElement.addEventListener('input', function () {
-      const currentLength = inputElement.value.length;
+button_testimony1.addEventListener('click', function() {
+  currentAction = 'insert_testimony1';  
 
-      // Actualiza el contador en el span .word-count
-      wordCount.textContent = `${currentLength}/${limit} Caracteres`;
+});
 
-      // Limita el texto si excede el máximo
-      if (currentLength > limit) {
-        inputElement.value = inputElement.value.slice(0, limit);
-        wordCount.textContent = `${limit}/${limit} Caracteres`;
-      }
+button_testimony2.addEventListener('click', function() {
+  currentAction = 'insert_testimony2';  
 
-      // Cambia el estilo del contador si está en el límite
-      if (currentLength === limit) {
-        wordCount.classList.add('at-limit'); // Estilo opcional para el límite alcanzado
-      } else {
-        wordCount.classList.remove('at-limit');
-      }
-    });
-  }
+});
 
-  // Evento para el primer testimonio (un solo campo de 180 caracteres)
-  button_testimony1.addEventListener('click', function() {
-    currentAction = 'insert_testimony1';  
-    contadorTestimonios = 1; // Establecemos el contador para el primer testimonio
-    cambiarPlaceholdersTestimonio(); // Actualizamos los placeholders
+button_testimony3.addEventListener('click', function() {
+  currentAction = 'insert_testimony3';  
 
-    const wordCount = document.querySelector('.word-count');
-    const descriptionInput = document.getElementById('send_text_component');
-
-    // Límite de 180 caracteres
-    handleCharacterLimitWithCounter(descriptionInput, 180, wordCount);
-  });
-
-  // Evento para el segundo testimonio (dos campos de 14 y 120 caracteres)
-  button_testimony2.addEventListener('click', function() {
-    currentAction = 'insert_testimony2';  
-    contadorTestimonios = 2; // Establecemos el contador para el segundo testimonio
-    cambiarPlaceholdersTestimonio(); // Actualizamos los placeholders
-
-    const wordCount1 = document.querySelector('.word-count1'); // Para el campo de 14 caracteres
-    const wordCount2 = document.querySelector('.word-count2'); // Para el campo de 120 caracteres
-
-    const descriptionInput1 = document.getElementById('send_text_component1'); // Primer campo de 14 caracteres
-    const descriptionInput2 = document.getElementById('send_text_component2'); // Segundo campo de 120 caracteres
-
-    // Límite de 14 caracteres para el primer campo
-    handleCharacterLimitWithCounter(descriptionInput1, 14, wordCount1);
-
-    // Límite de 120 caracteres para el segundo campo
-    handleCharacterLimitWithCounter(descriptionInput2, 120, wordCount2);
-  });
-
-  // Evento para el tercer testimonio (igual que el segundo)
-  button_testimony3.addEventListener('click', function() {
-    currentAction = 'insert_testimony3';  
-    contadorTestimonios = 3; // Establecemos el contador para el tercer testimonio
-    cambiarPlaceholdersTestimonio(); // Actualizamos los placeholders
-
-    const wordCount1 = document.querySelector('.word-count1'); // Para el campo de 14 caracteres
-    const wordCount2 = document.querySelector('.word-count2'); // Para el campo de 120 caracteres
-
-    const descriptionInput1 = document.getElementById('send_text_component1'); // Primer campo de 14 caracteres
-    const descriptionInput2 = document.getElementById('send_text_component2'); // Segundo campo de 120 caracteres
-
-    // Límite de 14 caracteres para el primer campo
-    handleCharacterLimitWithCounter(descriptionInput1, 14, wordCount1);
-
-    // Límite de 120 caracteres para el segundo campo
-    handleCharacterLimitWithCounter(descriptionInput2, 120, wordCount2);
-  });
-
-  // Evento para el cuarto testimonio (igual que el segundo)
-  button_testimony4.addEventListener('click', function() {
-    currentAction = 'insert_testimony4';  
-    contadorTestimonios = 4; // Establecemos el contador para el cuarto testimonio
-    cambiarPlaceholdersTestimonio(); // Actualizamos los placeholders
-
-    const wordCount1 = document.querySelector('.word-count1'); // Para el campo de 14 caracteres
-    const wordCount2 = document.querySelector('.word-count2'); // Para el campo de 120 caracteres
-
-    const descriptionInput1 = document.getElementById('send_text_component1'); // Primer campo de 14 caracteres
-    const descriptionInput2 = document.getElementById('send_text_component2'); // Segundo campo de 120 caracteres
-
-    // Límite de 14 caracteres para el primer campo
-    handleCharacterLimitWithCounter(descriptionInput1, 14, wordCount1);
-
-    // Límite de 120 caracteres para el segundo campo
-    handleCharacterLimitWithCounter(descriptionInput2, 120, wordCount2);
-  });
 });
 
 
+});
 
+textConfirmButton.addEventListener('click', function() {
+
+if (currentAction === 'insert_description_testimony'){
+  const insertDescriptionTestimony = document.getElementById('send_text_component');
+
+  let descriptionTestimony = {descriptionTestimony: insertDescriptionTestimony.value};
+
+  fetch('/insert_description_testimony',{
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(descriptionTestimony)
+
+    });
+
+  }
+
+});
+
+const button_insert_testimony = document.getElementById('arrowTeam');
+
+button_insert_testimony.addEventListener('click', function() {
+
+  if (currentAction === 'insert_testimony1') {
+
+    const image_testimony = document.getElementById('file-upload1');
+    const name_testimony = document.getElementById('position_team');
+    const description_testimony = document.getElementById('description_team');
   
+    let valueName = name_testimony.value;
+    let valueDescriptionTestimony = description_testimony.value;
+
+    console.log("Nombre:", valueName); // Depuración
+    console.log("Descripción:", valueDescriptionTestimony);
+  
+    let formData = new FormData();
+    formData.append('imagen', image_testimony.files[0]);
+    formData.append('nombre', valueName);
+    formData.append('testimonio', valueDescriptionTestimony);
+    
+  
+
+    fetch('/insert_testimony1', {
+      method: 'POST',
+      body: formData
+      
+    })
+
+    
+  }else if (currentAction === 'insert_testimony2') {
+
+    const image_testimony = document.getElementById('file-upload1');
+    const name_testimony = document.getElementById('position_team');
+    const testimony = document.getElementById('description_team');
+  
+
+    let valueName = name_testimony.value;
+    let valueTestimony = testimony.value;
+  
+
+    let formData = new FormData();
+    formData.append('imagen', image_testimony.files[0]);
+    formData.append('nombre', valueName);
+    formData.append('testimonio', valueTestimony);
++
+
+    fetch('/insert_testimony2', {
+      method: 'POST',
+      body: formData
+      
+    })
+
+  }else if (currentAction == 'insert_testimony3') {
+
+    const image_testimony = document.getElementById('file-upload1');
+    const name_testimony = document.getElementById('position_team');
+    const testimony = document.getElementById('description_team');
+  
+
+    let valueName = name_testimony.value;
+    let valueTestimony = testimony.value;
+  
+
+    let formData = new FormData();
+    formData.append('imagen', image_testimony.files[0]);
+    formData.append('nombre', valueName);
+    formData.append('testimonio', valueTestimony);
+  
+
+    fetch('/insert_testimony3', {
+      method: 'POST',
+      body: formData
+      
+    })
+
+  }
+
+});
+  
+	
+
 
 // Evento para mostrar la sección de 'ubicacion'
 ubicacionBtn.addEventListener('click', function() {
