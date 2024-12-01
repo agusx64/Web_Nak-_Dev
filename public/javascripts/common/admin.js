@@ -20,44 +20,54 @@ logo_home.addEventListener('click', function() {
 });
 
 
-// Función que limita la cantidad de caracteres en un input (Global)
+// Función que limita y cuenta la cantidad de caracteres en un input (Global)
 function limitCharacters(inputElement, characters) {
-  // Verifica si el input ya tiene el listener
+  // Verifica si el input ya tiene el listener y el contador
   if (!inputElement.hasAttribute('data-limit-applied')) {
+      // Crea el contador si no existe
+      let wordCountElement = inputElement.nextElementSibling;
+      if (!wordCountElement || !wordCountElement.classList.contains('word-count')) {
+          wordCountElement = document.createElement('span');
+          wordCountElement.classList.add('word-count');
+          inputElement.parentNode.appendChild(wordCountElement);
+      }
+
+      // Inicializa el contador con la cantidad de caracteres actuales
+      const currentLength = inputElement.value.length;
+      wordCountElement.textContent = `${currentLength}/${characters} Caracteres`;
+
+      // Muestra el contador automáticamente
+      wordCountElement.style.display = 'inline';
+
+      // Agrega el evento de input para limitar los caracteres y actualizar el contador
       inputElement.addEventListener('input', () => {
-          if (inputElement.value.length > characters) {
-              inputElement.value = inputElement.value.slice(0, characters); // Limita la longitud del valor
+          const currentLength = inputElement.value.length;
+
+          // Limita la longitud del valor
+          if (currentLength > characters) {
+              inputElement.value = inputElement.value.slice(0, characters); // Limita el texto
           }
+
+          // Actualiza el contador de caracteres
+          wordCountElement.textContent = `${currentLength}/${characters} Caracteres`;
+
+          // Cambia el estilo del contador cuando se alcanza el límite
+          wordCountElement.classList.toggle('at-limit', currentLength === characters);
       });
-      inputElement.setAttribute('data-limit-applied', 'true'); // Marca el input como ya procesado
+
+      // Marca el input como ya procesado
+      inputElement.setAttribute('data-limit-applied', 'true');
+  }
+  else {
+      // Si el limitador ya ha sido aplicado, simplemente actualiza el contador
+      let wordCountElement = inputElement.nextElementSibling;
+      const currentLength = inputElement.value.length;
+      wordCountElement.textContent = `${currentLength}/${characters} Caracteres`;
+
+      // Cambia el estilo del contador cuando se alcanza el límite
+      wordCountElement.classList.toggle('at-limit', currentLength === characters);
   }
 }
-
-// Función global para manejar límites de caracteres
-function handleCharacterLimitWithCounter(inputElement, limit) {
-  const counterElement = inputElement.closest('div').querySelector('.word-counter');
-
-  inputElement.addEventListener('input', function () {
-      const currentLength = inputElement.value.length;
-
-      // Actualiza el texto del contador
-      counterElement.textContent = `${currentLength}/${limit} Caracteres`;
-
-      // Limita el texto si excede el máximo
-      if (currentLength > limit) {
-          inputElement.value = inputElement.value.slice(0, limit);
-          counterElement.textContent = `${limit}/${limit} Caracteres`;
-      }
-
-      // Cambia el estilo del contador si está en el límite
-      if (currentLength === limit) {
-          counterElement.classList.add('at-limit'); // Clase opcional para el estilo
-      } else {
-          counterElement.classList.remove('at-limit');
-      }
-  });
-}
-
 
 
 //Etiquetas de elemntos diamicos
@@ -66,13 +76,36 @@ function handleCharacterLimitWithCounter(inputElement, limit) {
 let input_tag_text = document.getElementById('single_input');
 let input_placeholder = document.getElementById('send_text_component');
 
+//Venta de 2 textos
+let input_tag_text_ubi = document.getElementById('text_change');
+let input_placeholder_ubi = document.getElementById('descLocation');
+let input_tag_text_ubi1 = document.getElementById('text_change1');
+let input_placeholder_ubi1 = document.getElementById('location');
+
+//Venta de 3 textos
+let input_name_product = document.getElementById('name_product');
+let input_price_product = document.getElementById('price_product');
+let input_description_product = document.getElementById('description_product');
+
+//Venta 1imagen y 2 textos
+let input_position_team = document.getElementById('position_team');
+let input_description_team = document.getElementById('description_team');
+
 //Ventana de una sola imagen
 let input_upload_tag = document.getElementById('title_tag_upload');
 
 //Ventana de una imagen y 4 inputs
 let label_tag_header = document.getElementById('title_tag_upload');
 let label_text_header = document.getElementById('text_title_input');
-let placeholder_text_input = document.getElementById('text_title_input')
+let label_text_header1 = document.getElementById('text_title_input1');
+let label_text_header2 = document.getElementById('text_title_input2');
+let label_text_header3 = document.getElementById('text_title_input3');
+
+let placeholder_text_input = document.getElementById('text_title_input'); //Aqui se hizo un cambio por si falla aqui es jaja sólo fue agregado el ";"
+let placeholder_text_input1 = document.getElementById('send_text_title');
+let placeholder_text_input2 = document.getElementById('send_text_description');
+let placeholder_text_input3 = document.getElementById('send_text_slogan');
+let placeholder_text_input4 = document.getElementById('send_text_price');
 
 
 //Contenido Activo
@@ -143,41 +176,17 @@ inicioBtn.addEventListener('click', function () {
   const button_slogan = document.getElementById('btn_text_home1');
   const button_image = document.getElementById('btn_image_home');
 
-  const textConfirmButton = document.getElementById('idSwitcher');
-  const imageConfirmButton = document.getElementById('confirm-btn');
+  // Ubicar el nombre del input del pop up (Id)
+  const iniciopop = document.getElementById('send_text_component');
 
-  // Configuración de límites de caracteres
-  const characterLimits = {
-    insert_description: 122, // Límite para descripción
-    insert_slogan: 68,       // Límite para slogan
-    insert_image: null,      // Sin límite para imágenes
-  };
+  // Agregar eventos a cada botón para aplicar el límite correspondiente
+  button_description.addEventListener('click', function () {
+    limitCharacters(iniciopop, 18); // Aplica el límite de 18 caracteres
+  });
 
-  // Selecciona el span con clase word-count
-  const wordCount = document.querySelector('.word-count');
-
-  // Función para manejar límites de caracteres y contador
-  function handleCharacterLimitWithCounter(inputElement, limit) {
-    inputElement.addEventListener('input', function () {
-      const currentLength = inputElement.value.length;
-
-      // Actualiza el contador en el span .word-count
-      wordCount.textContent = `${currentLength}/${limit} Caracteres`;
-
-      // Limita el texto si excede el máximo
-      if (currentLength > limit) {
-        inputElement.value = inputElement.value.slice(0, limit);
-        wordCount.textContent = `${limit}/${limit} Caracteres`;
-      }
-
-      // Cambia el estilo del contador si está en el límite
-      if (currentLength === limit) {
-        wordCount.classList.add('at-limit'); // Estilo opcional para el límite alcanzado
-      } else {
-        wordCount.classList.remove('at-limit');
-      }
-    });
-  }
+  button_slogan.addEventListener('click', function () {
+    limitCharacters(iniciopop, 95); // Aplica el límite de 95 caracteres
+  });
 
   // Acción para subir imagen (sin contador)
   button_image.addEventListener('click', function () {
@@ -194,14 +203,6 @@ inicioBtn.addEventListener('click', function () {
     input_tag_text.textContent = 'Escribe un slogan aquí';
     input_placeholder.placeholder = 'Slogan';
 
-    // Actualizar el contador al inicio
-    wordCount.textContent = `0/${characterLimits[currentAction]} Caracteres`;
-
-    // Aplicar límite de caracteres
-    handleCharacterLimitWithCounter(
-      input_placeholder,
-      characterLimits[currentAction]
-    );
   });
 
   // Acción para descripción
@@ -209,15 +210,6 @@ inicioBtn.addEventListener('click', function () {
     currentAction = 'insert_description';
     input_tag_text.textContent = 'Escribe una descripción aquí';
     input_placeholder.placeholder = 'Descripción';
-
-    // Actualizar el contador al inicio
-    wordCount.textContent = `0/${characterLimits[currentAction]} Caracteres`;
-
-    // Aplicar límite de caracteres
-    handleCharacterLimitWithCounter(
-      input_placeholder,
-      characterLimits[currentAction]
-    );
   });
 });
 
@@ -263,6 +255,7 @@ textConfirmButton.addEventListener('click', function() {
   }
 });
 
+
 // Evento para mostrar la sección de 'tienda'
 tiendaBtn.addEventListener('click', function() {
     ocultarSecciones(); 
@@ -273,20 +266,71 @@ tiendaBtn.addEventListener('click', function() {
     const button_product_3 = document.getElementById('btn_text_shop2');
     const button_product_4 = document.getElementById('btn_text_shop3');
 
+    // Ubicar el nombre del input del pop up (Id)
+    const shop_text_pop = document.getElementById('send_text_title');
+    limitCharacters(shop_text_pop, 120); // Aplica el límite de caracteres
+  
+    const shop_title_pop = document.getElementById('send_text_description');
+    limitCharacters(shop_title_pop, 450); // Aplica el límite de caracteres
+
+    // Ubicar el nombre del input del pop up (Id)
+    const shop_slogan_pop = document.getElementById('send_text_slogan');
+    limitCharacters(shop_slogan_pop, 120); // Aplica el límite de caracteres
+     
+    const shop_price_pop = document.getElementById('send_text_price');
+    limitCharacters(shop_price_pop, 450); // Aplica el límite de caracteres
+     
+
     button_product_1.addEventListener('click', function() {
       currentAction = 'insert_product_1';  // Asigna la acción de producto 1
+      text_label_popup_4.innerHTML = 'Producto 1<br>Inserte una imagen';  //Cambiar cosas
+      text_title_input.textContent = 'Algo 1 '; 
+      text_title_input1.textContent = 'Algo 2'; 
+      text_title_input2.textContent = 'Algo 3 '; 
+      text_title_input3.textContent = 'Algo 4'; 
+      placeholder_text_input1.placeholder = 'Liveframe1';
+      placeholder_text_input2.placeholder = 'Liveframe1';
+      placeholder_text_input3.placeholder = 'Liveframe1';
+      placeholder_text_input4.placeholder = 'Liveframe1';
     });
   
     button_product_2.addEventListener('click', function() {
       currentAction = 'insert_product_2';  // Asigna la acción de producto 2
+      text_label_popup_4.innerHTML = 'Producto 2<br>Inserte una imagen';
+      text_title_input.textContent = 'Algo 1 '; 
+      text_title_input1.textContent = 'Algo 2'; 
+      text_title_input2.textContent = 'Algo 3 '; 
+      text_title_input3.textContent = 'Algo 4';
+      placeholder_text_input1.placeholder = 'Liveframe2';
+      placeholder_text_input2.placeholder = 'Liveframe2';
+      placeholder_text_input3.placeholder = 'Liveframe2';
+      placeholder_text_input4.placeholder = 'Liveframe2';
     });
 
     button_product_3.addEventListener('click', function() {
       currentAction = 'insert_product_3';  // Asigna la acción de producto 3
+      text_label_popup_4.innerHTML = 'Producto 3<br>Inserte una imagen';
+      text_title_input.textContent = 'Algo 1 '; 
+      text_title_input1.textContent = 'Algo 2'; 
+      text_title_input2.textContent = 'Algo 3 '; 
+      text_title_input3.textContent = 'Algo 4';
+      placeholder_text_input1.placeholder = 'Liveframe3';
+      placeholder_text_input2.placeholder = 'Liveframe3';
+      placeholder_text_input3.placeholder = 'Liveframe3';
+      placeholder_text_input4.placeholder = 'Liveframe3';
     });
     
     button_product_4.addEventListener('click', function() {
       currentAction = 'insert_product_4';  // Asigna la acción de producto 4
+      text_label_popup_4.innerHTML = 'Producto 4<br>Inserte una imagen';
+      text_title_input.textContent = 'Algo 1 '; 
+      text_title_input1.textContent = 'Algo 2'; 
+      text_title_input2.textContent = 'Algo 3 '; 
+      text_title_input3.textContent = 'Algo 4';
+      placeholder_text_input1.placeholder = 'Liveframe4';
+      placeholder_text_input2.placeholder = 'Liveframe4';
+      placeholder_text_input3.placeholder = 'Liveframe4';
+      placeholder_text_input4.placeholder = 'Liveframe4';
     });
 
 });
@@ -420,51 +464,23 @@ nosotrosBtn.addEventListener('click', function() {
   const button_vision = document.getElementById('btn_text_us1');
   const button_imgVision = document.getElementById('btn_image_us1');
 
-  // Configuración de límites de caracteres para misión y visión
-  const characterLimitsUs = {
-      insert_mision: 275,  // Límite para la misión
-      insert_vision: 275,  // Límite para la visión
-      insert_image_mision: null,  // Sin límite para imagen de misión
-      insert_image_vision: null   // Sin límite para imagen de visión
-  };
 
-  // Selecciona el span con clase word-count para "Nosotros"
-  const wordCountUs = document.querySelector('.word-count');
-
-  // Función para manejar los límites de caracteres y el contador
-  function handleCharacterLimitWithCounter(inputElement, limit, wordCountDisplay) {
-      inputElement.addEventListener('input', function () {
-          const currentLength = inputElement.value.length;
-
-          // Actualiza el contador en el span .word-count
-          wordCountDisplay.textContent = `${currentLength}/${limit} Caracteres`;
-
-          // Limita el texto si excede el máximo
-          if (currentLength > limit) {
-              inputElement.value = inputElement.value.slice(0, limit);
-              wordCountDisplay.textContent = `${limit}/${limit} Caracteres`;
-          }
-
-          // Cambia el estilo del contador si está en el límite
-          if (currentLength === limit) {
-              wordCountDisplay.classList.add('at-limit'); // Estilo opcional para el límite alcanzado
-          } else {
-              wordCountDisplay.classList.remove('at-limit');
-          }
-      });
-  }
-
+  const nosotrospop = document.getElementById('send_text_component');
+  
+  // Agregar eventos a cada botón para aplicar el límite correspondiente
+  button_mision.addEventListener('click', function () {
+  limitCharacters(nosotrospop, 275); // Aplica el límite de 18 caracteres
+  });
+  
+  button_vision.addEventListener('click', function () {
+  limitCharacters(nosotrospop, 275); // Aplica el límite de 95 caracteres
+  });
+ 
   // Acción para la misión
   button_mision.addEventListener('click', function() {
       currentAction = 'insert_mision';  // Asigna la acción de misión
       input_tag_text.textContent = 'Escribe la misión aquí';
       input_placeholder.placeholder = 'Misión';
-
-      // Actualizar el contador al inicio
-      wordCountUs.textContent = `0/${characterLimitsUs[currentAction]} Caracteres`;
-
-      // Aplicar límite de caracteres
-      handleCharacterLimitWithCounter(input_placeholder, characterLimitsUs[currentAction], wordCountUs);
   });
 
   // Acción para imagen de misión (sin contador)
@@ -472,8 +488,6 @@ nosotrosBtn.addEventListener('click', function() {
       currentAction = 'insert_image_mision';  // Asigna la acción de imagen de misión
       input_upload_tag.textContent = 'Sube una imagen para la misión';
 
-      // Limpia el contador si no aplica
-      wordCountUs.textContent = '';
   });
 
   // Acción para la visión
@@ -482,20 +496,12 @@ nosotrosBtn.addEventListener('click', function() {
       input_tag_text.textContent = 'Escribe la visión aquí';
       input_placeholder.placeholder = 'Visión';
 
-      // Actualizar el contador al inicio
-      wordCountUs.textContent = `0/${characterLimitsUs[currentAction]} Caracteres`;
-
-      // Aplicar límite de caracteres
-      handleCharacterLimitWithCounter(input_placeholder, characterLimitsUs[currentAction], wordCountUs);
   });
 
   // Acción para imagen de visión (sin contador)
   button_imgVision.addEventListener('click', function() {
       currentAction = 'insert_image_vision';  // Asigna la acción de imagen de visión
       input_upload_tag.textContent = 'Sube una imagen para la visión';
-
-      // Limpia el contador si no aplica
-      wordCountUs.textContent = '';
   });
 });
 
@@ -568,36 +574,13 @@ historiaBtn.addEventListener('click', function() {
   const button_image_historia1 = document.getElementById('btn_image_hist1');
   const button_image_historia2 = document.getElementById('btn_image_hist2');
 
-  // Configuración de límites de caracteres para Historia
-  const characterLimits = {
-    insert_historia: 310, // Límite para historia
-    insert_image_historia: null, // Sin límite para imagen historia
-    insert_image_historia1: null, // Sin límite para imagen historia1
-    insert_image_historia2: null, // Sin límite para imagen historia2
-  };
+  //Ref del nombre de la nueva variable en relación con la entrada del pop up
+  const historypop = document.getElementById('send_text_component'); // send_text_component = pop up de 1 texto
 
-  // Función para manejar límites de caracteres y contador
-  function handleCharacterLimitWithCounter(inputElement, limit, counterElement) {
-    inputElement.addEventListener('input', function () {
-      const currentLength = inputElement.value.length;
-
-      // Actualiza el contador en el span .word-count
-      counterElement.textContent = `${currentLength}/${limit} Caracteres`;
-
-      // Limita el texto si excede el máximo
-      if (currentLength > limit) {
-        inputElement.value = inputElement.value.slice(0, limit);
-        counterElement.textContent = `${limit}/${limit} Caracteres`;
-      }
-
-      // Cambia el estilo del contador si está en el límite
-      if (currentLength === limit) {
-        counterElement.classList.add('at-limit'); // Estilo opcional para el límite alcanzado
-      } else {
-        counterElement.classList.remove('at-limit');
-      }
-    });
-  }
+// Agregar eventos a cada botón para aplicar el límite correspondiente
+button_historia.addEventListener('click', function () {
+limitCharacters(historypop, 310); // Aplica el límite de 275 caracteres
+});
 
   // Acción para Historia
   button_historia.addEventListener('click', function() {
@@ -605,53 +588,24 @@ historiaBtn.addEventListener('click', function() {
     input_tag_text.textContent = 'Escribe la historia aquí';
     input_placeholder.placeholder = 'Historia';
 
-    // Crear o buscar el contador para historia
-    let counter = document.querySelector('.word-count');
-    if (!counter) {
-      counter = document.createElement('span');
-      counter.className = 'word-count';  // Clase para el contador
-      input_placeholder.parentNode.appendChild(counter);
-    }
-
-    // Actualizar el contador y aplicar el límite
-    counter.textContent = `0/${characterLimits[currentAction]} Caracteres`;
-    handleCharacterLimitWithCounter(input_placeholder, characterLimits[currentAction], counter);
   });
 
   // Acción para Imagen de Historia (sin contador)
   button_image_historia.addEventListener('click', function() {
     currentAction = 'insert_image_historia';  // Asigna la acción de imagen historia
     input_upload_tag.textContent = 'Sube una imagen para la historia';
-
-    // Limpia el contador si no aplica
-    let counter = document.querySelector('.word-count');
-    if (counter) {
-      counter.textContent = '';  // Limpiar el contador si no aplica
-    }
   });
 
   // Acción para Imagen de Historia 1 (sin contador)
   button_image_historia1.addEventListener('click', function() {
     currentAction = 'insert_image_historia1';  // Asigna la acción de imagen historia1
     input_upload_tag.textContent = 'Sube una imagen adicional para la historia';
-
-    // Limpia el contador si no aplica
-    let counter = document.querySelector('.word-count');
-    if (counter) {
-      counter.textContent = '';  // Limpiar el contador si no aplica
-    }
   });
 
   // Acción para Imagen de Historia 2 (sin contador)
   button_image_historia2.addEventListener('click', function() {
     currentAction = 'insert_image_historia2';  // Asigna la acción de imagen historia2
     input_upload_tag.textContent = 'Sube una segunda imagen adicional para la historia';
-
-    // Limpia el contador si no aplica
-    let counter = document.querySelector('.word-count');
-    if (counter) {
-      counter.textContent = '';  // Limpiar el contador si no aplica
-    }
   });
 
 });
@@ -719,31 +673,42 @@ textConfirmButton.addEventListener('click', function() {
 
 equipoBtn.addEventListener('click', function() {
   ocultarSecciones();  
-equipoContent.hidden = false;
-
-//Ubicar el nombre del input del pop up (Id)
-const teampop = document.getElementById('position_team');
-limitCharacters(teampop, 18); // Aplica el límite de caracteres
-
-const teampop1 = document.getElementById('description_team');
-limitCharacters(teampop1, 95); // Aplica el límite de caracteres
+  equipoContent.hidden = false;
 
 const button_perfil_1 = document.getElementById('btn_image_team');
 const button_perfil_2 = document.getElementById('btn_image_team1');
 const button_perfil_3 = document.getElementById('btn_image_team2');
 
+  // Ubicar el nombre del input del pop up (Id)
+  const teampop = document.getElementById('position_team');
+  limitCharacters(teampop, 18); // Aplica el límite de caracteres
+
+  const teampop1 = document.getElementById('description_team');
+  limitCharacters(teampop1, 95); // Aplica el límite de caracteres
+
+
+ // Acción para perfil
 button_perfil_1.addEventListener('click', function() {
-  currentAction = 'insert_team_image1';  
+  currentAction = 'insert_team_image1'; 
+  upload_image.innerHTML = 'Perfil 1<br>Inserte una imagen';
+  text1.textContent = 'Ingrese el texto que desea cambiar'; 
+  text2.textContent = 'Ingrese el texto que desea cambiar'; 
 
 });
 
 button_perfil_2.addEventListener('click', function() {
   currentAction = 'insert_team_image2'; 
+  upload_image.innerHTML = 'Perfil 2<br>Inserte una imagen';
+  text1.textContent = 'Ingrese el texto que desea cambiar'; 
+  text2.textContent = 'Ingrese el texto que desea cambiar';
 
 });
 
 button_perfil_3.addEventListener('click', function() {
   currentAction = 'insert_team_image3'; 
+  upload_image.innerHTML = 'Perfil 3<br>Inserte una imagen';
+  text1.textContent = 'Ingrese el texto que desea cambiar'; 
+  text2.textContent = 'Ingrese el texto que desea cambiar';
 
 });
 
@@ -823,72 +788,71 @@ button_perfil_3.addEventListener('click', function() {
 });
 
 
-// Evento para mostrar la sección de 'testimonios'
-
+// Función para configurar la acción actual y actualizar textos
 testimoniosBtn.addEventListener('click', function () {
   ocultarSecciones();
   testimoniosContent.hidden = false;
 
-//Ubicar el nombre del input del pop up (Id)
-const testimon = document.getElementById('position_team');
-limitCharacters(testimon, 14); // Aplica el límite de caracteres
+  // Límite de caracteres para los inputs
+  const testimon = document.getElementById('position_team');
+  limitCharacters(testimon, 14);
 
-const testimon1 = document.getElementById('description_team');
-limitCharacters(testimon1, 120); // Aplica el límite de caracteres
+  const testimon1 = document.getElementById('description_team');
+  limitCharacters(testimon1, 120);
 
-  // Elementos necesarios
-  const inputDescriptionTestimony = document.getElementById('send_text_component'); // Campo de entrada
-  const wordCountTestimony = document.querySelector('.word-count'); // Elemento del contador
-  const descriptionTestimonyLimit = 150; // Límite de caracteres
+  const desctestimon = document.getElementById('send_text_component');
+  limitCharacters(desctestimon, 150);
 
-  // Configuración inicial del campo y contador
-  if (inputDescriptionTestimony && wordCountTestimony) {
-    inputDescriptionTestimony.placeholder = 'Escribe la descripción del testimonio aquí';
-    wordCountTestimony.textContent = `0/${descriptionTestimonyLimit} Caracteres`;
+  // Eventos para los botones de testimonios
+  const button_testimony1 = document.getElementById('btn_image_testim');
+  const button_testimony2 = document.getElementById('btn_image_testim1');
+  const button_testimony3 = document.getElementById('btn_image_testim2');
+  const button_description_testimony = document.getElementById('btn_text_testim'); // Botón específico para la descripción 
 
-    // Manejo de caracteres y actualización del contador
-    inputDescriptionTestimony.addEventListener('input', () => {
-      const currentLength = inputDescriptionTestimony.value.length;
 
-      // Actualiza el contador
-      wordCountTestimony.textContent = `${currentLength}/${descriptionTestimonyLimit} Caracteres`;
-
-      // Restringe el texto si excede el límite
-      if (currentLength > descriptionTestimonyLimit) {
-        inputDescriptionTestimony.value = inputDescriptionTestimony.value.slice(0, descriptionTestimonyLimit);
-        wordCountTestimony.textContent = `${descriptionTestimonyLimit}/${descriptionTestimonyLimit} Caracteres`;
-      }
-
-      // Cambia estilos cuando se alcanza el límite
-      wordCountTestimony.classList.toggle('at-limit', currentLength === descriptionTestimonyLimit);
+  
+    // Acción para testimonios
+    button_description_testimony.addEventListener('click', function() {
+      currentAction = 'insert_description_testimony';  // Asigna la acción de historia
+      input_tag_text.textContent = 'Escribe la descripción aquí';
+      input_placeholder.placeholder = 'Descripción';
+  
     });
-  }
+
+  button_testimony1.addEventListener('click', function() {
+    currentAction = 'insert_testimony1'; 
+    upload_image.innerHTML = 'Perfil 1<br>Inserte una imagen';
+    text1.textContent = 'Ingrese el nombre'; 
+    text2.textContent = 'Ingrese el testimonio'; 
+    input_position_team.placeholder = 'Escriba el nombre'; 
+    input_description_team.placeholder = 'Escriba el testimonio'; 
+  
+  });
+
+  button_testimony2.addEventListener('click', function() {
+    currentAction = 'insert_testimony2'; 
+    upload_image.innerHTML = 'Perfil 2<br>Inserte una imagen';
+    text1.textContent = 'Ingrese el nombre'; 
+    text2.textContent = 'Ingrese el testimonio'; 
+    input_position_team.placeholder = 'Escriba el nombre'; 
+    input_description_team.placeholder = 'Escriba el testimonio'; 
+  
+  });
+
+  button_testimony3.addEventListener('click', function() {
+    currentAction = 'insert_testimony3'; 
+    upload_image.innerHTML = 'Perfil 3<br>Inserte una imagen';
+    text1.textContent = 'Ingrese el nombre'; 
+    text2.textContent = 'Ingrese el testimonio'; 
+    input_position_team.placeholder = 'Escriba el nombre'; 
+    input_description_team.placeholder = 'Escriba el testimonio'; 
+  });
+
 });
 
-// Eventos para los botones de testimonios
-const button_testimony1 = document.getElementById('btn_image_testim');
-const button_testimony2 = document.getElementById('btn_image_testim1');
-const button_testimony3 = document.getElementById('btn_image_testim2');
-const button_description_testimony = document.getElementById('btn_text_testim');
 
-// Función para configurar la acción actual
-function setCurrentAction(action) {
-  currentAction = action;
-}
 
-// Asignar eventos a los botones
-if (button_description_testimony) {
-  button_description_testimony.addEventListener('click', () => setCurrentAction('insert_description_testimony'));
-}
-if (button_testimony1) {
-  button_testimony1.addEventListener('click', () => setCurrentAction('insert_testimony1'));
-}
-if (button_testimony2) {
-  button_testimony2.addEventListener('click', () => setCurrentAction('insert_testimony2'));
-}
-if (button_testimony3) {
-  button_testimony3.addEventListener('click', () => setCurrentAction('insert_testimony3'));
-}
+
 
 // Confirmación para descripción de testimonios
 textConfirmButton.addEventListener('click', function () {
@@ -947,19 +911,26 @@ button_insert_testimony.addEventListener('click', function () {
 ubicacionBtn.addEventListener('click', function () {
   ocultarSecciones();
   ubicacionContent.hidden = false;
-
-  const button_location = document.getElementById('btn_text_location');
-  button_location.addEventListener('click', function () {
-      currentAction = 'insert_location';
-      
-      //Ubicar el nombre del input del pop up (Id)
-      const descLocation = document.getElementById('descLocation');
-      limitCharacters(descLocation, 120); // Aplica el límite de caracteres
-  });
+   // Ubicar el nombre del input del pop up (Id)
+   const locationpop = document.getElementById('descLocation');
+   limitCharacters(locationpop, 120); // Aplica el límite de caracteres
+ 
+   const locationframepop = document.getElementById('location');
+   limitCharacters(locationframepop, 450); // Aplica el límite de caracteres
+ 
 });
 
 
 
+const button_location = document.getElementById('btn_text_location');
+button_location.addEventListener('click', function () {
+    currentAction = 'insert_location';
+    input_tag_text_ubi.textContent = 'Describa la ubicación';
+    input_placeholder_ubi.placeholder = 'Descripción';
+    input_tag_text_ubi1.textContent = 'Inserte el liveframe aquí';
+    input_placeholder_ubi1.placeholder = 'Liveframe';
+
+});
 
 const button_insert_location = document.getElementById('arrowLocation');
 
@@ -995,28 +966,66 @@ recetasBtn.addEventListener('click', function() {
   ocultarSecciones();  
 recetasContent.hidden = false; 
 
-const button_breakfast = document.getElementById('btn_text_recipes3');
+const button_recipe = document.getElementById('btn_images_recipes'); //No hay inyección para la db
 const button_lunch = document.getElementById('btn_text_recipes1');
 const button_dessert = document.getElementById('btn_text_recipes2');
+const button_breakfast = document.getElementById('btn_text_recipes3');
 
-const button_recipe = document.getElementById('btn_images_recipes');
 
-button_breakfast.addEventListener('click', function() {
+   // Ubicar el nombre del input del pop up (Id)
+   const shop_text_pop = document.getElementById('send_text_title');
+   limitCharacters(shop_text_pop, 120); // Aplica el límite de caracteres
+ 
+   const shop_title_pop = document.getElementById('send_text_description');
+   limitCharacters(shop_title_pop, 450); // Aplica el límite de caracteres
 
+   // Ubicar el nombre del input del pop up (Id)
+   const shop_slogan_pop = document.getElementById('send_text_slogan');
+   limitCharacters(shop_slogan_pop, 120); // Aplica el límite de caracteres
+    
+   const shop_price_pop = document.getElementById('send_text_price');
+   limitCharacters(shop_price_pop, 450); // Aplica el límite de caracteres
+    
+   button_breakfast.addEventListener('click', function() {
     currentAction = 'insert_desayunos';  
+    text_label_popup_4.innerHTML = 'Desayunos<br>Inserte una imagen';  //Cambiar cosas
+    text_title_input.textContent = 'Algo 1 '; 
+    text_title_input1.textContent = 'Algo 2'; 
+    text_title_input2.textContent = 'Algo 3 '; 
+    text_title_input3.textContent = 'Algo 4'; 
 
+    placeholder_text_input1.placeholder = 'Liveframe';
+    placeholder_text_input2.placeholder = 'Liveframe';
+    placeholder_text_input3.placeholder = 'Liveframe';
+    placeholder_text_input4.placeholder = 'Liveframe';
   });
 
-button_lunch.addEventListener('click', function() {
-
+  button_lunch.addEventListener('click', function() {
     currentAction = 'insert_comidas';  
+     text_label_popup_4.innerHTML = 'Comida<br>Inserte una imagen';  //Cambiar cosas
+     text_title_input.textContent = 'Algo 1 '; 
+     text_title_input1.textContent = 'Algo 2'; 
+     text_title_input2.textContent = 'Algo 3 '; 
+     text_title_input3.textContent = 'Algo 4'; 
 
-  });
+     placeholder_text_input1.placeholder = 'Liveframe1';
+     placeholder_text_input2.placeholder = 'Liveframe1';
+     placeholder_text_input3.placeholder = 'Liveframe1';
+     placeholder_text_input4.placeholder = 'Liveframe1';
+   });
 
-button_dessert.addEventListener('click', function() {
-  
+    button_dessert.addEventListener('click', function() {
     currentAction = 'insert_postres';  
+    text_label_popup_4.innerHTML = 'Postre<br>Inserte una imagen';  //Cambiar cosas
+    text_title_input.textContent = 'Algo 1 '; 
+    text_title_input1.textContent = 'Algo 2'; 
+    text_title_input2.textContent = 'Algo 3 '; 
+    text_title_input3.textContent = 'Algo 4'; 
 
+    placeholder_text_input1.placeholder = 'Liveframe2';
+    placeholder_text_input2.placeholder = 'Liveframe2';
+    placeholder_text_input3.placeholder = 'Liveframe2';
+    placeholder_text_input4.placeholder = 'Liveframe2';
   });
 
 });
@@ -1109,9 +1118,6 @@ buttonInsertRecipes.addEventListener('click', function() {
 
 });
 
-
-
-
 //Evento para mostrar la sección de 'productos'
 productosBtn.addEventListener('click', function() {
   ocultarSecciones();  
@@ -1122,20 +1128,66 @@ const button_producto2 = document.getElementById('btn_text_product1');
 const button_producto3 = document.getElementById('btn_text_product2');
 const button_producto4 = document.getElementById('btn_text_product3');
 
-button_producto1.addEventListener('click', function() {
+
+ // Ubicar el nombre del input del pop up (Id)
+ const shop_text_pop = document.getElementById('name_product');
+ limitCharacters(shop_text_pop, 120); // Aplica el límite de caracteres
+
+ const shop_title_pop = document.getElementById('price_product');
+ limitCharacters(shop_title_pop, 450); // Aplica el límite de caracteres
+
+ // Ubicar el nombre del input del pop up (Id)
+ const shop_slogan_pop = document.getElementById('description_product');
+ limitCharacters(shop_slogan_pop, 120); // Aplica el límite de caracteres
+
+ 
+ button_producto1.addEventListener('click', function() {
   currentAction = 'insert_product1';
+  products_image.innerHTML = 'Producto 1<br>Inserte una imagen';  //Cambiar cosas
+  products_p1.textContent = 'Algo 1 '; 
+  products_p2.textContent = 'Algo 2'; 
+  products_p3.textContent = 'Algo 3 '; 
+
+  input_name_product.placeholder = 'Poco';
+  input_price_product.placeholder = 'Loco';
+  input_description_product.placeholder = 'Liveframe';
 });
 
 button_producto2.addEventListener('click', function() {
   currentAction = 'insert_product2';
+  products_image.innerHTML = 'Producto 2<br>Inserte una imagen';  //Cambiar cosas
+  products_p1.textContent = 'Algo 1 '; 
+  products_p2.textContent = 'Algo 2'; 
+  products_p3.textContent = 'Algo 3 '; 
+
+  input_name_product.placeholder = 'Poco';
+  input_price_product.placeholder = 'Loco';
+  input_description_product.placeholder = 'Liveframe';
 });
 
 button_producto3.addEventListener('click', function() {
   currentAction = 'insert_product3';
+  products_image.innerHTML = 'Producto 3<br>Inserte una imagen';  //Cambiar cosas
+  products_p1.textContent = 'Algo 1 '; 
+  products_p2.textContent = 'Algo 2'; 
+  products_p3.textContent = 'Algo 3 '; 
+
+  input_name_product.placeholder = 'Poco';
+  input_price_product.placeholder = 'Loco';
+  input_description_product.placeholder = 'Liveframe'
+
 });
 
 button_producto4.addEventListener('click', function() {
   currentAction = 'insert_product4';
+  products_image.innerHTML = 'Producto 4<br>Inserte una imagen';  //Cambiar cosas
+  products_p1.textContent = 'Algo 1 '; 
+  products_p2.textContent = 'Algo 2'; 
+  products_p3.textContent = 'Algo 3 '; 
+
+  input_name_product.placeholder = 'Poco';
+  input_price_product.placeholder = 'Loco';
+  input_description_product.placeholder = 'Liveframe';
 });
 
 });
@@ -1238,8 +1290,6 @@ button_insert_product.addEventListener('click', function() {
 
 
 });
-
-
 
 const toggleButton = document.querySelector('.menu-toggle');
 const sidebar = document.querySelector('.sidebar');
