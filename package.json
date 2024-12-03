@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "sass": "sass --watch src/scss:public/stylesheets/style"
+    "build-css": "sass public/stylesheets/scss:public/stylesheets/style --watch"
   },
   "dependencies": {
     "@paypal/paypal-js": "^8.1.1",
@@ -26,7 +26,8 @@
     "mysql2": "^3.11.0",
     "nodemailer": "^6.9.16",
     "openai": "^4.67.3",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "sass": "^1.81.1"
   },
   "description": "La página web servirá como plataforma central para informar sobre los productos, destacar las calidad y frescura de los huevos, y facilitar la interacción con los clientes, mediante funcionalidades como; pedidos en línea, blogs de información nutricional, casos de éxito, información de contacto y atención a cliente (Chatbot o Correos electrónicos).",
   "main": "app.js",

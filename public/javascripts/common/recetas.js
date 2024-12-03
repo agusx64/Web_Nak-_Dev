@@ -48,7 +48,7 @@ function getBreakFastList() {
                 <h3>${row.nombre}</h3>
                 <p>${row.descripcion}</p>
                 <p><strong>Ingredientes</strong></p>
-                <p>${row.caloria}</p>
+                <p>${row.ingredientes}</p>
                 <div class="card-actions">
                     <button class="add-btn">+</button>
                     <button class="like-btn">
@@ -92,7 +92,7 @@ function getFoodList() {
                 <h3>${row.nombre}</h3>
                 <p>${row.descripcion}</p>
                 <p><strong>Ingredientes</strong></p>
-                <p>${row.caloria}</p>
+                <p>${row.ingredientes}</p>
                 <div class="card-actions">
                     <button class="add-btn">+</button>
                     <button class="like-btn">
@@ -134,7 +134,7 @@ function getDessertsList() {
                 <h3>${row.nombre}</h3>
                 <p>${row.descripcion}</p>
                 <p><strong>Ingredientes</strong></p>
-                <p>${row.caloria}</p>
+                <p>${row.ingredientes}</p>
                 <div class="card-actions">
                     <button class="add-btn">+</button>
                     <button class="like-btn">

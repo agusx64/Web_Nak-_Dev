@@ -83,3 +83,7 @@ function getHuevoChanges () {
     });
 
 };
+function toggleInfo(button) {
+    const extraInfo = button.parentElement.querySelector('.extra-info');
+    extraInfo.classList.toggle('visible');
+}

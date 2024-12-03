@@ -268,69 +268,69 @@ tiendaBtn.addEventListener('click', function() {
 
     // Ubicar el nombre del input del pop up (Id)
     const shop_text_pop = document.getElementById('send_text_title');
-    limitCharacters(shop_text_pop, 120); // Aplica el límite de caracteres
+    limitCharacters(shop_text_pop, 12); // Aplica el límite de caracteres
   
     const shop_title_pop = document.getElementById('send_text_description');
-    limitCharacters(shop_title_pop, 450); // Aplica el límite de caracteres
+    limitCharacters(shop_title_pop, 12); // Aplica el límite de caracteres
 
     // Ubicar el nombre del input del pop up (Id)
     const shop_slogan_pop = document.getElementById('send_text_slogan');
-    limitCharacters(shop_slogan_pop, 120); // Aplica el límite de caracteres
+    limitCharacters(shop_slogan_pop, 12); // Aplica el límite de caracteres
      
     const shop_price_pop = document.getElementById('send_text_price');
-    limitCharacters(shop_price_pop, 450); // Aplica el límite de caracteres
+    limitCharacters(shop_price_pop, 12); // Aplica el límite de caracteres
      
 
     button_product_1.addEventListener('click', function() {
       currentAction = 'insert_product_1';  // Asigna la acción de producto 1
       text_label_popup_4.innerHTML = 'Producto 1<br>Inserte una imagen';  //Cambiar cosas
-      text_title_input.textContent = 'Algo 1 '; 
-      text_title_input1.textContent = 'Algo 2'; 
-      text_title_input2.textContent = 'Algo 3 '; 
-      text_title_input3.textContent = 'Algo 4'; 
-      placeholder_text_input1.placeholder = 'Liveframe1';
-      placeholder_text_input2.placeholder = 'Liveframe1';
-      placeholder_text_input3.placeholder = 'Liveframe1';
-      placeholder_text_input4.placeholder = 'Liveframe1';
+      text_title_input.textContent = 'Título'; 
+      text_title_input1.textContent = 'Pequeña descripción'; 
+      text_title_input2.textContent = 'Eslogan'; 
+      text_title_input3.textContent = 'Precio'; 
+      placeholder_text_input1.placeholder = 'Ingresar título';
+      placeholder_text_input2.placeholder = 'Ingresar descripción';
+      placeholder_text_input3.placeholder = 'Ingresar eslogan';
+      placeholder_text_input4.placeholder = 'Ingresar precio';
     });
   
     button_product_2.addEventListener('click', function() {
       currentAction = 'insert_product_2';  // Asigna la acción de producto 2
       text_label_popup_4.innerHTML = 'Producto 2<br>Inserte una imagen';
-      text_title_input.textContent = 'Algo 1 '; 
-      text_title_input1.textContent = 'Algo 2'; 
-      text_title_input2.textContent = 'Algo 3 '; 
-      text_title_input3.textContent = 'Algo 4';
-      placeholder_text_input1.placeholder = 'Liveframe2';
-      placeholder_text_input2.placeholder = 'Liveframe2';
-      placeholder_text_input3.placeholder = 'Liveframe2';
-      placeholder_text_input4.placeholder = 'Liveframe2';
+      text_title_input.textContent = 'Título'; 
+      text_title_input1.textContent = 'Pequeña descripción'; 
+      text_title_input2.textContent = 'Eslogan'; 
+      text_title_input3.textContent = 'Precio';
+      placeholder_text_input1.placeholder = 'Ingresar título';
+      placeholder_text_input2.placeholder = 'Ingresar descripción';
+      placeholder_text_input3.placeholder = 'Ingresar eslogan';
+      placeholder_text_input4.placeholder = 'Ingresar precio';
     });
 
     button_product_3.addEventListener('click', function() {
       currentAction = 'insert_product_3';  // Asigna la acción de producto 3
       text_label_popup_4.innerHTML = 'Producto 3<br>Inserte una imagen';
-      text_title_input.textContent = 'Algo 1 '; 
-      text_title_input1.textContent = 'Algo 2'; 
-      text_title_input2.textContent = 'Algo 3 '; 
-      text_title_input3.textContent = 'Algo 4';
-      placeholder_text_input1.placeholder = 'Liveframe3';
-      placeholder_text_input2.placeholder = 'Liveframe3';
-      placeholder_text_input3.placeholder = 'Liveframe3';
-      placeholder_text_input4.placeholder = 'Liveframe3';
+      text_title_input.textContent = 'Título'; 
+      text_title_input1.textContent = 'Descripcion pequepña'; 
+      text_title_input2.textContent = 'Eslogan '; 
+      text_title_input3.textContent = 'Precio';
+      placeholder_text_input1.placeholder = 'Ingresar título';
+      placeholder_text_input2.placeholder = 'Ingresar descripción';
+      placeholder_text_input3.placeholder = 'Ingresar eslogan';
+      placeholder_text_input4.placeholder = 'Ingresar precio';
     });
     
     button_product_4.addEventListener('click', function() {
       currentAction = 'insert_product_4';  // Asigna la acción de producto 4
       text_label_popup_4.innerHTML = 'Producto 4<br>Inserte una imagen';
-      text_title_input.textContent = 'Algo 1 '; 
-      text_title_input1.textContent = 'Algo 2'; 
-      text_title_input2.textContent = 'Algo 3 '; 
-      text_title_input3.textContent = 'Algo 4';
-      placeholder_text_input1.placeholder = 'Liveframe4';
-      placeholder_text_input2.placeholder = 'Liveframe4';
-      placeholder_text_input3.placeholder = 'Liveframe4';
-      placeholder_text_input4.placeholder = 'Liveframe4';
+      text_title_input.textContent = 'Título'; 
+      text_title_input1.textContent = 'Descripción pequeña'; 
+      text_title_input2.textContent = 'Eslogan'; 
+      text_title_input3.textContent = 'Precio';
+      placeholder_text_input1.placeholder = 'Ingresar título';
+      placeholder_text_input2.placeholder = 'Ingresar descripción';
+      placeholder_text_input3.placeholder = 'Ingresar eslogan';
+      placeholder_text_input4.placeholder = 'Ingresar precio';
     });
 
 });
@@ -974,58 +974,58 @@ const button_breakfast = document.getElementById('btn_text_recipes3');
 
    // Ubicar el nombre del input del pop up (Id)
    const shop_text_pop = document.getElementById('send_text_title');
-   limitCharacters(shop_text_pop, 120); // Aplica el límite de caracteres
+   limitCharacters(shop_text_pop, 20); // Aplica el límite de caracteres
  
    const shop_title_pop = document.getElementById('send_text_description');
-   limitCharacters(shop_title_pop, 450); // Aplica el límite de caracteres
+   limitCharacters(shop_title_pop, 50); // Aplica el límite de caracteres
 
    // Ubicar el nombre del input del pop up (Id)
    const shop_slogan_pop = document.getElementById('send_text_slogan');
-   limitCharacters(shop_slogan_pop, 120); // Aplica el límite de caracteres
+   limitCharacters(shop_slogan_pop, 100); // Aplica el límite de caracteres
     
    const shop_price_pop = document.getElementById('send_text_price');
-   limitCharacters(shop_price_pop, 450); // Aplica el límite de caracteres
+   limitCharacters(shop_price_pop, 750); // Aplica el límite de caracteres
     
    button_breakfast.addEventListener('click', function() {
     currentAction = 'insert_desayunos';  
     text_label_popup_4.innerHTML = 'Desayunos<br>Inserte una imagen';  //Cambiar cosas
-    text_title_input.textContent = 'Algo 1 '; 
-    text_title_input1.textContent = 'Algo 2'; 
-    text_title_input2.textContent = 'Algo 3 '; 
-    text_title_input3.textContent = 'Algo 4'; 
+    text_title_input.textContent = 'Titulo '; 
+    text_title_input1.textContent = 'Descripción'; 
+    text_title_input2.textContent = 'Ingredientes ';  
+    text_title_input3.textContent = 'Preparación'; 
 
-    placeholder_text_input1.placeholder = 'Liveframe';
-    placeholder_text_input2.placeholder = 'Liveframe';
-    placeholder_text_input3.placeholder = 'Liveframe';
-    placeholder_text_input4.placeholder = 'Liveframe';
+    placeholder_text_input1.placeholder = 'Ingresar título';
+    placeholder_text_input2.placeholder = 'Ingresar descripción'; 
+    placeholder_text_input3.placeholder = 'Ingresar ingredientes';
+    placeholder_text_input4.placeholder = 'Ingresar preparación';
   });
 
   button_lunch.addEventListener('click', function() {
     currentAction = 'insert_comidas';  
      text_label_popup_4.innerHTML = 'Comida<br>Inserte una imagen';  //Cambiar cosas
-     text_title_input.textContent = 'Algo 1 '; 
-     text_title_input1.textContent = 'Algo 2'; 
-     text_title_input2.textContent = 'Algo 3 '; 
-     text_title_input3.textContent = 'Algo 4'; 
+     text_title_input.textContent = 'Título '; 
+     text_title_input1.textContent = 'Descripción'; 
+     text_title_input2.textContent = 'Ingredientes'; 
+     text_title_input3.textContent = 'Preparación'; 
 
-     placeholder_text_input1.placeholder = 'Liveframe1';
-     placeholder_text_input2.placeholder = 'Liveframe1';
-     placeholder_text_input3.placeholder = 'Liveframe1';
-     placeholder_text_input4.placeholder = 'Liveframe1';
+     placeholder_text_input1.placeholder = 'Ingresar título';
+     placeholder_text_input2.placeholder = 'Ingresar descripción';
+     placeholder_text_input3.placeholder = 'Ingresar ingredientes';
+     placeholder_text_input4.placeholder = 'Ingresar preparación';
    });
 
     button_dessert.addEventListener('click', function() {
     currentAction = 'insert_postres';  
     text_label_popup_4.innerHTML = 'Postre<br>Inserte una imagen';  //Cambiar cosas
-    text_title_input.textContent = 'Algo 1 '; 
-    text_title_input1.textContent = 'Algo 2'; 
-    text_title_input2.textContent = 'Algo 3 '; 
-    text_title_input3.textContent = 'Algo 4'; 
+    text_title_input.textContent = 'Título '; 
+    text_title_input1.textContent = 'Descripción'; 
+    text_title_input2.textContent = 'Ingredientes'; 
+    text_title_input3.textContent = 'Preparación'; 
 
-    placeholder_text_input1.placeholder = 'Liveframe2';
-    placeholder_text_input2.placeholder = 'Liveframe2';
-    placeholder_text_input3.placeholder = 'Liveframe2';
-    placeholder_text_input4.placeholder = 'Liveframe2';
+    placeholder_text_input1.placeholder = 'Ingresar título';
+    placeholder_text_input2.placeholder = 'Ingresar descripción';
+    placeholder_text_input3.placeholder = 'Ingresar ingredientes';
+    placeholder_text_input4.placeholder = 'Ingresar preparación';
   });
 
 });
@@ -1131,63 +1131,63 @@ const button_producto4 = document.getElementById('btn_text_product3');
 
  // Ubicar el nombre del input del pop up (Id)
  const shop_text_pop = document.getElementById('name_product');
- limitCharacters(shop_text_pop, 120); // Aplica el límite de caracteres
+ limitCharacters(shop_text_pop, 12); // Aplica el límite de caracteres
 
  const shop_title_pop = document.getElementById('price_product');
- limitCharacters(shop_title_pop, 450); // Aplica el límite de caracteres
+ limitCharacters(shop_title_pop, 12); // Aplica el límite de caracteres
 
  // Ubicar el nombre del input del pop up (Id)
  const shop_slogan_pop = document.getElementById('description_product');
- limitCharacters(shop_slogan_pop, 120); // Aplica el límite de caracteres
+ limitCharacters(shop_slogan_pop, 105); // Aplica el límite de caracteres
 
  
  button_producto1.addEventListener('click', function() {
   currentAction = 'insert_product1';
   products_image.innerHTML = 'Producto 1<br>Inserte una imagen';  //Cambiar cosas
-  products_p1.textContent = 'Algo 1 '; 
-  products_p2.textContent = 'Algo 2'; 
-  products_p3.textContent = 'Algo 3 '; 
+  products_p1.textContent = 'Titulo '; 
+  products_p2.textContent = 'Pequeña descripción'; 
+  products_p3.textContent = 'Descrición de principales caracteristicas'; 
 
-  input_name_product.placeholder = 'Poco';
-  input_price_product.placeholder = 'Loco';
-  input_description_product.placeholder = 'Liveframe';
+  input_name_product.placeholder = 'Ingresar título';
+  input_price_product.placeholder = 'Ingresar descripción';
+  input_description_product.placeholder = 'Ingresar descripción';
 });
 
 button_producto2.addEventListener('click', function() {
   currentAction = 'insert_product2';
   products_image.innerHTML = 'Producto 2<br>Inserte una imagen';  //Cambiar cosas
-  products_p1.textContent = 'Algo 1 '; 
-  products_p2.textContent = 'Algo 2'; 
-  products_p3.textContent = 'Algo 3 '; 
+  products_p1.textContent = 'Título'; 
+  products_p2.textContent = 'Pequeña descripción'; 
+  products_p3.textContent = 'Descrición de principales caracteristicas'; 
 
-  input_name_product.placeholder = 'Poco';
-  input_price_product.placeholder = 'Loco';
-  input_description_product.placeholder = 'Liveframe';
+  input_name_product.placeholder = 'Ingresar título';
+  input_price_product.placeholder = 'Ingresar descripción';
+  input_description_product.placeholder = 'Ingresar descripción';
 });
 
 button_producto3.addEventListener('click', function() {
   currentAction = 'insert_product3';
   products_image.innerHTML = 'Producto 3<br>Inserte una imagen';  //Cambiar cosas
-  products_p1.textContent = 'Algo 1 '; 
-  products_p2.textContent = 'Algo 2'; 
-  products_p3.textContent = 'Algo 3 '; 
+  products_p1.textContent = 'Título'; 
+  products_p2.textContent = 'Descripción'; 
+  products_p3.textContent = 'Descrición de principales caracteristicas'; 
 
-  input_name_product.placeholder = 'Poco';
-  input_price_product.placeholder = 'Loco';
-  input_description_product.placeholder = 'Liveframe'
+  input_name_product.placeholder = 'Ingresar título';
+  input_price_product.placeholder = 'Ingresar descripción';
+  input_description_product.placeholder = 'Ingresar descripción'
 
 });
 
 button_producto4.addEventListener('click', function() {
   currentAction = 'insert_product4';
   products_image.innerHTML = 'Producto 4<br>Inserte una imagen';  //Cambiar cosas
-  products_p1.textContent = 'Algo 1 '; 
-  products_p2.textContent = 'Algo 2'; 
-  products_p3.textContent = 'Algo 3 '; 
+  products_p1.textContent = 'Título'; 
+  products_p2.textContent = 'Descripción'; 
+  products_p3.textContent = 'Descripción de principales características'; 
 
-  input_name_product.placeholder = 'Poco';
-  input_price_product.placeholder = 'Loco';
-  input_description_product.placeholder = 'Liveframe';
+  input_name_product.placeholder = 'Ingresar título';
+  input_price_product.placeholder = 'Ingresar descripción';
+  input_description_product.placeholder = 'Ingresar descripción detallada';
 });
 
 });
@@ -2195,8 +2195,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // cargar imagen
 // Seleccionar los elementos necesarios
-// Seleccionar los elementos necesarios
-// Seleccionar los elementos necesarios
 const cancelButton = document.querySelector('.cancel-btn');
 const fileInputon = document.querySelector('#file-upload');
 const confirmButton = document.querySelector('.confirm-btn');
@@ -2224,62 +2222,80 @@ cancelButton.addEventListener('click', () => {
 });
 
 
+//---------------------------------------------------------------------------Show and hide Success Button
+function showSuccessCard() {
+  const successCard = document.getElementById('successCard');
+  successCard.style.display = 'block'; // Mostrar la tarjeta
+  successCard.style.animation = 'slideUp 0.3s'; // Aplicar la animación
+}
+
+function hideSuccessCard() {
+  const successCard = document.getElementById('successCard');
+  successCard.style.display = 'none'; // Ocultar la tarjeta
+}
+//---------------------------------------------------------------------------End Show and hide Success Button
 
 
-// // Reinicio del input de texto 'position_team'
+//---------------------------------------------------------------------------Función Success Button
 
-// const reset_input3 = document.getElementById('reset_inputs3'); 
-// reset_inputs3.addEventListener('click', function () {
-  
-//     let input4 = document.getElementById('position_team');
-//     input4.value = '';
+function closeCard() {
+  const card = document.getElementById('successCard');
+  card.style.display = 'none';
 
-//     let input3 = document.getElementById('description_team');
-//     input3.value = '';
-// });
+  // Desvanece el confeti lentamente después de 5 segundos
+  setTimeout(() => {
+    const confettiCanvas = document.getElementById('confettiCanvas');
+    confettiCanvas.style.opacity = 0;  // Comienza el desvanecimiento
+    setTimeout(() => {
+      confettiCanvas.style.display = 'none'; // Oculta el canvas después de que se desvanezca
+    }, 5000); // Espera que la transición de opacidad termine (5 segundos)
+  }, 200); // 5 segundos de retraso antes de iniciar el desvanecimiento
+}
 
+const confettiCanvas = document.getElementById('confettiCanvas');
+const confettiCtx = confettiCanvas.getContext('2d');
+confettiCanvas.width = window.innerWidth;
+confettiCanvas.height = window.innerHeight;
 
+let confettiAnimationFrame; // Variable para la animación
 
+function createConfetti() {
+  const confettiColors = ['#4caf50', '#73dd76', '#ffffff'];
+  const confettiPieces = Array.from({ length: 150 }, () => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight - window.innerHeight,
+    size: Math.random() * 8 + 2,
+    color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+    speed: Math.random() * 3 + 1,
+    angle: Math.random() * Math.PI * 2,
+  }));
 
+  function drawConfetti() {
+    confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
 
-// var eiqueta = document.getElementById('eiqueta'); //input
-// reset_inputs(etiqueta, 255);
+    confettiPieces.forEach((piece) => {
+      piece.y += piece.speed;
+      piece.x += Math.sin(piece.angle);
+      piece.angle += 0.01;
 
-// function restInputs(tag, characterLimits) {
+      if (piece.y > window.innerHeight) {
+        piece.y = 0;
+        piece.x = Math.random() * window.innerWidth;
+      }
 
+      confettiCtx.beginPath();
+      confettiCtx.arc(piece.x, piece.y, piece.size, 0, Math.PI * 2);
+      confettiCtx.fillStyle = piece.color;
+      confettiCtx.fill();
+    });
 
+    confettiAnimationFrame = requestAnimationFrame(drawConfetti);
+  }
 
-// }
+  drawConfetti();
+}
 
+// Dispara el confeti al cargar
+createConfetti();
 
-// Elemento Index (id) ---- Elemento dashboard (id)
-// Inicio -->
-// 	text_presentation/send_text_component (122 caracteres).
-// 	text_slogan/send_text_component (68 caracteres).
-
-// Nosotros -->
-// 	text_mision/send_text_component (275 caracteres).
-// 	text_vision/send_text_component (275 caracteres).
-
-// Historia -->
-// 	text_hist/send_text_component (310 caracteres).
-
-// Equipo -->
-// 	position1/position_team (18 caracteres).
-// 	des_team1/description_team (95 caracteres).
-// 	position2/position_team (18 caracteres).
-// 	des_team2 description_team (95 caracteres).
-// 	position3/position_team (18 caracteres).
-// 	des_team3 description_team (95 caracteres).
-	
-// Testimonios -->
-// 	descTestim/send_text_component (180 caracteres).
-// 	nombre1/position_team (14 caracteres).
-// 	testim1 /description_team(120 caracteres).
-// 	nombre2/position_team (14 caracteres).
-// 	testim2 /description_team(120 caracteres).
-// 	nombre3/position_team (14 caracteres).
-// 	testim3 /description_team(120 caracteres).
-
-// Ubicacion -->
-// 	desc_loca/descLocation (120 caracteres).
+//---------------------------------------------------------------------------End Función Success Button

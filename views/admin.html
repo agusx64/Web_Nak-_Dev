@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/components/layout.css">
     <link rel="stylesheet" href="/stylesheets/style/admin_dashboard.css">
+    <link rel="stylesheet" href="/stylesheets/style/button.css">
     <link rel="javascripts" href="/javascripts/admin.js">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -15,12 +16,6 @@
 </head>
 
 <body>
-
-      <!-- -----------------------------------------------------Mensajes----------------------------------------------------- -->
-
-      <div class="alert alert-success" role="alert">
-        A simple success alert—check it out!
-      </div>
 
 <!-- -----------------------------------------------------Sidebar----------------------------------------------------- -->
 
@@ -128,7 +123,21 @@
     <!-- Visualizador de imagenes -->
     <div id="preview-container">
     </div>
-    
+
+
+          <!-- -----------------------------------------------------Mensajes----------------------------------------------------- -->
+
+          <div class="success-card" id="successCard">
+            <h2>Actualización exitosa</h2>
+            <div class="success-icon">
+                <span>✔</span>
+            </div>
+            <p>Se han subido correctamente los cambios</p>
+            <button onclick="closeCard()">Ok</button>
+        </div>
+        
+        <canvas id="confettiCanvas"></canvas>
+        
 <!-- -----------------------------------------------------Inputs----------------------------------------------------- -->
 
     <!-- Ventana de cargar imagen -->
@@ -476,6 +485,8 @@
         </div>
     
     </div>
+
+<!-- -----------------------------------------------------Fin Inputs----------------------------------------------------- -->
 
 <!-- Menu de tablas  -->
     <!-- Menu de inicio administrativo -->
@@ -1292,7 +1303,7 @@
         <!-- seccion de recetas -->
         <div class="main-content_recetas" hidden>
             <div class="botones_inicio">
-                <button class="btn_in" id="btn_image_recipes">
+                <button class="btn_in" hidden id="btn_image_recipes">
                     <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_629_395)">
                         <path d="M24.4688 5.0625C24.6925 5.0625 24.9071 5.15139 25.0654 5.30963C25.2236 5.46786 25.3125 5.68247 25.3125 5.90625V21.0938C25.3125 21.3175 25.2236 21.5321 25.0654 21.6904C24.9071 21.8486 24.6925 21.9375 24.4688 21.9375H2.53125C2.30747 21.9375 2.09286 21.8486 1.93463 21.6904C1.77639 21.5321 1.6875 21.3175 1.6875 21.0938V5.90625C1.6875 5.68247 1.77639 5.46786 1.93463 5.30963C2.09286 5.15139 2.30747 5.0625 2.53125 5.0625H24.4688ZM2.53125 3.375C1.85992 3.375 1.21609 3.64168 0.741386 4.11639C0.266684 4.59109 0 5.23492 0 5.90625L0 21.0938C0 21.7651 0.266684 22.4089 0.741386 22.8836C1.21609 23.3583 1.85992 23.625 2.53125 23.625H24.4688C25.1401 23.625 25.7839 23.3583 26.2586 22.8836C26.7333 22.4089 27 21.7651 27 21.0938V5.90625C27 5.23492 26.7333 4.59109 26.2586 4.11639C25.7839 3.64168 25.1401 3.375 24.4688 3.375H2.53125Z" fill="#6C9F31"/>

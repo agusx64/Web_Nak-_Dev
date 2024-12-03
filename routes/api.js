@@ -153,13 +153,42 @@ router.post('/forgot_password', function(req, res) {
             if (err) return res.status(500).json({ message: 'Error al guardar el token' });
 
             const mailOptions = {
-
                 from: process.env.USER_EMAIL,
                 to: email,
                 subject: 'Recuperar contraseña',
-                text: `Haz clic en el siguiente enlace para reestablecer tu contraseña: http://naku.fly.dev/reset_password/${token}`
-
-            }
+                html: `
+                <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+                    <!-- Encabezado -->
+                    <table width="100%" cellpadding="0" cellspacing="0" style="text-align: center;">
+                        <tr>
+                            <td>
+                                <img style="width: 50px; height: 50px;" src="https://res.cloudinary.com/dj4jsxc1l/image/upload/v1730838948/vrjiyx487qxcuubcl7kw.png" alt="NAKÚ Logo" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h1 style="font-size: 30px; font-family: 'Times New Roman', serif; color: #4CAF50; margin: 10px 0;">NAKÚ</h1>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- Contenido principal -->
+                    <h2 style="color: #4CAF50;">Recuperación de contraseña</h2>
+                    <p>Hola,</p>
+                    <p>Hemos recibido una solicitud para restablecer la contraseña de tu cuenta. Si realizaste esta solicitud, haz clic en el siguiente enlace para restablecer tu contraseña:</p>
+                    <p style="text-align: center; margin: 20px 0;">
+                        <a href="http://naku.fly.dev/reset_password/${token}" 
+                            style="background-color: #4CAF50; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; display: inline-block;">
+                            Restablecer contraseña
+                        </a>
+                    </p>
+                    <p>Si no solicitaste restablecer tu contraseña, ignora este correo. Tu cuenta permanece segura.</p>
+                    <!-- Pie de página -->
+                    <footer style="margin-top: 20px; text-align: center; color: #aaa; font-size: 12px;">
+                        <p>Este mensaje fue enviado automáticamente desde el sistema de recuperación de contraseña de NAKÚ.</p>
+                        <p>Si necesitas ayuda adicional, contáctanos en naku0824@gmail.com.</p>
+                    </footer>
+                </div>`
+            };            
 
             transporter.sendMail(mailOptions, function(err, info){
 

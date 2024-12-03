@@ -755,7 +755,7 @@ router.post('/insert_desayunos', upload.single('imagen'), async function(req, re
         const imageURL = result.secure_url;
         console.log('Desayunos uploaded successfully', imageURL);
 
-        let insert_query = 'INSERT INTO registro_desayuno (nombre, descripcion, caloria, preparacion, imagen) VALUES (?, ?, ?, ?, ?)';
+        let insert_query = 'INSERT INTO registro_desayuno (nombre, descripcion, ingredientes, preparacion, imagen) VALUES (?, ?, ?, ?, ?)';
 
         connection.query(insert_query, [desayuno.nombre, desayuno.descripcion, desayuno.calorias, desayuno.preparacion, imageURL], function (err, result) {
 
@@ -789,7 +789,7 @@ router.post('/insert_comidas', upload.single('imagen'), async function(req, res)
         const imageURL = result.secure_url;
         console.log('Comidas uploaded successfully', imageURL);
 
-        let insert_query = 'INSERT INTO registro_comida (nombre, descripcion, caloria, preparacion, imagen) VALUES (?, ?, ?, ?, ?)';
+        let insert_query = 'INSERT INTO registro_comida (nombre, descripcion, ingredientes, preparacion, imagen) VALUES (?, ?, ?, ?, ?)';
 
         connection.query(insert_query, [comida.nombre, comida.descripcion, comida.calorias, comida.preparacion, imageURL], function (err, result) {
 
@@ -823,7 +823,7 @@ router.post('/insert_postres', upload.single('imagen'), async function(req, res)
         const imageURL = result.secure_url;
         console.log('Postres uploaded successfully', imageURL);
 
-        let insert_query = 'INSERT INTO registro_postre (nombre, descripcion, caloria, preparacion, imagen) VALUES (?, ?, ?, ?, ?)';
+        let insert_query = 'INSERT INTO registro_postre (nombre, descripcion, ingredientes, preparacion, imagen) VALUES (?, ?, ?, ?, ?)';
 
         connection.query(insert_query, [postre.nombre, postre.descripcion, postre.calorias, postre.preparacion, imageURL], function (err, result) {
 
@@ -1039,9 +1039,10 @@ router.post('/insert_product4', upload.single('imagen'), async function(req, res
     
 });
 
-router.post("/login", function (req, res) {
+router.post("/login", async function (req, res) {
 
     const { email, contrasena } = req.body;
+
     console.log(email, contrasena);
 
     try {
@@ -1052,10 +1053,9 @@ router.post("/login", function (req, res) {
 
         }
 
-        let query = 'SELECT * FROM usuarios WHERE email = ?'
+        let query = 'SELECT * FROM usuarios WHERE email = ?';
 
-        connection.query(query, [email], function (err, result) {
-
+        connection.query(query, [email], async function (err, result) {
             if (err) {
 
                 throw err;
@@ -1063,6 +1063,7 @@ router.post("/login", function (req, res) {
             } else {
 
                 console.log(result);
+
                 if (result.length === 0) {
 
                     return res.json({ success: false, message: "Email o contraseña incorrectos." });
@@ -1070,15 +1071,17 @@ router.post("/login", function (req, res) {
                 }
 
                 const usuario = result[0];
-                const match = bcrypt.compare(contrasena, usuario.contrasena);
+
+                // Comparar contraseñas (bcrypt.compare es una función asíncrona)
+                const match = await bcrypt.compare(contrasena, usuario.contrasena);
 
                 if (match) {
 
-                    res.json({ success: true});
+                    return res.json({ success: true });
 
-                } else  {
+                } else {
 
-                    res.json({ success: false, message: "Email o contraseña incorrectos." });
+                    return res.json({ success: false, message: "Email o contraseña incorrectos." });
 
                 }
 
@@ -1089,7 +1092,7 @@ router.post("/login", function (req, res) {
     } catch (error) {
 
         console.error(error);
-        res.status(500).json({ success: false, message: "Error del servidor." });
+        return res.status(500).json({ success: false, message: "Error del servidor." });
 
     }
 
