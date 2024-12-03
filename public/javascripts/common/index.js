@@ -637,7 +637,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
+// mostrar mas informacion de Equipo
+// Tarjeta 1
   document.addEventListener("DOMContentLoaded", () => {
     const textElement = document.getElementById("des_team1");
     const button = document.getElementById("read-more-btn4");
@@ -654,8 +655,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
-  
+// Tarjeta 2
   document.addEventListener("DOMContentLoaded", () => {
     const textElement = document.getElementById("des_team2");
     const button = document.getElementById("read-more-btn5");
@@ -672,7 +672,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-  
+  // Tarjeta 3
   document.addEventListener("DOMContentLoaded", () => {
     const textElement = document.getElementById("des_team3");
     const button = document.getElementById("read-more-btn6");
@@ -689,3 +689,50 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+//Función de inactividad leer Más
+  document.addEventListener("DOMContentLoaded", () => {
+    // Variable para almacenar el temporizador
+    let inactivityTimer;
+  
+    // Función para manejar la inactividad
+    const handleInactivity = () => {
+      console.log("Usuario inactivo durante 10 segundos");
+      
+      // Cerrar todos los elementos "Leer más"
+      const expandedElements = document.querySelectorAll(".expanded");
+      expandedElements.forEach(element => {
+        element.classList.remove("expanded"); // Contraer el texto
+      });
+  
+      // Actualizar el texto de los botones
+      const buttons = [
+        document.getElementById("read-more-btn"),
+        document.getElementById("read-more-btn2"),
+        document.getElementById("read-more-btn3"),
+        document.getElementById("read-more-btn4"),
+        document.getElementById("read-more-btn5"),
+        document.getElementById("read-more-btn6"),
+      ];
+      buttons.forEach(button => {
+        if (button) button.textContent = "Leer más...";
+      });
+    };
+  
+    // Función para reiniciar el temporizador de inactividad
+    const resetInactivityTimer = () => {
+      clearTimeout(inactivityTimer); // Limpia el temporizador anterior
+      inactivityTimer = setTimeout(handleInactivity, 10000); // Reinicia con 10 segundos
+    };
+  
+    // Eventos que indican actividad del usuario
+    const activityEvents = ["mousemove", "keydown", "scroll", "click"];
+  
+    // Agregar los listeners para reiniciar el temporizador
+    activityEvents.forEach(event => {
+      document.addEventListener(event, resetInactivityTimer);
+    });
+  
+    // Inicia el temporizador por primera vez
+    resetInactivityTimer();
+  });
+  
