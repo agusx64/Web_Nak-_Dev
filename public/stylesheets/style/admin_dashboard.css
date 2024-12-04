@@ -125,8 +125,9 @@ nav ul li a {
 }
 /*----------------------------Button Success----------------------------*/
 
-  /* Fondo del canvas */
-  #confettiCanvas {
+
+/* Fondo del canvas */
+#confettiCanvas {
     position: fixed;
     top: 0;
     left: 0;
@@ -134,22 +135,23 @@ nav ul li a {
     height: 100%;
     pointer-events: none;
     z-index: 998;
+    display: none; /* Inicialmente oculto */
     transition: opacity 5s ease-out; /* Transición de opacidad */
-  }
-  
-  @keyframes slideUp {
+}
+
+@keyframes slideUp {
     0% {
-      transform: translate(-50%, 100%); /* Comienza fuera de la pantalla */
-      opacity: 0;
+        transform: translate(-50%, 100%); /* Comienza fuera de la pantalla */
+        opacity: 0;
     }
     100% {
-      transform: translate(-50%, -50%); /* Se detiene en el centro */
-      opacity: 1;
+        transform: translate(-50%, -50%); /* Se detiene en el centro */
+        opacity: 1;
     }
-  }
-  
-  /* Tarjeta de éxito */
-  .success-card {
+}
+
+/* Tarjeta de éxito */
+.success-card {
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -163,17 +165,18 @@ nav ul li a {
     animation: slideUp 0.3s;
     z-index: 999;
     overflow: hidden;
-  }
-  
-  /* Título */
-  .success-card h2 {
+    display: none; /* Inicialmente oculto */
+}
+
+/* Título */
+.success-card h2 {
     color: #333;
     font-size: 20px;
     margin-bottom: 15px;
-  }
-  
-  /* Ícono circular */
-  .success-icon {
+}
+
+/* Ícono circular */
+.success-icon {
     width: 80px;
     height: 80px;
     background-color: #4caf50;
@@ -182,23 +185,23 @@ nav ul li a {
     justify-content: center;
     align-items: center;
     margin: 0 auto 15px;
-  }
-  
-  .success-icon span {
+}
+
+.success-icon span {
     color: white;
     font-size: 36px;
     font-weight: bold;
-  }
-  
-  /* Texto descriptivo */
-  .success-card p {
+}
+
+/* Texto descriptivo */
+.success-card p {
     color: #666;
     font-size: 14px;
     margin: 0 0 20px;
-  }
-  
-  /* Botón */
-  .success-card button {
+}
+
+/* Botón */
+.success-card button {
     background-color: #73dd76;
     color: white;
     border: none;
@@ -208,11 +211,11 @@ nav ul li a {
     font-size: 14px;
     transition: background-color 0.3s ease;
     padding: 1.3vh 6vh 1.3vh 6vh;
-  }
-  
-  .success-card button:hover {
+}
+
+.success-card button:hover {
     background-color: #4caf50;
-  }
+}
 /*----------------------------End Button Success----------------------------*/
 
 

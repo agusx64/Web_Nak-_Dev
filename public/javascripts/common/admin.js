@@ -2222,36 +2222,35 @@ cancelButton.addEventListener('click', () => {
 });
 
 
-//---------------------------------------------------------------------------Show and hide Success Button
-function showSuccessCard() {
-  const successCard = document.getElementById('successCard');
-  successCard.style.display = 'block'; // Mostrar la tarjeta
-  successCard.style.animation = 'slideUp 0.3s'; // Aplicar la animación
+//---------------------------------------------------------------------------Show and hide Success Button// Función para mostrar la tarjeta de éxito y confeti
+function showSuccess() {
+  const card = document.getElementById('successCard');
+  const confettiCanvas = document.getElementById('confettiCanvas');
+
+  // Mostrar la tarjeta y el canvas
+  card.style.display = 'block';
+  confettiCanvas.style.display = 'block';
+  confettiCanvas.style.opacity = 1;
+
+  // Iniciar confeti
+  createConfetti();
 }
-
-function hideSuccessCard() {
-  const successCard = document.getElementById('successCard');
-  successCard.style.display = 'none'; // Ocultar la tarjeta
-}
-//---------------------------------------------------------------------------End Show and hide Success Button
-
-
-//---------------------------------------------------------------------------Función Success Button
-
+// Función para cerrar la tarjeta
 function closeCard() {
   const card = document.getElementById('successCard');
   card.style.display = 'none';
 
-  // Desvanece el confeti lentamente después de 5 segundos
+  // Desvanece el confeti lentamente
+  const confettiCanvas = document.getElementById('confettiCanvas');
   setTimeout(() => {
-    const confettiCanvas = document.getElementById('confettiCanvas');
-    confettiCanvas.style.opacity = 0;  // Comienza el desvanecimiento
-    setTimeout(() => {
-      confettiCanvas.style.display = 'none'; // Oculta el canvas después de que se desvanezca
-    }, 5000); // Espera que la transición de opacidad termine (5 segundos)
-  }, 200); // 5 segundos de retraso antes de iniciar el desvanecimiento
+      confettiCanvas.style.opacity = 0;
+      setTimeout(() => {
+          confettiCanvas.style.display = 'none';
+      }, 5000);
+  }, 200);
 }
 
+// Lógica para el confeti
 const confettiCanvas = document.getElementById('confettiCanvas');
 const confettiCtx = confettiCanvas.getContext('2d');
 confettiCanvas.width = window.innerWidth;
@@ -2262,40 +2261,36 @@ let confettiAnimationFrame; // Variable para la animación
 function createConfetti() {
   const confettiColors = ['#4caf50', '#73dd76', '#ffffff'];
   const confettiPieces = Array.from({ length: 150 }, () => ({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight - window.innerHeight,
-    size: Math.random() * 8 + 2,
-    color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
-    speed: Math.random() * 3 + 1,
-    angle: Math.random() * Math.PI * 2,
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight - window.innerHeight,
+      size: Math.random() * 8 + 2,
+      color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+      speed: Math.random() * 3 + 1,
+      angle: Math.random() * Math.PI * 2,
   }));
 
   function drawConfetti() {
-    confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
 
-    confettiPieces.forEach((piece) => {
-      piece.y += piece.speed;
-      piece.x += Math.sin(piece.angle);
-      piece.angle += 0.01;
+      confettiPieces.forEach((piece) => {
+          piece.y += piece.speed;
+          piece.x += Math.sin(piece.angle);
+          piece.angle += 0.01;
 
-      if (piece.y > window.innerHeight) {
-        piece.y = 0;
-        piece.x = Math.random() * window.innerWidth;
-      }
+          if (piece.y > window.innerHeight) {
+              piece.y = 0;
+              piece.x = Math.random() * window.innerWidth;
+          }
 
-      confettiCtx.beginPath();
-      confettiCtx.arc(piece.x, piece.y, piece.size, 0, Math.PI * 2);
-      confettiCtx.fillStyle = piece.color;
-      confettiCtx.fill();
-    });
+          confettiCtx.beginPath();
+          confettiCtx.arc(piece.x, piece.y, piece.size, 0, Math.PI * 2);
+          confettiCtx.fillStyle = piece.color;
+          confettiCtx.fill();
+      });
 
-    confettiAnimationFrame = requestAnimationFrame(drawConfetti);
+      confettiAnimationFrame = requestAnimationFrame(drawConfetti);
   }
 
   drawConfetti();
 }
-
-// Dispara el confeti al cargar
-createConfetti();
-
 //---------------------------------------------------------------------------End Función Success Button
