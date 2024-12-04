@@ -216,7 +216,100 @@ nav ul li a {
 .success-card button:hover {
     background-color: #4caf50;
 }
-/*----------------------------End Button Success----------------------------*/
+/*----------------------------Button Error----------------------------*/
+
+/* Fondo del canvas */
+#errorConfettiCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 998;
+    display: none; /* Inicialmente oculto */
+    transition: opacity 5s ease-out; /* Transición de opacidad */
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translate(-50%, 100%); /* Comienza fuera de la pantalla */
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%); /* Se detiene en el centro */
+        opacity: 1;
+    }
+}
+
+/* Tarjeta de error */
+.error-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: slideUp 0.3s;
+    z-index: 999;
+    overflow: hidden;
+    display: none; /* Inicialmente oculto */
+}
+
+/* Título */
+.error-card h2 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* Ícono circular */
+.error-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #d76363;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px;
+}
+
+.error-icon span {
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* Texto descriptivo */
+.error-card p {
+    color: #666;
+    font-size: 14px;
+    margin: 0 0 20px;
+}
+
+/* Botón */
+.error-card button {
+    background-color: #d76363;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    padding: 1.3vh 6vh 1.3vh 6vh;
+}
+
+.error-card button:hover {
+    background-color: #af4c4c;
+}
+/*----------------------------Button Error----------------------------*/
+
 
 
 

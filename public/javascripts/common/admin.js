@@ -2294,3 +2294,78 @@ function createConfetti() {
   drawConfetti();
 }
 //---------------------------------------------------------------------------End Función Success Button
+
+//---------------------------------------------------------------------------Show and hide Success Button// Función para mostrar la tarjeta de Error y confeti
+
+// Función para mostrar la tarjeta de error y confeti
+function showError() {
+  const card = document.getElementById('errorCard');
+  const confettiCanvas = document.getElementById('errorConfettiCanvas');
+
+  // Mostrar la tarjeta y el canvas
+  card.style.display = 'block';
+  confettiCanvas.style.display = 'block';
+  confettiCanvas.style.opacity = 1;
+
+  // Iniciar confeti
+  createConfetti();
+}
+
+// Función para cerrar la tarjeta de error
+function closeErrorCard() {
+  const card = document.getElementById('errorCard');
+  card.style.display = 'none';
+
+  // Desvanece el confeti lentamente
+  const confettiCanvas = document.getElementById('errorConfettiCanvas');
+  setTimeout(() => {
+      confettiCanvas.style.opacity = 0;
+      setTimeout(() => {
+          confettiCanvas.style.display = 'none';
+      }, 5000);
+  }, 200);
+}
+
+// Lógica para el confeti
+const errorConfettiCanvas = document.getElementById('errorConfettiCanvas');
+const errorConfettiCtx = errorConfettiCanvas.getContext('2d');
+errorConfettiCanvas.width = window.innerWidth;
+errorConfettiCanvas.height = window.innerHeight;
+
+let errorConfettiAnimationFrame; // Variable para la animación
+
+function createConfetti() {
+  const confettiColors = ['#4caf50', '#73dd76', '#ffffff'];
+  const confettiPieces = Array.from({ length: 150 }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight - window.innerHeight,
+      size: Math.random() * 8 + 2,
+      color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+      speed: Math.random() * 3 + 1,
+      angle: Math.random() * Math.PI * 2,
+  }));
+
+  function drawConfetti() {
+      errorConfettiCtx.clearRect(0, 0, errorConfettiCanvas.width, errorConfettiCanvas.height);
+
+      confettiPieces.forEach((piece) => {
+          piece.y += piece.speed;
+          piece.x += Math.sin(piece.angle);
+          piece.angle += 0.01;
+
+          if (piece.y > window.innerHeight) {
+              piece.y = 0;
+              piece.x = Math.random() * window.innerWidth;
+          }
+
+          errorConfettiCtx.beginPath();
+          errorConfettiCtx.arc(piece.x, piece.y, piece.size, 0, Math.PI * 2);
+          errorConfettiCtx.fillStyle = piece.color;
+          errorConfettiCtx.fill();
+      });
+
+      errorConfettiAnimationFrame = requestAnimationFrame(drawConfetti);
+  }
+
+  drawConfetti();
+}
