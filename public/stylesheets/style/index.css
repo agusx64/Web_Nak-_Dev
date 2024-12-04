@@ -1194,7 +1194,7 @@ section.section_testimonials p.texto_test span.nk {
     color: #000000;
     position: relative;
     /* Fija la posición en el viewport */
-    bottom: -205px;
+    bottom: -235px;
     /* Lo coloca en la parte inferior */
     left: 0;
     /* Se extiende a lo largo de todo el ancho */
@@ -1214,7 +1214,6 @@ section.section_testimonials p.texto_test span.nk {
         /* Aplicar esta solución específicamente para iOS */
     }
 }
-
 
 /* Pantallas pequeñas (móviles Listo) */
 @media screen and (max-width: 767px) {

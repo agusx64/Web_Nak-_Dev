@@ -1544,3 +1544,13 @@ h5, p, .title_granj, .preci, .pe, .prec {
         width: 70%;
     }
 }
+.carousel-item {
+    position: relative;
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: white; /* Asegúrate de que el texto sea legible sobre la imagen */
+  }

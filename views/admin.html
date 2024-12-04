@@ -6,13 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/pngnaku.png" type="image/x-icon">
     <link rel="stylesheet" href="/stylesheets/components/layout.css">
     <link rel="stylesheet" href="/stylesheets/style/admin_dashboard.css">
     <link rel="stylesheet" href="/stylesheets/style/button.css">
     <link rel="javascripts" href="/javascripts/admin.js">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Admin cambios</title>
+    <title>Administrador</title>
 </head>
 
 <body>
@@ -133,23 +134,23 @@
                 <span>✔</span>
             </div>
             <p>Se han subido correctamente los cambios</p>
-            <button onclick="closeCard()">Ok</button>
+            <button onclick="closeCard('successCard', 'confettiCanvas')">Ok</button>
         </div>
         
         <canvas id="confettiCanvas"></canvas>
 
 
         <!-- -------------------------------------------------------Error-------------------------------------------------------- -->
-<div class="error-card" id="errorCard">
-  <h2>Mensaje de Error</h2>
-  <div class="error-icon">
-      <span>X</span>
-  </div>
-  <p>No se han subido los cambios, vuelva a intentar. Si el error persiste, contacte al administrador.</p>
-  <button onclick="closeErrorCard()">Ok</button>
-</div>
+            <div class="error-card" id="errorCard">
+            <h2>Mensaje de Error</h2>
+            <div class="error-icon">
+                <span>X</span>
+            </div>
+            <p>No se han subido los cambios, vuelva a intentar. Si el error persiste, contacte al administrador.</p>
+            <button onclick="closeCard('errorCard', 'errorConfettiCanvas')">Ok</button>
+        </div>
 
-<canvas id="errorConfettiCanvas"></canvas>
+            <canvas id="errorConfettiCanvas"></canvas>
 <!-- -----------------------------------------------------Inputs----------------------------------------------------- -->
 
     <!-- Ventana de cargar imagen -->

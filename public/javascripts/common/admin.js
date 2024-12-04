@@ -215,16 +215,23 @@ inicioBtn.addEventListener('click', function () {
 
 const imageConfirmButton = document.getElementById('confirm-btn');
 imageConfirmButton.addEventListener('click', function() {
+
   if (currentAction === 'insert_image') {
+
     const insertImage = document.getElementById('file-upload');
     const form_data = new FormData();
     form_data.append('background_image', insertImage.files[0]);
 
     fetch('/insert_image', {
+
       method: 'POST',
       body: form_data
+
     });
+    showSuccess();
+
   }
+
 });
 
 const textConfirmButton = document.getElementById('idSwitcher');
@@ -240,6 +247,7 @@ textConfirmButton.addEventListener('click', function() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(slogan)
     });
+    showSuccess();
   }
   else if (currentAction === 'insert_description') {
     const insertDescription = document.getElementById('send_text_component');
@@ -248,11 +256,16 @@ textConfirmButton.addEventListener('click', function() {
 
     // Fetch para insertar descripción
     fetch('/insert_description', {
+
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(description)
+
     });
+    showSuccess();
+
   }
+
 });
 
 
@@ -367,6 +380,8 @@ button_insert_data.addEventListener('click', function() {
 
     })
 
+    showSuccess();
+
   } else if (currentAction === 'insert_product_2') {
 
     const image = document.getElementById('file-upload3');
@@ -393,6 +408,8 @@ button_insert_data.addEventListener('click', function() {
       body: formData
 
     })
+
+    showSuccess();
 
   } else if (currentAction === 'insert_product_3') {
 
@@ -421,6 +438,8 @@ button_insert_data.addEventListener('click', function() {
 
     })
 
+    showSuccess();
+
   } else if (currentAction === 'insert_product_4') {
 
     const image = document.getElementById('file-upload3');
@@ -448,6 +467,8 @@ button_insert_data.addEventListener('click', function() {
       body: formData
 
     })
+
+    showSuccess();
 
   }
 
@@ -518,6 +539,8 @@ imageConfirmButton.addEventListener('click', function() {
       body: form_data  // FormData maneja el Content-Type automáticamente
     });
 
+    showSuccess();
+
   } else if (currentAction === 'insert_image_vision'){
 
     const insertImage = document.getElementById('file-upload');
@@ -528,6 +551,8 @@ imageConfirmButton.addEventListener('click', function() {
       method: 'POST',
       body: form_data  // FormData maneja el Content-Type automáticamente
     });
+
+    showSuccess();
 
   }
 
@@ -546,6 +571,8 @@ textConfirmButton.addEventListener('click',function(){
       body: JSON.stringify(mision)
     });
 
+    showSuccess();
+
   } else if (currentAction === 'insert_vision'){
     const insertVision = document.getElementById('send_text_component');
 
@@ -558,9 +585,9 @@ textConfirmButton.addEventListener('click',function(){
       body: JSON.stringify(vision)
     });
 
+    showSuccess();
 
   }
-
 
 })
 
@@ -620,6 +647,9 @@ imageConfirmButton.addEventListener('click', function() {
       method: 'POST',
       body: form_data
     });
+
+    showSuccess();
+
   } 
 
 });
@@ -634,6 +664,9 @@ imageConfirmButton.addEventListener('click', function() {
       method: 'POST',
       body: form_data
     });
+
+    showSuccess();
+
   } 
 
 });
@@ -648,6 +681,9 @@ imageConfirmButton.addEventListener('click', function() {
       method: 'POST',
       body: form_data
     });
+
+    showSuccess();
+
   } 
 
 });
@@ -665,6 +701,9 @@ textConfirmButton.addEventListener('click', function() {
       body: JSON.stringify(historia)
 
     });
+
+    showSuccess();
+
   }
 
 })
@@ -739,8 +778,10 @@ button_perfil_3.addEventListener('click', function() {
         
       })
 
+      showSuccess();
 
-  }else  if (currentAction === 'insert_team_image2') {
+
+  }else if (currentAction === 'insert_team_image2') {
 
       const image_team = document.getElementById('file-upload1');
       const position =  document.getElementById('position_team');
@@ -761,8 +802,9 @@ button_perfil_3.addEventListener('click', function() {
         
       })
 
+      showSuccess();
 
-  }else if (currentAction === 'insert_team_image3'){
+  } else if (currentAction === 'insert_team_image3'){
 
       const image_team = document.getElementById('file-upload1');
       const position =  document.getElementById('position_team');
@@ -782,6 +824,8 @@ button_perfil_3.addEventListener('click', function() {
         body: formData 
         
       })
+
+      showSuccess();
 
   }
   
@@ -863,12 +907,19 @@ textConfirmButton.addEventListener('click', function () {
       const descriptionTestimony = { descriptionTestimony: insertDescriptionTestimony.value };
 
       fetch('/insert_description_testimony', {
+
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(descriptionTestimony),
+
       });
+
     }
+
+    showSuccess();
+
   }
+
 });
 
 // Insertar testimonios con imágenes
@@ -889,20 +940,35 @@ button_insert_testimony.addEventListener('click', function () {
 
     let endpoint = '';
     if (currentAction === 'insert_testimony1') {
+
+      showSuccess();
       endpoint = '/insert_testimony1';
+
     } else if (currentAction === 'insert_testimony2') {
+
       endpoint = '/insert_testimony2';
+      showSuccess();
+
     } else if (currentAction === 'insert_testimony3') {
+
       endpoint = '/insert_testimony3';
+      showSuccess();
+
     }
 
     if (endpoint) {
+
       fetch(endpoint, {
+
         method: 'POST',
-        body: formData,
+        body: formData
+
       });
+
     }
+
   }
+
 });
 
 
@@ -941,21 +1007,37 @@ button_insert_location.addEventListener('click', function () {
         const location = document.getElementById('location').value;
 
         const data = {
+
             descripcion: descLocation.value, // Ahora usamos el valor del input
-            ubicacion: location,
+            ubicacion: location
+
         };
 
         fetch('/insert_location', {
+
             method: 'POST',
             headers: {
+
                 'Content-Type': 'application/json', // Cambiar a JSON
+
             },
             body: JSON.stringify(data), // Convertir datos a JSON
         })
+
             .then((response) => response.json())
             .then((data) => console.log('Respuesta del servidor:', data))
-            .catch((error) => console.error('Error:', error));
+            .catch((error) => {
+
+              console.error('Error:', error)
+              showError();
+
+            });
+
+
+        showSuccess();
+
     }
+
 });
 
 
@@ -1055,10 +1137,13 @@ buttonInsertRecipes.addEventListener('click', function() {
     formData.append('preparacion', valuePreparation);
 
     fetch('/insert_desayunos', {
+
       method: 'POST',
       body: formData
       
     })
+
+    showSuccess();
 
   }else if (currentAction === 'insert_comidas'){
 
@@ -1087,6 +1172,8 @@ buttonInsertRecipes.addEventListener('click', function() {
       
     })
 
+    showSuccess();
+
   } else if (currentAction === 'insert_postres'){
     
     const img_recipe = document.getElementById('file-upload3');
@@ -1113,6 +1200,8 @@ buttonInsertRecipes.addEventListener('click', function() {
       body: formData
       
     })
+
+    showSuccess();
 
     }
 
@@ -1214,9 +1303,13 @@ button_insert_product.addEventListener('click', function() {
     formData.append('descripcion', valueDescription);
     
     fetch('/insert_product1',{
+
       method: 'POST',
       body: formData
+
     })
+    
+    showSuccess();
   
   }else if (currentAction === 'insert_product2'){
 
@@ -1236,9 +1329,13 @@ button_insert_product.addEventListener('click', function() {
     formData.append('descripcion', valueDescription);
     
     fetch('/insert_product2',{
+
       method: 'POST',
       body: formData
+
     })
+    
+    showSuccess();
 
   }else if (currentAction === 'insert_product3'){
 
@@ -1258,9 +1355,13 @@ button_insert_product.addEventListener('click', function() {
     formData.append('descripcion', valueDescription);
     
     fetch('/insert_product3',{
+
       method: 'POST',
       body: formData
+
     })
+    
+    showSuccess();
 
     
   }else if(currentAction === 'insert_product4') {
@@ -1281,13 +1382,15 @@ button_insert_product.addEventListener('click', function() {
     formData.append('descripcion', valueDescription);
     
     fetch('/insert_product4',{
+
       method: 'POST',
       body: formData
+
     })
 
+    showSuccess();
     
   }
-
 
 });
 
@@ -1476,6 +1579,7 @@ function getStartLog() {
     })
     .catch(error => {
       console.error('Error:', error);
+      showError();
     });
 }
 //Tienda
@@ -1572,6 +1676,7 @@ function getUsLog() {
     })
     .catch(error => {
       console.error(error);
+      showError();
     });
 }
 //Historia
@@ -1622,6 +1727,7 @@ function getHistoryLog() {
     })
     .catch(error => {
       console.error(error);
+      showError();
     });
 }
 //Equipo
@@ -2223,149 +2329,85 @@ cancelButton.addEventListener('click', () => {
 
 
 //---------------------------------------------------------------------------Show and hide Success Button// Función para mostrar la tarjeta de éxito y confeti
+let confettiAnimationFrame; // Variable para detener la animación
+
+// Función para mostrar tarjeta de éxito
 function showSuccess() {
-  const card = document.getElementById('successCard');
-  const confettiCanvas = document.getElementById('confettiCanvas');
+    const card = document.getElementById('successCard');
+    const confettiCanvas = document.getElementById('confettiCanvas');
 
-  // Mostrar la tarjeta y el canvas
-  card.style.display = 'block';
-  confettiCanvas.style.display = 'block';
-  confettiCanvas.style.opacity = 1;
+    card.style.display = 'block';
+    confettiCanvas.style.display = 'block';
+    confettiCanvas.style.opacity = 1;
 
-  // Iniciar confeti
-  createConfetti();
-}
-// Función para cerrar la tarjeta
-function closeCard() {
-  const card = document.getElementById('successCard');
-  card.style.display = 'none';
-
-  // Desvanece el confeti lentamente
-  const confettiCanvas = document.getElementById('confettiCanvas');
-  setTimeout(() => {
-      confettiCanvas.style.opacity = 0;
-      setTimeout(() => {
-          confettiCanvas.style.display = 'none';
-      }, 5000);
-  }, 200);
+    createConfetti(confettiCanvas);
 }
 
-// Lógica para el confeti
-const confettiCanvas = document.getElementById('confettiCanvas');
-const confettiCtx = confettiCanvas.getContext('2d');
-confettiCanvas.width = window.innerWidth;
-confettiCanvas.height = window.innerHeight;
-
-let confettiAnimationFrame; // Variable para la animación
-
-function createConfetti() {
-  const confettiColors = ['#4caf50', '#73dd76', '#ffffff'];
-  const confettiPieces = Array.from({ length: 150 }, () => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight - window.innerHeight,
-      size: Math.random() * 8 + 2,
-      color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
-      speed: Math.random() * 3 + 1,
-      angle: Math.random() * Math.PI * 2,
-  }));
-
-  function drawConfetti() {
-      confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
-
-      confettiPieces.forEach((piece) => {
-          piece.y += piece.speed;
-          piece.x += Math.sin(piece.angle);
-          piece.angle += 0.01;
-
-          if (piece.y > window.innerHeight) {
-              piece.y = 0;
-              piece.x = Math.random() * window.innerWidth;
-          }
-
-          confettiCtx.beginPath();
-          confettiCtx.arc(piece.x, piece.y, piece.size, 0, Math.PI * 2);
-          confettiCtx.fillStyle = piece.color;
-          confettiCtx.fill();
-      });
-
-      confettiAnimationFrame = requestAnimationFrame(drawConfetti);
-  }
-
-  drawConfetti();
-}
-//---------------------------------------------------------------------------End Función Success Button
-
-//---------------------------------------------------------------------------Show and hide Success Button// Función para mostrar la tarjeta de Error y confeti
-
-// Función para mostrar la tarjeta de error y confeti
+// Función para mostrar tarjeta de error
 function showError() {
-  const card = document.getElementById('errorCard');
-  const confettiCanvas = document.getElementById('errorConfettiCanvas');
+    const card = document.getElementById('errorCard');
+    const confettiCanvas = document.getElementById('errorConfettiCanvas');
 
-  // Mostrar la tarjeta y el canvas
-  card.style.display = 'block';
-  confettiCanvas.style.display = 'block';
-  confettiCanvas.style.opacity = 1;
+    card.style.display = 'block';
+    confettiCanvas.style.display = 'block';
+    confettiCanvas.style.opacity = 1;
 
-  // Iniciar confeti
-  createConfetti();
+    createConfetti(confettiCanvas);
 }
 
-// Función para cerrar la tarjeta de error
-function closeErrorCard() {
-  const card = document.getElementById('errorCard');
-  card.style.display = 'none';
+// Función para cerrar cualquier tarjeta
+function closeCard(cardId, canvasId) {
+    const card = document.getElementById(cardId);
+    const confettiCanvas = document.getElementById(canvasId);
 
-  // Desvanece el confeti lentamente
-  const confettiCanvas = document.getElementById('errorConfettiCanvas');
-  setTimeout(() => {
-      confettiCanvas.style.opacity = 0;
-      setTimeout(() => {
-          confettiCanvas.style.display = 'none';
-      }, 5000);
-  }, 200);
+    card.style.display = 'none';
+
+    setTimeout(() => {
+        confettiCanvas.style.opacity = 0;
+        setTimeout(() => {
+            confettiCanvas.style.display = 'none';
+            cancelAnimationFrame(confettiAnimationFrame); // Detener animación
+        }, 5000);
+    }, 200);
 }
 
-// Lógica para el confeti
-const errorConfettiCanvas = document.getElementById('errorConfettiCanvas');
-const errorConfettiCtx = errorConfettiCanvas.getContext('2d');
-errorConfettiCanvas.width = window.innerWidth;
-errorConfettiCanvas.height = window.innerHeight;
+// Lógica de confeti reutilizable
+function createConfetti(canvas) {
+    const confettiCtx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-let errorConfettiAnimationFrame; // Variable para la animación
+    const confettiColors = ['#4caf50', '#73dd76', '#ffffff'];
+    const confettiPieces = Array.from({ length: 150 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * -canvas.height,
+        size: Math.random() * 8 + 2,
+        color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+        speed: Math.random() * 3 + 1,
+        angle: Math.random() * Math.PI * 2,
+    }));
 
-function createConfetti() {
-  const confettiColors = ['#4caf50', '#73dd76', '#ffffff'];
-  const confettiPieces = Array.from({ length: 150 }, () => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight - window.innerHeight,
-      size: Math.random() * 8 + 2,
-      color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
-      speed: Math.random() * 3 + 1,
-      angle: Math.random() * Math.PI * 2,
-  }));
+    function drawConfetti() {
+        confettiCtx.clearRect(0, 0, canvas.width, canvas.height);
 
-  function drawConfetti() {
-      errorConfettiCtx.clearRect(0, 0, errorConfettiCanvas.width, errorConfettiCanvas.height);
+        confettiPieces.forEach((piece) => {
+            piece.y += piece.speed;
+            piece.x += Math.sin(piece.angle);
+            piece.angle += 0.01;
 
-      confettiPieces.forEach((piece) => {
-          piece.y += piece.speed;
-          piece.x += Math.sin(piece.angle);
-          piece.angle += 0.01;
+            if (piece.y > canvas.height) {
+                piece.y = 0;
+                piece.x = Math.random() * canvas.width;
+            }
 
-          if (piece.y > window.innerHeight) {
-              piece.y = 0;
-              piece.x = Math.random() * window.innerWidth;
-          }
+            confettiCtx.beginPath();
+            confettiCtx.arc(piece.x, piece.y, piece.size, 0, Math.PI * 2);
+            confettiCtx.fillStyle = piece.color;
+            confettiCtx.fill();
+        });
 
-          errorConfettiCtx.beginPath();
-          errorConfettiCtx.arc(piece.x, piece.y, piece.size, 0, Math.PI * 2);
-          errorConfettiCtx.fillStyle = piece.color;
-          errorConfettiCtx.fill();
-      });
+        confettiAnimationFrame = requestAnimationFrame(drawConfetti);
+    }
 
-      errorConfettiAnimationFrame = requestAnimationFrame(drawConfetti);
-  }
-
-  drawConfetti();
+    drawConfetti();
 }

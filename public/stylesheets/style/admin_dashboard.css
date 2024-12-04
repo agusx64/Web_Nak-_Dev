@@ -134,9 +134,9 @@ nav ul li a {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 998;
+    z-index: 2000;
     display: none; /* Inicialmente oculto */
-    transition: opacity 5s ease-out; /* Transición de opacidad */
+    transition: opacity 5s ease-out; /* Transición de opacidad */    
 }
 
 @keyframes slideUp {
@@ -163,7 +163,7 @@ nav ul li a {
     left: 50%;
     transform: translate(-50%, -50%);
     animation: slideUp 0.3s;
-    z-index: 999;
+    z-index: 1000;
     overflow: hidden;
     display: none; /* Inicialmente oculto */
 }
@@ -226,7 +226,7 @@ nav ul li a {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 998;
+    z-index: 2000;
     display: none; /* Inicialmente oculto */
     transition: opacity 5s ease-out; /* Transición de opacidad */
 }
@@ -255,7 +255,7 @@ nav ul li a {
     left: 50%;
     transform: translate(-50%, -50%);
     animation: slideUp 0.3s;
-    z-index: 999;
+    z-index: 1000;
     overflow: hidden;
     display: none; /* Inicialmente oculto */
 }
