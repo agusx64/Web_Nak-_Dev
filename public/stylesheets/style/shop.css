@@ -829,25 +829,6 @@ h5, p, .title_granj, .preci, .pe, .prec {
         margin-top: 20px;
     }
 
-    .btncasa {
-        background-color: white;
-        border-top-right-radius: 50px;
-        border-bottom-right-radius: 50px;
-        padding: 20px;
-        width: 100px;
-        height: 90px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        border: none;
-        margin-left: -22%;
-        z-index: 3;
-        position: relative;
-        top: 350px;
-        cursor: pointer;
-        transition: left 0.5s ease;
-    }
 
     #botonCasa svg {
         width: 40px !important;
@@ -1072,10 +1053,52 @@ h5, p, .title_granj, .preci, .pe, .prec {
     .pe {
         font-size: 2.5vw;
     }
+    .btncasa {
+        background-color:#6C9F31;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        padding: 20px;
+        width: 100px;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border: none;
+        margin-left: -22%;
+        z-index: 3;
+        position: relative;
+        top: 350px;
+        cursor: pointer;
+        transition: left 0.5s ease;
+    }
+
+    #botonCasa svg {
+        width: 40px !important;
+        height: 40px !important;
+    }
 }
 /* Media queries para ajustar tamaños en pantallas más pequeñas */
 @media (max-width: 1024px) {
-
+    .btncasa {
+        background-color:#6C9F31;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        padding: 20px;
+        width: 100px;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border: none;
+        margin-left: -22%;
+        z-index: 3;
+        position: relative;
+        top: 50px;
+        cursor: pointer;
+        transition: left 0.5s ease;
+    }
     .title_granj {
         font-size: 3vw;
     }
@@ -1095,10 +1118,12 @@ h5, p, .title_granj, .preci, .pe, .prec {
 /* tabletas */
 @media (min-width: 768px) and (max-width: 1024px) {
 
+
+
     .divisiones_1{
         display: none;
     }
-
+   
     .seccion_principal {
         flex-direction: column;
         height: auto;

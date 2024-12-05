@@ -179,3 +179,5 @@ function handleButtonClick(event) {
         extraInfo.classList.toggle('visible');
     }
 }
+
+

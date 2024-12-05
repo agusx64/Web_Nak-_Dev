@@ -634,3 +634,57 @@ nav {
 
 
 }
+
+.card-content p {
+    overflow: hidden; /* Oculta el contenido que se sale */
+    text-overflow: ellipsis; /* Agrega "..." al final si el texto es demasiado largo */
+    white-space: nowrap; /* Evita que el texto se desborde en varias líneas */
+    max-height: 50px; /* Ajusta según la altura deseada */
+}
+
+.extra-info p {
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: normal; /* Permite el salto de línea */
+    max-height: 120px; /* Ajusta para controlar el tamaño máximo */
+}
+
+.extra-info {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out; /* Suaviza la expansión al mostrar el contenido */
+}
+
+.extra-info.visible {
+    max-height: 500px; /* Ajusta según el contenido que deseas mostrar */
+}
+.extra-info {
+    overflow-y: auto;
+    max-height: 300px;
+    padding-right: 10px; /* Espacio para el scroll */
+}
+.card-content p {
+    max-width: 100%; /* Asegúrate de que el texto no se desborde horizontalmente */
+    word-wrap: break-word; /* Fuerza el texto a romperse si no cabe en una línea */
+    overflow-wrap: break-word; /* Compatibilidad adicional */
+    overflow: hidden; /* Esconde el texto que sobrepasa los límites */
+    text-overflow: ellipsis; /* Agrega "..." al final si el texto se corta */
+    white-space: pre-wrap; /* Permite saltos de línea según el contenido */
+}
+@media (max-width: 1024px) {
+    .inicio {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; 
+        align-items: center;
+        text-align: center; 
+        background-color: white;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/huevito2.jpg);
+        background-size: cover;
+        background-position: center;
+        height: 95.5vh;
+        color: rgb(255, 251, 251);
+        font-weight: 500;
+        padding-bottom: 20px;
+      }
+}

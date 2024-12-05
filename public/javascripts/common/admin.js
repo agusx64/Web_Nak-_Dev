@@ -176,17 +176,38 @@ inicioBtn.addEventListener('click', function () {
   const button_slogan = document.getElementById('btn_text_home1');
   const button_image = document.getElementById('btn_image_home');
 
-  // Ubicar el nombre del input del pop up (Id)
-  const iniciopop = document.getElementById('send_text_component');
+  // Configuración de límites de caracteres
+  const characterLimits = {
+    insert_description: 95, // Límite para descripción
+    insert_slogan: 35,       // Límite para slogan
+    insert_image: null,      // Sin límite para imágenes
+  };
 
-  // Agregar eventos a cada botón para aplicar el límite correspondiente
-  button_description.addEventListener('click', function () {
-    limitCharacters(iniciopop, 18); // Aplica el límite de 18 caracteres
-  });
+  // Selecciona el span con clase word-count
+  const wordCount = document.querySelector('.word-count');
 
-  button_slogan.addEventListener('click', function () {
-    limitCharacters(iniciopop, 95); // Aplica el límite de 95 caracteres
-  });
+  // Función para manejar límites de caracteres y contador
+  function handleCharacterLimitWithCounter(inputElement, limit) {
+    inputElement.addEventListener('input', function () {
+      const currentLength = inputElement.value.length;
+
+      // Actualiza el contador en el span .word-count
+      wordCount.textContent = `${currentLength}/${limit} Caracteres`;
+
+      // Limita el texto si excede el máximo
+      if (currentLength > limit) {
+        inputElement.value = inputElement.value.slice(0, limit);
+        wordCount.textContent = `${limit}/${limit} Caracteres`;
+      }
+
+      // Cambia el estilo del contador si está en el límite
+      if (currentLength === limit) {
+        wordCount.classList.add('at-limit'); // Estilo opcional para el límite alcanzado
+      } else {
+        wordCount.classList.remove('at-limit');
+      }
+    });
+  }
 
   // Acción para subir imagen (sin contador)
   button_image.addEventListener('click', function () {
@@ -203,6 +224,14 @@ inicioBtn.addEventListener('click', function () {
     input_tag_text.textContent = 'Escribe un slogan aquí';
     input_placeholder.placeholder = 'Slogan';
 
+    // Actualizar el contador al inicio
+    wordCount.textContent = `0/${characterLimits[currentAction]} Caracteres`;
+
+    // Aplicar límite de caracteres
+    handleCharacterLimitWithCounter(
+      input_placeholder,
+      characterLimits[currentAction]
+    );
   });
 
   // Acción para descripción
@@ -210,31 +239,34 @@ inicioBtn.addEventListener('click', function () {
     currentAction = 'insert_description';
     input_tag_text.textContent = 'Escribe una descripción aquí';
     input_placeholder.placeholder = 'Descripción';
+
+    // Actualizar el contador al inicio
+    wordCount.textContent = `0/${characterLimits[currentAction]} Caracteres`;
+
+    // Aplicar límite de caracteres
+    handleCharacterLimitWithCounter(
+      input_placeholder,
+      characterLimits[currentAction]
+    );
   });
 });
 
+const textConfirmButton = document.getElementById('idSwitcher');
 const imageConfirmButton = document.getElementById('confirm-btn');
 imageConfirmButton.addEventListener('click', function() {
-
   if (currentAction === 'insert_image') {
-
     const insertImage = document.getElementById('file-upload');
     const form_data = new FormData();
     form_data.append('background_image', insertImage.files[0]);
 
     fetch('/insert_image', {
-
       method: 'POST',
       body: form_data
-
     });
     showSuccess();
 
   }
-
 });
-
-const textConfirmButton = document.getElementById('idSwitcher');
 textConfirmButton.addEventListener('click', function() {
   if (currentAction === 'insert_slogan') {
     const insertSlogan = document.getElementById('send_text_component');
@@ -248,6 +280,8 @@ textConfirmButton.addEventListener('click', function() {
       body: JSON.stringify(slogan)
     });
     showSuccess();
+
+
   }
   else if (currentAction === 'insert_description') {
     const insertDescription = document.getElementById('send_text_component');
@@ -256,18 +290,14 @@ textConfirmButton.addEventListener('click', function() {
 
     // Fetch para insertar descripción
     fetch('/insert_description', {
-
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(description)
-
     });
     showSuccess();
 
   }
-
 });
-
 
 // Evento para mostrar la sección de 'tienda'
 tiendaBtn.addEventListener('click', function() {
