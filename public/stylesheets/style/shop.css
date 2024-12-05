@@ -13,11 +13,11 @@ body{
     align-items: center;
     display: flex;
 }
+
 .seccion_principal{
     width: 100%;
     height: 100vh ;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     overflow: hidden;
 }
@@ -26,22 +26,12 @@ body{
     color: #FFF;
     font-weight: 800;
     font-size: 4vw;
-    -webkit-text-stroke: 1px rgba(183, 181, 181, 0.874);
     text-align: center; /* Centrar el texto */
     margin: 0 auto; /* Centrar horizontalmente en caso de necesitarlo */
     display: block;
 }
 
-/* Texto de calidad */
-.pe {
-    color: #070707;
-    font-size: 1.8vw;
-    text-align: center !important; /* Asegura que todo el contenido dentro esté centrado */
-    display: flex;
-    flex-direction: column !important;
-    align-items: center!important;
-    justify-content: center !important;
-}
+
 .btncasa{
     background-color: white;
     border-top-right-radius: 50px;  
@@ -67,9 +57,11 @@ body{
 }
 
 .divisiones_1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50%;
     height: 100vh;
-    
 }
 
 
@@ -87,7 +79,7 @@ body{
 
 .formulario{
     width: 60%;
-    height: 40vw !important;
+    height: 40vw;
     background-color: #FFF;
     border-radius: 10px;
     display: flex;
@@ -95,7 +87,7 @@ body{
     align-items: center;
     justify-content: start;
     padding-top: 35px;
-    margin-top: -40%;
+    margin-top: -47%;
 }
 
 
@@ -161,14 +153,6 @@ body{
 }
 
 
-.contenedor_boton{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-}
-
 
 
 .svg_bottom{
@@ -208,11 +192,6 @@ body{
     z-index: 1;
 }
 
-.carousel_container{
-    position: relative;
-    width: 70vh;
-    z-index: 3;
-}
 
 h5{
     font-family: 'Poppins';
@@ -223,49 +202,13 @@ p{
     color: #000;
 }
 
-.img_carousel_products{
-    width: 60vh;
-    height: 70vh;
-    object-fit: cover;
-    object-position: center;
-    z-index: 3;
-    margin-left: 10%;
-}
-
-.carousel_container{
-    position: relative;
-    top: 60px;
-    right: -19vh;
-    /* z-index: 3; */
-}
 .title_granj{
 
     font-family: 'Poppins';
     color: #030303;
     font-weight: 700;
 }
-.title_granje{
-    margin-bottom: 100%;
-    font-family: 'Poppins';
-    color: #030303;
-    font-weight: 700;
-}
-.preci{
-    font-family: 'Poppins';
-    color: #030303;
-    bottom: 0%;
-}
-.prec{
-    
-    font-family: 'Poppins';
-    color: #FFF;
-    top: 400px;
-    bottom: 0%;
-    font-weight: 800;
-    font-size: 60px;
-    -webkit-text-stroke: 2px rgba(183, 181, 181, 0.874); 
 
-}
 
 .granja{
     font-family: 'Poppins';
@@ -273,11 +216,6 @@ p{
     font-weight: 400;
     margin-bottom: -10%;
     margin-top: -132%;
-}
-.carousel-caption d-none d-md-block{
-    font-family: 'Poppins';
-    color: yellow;
-    margin-top: -80px;
 }
 
 .carousel slide{
@@ -291,29 +229,7 @@ p{
     background-color: #9CE24C;
  
 }
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    position: relative;
-}
 
-
-.top-content {
-    text-align: center; 
-    position: fixed;
-    margin-top: -30%;
-}
-
-
-.bottom-content {
-    text-align: center; 
-    padding-bottom: 0px; 
-    margin-top: auto; 
-    position: fixed;
-    bottom: -18;
-    margin-left: -80px;
-}
 .pe{
     font-family: 'Sofadi One';
     color: #ffffff;
@@ -367,11 +283,6 @@ p{
     cursor: pointer;
 }
 
-.divisiones_1{
-    width: 50%;
-    height: 100vh;
-}
-
 .shop_form{
     display: flex;
     flex-direction: column;
@@ -381,10 +292,6 @@ p{
     padding:1vw; 
 }
 
-.formulario{
-    padding-top: 35px;
-    margin-top: -53%;
-}
 
 .enter_title{
     font-family: 'Times New Roman', Times, serif;
@@ -478,38 +385,19 @@ p{
 }
 
 .img_carousel_products{
-    width: 60vh;
-    height: 70vh;
+    margin-top: 5vh;
+    margin-bottom: 6vh;
+    width: 50vh;
+    height: 50vh;
     object-fit: cover;
     object-position: center;
     z-index: 3;
-    margin-left: 10%;
-}
-
-.carousel_container{
-    position: relative;
-    top: 60px;
-    right: -19vh;
-    /* z-index: 3; */
 }
 
 .title_granj{
     font-family: 'Poppins';
     color: #030303;
     font-weight: 700;
-}
-
-.title_granje{
-    margin-bottom: 100%;
-    font-family: 'Poppins';
-    color: #030303;
-    font-weight: 700;
-}
-
-.preci{
-    font-family: 'Poppins';
-    color: #030303;
-    bottom: 0%;
 }
 
 .prec{
@@ -519,7 +407,6 @@ p{
     bottom: 0%;
     font-weight: 800;
     font-size: 60px;
-    -webkit-text-stroke: 2px rgba(183, 181, 181, 0.874); 
 }
 
 .granja{
@@ -530,44 +417,13 @@ p{
     margin-top: -132%;
 }
 
-.carousel-caption d-none d-md-block{
-    font-family: 'Poppins';
-    color: yellow;
-    margin-top: -80px;
-}
 
-.carousel slide{
-    width: 400px;
-    height: 400px;
-}
 
 .texg{
     font-family: 'Poppins';
     color: #6C9F31;
     margin-top: 100%;
     background-color: #9CE24C;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    position: relative;
-}
-
-.top-content {
-    text-align: center; 
-    position: fixed;
-    margin-top: -30%;
-}
-
-.bottom-content {
-    text-align: center; 
-    padding-bottom: 0px; 
-    margin-top: auto; 
-    position: fixed;
-    bottom: -18;
-    margin-left: -80px;
 }
 
 .pe{
@@ -586,360 +442,6 @@ p{
     margin-left: 310px !important;
 }
 
-/* -------------------------------------------------------------------------------------------------------------------------- */
-/* Media Query para pantallas pequeñas (móviles y tablets) */
-@media (max-width: 768px) {
- 
-    .intero{
-        display: flex;
-        margin-left: 330px !important;
-    }
-    .shop_form{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        background: linear-gradient(#dbefc5, #9ce24c);
-        padding: 0px; 
-        width: 50%;
-        height: 100vh !important;
-        margin:0;
-    }
-    .enviar{
-        margin-left: 25% !important;
-    }
-    
-.btncasa {
-    background-color: white;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
-    padding: 20px;
-    width: 10vw;
-    height: 6.5vw;
-    display: flex;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border: none;
-    align-items: center;
-    justify-content: center;
-    margin-left: -90%;
-    margin-top: 40%;
-    transition: transform 0.5s ease; /* Animación suave de desplazamiento */
-}
-
-.btncasa:hover {
-    background-color: #9CE24C;
-    cursor: pointer;
-    transform: translateX(65%); /* Mueve el botón hacia la derecha */
-}
-
-.btncasa:hover svg path {
-    fill: #FFF;
-}
-
-#botonCasa svg {
-    width: 3vw; /* Toma el 80% del contenedor */
-    height: 3vw;
-}
-    .seccion_principal {
-        flex-direction: column; 
-        height: auto; 
-        padding: 0; 
-    }
-    .carousel_container {
-        width: 100%; 
-    
-    }
-    .divisiones.shop_form,
-.divisiones {
-    width: 100%; 
-    margin: 0; 
-    z-index: 5; 
-}
-.container{
-    z-index: 5;
-}
-.enviar{
-    background-color: #6C9F31;
-    margin-left: -90px;
-    width: 90px !important;
-}
-
-.shop_form {
-    padding: 10px; 
-    margin-top: 10px; 
-}
-.interrogation{
-    align-self: flex-end;
-    align-items: center;
-    justify-content: center;
-    margin:0 0 0 0 ;
-    cursor: pointer;
-}
-.intero{
-    display: flex;
-    margin-left: 0px;
-}
-
-#interr, #interr1 {
-    fill: #6C9F31;
-    stroke: #6C9F31; /* Agrega un borde más oscuro */
-    stroke-width: 2px; /* Aumenta el grosor del borde para dar efecto de "negrita" */
-}
-
-.formulario {
-    width: 100%; 
-    height: 650px !important; 
-margin-top: -15%;
-}
-.top-content {
-    text-align: center; 
-    position: fixed;
-    margin-top: 0%;
-    z-index: 5;
-  
-}
-.carousel_container {
-    width: 100%; /* Ocupar el 100% del ancho */
-    top: 0; /* Resetear posición */
-    right: 0; /* Resetear posición */
-    margin-top: 20px; /* Añadir margen superior */
-}
-
-.img_carousel_products {
-    width: 100%; /* Ocupar el 100% del ancho */
-    height: auto; /* Ajustar la altura automáticamente */
-    margin-left: 0; /* Eliminar margen izquierdo */
-}
-
-
-
-.btncasa {
-    position: static; 
-    margin: 10px auto; 
-    top:50%;
-    bottom: 1%;
-}
-
-
-
-.input_component {
-    width: 100%; 
-    padding: 10px; 
-}
-
-.enviar {
-    width: 50%; 
-    height: 40px; 
-    font-size: 16px; 
-    
-}
-
-
-.carousel-caption {
-    position: static; 
-    text-align: center; 
-    margin-top: 10px; 
-}
-
-.top-content {
-    position: relative; 
-    margin-top: 20px; 
-}
-
-.bottom-content {
-    position: relative; 
-    margin-left: 0; 
-    margin-top: 20px; 
-}
-
-.prec {
-    font-size: 30px;
-  
-}
-.contenedor_campos{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-    margin-left: 95px;
-    margin-top: 30px;
-}
-
-
-.svg_bottom{
-    width: 102%;
-    bottom: -30px;
-    position: relative;
-}
-
-.circle_bottom{
-    width: 100vh;
-    height: 100vh;
-    border-radius: 50%;
-    background: linear-gradient(#ACE965, #81D520);
-    position: fixed;
-    bottom: -75vh;
-    right: 2%;
-    z-index: 0;
-    left: -35%;
-}
-.input_component{
-    height: 50px !important;
-    width: 300px !important;
-}
-.style_input{
-    font-size: 20px;
-    margin-left: 9px;
-}
-.svg_bottom_layer{
-    position: fixed;
-    width: 100vh;
-    bottom: 0;
-    right: 2%;
-    z-index: 1;
-}
-
-.svg_bottom_up_layer{
-    position: fixed;
-    width: 100vh;
-    bottom: 0;
-    right:  2%;
-    z-index: 1;
-}
-.carousel_container{
-    display: none;
-}
-.bottom-content{
-    display: none !important;
-}
-.circle_bottom{
-    display: none !important;
-}
-}
-@media (max-width: 767px) {
-
-    .shop_form {
-        width: 100%;
-        height: 750px;
-    }
-    .divisiones_1{
-        background-color: #6C9F31;
-        display: none !important;
-    }
-    .carousel_container{
-        background-color: #6C9F31;
-    }
-    .logo{
-        height: 60px;
-        width: 60px;
-    }
-    .enter_title{
-        font-size: 30px;
-    }
-
-    .divisiones_1{
-        width: 100%;
-        margin-top: 300px;
-        height: auto;
-        float: none;
-      
-    }
-    .container{
-        background-color: #29d8d8;
-        color: #0dcccc;
-        left: -1000px;
-    }
-    .title_granj{
-        font-size: 25px;
-        margin-left: -100%;
-    }
- 
-    .datos{
-        font-size: 20px;
-    }
-    .bottom_text{
-        font-size: 15px;
-    }
-    .carousel_container {
-        width: 100%;
-        top: -10px;
-        margin-top: -30%;
-        bottom: -10%;
-    }
-
-    .carousel-item {
-        text-align: center;
-    }
-
-    .img_carousel_products {
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    .title_granj, .prec, .pe {
-        font-size: 1.2em;
-    }
-
-    .preci {
-        margin-top: 10px;
-    }
-
-    .circle_bottom {
-        margin-top: 20px;
-    }
-   
-    .btncasa{
-        background-color: white;
-        border-top-right-radius: 50px;  
-        border-bottom-right-radius: 50px; 
-        padding: 20px;
-        width: 100px;
-        height: 90px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
-        border: none;
-        margin-left: -22%; 
-        z-index: 3;
-        position: relative;
-        top: 350px;
-}
-
-#botonCasa svg {
-    width: 40px !important;
-    height: 40px !important;
-}
-.svg_bottom{
-    width: 102%;
-    bottom: -3px;
-    position: relative;
-}
-.input_component{
-    height: 10px;
-}
-
-
-.btncasa {
-    cursor: pointer;
-    transition: left 0.5s ease; 
-}
-
-.btncasa svg {
-    width: 100px;
-    height: 100px;
-}
-
-.btncasa.show {
-    left: 60px; 
-}
-.top-content {
-    text-align: center; 
-    position: fixed;
-    margin-top: -30%;
-}
-
-}
 .btncasa {
     cursor: pointer;
     transition: left 0.5s ease; /* Transición suave al mostrar el botón */
@@ -955,209 +457,21 @@ margin-top: -15%;
 .btncasa.show {
     left: 60px; 
 }
-.top-content {
-    text-align: center; 
-    position: fixed;
-    margin-top: -30%;
-  
-}
 
-@media (min-width: 1440px) and (max-height: 900px) {
-    .intero{
-        display: flex;
-        margin-left: 410px !important;
-    }
-    .shop_form{
-    width: 50% !important;
-    }
-    .img_carousel_products {
-        margin-left: 5% !important;
-    }
-    .bottom_text{
-        font-size: 15px;
-        margin-left: 0px !important;
-    }
-
-    .formulario {
-        width: 90% ;
-        padding: 30px;
-        margin-top: -40%;
-    }
-
-    .input_component {
-        width: 80%;
-        height: 45px;
-        padding-left: 15px;
-    }
-
-    .style_input {
-        font-size: 20px;
-    }
-
-    .shop_form {
-        width: 55%;
-    }
-    .bottom_text{
-        font-size: 15px !important;
-        margin-left: -10%;
-    }
-    
-}
-/* ipads */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .seccion_principal {
-        flex-direction: column;
-        height: auto;
-    }
-    .divisiones_1{
-        background-color: #6C9F31;
-        display: none !important;
-    }
-    .btncasa {
-        width: 90px;
-        height: 80px;
-        margin-top: 40vh;
-        margin-left: -11%;
-    }
-    .datos{
-        font-size: 18px !important;
-    }
-
-    .shop_form {
-        width: 100%;
-        padding: 20px;
-        height: 100vh;
-    }
-
-    .formulario {
-        width: 60%;
-        padding: 20px;
-        margin-top: -45%;
-    }
-
-    .input_component {
-        width: 95%;
-        height: 60px;
-        padding-left: 15px;
-    }
-
-    .style_input {
-        font-size: 18px;
-    }
-
-    .carousel_container {
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    .img_carousel_products {
-        width: 100%;
-        height: auto;
-        margin-left: 0;
-    }
-
-    .divisiones_1{
-        display: none;
-    }
-}
-@media (min-width: 1440px) and (max-height: 900px) {
-    .btncasa {
-        width: 100px;
-        height: 90px;
-        margin-left: -90%;
-        margin-top: 40%;
-    }
-
-    .formulario {
-        width: 70%;
-        padding: 30px;
-        margin-top: -47%;
-        margin-left: -20%;
-    }
-
-    .input_component {
-        width: 80%;
-        height: 45px;
-        padding-left: 15px;
-    }
-
-    .style_input {
-        font-size: 20px;
-    }
-
-    .shop_form {
-        width: 100%;
-    }
-
-    .carousel_container {
-        width: 100%;
-    }
-
-    .img_carousel_products {
-        width: 100vh;
-        height: 70vh;
-        object-fit: cover;
-        margin-left: -60%;
-    }
-    
-}
-
-/* tabletas */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .seccion_principal {
-        flex-direction: column;
-        height: auto;
-    }
-    .divisiones_1{
-        background-color: #6C9F31;
-        display: none !important;
-    }
-    .btncasa {
-        width: 90px;
-        height: 80px;
-        margin-top: 40vh;
-        margin-left: -90%;
-    }
-
-    .shop_form {
-        width: 100%;
-        padding: 20px;
-        height: 100vh;
-
-    }
-
-    .formulario {
-        padding: 20px;
-        width: 75%;
-        margin-top: -20%;
-        height: 80vh; 
-    }
-
-    .input_component {
-        width: 95%;
-        height: 60px;
-    }
-
-    .style_input {
-        font-size: 18px;
-    }
-
-    .carousel_container {
-        width: 100%;
-        margin-top: 20px;
-    }
-    
-    .img_carousel_products {
-        width: 100%;
-        height: auto;
-    }
-}
 .mensaje_exito, .mensaje_advertencia {
     padding: 10px;
     border-radius: 5px;
     margin-top: 10px;
     display: none; /* Ocultamos inicialmente */
 }
+.top-content{
+    margin-bottom: 42vh;
+}
+
+.bottom-content{
+    margin-bottom: .5vh;
+}
+
 
 .mensaje_exito {
    color: green;
@@ -1210,61 +524,9 @@ margin-top: -15%;
     z-index: 1;
 }
 
-/* Media queries para adaptar en distintos anchos de pantalla */
-@media (max-width: 1200px) {
-    .circle_bottom {
-        width: 70vw;
-        height: 70vh;
-        bottom: -35vh;
-    }
-    .svg_bottom_layer, .svg_bottom_up_layer {
-        width: 70vw;
-    }
-}
-
-@media (max-width: 768px) {
-    .circle_bottom {
-        width: 80vw;
-        height: 60vh;
-        bottom: -30vh;
-    }
-    .svg_bottom_layer, .svg_bottom_up_layer {
-        width: 80vw;
-    }
-}
-
-@media (max-width: 480px) {
-    .circle_bottom {
-        width: 90vw;
-        height: 50vh;
-        bottom: -25vh;
-    }
-    .svg_bottom_layer, .svg_bottom_up_layer {
-        width: 90vw;
-    }
-}
-/* comennen */
-
-/* Contenedor del carrusel */
-.carousel_container {
-    width: 100%;
-    max-width: 100vw;
-    overflow: hidden;
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 3;
-    margin-left: -10vw !important;
-}
 
 /* Imágenes del carrusel */
-.img_carousel_products {
-    width: 100%;
-    height: 30vw;
-    max-height: 100%;
-    object-fit: cover;
-}
+
 
 /* Texto y títulos */
 h5, p, .title_granj, .preci, .pe, .prec {
@@ -1283,7 +545,6 @@ h5, p, .title_granj, .preci, .pe, .prec {
     color: #FFF;
     font-weight: 800;
     font-size: 4vw;
-    -webkit-text-stroke: 1px rgba(183, 181, 181, 0.874);
     text-align: center; /* Centrar el texto */
     margin: 0 auto; /* Centrar horizontalmente en caso de necesitarlo */
     display: block;
@@ -1291,8 +552,8 @@ h5, p, .title_granj, .preci, .pe, .prec {
 
 /* Texto de calidad */
 .pe {
-    color: #070707;
-    font-size: 1.8vw;
+    color: #ffffff;
+    font-size: 1.2vw;
     text-align: center; /* Asegura que todo el contenido dentro esté centrado */
     display: flex;
     flex-direction: column;
@@ -1300,175 +561,6 @@ h5, p, .title_granj, .preci, .pe, .prec {
     justify-content: center;
 }
 
-/* Posicionamiento del contenido */
-.carousel-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 2vw;
-    text-align: center;
-}
-
-/* Media queries para ajustar tamaños en pantallas más pequeñas */
-@media (max-width: 1024px) {
-    .title_granj {
-        font-size: 3vw;
-    }
-    .prec {
-        font-size: 4.5vw;
-        justify-content: center;
-        text-align: center !important;
-        display:flex;
-        align-items: center !important;
-    }
-    .pe {
-        font-size: 2.2vw;
-
-    }
-}
-
-@media (max-width: 768px) {
-    .title_granj {
-        font-size: 4vw;
-    }
-    .prec {
-        font-size: 5vw;
-    }
-    .pe {
-        font-size: 2.5vw;
-    }
-}
-
-@media (max-width: 480px) {
-    .title_granj {
-        font-size: 5vw;
-    }
-    .prec {
-        font-size: 6vw;
-    }
-    .pe {
-        font-size: 3vw;
-    }
-}
-
-/* media tabletas volteadas */
-/* Estilos exclusivos para pantallas de 800px de ancho y 1280px de alto */
-/* Estilos específicos para pantalla de 800x1280 */
-@media only screen and (width: 800px) and (height: 1280px) {
-    .shop_form {
-        width: 100% !important;
-        padding: 15px !important;
-        justify-content: center !important;
-        align-items: center !important;
-    }
-    .btncasa{
-        margin-top:60%;
-    }
-
-    .formulario {
-        width: 90% !important;
-        padding: 15px !important;
-        margin-top: 5% !important;
-        border-radius: 10px !important;
-        height: 70vh!important;
-        margin-top: -60% !important;
-
-    }
-
-    .input_component {
-        width: 95% !important;
-        height: 80px !important;
-        padding: 20px !important;
-        margin-bottom: 25px !important;
-        font-size: 20px;
-    }
-
-    .style_input {
-        font-size: 26px !important;
-        margin-left: 10px;
-    }
-    .logo{
-        height: 80px;
-        width: 80px;
-    }
-    .enter_title{
-        font-size: 45px;
-    }
-    .since{
-        font-size: 2em ;
-    }
-    .datos{
-        font-size:25px !important;
-    }
-    .bottom_text{
-        font-size: 20px;
-    }
-    .enviar{
-        width: 200px;
-        height: 40px;
-        font-size: 20px;
-    }
-}
-
-/* media tabletas volteadas */
-@media (max-width: 300px) and (max-height: 800px) {
-    .seccion_principal {
-        flex-direction: column; 
-        height: auto; 
-        padding: 0;
-    }
-
-    .shop_form {
-        width: 100%;
-        height: 100vh;
-        padding: 10px;
-    }
-    .bottom_text{
-        font-size: 12px;
-    }
-
-    .formulario {
-        width: 95%;
-        height: auto;
-        margin-top: 10px;
-    }
-
-    .input_component {
-        width: 80% !important;
-        height: 40px;
-        padding: 10px;
-        margin-left: -15px;
-    }
-
-    .style_input {
-        font-size: 16px;
-        margin-left: 5px;
-    }
-
-    .btncasa {
-        width: 80px;
-        height: 60px;
-        margin-top: 20px;
-    }
-
-    .prec {
-        font-size: 24px;
-        text-align: center;
-    }
-
-    .carousel_container, .circle_bottom, .bottom-content {
-        display: none;
-    }
-
-    .top-content {
-        margin-top: 10px;
-        text-align: center;
-    }
-    .enviar{
-        margin-left: 40px !important;
-    }
-}
 
 /*interrogation*/
 .interrogation{
@@ -1512,6 +604,8 @@ h5, p, .title_granj, .preci, .pe, .prec {
 }
 
 .popup {
+    word-wrap: break-word; /* Permite que las palabras largas se dividan */
+    white-space: normal; /* Asegura que el texto se envuelva correctamente */
     padding: 20px;
     background: #fff;
     border-radius: 5px;
@@ -1539,18 +633,733 @@ h5, p, .title_granj, .preci, .pe, .prec {
     overflow: auto;
 }
 
+/* -------------------------------------------------------------------------------------------------------------------------- */
+.carousel-item{
+    padding: 10.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-inner{
+    margin:0;
+    padding: 0;
+    height: auto;
+
+}
+
+ .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+.title_granj,
+.pe,
+.prec {
+    margin: 0 auto;
+    /* Centra los textos dentro del contenedor */
+}
+
+
+/* ----------------------------------------------- Media Querys -----------------------------------------------*/
+
+
+/* Media Query para pantallas pequeñas (móviles y tablets) */
+
+
+@media (max-width: 300px) and (max-height: 800px) {
+    .seccion_principal {
+        flex-direction: column;
+        height: auto;
+        padding: 0;
+    }
+
+    .shop_form {
+        width: 100%;
+        height: 100vh;
+        padding: 10px;
+    }
+
+    .bottom_text {
+        font-size: 12px;
+    }
+
+    .formulario {
+        width: 95%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .input_component {
+        width: 80% !important;
+        height: 40px;
+        padding: 10px;
+        margin-left: -15px;
+    }
+
+    .style_input {
+        font-size: 16px;
+        margin-left: 5px;
+    }
+
+    .btncasa {
+        width: 80px;
+        height: 60px;
+        margin-top: 20px;
+    }
+
+    .prec {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .carousel_container, .circle_bottom, .bottom-content {
+    }
+
+    .top-content {
+
+    }
+
+    .enviar {
+        margin-left: 40px !important;
+    }
+
+    .divisiones_1{
+        display: none;
+    }
+}
+@media (max-width: 480px) {
+    .circle_bottom {
+        width: 90vw;
+        height: 50vh;
+        bottom: -25vh;
+    }
+    .svg_bottom_layer, .svg_bottom_up_layer {
+        width: 90vw;
+    }
+    .divisiones_1{
+        display: none;
+    }
+}
+@media (max-width: 480px) {
+    .title_granj {
+        font-size: 5vw;
+    }
+    .prec {
+        font-size: 6vw;
+    }
+    .pe {
+        font-size: 3vw;
+    }
+    .divisiones_1{
+        display: none;
+    }
+}
 @media screen and (max-width: 700px) {
     .popup {
         width: 70%;
     }
+    .divisiones_1{
+        display: none;
+    }
 }
-.carousel-item {
-    position: relative;
-  }
-  
-  .carousel-caption {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    color: white; /* Asegúrate de que el texto sea legible sobre la imagen */
-  }
+@media (max-width: 767px) {
+
+    .shop_form {
+        width: 100%;
+        height: 750px;
+    }
+
+    .divisiones_1{
+        display: none;
+    }
+
+    .carousel_container {
+
+    }
+
+    .logo {
+        height: 60px;
+        width: 60px;
+    }
+
+    .enter_title {
+        font-size: 30px;
+    }
+
+    .container {
+
+    }
+
+    .title_granj {
+        font-size: 25px;
+        margin-left: -100%;
+    }
+
+    .datos {
+        font-size: 20px;
+    }
+
+    .bottom_text {
+        font-size: 15px;
+    }
+
+    .carousel-item {
+
+    }
+
+    .img_carousel_products {
+
+    }
+
+    .title_granj, .prec, .pe {
+        font-size: 1.2em;
+    }
+
+    .preci {
+        margin-top: 10px;
+    }
+
+    .circle_bottom {
+        margin-top: 20px;
+    }
+
+    .btncasa {
+        background-color: white;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        padding: 20px;
+        width: 100px;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border: none;
+        margin-left: -22%;
+        z-index: 3;
+        position: relative;
+        top: 350px;
+        cursor: pointer;
+        transition: left 0.5s ease;
+    }
+
+    #botonCasa svg {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .svg_bottom {
+        width: 102%;
+        bottom: -3px;
+        position: relative;
+    }
+
+    .input_component {
+        height: 10px;
+    }
+
+    .btncasa svg {
+        width: 100px;
+        height: 100px;
+    }
+
+    .btncasa.show {
+        left: 60px;
+    }
+
+    .top-content {
+        text-align: center;
+        position: fixed;
+        margin-top: -30%;
+    }
+}
+@media (max-width: 768px) {
+    .circle_bottom {
+        width: 80vw;
+        height: 60vh;
+        bottom: -30vh;
+    }
+    .svg_bottom_layer, .svg_bottom_up_layer {
+        width: 80vw;
+    }
+    .divisiones_1{
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+
+    .divisiones_1{
+        display: none;
+    }
+
+    .intero {
+        display: flex;
+        margin-left: 0;
+    }
+
+    .shop_form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: linear-gradient(#dbefc5, #9ce24c);
+        padding: 10px; 
+        margin-top: 10px;
+        width: 50%;
+        height: 100vh !important;
+        margin: 0;
+    }
+
+    .enviar {
+        background-color: #6C9F31;
+        margin-left: -90px;
+        width: 90px !important;
+        height: 40px; 
+        font-size: 16px;
+    }
+
+    .btncasa {
+        background-color: white;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        padding: 20px;
+        width: 10vw;
+        height: 6.5vw;
+        display: flex;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border: none;
+        align-items: center;
+        justify-content: center;
+        margin-left: -90%;
+        margin-top: 40%;
+        transition: transform 0.5s ease;
+        position: static;
+        margin: 10px auto;
+        top: 50%;
+        bottom: 1%;
+    }
+
+    .btncasa:hover {
+        background-color: #9CE24C;
+        cursor: pointer;
+        transform: translateX(65%);
+    }
+
+    .btncasa:hover svg path {
+        fill: #FFF;
+    }
+
+    #botonCasa svg {
+        width: 3vw;
+        height: 3vw;
+    }
+
+    .carousel_container {
+   
+    }
+
+    .divisiones.shop_form,
+    .divisiones {
+        width: 100%;
+        margin: 0;
+        z-index: 5;
+    }
+
+    .container {
+    
+    }
+
+    .formulario {
+        width: 100%;
+        height: 650px !important;
+        margin-top: -15%;
+    }
+
+    .top-content {
+
+    }
+
+    .carousel-caption {
+
+    }
+
+    .bottom-content {
+        position: relative;
+        margin-top: 20px;
+        display: none !important;
+    }
+
+    .prec {
+        font-size: 30px;
+    }
+
+    .contenedor_campos {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        margin-left: 95px;
+        margin-top: 30px;
+    }
+
+    .svg_bottom {
+        width: 102%;
+        bottom: -30px;
+        position: relative;
+    }
+
+    .circle_bottom {
+        width: 100vh;
+        height: 100vh;
+        border-radius: 50%;
+        background: linear-gradient(#ACE965, #81D520);
+        position: fixed;
+        bottom: -75vh;
+        right: 2%;
+        z-index: 0;
+        left: -35%;
+        display: none !important;
+    }
+
+    .svg_bottom_layer, .svg_bottom_up_layer {
+        position: fixed;
+        width: 100vh;
+        bottom: 0;
+        right: 2%;
+        z-index: 1;
+    }
+
+    .input_component {
+        width: 100% !important;
+        height: 50px !important;
+        width: 300px !important;
+    }
+
+    .style_input {
+        font-size: 20px;
+        margin-left: 9px;
+    }
+
+    #interr, #interr1 {
+        fill: #6C9F31;
+        stroke: #6C9F31;
+        stroke-width: 2px;
+    }
+
+    .interrogation {
+        align-self: flex-end;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+}
+@media (max-width: 768px) {
+    .divisiones_1{
+        display: none;
+    }
+    .title_granj {
+        font-size: 4vw;
+    }
+    .prec {
+        font-size: 5vw;
+    }
+    .pe {
+        font-size: 2.5vw;
+    }
+}
+/* Media queries para ajustar tamaños en pantallas más pequeñas */
+@media (max-width: 1024px) {
+
+    .title_granj {
+        font-size: 3vw;
+    }
+    .prec {
+        font-size: 4.5vw;
+        justify-content: center;
+        text-align: center !important;
+        display:flex;
+        align-items: center !important;
+    }
+    .pe {
+        font-size: 2.2vw;
+
+    }
+}
+
+/* tabletas */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .divisiones_1{
+        display: none;
+    }
+
+    .seccion_principal {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .divisiones_1 {
+        display: none;
+    }
+
+    .btncasa {
+        width: 90px;
+        height: 80px;
+        margin-top: 40vh;
+        margin-left: -90%;
+    }
+
+    .shop_form {
+        width: 100%;
+        padding: 20px;
+        height: 100vh;
+    }
+
+    .formulario {
+        padding: 20px;
+        width: 75%;
+        margin-top: -20%;
+        height: 80vh;
+    }
+
+    .input_component {
+        width: 95%;
+        height: 60px;
+    }
+
+    .style_input {
+        font-size: 18px;
+    }
+
+    .carousel_container {
+
+    }
+
+    .img_carousel_products {
+
+    }
+}
+/* ipads */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .seccion_principal {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .divisiones_1{
+        display: none;
+    }
+
+    .btncasa {
+        width: 90px;
+        height: 80px;
+        margin-top: 40vh;
+        margin-left: -11%;
+    }
+
+    .datos {
+        font-size: 18px !important;
+    }
+
+    .shop_form {
+        width: 100%;
+        padding: 20px;
+        height: 100vh;
+    }
+
+    .formulario {
+        width: 60%;
+        padding: 20px;
+        margin-top: -45%;
+    }
+
+    .input_component {
+        width: 95%;
+        height: 60px;
+        padding-left: 15px;
+    }
+
+    .style_input {
+        font-size: 18px;
+    }
+
+    .carousel_container {
+   
+    }
+
+    .img_carousel_products {
+
+    }
+
+}
+
+@media only screen and (width: 800px) and (height: 1280px) {
+    .shop_form {
+        width: 100% !important;
+        padding: 15px !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    .btncasa {
+        margin-top: 60%;
+    }
+
+    .formulario {
+        width: 90% !important;
+        padding: 15px !important;
+        margin-top: 5% !important;
+        border-radius: 10px !important;
+        height: 70vh !important;
+        margin-top: -60% !important;
+    }
+
+    .input_component {
+        width: 95% !important;
+        height: 80px !important;
+        padding: 20px !important;
+        margin-bottom: 25px !important;
+        font-size: 20px;
+    }
+
+    .style_input {
+        font-size: 26px !important;
+        margin-left: 10px;
+    }
+
+    .logo {
+        height: 80px;
+        width: 80px;
+    }
+
+    .enter_title {
+        font-size: 45px;
+    }
+
+    .since {
+        font-size: 2em;
+    }
+
+    .datos {
+        font-size: 25px !important;
+    }
+
+    .bottom_text {
+        font-size: 20px;
+    }
+
+    .enviar {
+        width: 200px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .divisiones_1{
+        display: none;
+    }
+}
+/* Media queries para adaptar en distintos anchos de pantalla */
+@media (max-width: 1200px) {
+    .circle_bottom {
+        width: 70vw;
+        height: 70vh;
+        bottom: -35vh;
+    }
+    .svg_bottom_layer, .svg_bottom_up_layer {
+        width: 70vw;
+    }
+}
+@media (min-width: 1440px) and (max-height: 900px) {
+
+    .intero {
+        display: flex;
+        margin-left: 410px !important;
+    }
+
+    .shop_form {
+        width: 50% !important;
+    }
+
+    .img_carousel_products {
+   
+    }
+
+    .bottom_text {
+        font-size: 15px;
+        margin-left: 0px !important;
+    }
+
+    .formulario {
+        width: 90%;
+        padding: 30px;
+        margin-top: -40%;
+    }
+
+    .input_component {
+        width: 80%;
+        height: 45px;
+        padding-left: 15px;
+    }
+
+    .style_input {
+        font-size: 20px;
+    }
+
+    /* El segundo bloque redundante de .shop_form se eliminó */
+    .bottom_text {
+        font-size: 15px !important;
+        margin-left: -10%;
+    }
+
+}
+@media (min-width: 1440px) and (max-height: 900px) {
+
+    .btncasa {
+        width: 100px;
+        height: 90px;
+        margin-left: -90%;
+        margin-top: 40%;
+    }
+
+    .formulario {
+        width: 70%;
+        padding: 30px;
+        margin-top: -47%;
+    }
+
+    .input_component {
+        width: 80%;
+        height: 45px;
+        padding-left: 15px;
+    }
+
+    .style_input {
+        font-size: 20px;
+    }
+
+    .shop_form {
+        width: 100%;
+    }
+
+    .carousel_container {
+    }
+
+    .img_carousel_products {   
+      
+    }
+}
+
+
+
+
+
+
+
+
+
