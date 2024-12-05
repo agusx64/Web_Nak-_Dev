@@ -230,13 +230,7 @@ p{
  
 }
 
-.pe{
-    font-family: 'Sofadi One';
-    color: #ffffff;
-    margin-top: 25px;
-    font-size: 25px;
-    
-}
+
 .bottom_text{
     color: #1A4E4E;
     font-weight: 500;
@@ -426,12 +420,19 @@ p{
     background-color: #9CE24C;
 }
 
-.pe{
-    font-family: 'Sofadi One';
+/* Texto de calidad */
+.pe {
     color: #ffffff;
-    margin-top: 25px;
-    font-size: 25px;
+    font-size: 1vw;
+    text-align: center; /* Asegura que todo el contenido dentro esté centrado */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    word-wrap: break-word; /* Permite que las palabras largas se dividan */
+    white-space: normal; /* Asegura que el texto se envuelva correctamente */
 }
+
 
 .bottom_text{
     color: #1A4E4E;
@@ -550,16 +551,7 @@ h5, p, .title_granj, .preci, .pe, .prec {
     display: block;
 }
 
-/* Texto de calidad */
-.pe {
-    color: #ffffff;
-    font-size: 1.2vw;
-    text-align: center; /* Asegura que todo el contenido dentro esté centrado */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+
 
 
 /*interrogation*/
@@ -667,6 +659,13 @@ h5, p, .title_granj, .preci, .pe, .prec {
 
 
 /* ----------------------------------------------- Media Querys -----------------------------------------------*/
+
+
+
+
+
+
+
 
 
 /* Media Query para pantallas pequeñas (móviles y tablets) */
@@ -1379,12 +1378,4 @@ h5, p, .title_granj, .preci, .pe, .prec {
       
     }
 }
-
-
-
-
-
-
-
-
 

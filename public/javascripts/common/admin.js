@@ -314,11 +314,11 @@ tiendaBtn.addEventListener('click', function() {
     limitCharacters(shop_text_pop, 12); // Aplica el límite de caracteres
   
     const shop_title_pop = document.getElementById('send_text_description');
-    limitCharacters(shop_title_pop, 12); // Aplica el límite de caracteres
+    limitCharacters(shop_title_pop, 20); // Aplica el límite de caracteres
 
     // Ubicar el nombre del input del pop up (Id)
     const shop_slogan_pop = document.getElementById('send_text_slogan');
-    limitCharacters(shop_slogan_pop, 12); // Aplica el límite de caracteres
+    limitCharacters(shop_slogan_pop, 35); // Aplica el límite de caracteres
      
     const shop_price_pop = document.getElementById('send_text_price');
     limitCharacters(shop_price_pop, 12); // Aplica el límite de caracteres
