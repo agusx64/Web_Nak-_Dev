@@ -1528,9 +1528,17 @@ section.section_testimonials p.texto_test span.nk {
     }
 
     .container_personal {
+        display: flex;
+        flex-direction: column;
         height: auto;
         width: 100%;
-        padding: 20vh 15vh 20vh 15vh;
+        padding: 7vh 0 5vh 0;
+    }
+
+    .tarjetas_personal{
+        margin: 0 0 5vh 0;
+        word-wrap: break-word; /* Permite que las palabras largas se dividan */
+        white-space: normal; /* Asegura que el texto se envuelva correctamente */
     }
 
     .tarjetas_personal .read-more-btn {
@@ -1999,16 +2007,13 @@ section.section_testimonials p.texto_test span.nk {
     }
 
     /*----------------------------------------section_personal----------------------------------------*/
-    .section_personal {
-        height: auto;
-        margin: 0;
-        padding: 0;
-    }
-
     .container_personal {
+        display: flex;
+        flex-direction: column;
         height: auto;
         width: 100%;
-        padding: 20vh 7vh 20vh 7vh;
+        padding: 7vh 0 5vh 0;
+
         overflow: hidden;
         /* Evita que el contenido desborde */
         box-sizing: border-box;
@@ -2017,6 +2022,26 @@ section.section_testimonials p.texto_test span.nk {
         /* Ajusta palabras largas */
         word-break: break-word;
         /* Rompe palabras largas para evitar desbordamiento */
+    }
+
+    .tarjetas_personal{
+        margin: 0 0 5vh 0;
+        word-wrap: break-word; /* Permite que las palabras largas se dividan */
+        white-space: normal; /* Asegura que el texto se envuelva correctamente */
+        overflow: hidden;
+        /* Evita que el contenido desborde */
+        box-sizing: border-box;
+        /* Asegura que el padding no cause desbordamiento */
+        word-wrap: break-word;
+        /* Ajusta palabras largas */
+        word-break: break-word;
+        /* Rompe palabras largas para evitar desbordamiento */
+    }
+    
+    .section_personal {
+        height: auto;
+        margin: 0;
+        padding: 0;
     }
 
     .tarjetas_personal .read-more-btn {
@@ -3497,19 +3522,23 @@ section.section_testimonials p.texto_test span.nk {
     max-height: none; /* Permitir altura dinámica */
   }
  
-  #des_team1, #des_team2, #des_team3{
+  #des_team1, #des_team2, #des_team3{  
+    word-wrap: break-word; /* Permitir que las palabras largas se dividan y no desborden */
+    overflow-wrap: break-word; /* Soporte adicional para el ajuste de palabras */
+    white-space: pre-wrap; /* Mantiene el espacio en blanco y permite saltos de línea */
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2; /* Mostrar solo 3 líneas */
     -webkit-box-orient: vertical;
     max-height: 4.5em; /* Altura aproximada para 3 líneas */
-    transition: max-height 0.3s ease-in-out;
-  
-  }
+    transition: max-height 0.3s ease-in-out;}
+
 
   /* Cuando el texto se expande */
   #des_team1.expanded,  #des_team2.expanded,  #des_team3.expanded{
     -webkit-line-clamp: unset; /* Quitar la restricción */
     max-height: none; /* Permitir altura dinámica */
+    min-height: none; /* Permitir altura dinámica */
+
   }
   

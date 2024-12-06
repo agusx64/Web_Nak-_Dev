@@ -1,3 +1,37 @@
+
+/* Muestra la información extra al activarse */
+.extra-info.visible {
+    display: block;
+}
+#desc_conoHuevo {
+    white-space: pre-wrap; /* Conserva saltos de línea */
+    word-break: break-word; /* Rompe palabras largas si es necesario */
+    max-width: 250px; /* Ajusta el ancho máximo */
+}
+
+.salad-item {
+    flex: 1 1 calc(50% - 15px);
+    background-color: white;
+    border-radius: 20px;
+    padding: 15px;
+    display: none;
+    flex-direction: row; 
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+    word-wrap: break-word;
+}
+#desc_alimento {
+    font-size: 14px; /* Tamaño de texto adecuado */
+    line-height: 1.5; /* Espaciado entre líneas */
+    word-wrap: break-word; /* Permite que las palabras largas se corten para ajustarse */
+    overflow-wrap: break-word; /* Compatibilidad con navegadores modernos */
+    text-align: justify; /* Alinea el texto de forma uniforme */
+    max-height: 150px; /* Define una altura máxima para evitar desbordes */
+    overflow: auto; /* Agrega una barra de desplazamiento si el texto excede la altura */
+    padding: 5px; /* Espaciado interno para mejorar la lectura */
+    box-sizing: border-box; /* Asegura que el padding no rompa el diseño */
+}
+
 /* General settings */
 
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
@@ -29,6 +63,7 @@ body, html {
     color: #A4E658;
     font-family: "Lobster", sans-serif;
 }
+
 
 .icons i {
     font-size: 1.2rem;
@@ -79,64 +114,26 @@ body, html {
     padding-left: 13px;
 }
 
-/* .salad-grid {
+.salad-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     justify-content: space-between;
     padding: 15px;
-} */
-.salad-grid {
-    display: grid;
-    gap: 20px;
-}
-.extra-info {
-    display: none;
-    margin-top: 10px;
-    font-size: 14px;
-    line-height: 1.5; /* Espaciado entre líneas */
 }
 
-/* Muestra la información extra al activarse */
-.extra-info.visible {
-    display: block;
-}
-#desc_conoHuevo {
-    white-space: pre-wrap; /* Conserva saltos de línea */
-    word-break: break-word; /* Rompe palabras largas si es necesario */
-    max-width: 250px; /* Ajusta el ancho máximo */
-}
 
 .salad-item {
     flex: 1 1 calc(50% - 15px);
     background-color: white;
     border-radius: 20px;
     padding: 15px;
-    display: none;
+    display: flex;
     flex-direction: row; 
     align-items: center;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
-    word-wrap: break-word;
-}
-#desc_alimento {
-    font-size: 14px; /* Tamaño de texto adecuado */
-    line-height: 1.5; /* Espaciado entre líneas */
-    word-wrap: break-word; /* Permite que las palabras largas se corten para ajustarse */
-    overflow-wrap: break-word; /* Compatibilidad con navegadores modernos */
-    text-align: justify; /* Alinea el texto de forma uniforme */
-    max-height: 150px; /* Define una altura máxima para evitar desbordes */
-    overflow: auto; /* Agrega una barra de desplazamiento si el texto excede la altura */
-    padding: 5px; /* Espaciado interno para mejorar la lectura */
-    box-sizing: border-box; /* Asegura que el padding no rompa el diseño */
 }
 
-
-.extra-info {
-    margin-top: 10px;
-}
-.extra-info {
-    margin-top: 10px;
-}
 /* Estilo de la imagen */
 .salad-item img {
     width: 60%; 
@@ -303,7 +300,7 @@ body, html {
 }
 
 .salad-item {
-    flex: 1 1 calc(50% - 15px); 
+    flex: 1 1 calc(50% - 15px); /* En pantallas pequeñas, se muestran dos por fila */
     background-color: white;
     border-radius: 20px;
     padding: 15px;
@@ -408,7 +405,7 @@ body, html {
 
 .movable-button {
     position: fixed;
-    left: -70px; 
+    left: -70px; /* Posiciona la mitad del botón fuera de la pantalla */
     top: 50%;
     transform: translateY(-50%);
     background-color: #8cc63f;
@@ -418,18 +415,20 @@ body, html {
     border-bottom-right-radius: 50%;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: left 0.3s ease; 
+    transition: left 0.3s ease; /* Animación suave al mover el botón */
     
 }
 
 .movable-button:hover {
-    left: 0; 
+    left: 0; /* El botón se desplaza hacia la derecha al pasar el cursor */
 }
 
 .svg{
     color: #ddd;
     background-color: #f5f5f5;
 }
+
+
 @media (max-width: 1024px) {
     .app-container {
     width: 100%;
@@ -439,6 +438,6 @@ body, html {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     overflow: hidden;
-    height: 1100px;
+    height: 100%;
 }
 }
