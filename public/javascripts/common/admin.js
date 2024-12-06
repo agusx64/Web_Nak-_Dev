@@ -178,8 +178,8 @@ inicioBtn.addEventListener('click', function () {
 
   // Configuración de límites de caracteres
   const characterLimits = {
-    insert_description: 95, // Límite para descripción
-    insert_slogan: 35,       // Límite para slogan
+    insert_description: 110, // Límite para descripción
+    insert_slogan: 50,       // Límite para slogan
     insert_image: null,      // Sin límite para imágenes
   };
 
