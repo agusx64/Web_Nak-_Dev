@@ -85,12 +85,18 @@
 
 .enter_button {
     background-color: #81D520;
-    color: #FFF;
-    width: 80px;
-    height: 39px;
-    border-style: none;
-    border-radius: 5px;
-    font-weight: 400;
+    color: #FFFFFF;
+    width: auto;
+    min-width: 80px; /* Asegura un tamaño mínimo */
+    height: auto;
+    padding: 8px 16px; /* Ajusta el espacio interno para más comodidad */
+    border: none;
+    border-radius: 25px; /* Bordes redondeados para un diseño más moderno */
+    font-size: 0.9rem; /* Fuente ligeramente más grande */
+    font-weight: 600; /* Hace que el texto sea más llamativo */
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     margin-left: 50px;
 }
 
@@ -456,21 +462,23 @@ body.light-theme_i #up_screen {
 /*------------------------------------------Sección Inicio-------------------------------------------*/
 
 /*Secciones*/
+
 .section_main {
     width: auto;
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
         url(/images/huevos.jpg);
-    background-size: cover;
+    background-size: 1792px 1024px; /* Tamaño fijo de la imagen */
     background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    background-attachment: fixed;
-    /* Esto se mantendrá para pantallas grandes */
+    background-attachment: fixed; /* Se mantiene para pantallas grandes */
 }
+
+
 
 .logo-title-container,
 .logo-title-container1 {
@@ -645,22 +653,20 @@ body.light-theme_i #up_screen {
 }
 
 .vm_section_1 .read-more-btn {
-    background-color: #81D520;
-    color: #ffffff;
-    border: none;
-    width: 22%;
-    height: 50px;
-    text-align: center;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: #81D520; /* Color principal del botón */
+    color: #ffffff; /* Color del texto */
+    border: none; /* Sin bordes */
+    width: 100%; /* Ancho inicial */
+    max-width: 125px; /* Limita el ancho máximo */
+    height: auto; /* Ajuste automático para la altura */
+    text-align: center; /* Centra el texto */
+    font-size: 1rem; /* Tamaño del texto */
+    border-radius: 25px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a pointer */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    padding: 10px 15px; /* Espaciado interno */
+    z-index: 1; /* Asegura que esté por encima de otros elementos */
     margin: 0;
-
-}
-
-.vm_section_1 .read-more-btn {
-    z-index: 1;
 }
 
 .vm_section_1 .read-more-btn:hover {
@@ -758,17 +764,21 @@ body.light-theme_i #up_screen {
 }
 
 .left_section .read-more-btn {
-    background-color: #81D520;
-    color: #ffffff;
-    border: none;
-    width: auto;
-    height: 50px;
-    text-align: center;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: #81D520; /* Color principal del botón */
+    color: #ffffff; /* Color del texto */
+    border: none; /* Sin bordes */
+    width: 100%; /* Ancho inicial */
+    max-width: 125px; /* Limita el ancho máximo */
+    height: auto; /* Ajuste automático para la altura */
+    text-align: center; /* Centra el texto */
+    font-size: 1rem; /* Tamaño del texto */
+    border-radius: 25px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a pointer */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    padding: 10px 15px; /* Espaciado interno */
+    z-index: 1; /* Asegura que esté por encima de otros elementos */
     margin: 0;
+
 }
 
 .left_section .read-more-btn:hover {
@@ -801,22 +811,19 @@ body.light-theme_i #up_screen {
     /* Asegura que el contenido esté alineado verticalmente */
 }
 
+/* Slider */
 /* Estilos del slider */
+/* Slider */
 .slider-frame {
     flex: 1;
-    /* Ocupa el 50% del ancho */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90%;
-    /* Asegura que el slider se alinee verticalmente */
+    height: 90%; /* Altura relativa al contenedor principal */
     overflow: hidden;
-    width: 50%;
-    /* Ajustar a la mitad del contenedor */
+    width: 50%; /* Ajustar al 50% del ancho del contenedor */
     position: relative;
-    /* Asegura que las imágenes estén dentro del contenedor */
     margin-right: 6vh;
-
     border-radius: 5px;
 }
 
@@ -824,28 +831,24 @@ body.light-theme_i #up_screen {
     display: flex;
     padding: 0;
     margin: 0;
-    width: 500%;
-    /* No importa tanto, las imágenes se muestran una a la vez */
+    width: 500%; /* Controla la posición horizontal del slider */
     list-style-type: none;
     transition: transform 1s ease-in-out;
-    /* Transición suave entre imágenes */
     animation: slide 20s infinite ease-in-out;
-    /* Aplicamos la animación */
 }
 
 .slider-frame li {
-    width: 100%;
-    /* Cada imagen ocupa todo el ancho del contenedor */
-    flex-shrink: 0;
-    /* Evita que se reduzca el tamaño del `li` */
+    width: 100%; /* Cada imagen ocupa todo el ancho del slider */
+    flex-shrink: 0; /* Evita que el `li` cambie de tamaño */
 }
 
 .slider-frame img {
-    width: 100%;
-    /* Ajusta la imagen al ancho completo del slider */
-    height: auto;
-    border-radius: 15px;
+    width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    height: 100%; /* La imagen también ocupa toda la altura */
+    object-fit: cover; /* Recorta la imagen para adaptarse sin deformarse */
+    border-radius: 15px; /* Bordes redondeados */
 }
+
 
 /* Animación para mostrar una imagen a la vez */
 @keyframes slide {
@@ -889,9 +892,7 @@ body.light-theme_i #up_screen {
 /* Tarjetas de personal */
 .tarjetas_personal {
     width: 260px;
-    /* Reducido para mejorar ajuste */
-    height: 398px;
-    /* Reducido para ajustar la imagen */
+    height: 415px;
     background-color: #A4E658;
     border-radius: 10px;
     transition: 1s;
@@ -899,12 +900,15 @@ body.light-theme_i #up_screen {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 20px;
+    overflow: hidden; /* Evita el desbordamiento */
+    text-align: center; /* Centra el contenido */
+    word-wrap: break-word; /* Asegura que el texto largo no desborde */
+    padding-bottom: 3vh;
 }
 
 /* Estilo de la imagen */
 .img_personal {
-    width: 100%;
+    width: 260px;
     height: 250px;
     /* Ajustado para mostrar la cabeza completa */
     object-fit: cover;
@@ -937,7 +941,8 @@ body.light-theme_i #up_screen {
     text-align: center;
     padding-left: 13px;
     padding-right: 13px;
-    margin-bottom: 10px;
+    padding-bottom: 0;
+    margin-bottom: 1.9vh;
     word-wrap: break-word; /* Permite que las palabras largas se dividan */
     white-space: normal; /* Asegura que el texto se envuelva correctamente */
     width: 100%; /* Asegura que el contenido ocupe el ancho completo */
@@ -951,23 +956,23 @@ body.light-theme_i #up_screen {
 
 /* Estilo del botón */
 .read-more-btn {
-    background-color: #7dcf1f;
-    border: none;
-    border-radius: 25px;
-    color: white;
-    padding: 5px 16px;
-    font-size: .7rem;
-    cursor: pointer;
-    display: inline;
-    /* Mostrar el botón en la misma línea */
-    margin-left: 10px;
-    /* Espaciado a la izquierda del texto */
+    background-color: #7dcf1f; /* Color principal del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin bordes */
+    border-radius: 25px; /* Bordes redondeados */
+    padding: 8px 20px; /* Espaciado interno mejorado */
+    font-size: 0.9rem; /* Tamaño de texto ajustado */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    display: inline-block; /* Asegura que el botón no se rompa en línea */
+    text-align: center; /* Centra el texto dentro del botón */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    margin-top: 1vh;
 }
 
 /* Efecto hover en las tarjetas */
 .read-more-btn:hover {
     box-shadow: none;
-    background-color: #4caf50;
+    background-color: #67bd05;
     color: #fff;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 3.05s;
 }
@@ -1226,8 +1231,8 @@ section.section_testimonials p.texto_test span.nk {
     }
 
     .icon_help {
-        bottom: 10vh;
-        right: 3vw;
+        bottom: 10.2vh;
+        right: 2.9vw;
     }
 
     .up {
@@ -1411,32 +1416,26 @@ section.section_testimonials p.texto_test span.nk {
         /* Centra los elementos horizontalmente */
         text-align: center;
         /* Centra el texto */
-        padding: 4vh 5vw;
+        padding: 8vh 5vw 15vh 8vw;
         /* Espacio interior ajustado en vh y vw para responsividad */
         height: auto;
     }
 
+
     .img_vm {
-        height: 85%;
+        width: auto;
+        height: 25vh;
+        object-fit: cover;
         margin: 0;
     }
 
     .vm_section_1 {
-        padding-bottom: 1.8vh;
+        padding-bottom: 5vh;
         /* Agregar algo de padding para que el contenido no esté pegado a los bordes */
     }
 
     .vm_section_1 .read-more-btn {
-        background-color: #81D520;
-        color: #ffffff;
-        border: none;
-        width: 39%;
-        height: 4vh;
-        text-align: center;
-        font-size: .8rem;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+        font-size: .9rem;
         margin: 0;
     }
 
@@ -1450,6 +1449,8 @@ section.section_testimonials p.texto_test span.nk {
         text-align: center;
         /* Centra el texto dentro del div */
         height: auto;
+        padding-top: 2vh;
+        padding-bottom: 5vh;
     }
 
     .left_section {
@@ -1466,65 +1467,53 @@ section.section_testimonials p.texto_test span.nk {
 
     .left_section .read-more-btn {
         margin: 2vh 0 2vh 0;
-        color: #ffffff;
-        border: none;
-        width: 39%;
-        height: 4vh;
-        text-align: center;
-        font-size: .8rem;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+        font-size: .9rem;
+       
     }
 
     .slider-frame {
-        width: 80vw;
-        /* Ajusta el ancho al 80% del viewport */
-        margin: 0;
-        /* Centra el contenedor horizontalmente */
-        overflow: hidden;
-        /* Oculta cualquier desbordamiento */
-        background-color: #000;
-        position: relative;
-        /* Necesario para mantener el tamaño de las imágenes */
-        padding-top: 100%;
-        /* Mantiene la relación de aspecto cuadrada (100% de ancho) */
+        width: 75vw; /* Ajusta el ancho al 80% del viewport */
+        margin: 0 auto; /* Centra el contenedor horizontalmente */
+        overflow: hidden; /* Oculta cualquier desbordamiento */
+        position: relative; /* Necesario para mantener el tamaño relativo de las imágenes */
+        padding-top: 100%; /* Mantiene la relación de aspecto cuadrada (1:1) */
+        border-radius: 5px; /* Bordes redondeados para todo el slider */
+        box-sizing: border-box; /* Incluye el padding dentro del ancho y alto especificados */
     }
-
+    
     .slider-frame ul {
         display: flex;
-        width: 100%;
+        width: 100%; /* El ul ocupa todo el ancho del contenedor */
         padding: 0;
         margin: 0;
         list-style-type: none;
-        position: absolute;
-        /* Posiciona el ul dentro del contenedor */
-        top: 0;
-        /* Ajusta el ul al inicio del contenedor */
-        left: 0;
-        /* Alinea el ul a la izquierda del contenedor */
+        position: absolute; /* Posiciona el ul dentro del contenedor */
+        top: 0; /* Ajusta el ul al inicio del contenedor */
+        left: 0; /* Alinea el ul a la izquierda del contenedor */
+        height: 100%; /* Asegura que el ul ocupe toda la altura */
+        transition: transform 1s ease-in-out; /* Transición suave para el slider */
+        animation: slide 20s infinite ease-in-out; /* Animación de deslizamiento */
     }
-
+    
     .slider-frame li {
-        flex: 1 0 100%;
-        /* Cada `li` ocupa el 100% del ancho del contenedor */
+        flex: 0 0 100%; /* Cada `li` ocupa todo el ancho del contenedor */
+        height: 100%; /* Ocupa toda la altura del slider */
     }
-
+    
     .slider-frame img {
-        width: 100%;
-        /* Ajusta la imagen al 100% del ancho del contenedor */
-        height: 110%;
-        /* Asegura que la imagen ocupe todo el contenedor */
-        object-fit: cover;
-        /* Recorta la imagen para llenar el contenedor cuadrado */
-        border-radius: 5px;
+        width: 100%; /* Ajusta la imagen al ancho del contenedor */
+        height: 100%; /* Ajusta la imagen a la altura del contenedor */
+        object-fit: cover; /* Recorta la imagen para llenar el contenedor sin deformarse */
+        border-radius: 5px; /* Bordes redondeados para cada imagen */
     }
+    
+    
 
     /*----------------------------------------section_personal----------------------------------------*/
     .section_personal {
         height: auto;
         margin: 0;
-        padding: 0;
+        padding: 0vh 0 8vh;
     }
 
     .container_personal {
@@ -1532,7 +1521,7 @@ section.section_testimonials p.texto_test span.nk {
         flex-direction: column;
         height: auto;
         width: 100%;
-        padding: 7vh 0 5vh 0;
+        padding: 20vh 0 5vh 0;
     }
 
     .tarjetas_personal{
@@ -1586,6 +1575,7 @@ section.section_testimonials p.texto_test span.nk {
     .section_testimonials {
         height: auto;
         width: 100%;
+        padding: 7vh 0 12vh;
     }
 
     .contenedor_testimonios {
@@ -1679,25 +1669,26 @@ section.section_testimonials p.texto_test span.nk {
         width: 100%;
         /* El ancho del párrafo será el 100% del contenedor */
         margin: 0;
-        padding: 0 5vh 1.6vh 5vh;
+        padding: 0 5vh 0vh 5vh;
 
     }
 
     .aviso_legal {
-        line-height: 1;
-        /* Ajusta la altura de línea para evitar espacios adicionales */
-
-        width: 100%;
-        margin: 0;
-        padding: 0;
+        font-size: 0.7rem; /* Reduce el tamaño de la fuente */
         text-align: center;
-        /* Centra el texto dentro del párrafo */
-        top: 63vh;
-        font-size: .6rem;
-        white-space: nowrap;
-        overflow: visible;
+        width: 100%;
+        max-width: 100%;
+        color: #000000;
+        position: relative;
+        bottom: 0; /* Fija el elemento al fondo del contenedor */
+        left: 0;
+        padding: 8px; /* Ajusta el espacio interno */
+        box-sizing: border-box;
+        overflow-wrap: break-word; /* Rompe las palabras largas */
+        word-wrap: break-word;
+        line-height: 1.4; /* Espaciado entre líneas */
+        top: 66vh;
 
-        /* Evita que el texto se divida en varios renglones */
     }
 
 
@@ -1722,6 +1713,12 @@ section.section_testimonials p.texto_test span.nk {
         margin-bottom: 4vh;
     }
 
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden; /* Evita que se pueda desplazar horizontalmente */
+    }
+    
+
 }
 
 /* Entre móviles grandes y tabletas pequeñas (Listo) */
@@ -1733,7 +1730,7 @@ section.section_testimonials p.texto_test span.nk {
     }
 
     .icon_help {
-        bottom: 9vh;
+        bottom: 12vh;
         right: 3vw;
     }
 
@@ -1901,32 +1898,25 @@ section.section_testimonials p.texto_test span.nk {
         /* Centra los elementos horizontalmente */
         text-align: center;
         /* Centra el texto */
-        padding: 4vh 5vw;
+        padding: 8vh 5vw 15vh 8vw;
         /* Espacio interior ajustado en vh y vw para responsividad */
         height: auto;
     }
 
     .img_vm {
+        width: auto;
         height: 30vh;
+        object-fit: cover;
         margin: 0;
     }
 
     .vm_section_1 {
-        padding-bottom: 1.8vh;
+        padding-bottom: 2vh;
         /* Agregar algo de padding para que el contenido no esté pegado a los bordes */
     }
 
     .vm_section_1 .read-more-btn {
-        background-color: #81D520;
-        color: #ffffff;
-        border: none;
-        width: 20%;
-        height: 4vh;
-        text-align: center;
         font-size: .9rem;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
         margin: 0;
     }
 
@@ -1956,55 +1946,47 @@ section.section_testimonials p.texto_test span.nk {
 
     .left_section .read-more-btn {
         margin: 2vh 0 2vh 0;
-        width: 20%;
-        height: 4vh;
-
         font-size: .9rem;
 
     }
 
     .slider-frame {
-        width: 85vw;
-        /* Ajusta el ancho al 80% del viewport */
-        margin: 0;
-        /* Centra el contenedor horizontalmente */
-        overflow: hidden;
-        /* Oculta cualquier desbordamiento */
-        background-color: #000;
-        position: relative;
-        /* Necesario para mantener el tamaño de las imágenes */
-        padding-top: 100%;
-        /* Mantiene la relación de aspecto cuadrada (100% de ancho) */
+        width: 85vw; /* Ajusta el ancho al 85% del viewport */
+        margin: 0 auto; /* Centra el contenedor horizontalmente */
+        overflow: hidden; /* Oculta cualquier desbordamiento */
+        background-color: #000; /* Color de fondo opcional */
+        position: relative; /* Necesario para mantener el tamaño relativo de las imágenes */
+        padding-top: 100%; /* Mantiene la relación de aspecto cuadrada (1:1) */
+        border-radius: 5px; /* Bordes redondeados para todo el slider */
+        box-sizing: border-box; /* Incluye el padding dentro del ancho y alto especificados */
     }
-
+    
     .slider-frame ul {
         display: flex;
-        width: 100%;
+        width: 100%; /* El ul ocupa todo el ancho del contenedor */
         padding: 0;
         margin: 0;
         list-style-type: none;
-        position: absolute;
-        /* Posiciona el ul dentro del contenedor */
-        top: 0;
-        /* Ajusta el ul al inicio del contenedor */
-        left: 0;
-        /* Alinea el ul a la izquierda del contenedor */
+        position: absolute; /* Posiciona el ul dentro del contenedor */
+        top: 0; /* Ajusta el ul al inicio del contenedor */
+        left: 0; /* Alinea el ul a la izquierda del contenedor */
+        height: 100%; /* Asegura que el ul ocupe toda la altura */
+        transition: transform 1s ease-in-out; /* Transición suave para el slider */
+        animation: slide 20s infinite ease-in-out; /* Animación de deslizamiento */
     }
-
+    
     .slider-frame li {
-        flex: 1 0 100%;
-        /* Cada `li` ocupa el 100% del ancho del contenedor */
+        flex: 0 0 100%; /* Cada `li` ocupa todo el ancho del contenedor */
+        height: 100%; /* Ocupa toda la altura del slider */
+    }
+    
+    .slider-frame img {
+        width: 100%; /* Ajusta la imagen al ancho del contenedor */
+        height: 100%; /* Ajusta la imagen a la altura del contenedor */
+        object-fit: cover; /* Recorta la imagen para llenar el contenedor sin deformarse */
+        border-radius: 5px; /* Bordes redondeados para cada imagen */
     }
 
-    .slider-frame img {
-        width: 100%;
-        /* Ajusta la imagen al 100% del ancho del contenedor */
-        height: 100%;
-        /* Asegura que la imagen ocupe todo el contenedor */
-        object-fit: cover;
-        /* Recorta la imagen para llenar el contenedor cuadrado */
-        border-radius: 5px;
-    }
 
     /*----------------------------------------section_personal----------------------------------------*/
     .container_personal {
@@ -2012,8 +1994,7 @@ section.section_testimonials p.texto_test span.nk {
         flex-direction: column;
         height: auto;
         width: 100%;
-        padding: 7vh 0 5vh 0;
-
+        padding: 15vh 0 15vh 0;
         overflow: hidden;
         /* Evita que el contenido desborde */
         box-sizing: border-box;
@@ -2025,6 +2006,7 @@ section.section_testimonials p.texto_test span.nk {
     }
 
     .tarjetas_personal{
+        height: auto;
         margin: 0 0 5vh 0;
         word-wrap: break-word; /* Permite que las palabras largas se dividan */
         white-space: normal; /* Asegura que el texto se envuelva correctamente */
@@ -2054,7 +2036,7 @@ section.section_testimonials p.texto_test span.nk {
 
     .tarjetas_personal .descr_personal {
         font-size: 1rem;
-        margin-left: 2vh;
+        margin-bottom: 1vh;
     }
 
     .tarjetas_personal .hideText {
@@ -2243,7 +2225,7 @@ section.section_testimonials p.texto_test span.nk {
 
     .icon_help {
         bottom: 10%;
-        right: 4vw;
+        right: 3.1vw;
         width: auto;
         height: 5.2vh;
     }
@@ -2424,7 +2406,7 @@ section.section_testimonials p.texto_test span.nk {
     }
 
     .vm_section_1 {
-        padding-bottom: 1.8vh;
+        padding-bottom: 20vh;
         /* Agregar algo de padding para que el contenido no esté pegado a los bordes */
     }
 
@@ -2443,16 +2425,8 @@ section.section_testimonials p.texto_test span.nk {
     }
 
     .vm_section_1 .read-more-btn {
-        background-color: #81D520;
-        color: #ffffff;
-        border: none;
-        width: 20%;
-        height: 4vh;
-        text-align: center;
+        
         font-size: 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
         margin: 0;
     }
 
@@ -2492,53 +2466,46 @@ section.section_testimonials p.texto_test span.nk {
 
     .left_section .read-more-btn {
         margin: 2vh 0 2vh 0;
-        width: 20%;
-        height: 4vh;
         font-size: 1rem;
     }
 
     .slider-frame {
-        width: 85vw;
-        /* Ajusta el ancho al 80% del viewport */
-        margin: 0;
-        /* Centra el contenedor horizontalmente */
-        overflow: hidden;
-        /* Oculta cualquier desbordamiento */
-        background-color: #000;
-        position: relative;
-        /* Necesario para mantener el tamaño de las imágenes */
-        padding-top: 100%;
-        /* Mantiene la relación de aspecto cuadrada (100% de ancho) */
-    }
+    width: 85vw; /* Ajusta el ancho al 85% del viewport */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+    background-color: #000; /* Color de fondo */
+    position: relative; /* Necesario para el posicionamiento relativo */
+    padding-top: 85vw; /* Relación de aspecto cuadrada con base en el 85vw de ancho */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño del contenedor */
+    border-radius: 5px; /* Bordes redondeados */
+}
 
-    .slider-frame ul {
-        display: flex;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-        position: absolute;
-        /* Posiciona el ul dentro del contenedor */
-        top: 0;
-        /* Ajusta el ul al inicio del contenedor */
-        left: 0;
-        /* Alinea el ul a la izquierda del contenedor */
-    }
+.slider-frame ul {
+    display: flex;
+    width: 100%; /* El ul ocupa todo el ancho del contenedor */
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    position: absolute; /* Posiciona el ul dentro del contenedor */
+    top: 0; /* Alinea el ul a la parte superior del contenedor */
+    left: 0; /* Alinea el ul a la izquierda */
+    height: 100%; /* Hace que el ul ocupe todo el alto disponible */
+    transition: transform 1s ease-in-out; /* Transición suave para el slider */
+    animation: slide 20s infinite ease-in-out; /* Animación de deslizamiento */
+}
 
-    .slider-frame li {
-        flex: 1 0 100%;
-        /* Cada `li` ocupa el 100% del ancho del contenedor */
-    }
+.slider-frame li {
+    flex: 0 0 100%; /* Cada li ocupa todo el ancho del contenedor */
+    height: 100%; /* Hace que cada li ocupe toda la altura del contenedor */
+}
 
-    .slider-frame img {
-        width: 100%;
-        /* Ajusta la imagen al 100% del ancho del contenedor */
-        height: 100%;
-        /* Asegura que la imagen ocupe todo el contenedor */
-        object-fit: cover;
-        /* Recorta la imagen para llenar el contenedor cuadrado */
-        border-radius: 5px;
-    }
+.slider-frame img {
+    width: 100%; /* Ajusta la imagen al 100% del ancho */
+    height: 100%; /* Ajusta la imagen a la altura del contenedor */
+    object-fit: cover; /* Recorta la imagen para que se ajuste perfectamente */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
 
     /*----------------------------------------section_personal----------------------------------------*/
     .section_personal {
@@ -2565,6 +2532,10 @@ section.section_testimonials p.texto_test span.nk {
         word-break: break-word;
         /* Rompe palabras largas para evitar desbordamiento */
     }
+    .tarjetas_personal{
+        height: auto;
+        width: 100%;
+    }
 
     .tarjetas_personal .read-more-btn {
         align-items: center;
@@ -2576,7 +2547,6 @@ section.section_testimonials p.texto_test span.nk {
 
     .tarjetas_personal .descr_personal {
         font-size: 1.1rem;
-        margin-left: 2vh;
     }
 
     .tarjetas_personal .hideText {
@@ -2625,6 +2595,7 @@ section.section_testimonials p.texto_test span.nk {
     .section_testimonials {
         height: auto;
         width: 100%;
+        padding: 10vh 0 10vh;
     }
 
     .contenedor_testimonios {
@@ -2798,16 +2769,16 @@ section.section_testimonials p.texto_test span.nk {
     .button_chicken svg {
         margin-left: 2vh;
         /* Espaciado mayor entre los iconos */
-        margin-right: 1vh;
+        margin-right: 0vh;
         width: auto;
-        height: 5vh;
+        height: 4vh;
     }
 
     .button_car svg {
         margin-left: 2vh;
         /* Espaciado mayor entre los iconos */
-        margin-right: 1vh;
-        height: 5vh;
+        margin-right: vh;
+        height: 4vh;
         width: auto;
     }
 
@@ -2820,13 +2791,6 @@ section.section_testimonials p.texto_test span.nk {
     /*Boton enter*/
     .buttons_menu .enter_button {
         font-size: 17px;
-        /* Tamaño del texto */
-        cursor: pointer;
-        /* Cambia el cursor cuando pases sobre el botón */
-        border-radius: 5px;
-        /* Bordes redondeados */
-        height: 6vh;
-        width: 9vw;
     }
 
     /*logo central*/
@@ -2844,33 +2808,13 @@ section.section_testimonials p.texto_test span.nk {
  
     /*--------------------Elementos VM-----------------------*/
     .section_vm{
-        height: 100%;
+
+        padding: 8vh 5vw 95vh 8vw;
     }
-    .vm_section_1 .read-more-btn {
-        background-color: #81D520;
-        color: #ffffff;
-        border: none;
-        width: 40%;
-        height: 7vh;
-        text-align: center;
-        border-radius: 5px;
-        cursor: pointer;
-        margin: 0;
-    }
+
 
     /*--------------------Elementos History-----------------------*/
-    .left_section .read-more-btn {
-        background-color: #81D520;
-        color: #ffffff;
-        border: none;
-        width: 40%;
-        height: 7vh;
-        text-align: center;
-        border-radius: 5px;
-        cursor: pointer;
-        margin: 0;
-    }
-
+  
     /*----------------------------------------section_personal----------------------------------------*/
 
     .section_personal{
@@ -2888,9 +2832,14 @@ section.section_testimonials p.texto_test span.nk {
         height: auto;
         width: 100%;
     }
+    .tarjetas_personal{
+        height: auto;
+    }
     /*----------------------------------------section_testimonials----------------------------------------*/
     .section_testimonials {
-        height: 130vh;
+        height: auto;
+        padding: 5vh 0 30vh;
+
     }
 
 
@@ -3036,13 +2985,7 @@ section.section_testimonials p.texto_test span.nk {
     /*Boton enter*/
     .buttons_menu .enter_button {
         font-size: 17px;
-        /* Tamaño del texto */
-        cursor: pointer;
-        /* Cambia el cursor cuando pases sobre el botón */
-        border-radius: 5px;
-        /* Bordes redondeados */
-        height: 5.5vh;
-        width: 9.5vh;
+    
     }
 
     /*logo central*/
@@ -3055,28 +2998,18 @@ section.section_testimonials p.texto_test span.nk {
 
     /*--------------------Elementos Main-----------------------*/
     /*--------------------Elementos VM-----------------------*/
+    .section_vm{
+        padding-top: 8vh;
+        padding-bottom: 15vh;
+    }
+
     .vm_section_1 .read-more-btn {
-        background-color: #81D520;
-        color: #ffffff;
-        border: none;
-        width: 30%;
-        height: 7vh;
-        text-align: center;
-        border-radius: 5px;
-        cursor: pointer;
         margin: 0;
     }
 
     /*--------------------Elementos History-----------------------*/
     .left_section .read-more-btn {
-        background-color: #81D520;
-        color: #ffffff;
-        border: none;
-        width: 30%;
-        height: 7vh;
-        text-align: center;
-        border-radius: 5px;
-        cursor: pointer;
+
         margin: 0;
     }
 
@@ -3090,6 +3023,15 @@ section.section_testimonials p.texto_test span.nk {
 
     .svg_decorations_top{
         top: 0;
+    }
+    .tarjetas_personal{
+        height: auto;
+    }
+    .tarjetas_personal .cargo_personal{
+        font-size: 1rem;
+    }
+    .tarjetas_personal .descr_personal{
+        font-size: .9rem;
     }
 
     .container_personal {
@@ -3159,13 +3101,6 @@ section.section_testimonials p.texto_test span.nk {
     /*Boton enter*/
     .buttons_menu .enter_button {
         font-size: 17px;
-        /* Tamaño del texto */
-        cursor: pointer;
-        /* Cambia el cursor cuando pases sobre el botón */
-        border-radius: 5px;
-        /* Bordes redondeados */
-        height: 5vh;
-        width: 9vh;
     }
 
     /*logo central*/
@@ -3173,6 +3108,16 @@ section.section_testimonials p.texto_test span.nk {
         width: 15vh;
         /* Asegúrate de que esto esté bien posicionado */
         height: 15vh;
+    }
+
+
+    .section_vm{
+        padding: 8vh 5vw 100vh 8vw;
+
+    }
+
+    .tarjetas_personal{
+        height: auto;
     }
 
 }/* Estilos para laptops grandes */
@@ -3248,11 +3193,6 @@ section.section_testimonials p.texto_test span.nk {
     /*Boton enter*/
     .enter_button {
         font-size: 18px;
-        /* Tamaño del texto */
-        cursor: pointer;
-        /* Cambia el cursor cuando pases sobre el botón */
-        border-radius: 5px;
-        /* Bordes redondeados */
 
     }
 
@@ -3319,12 +3259,16 @@ section.section_testimonials p.texto_test span.nk {
         transition: transform 0.8s ease;
     }
 
+    .section_vm{
+        padding: 8vh 5vw 100vh 8vw;
+
+    }
+
 }/* Estilos para monitores grandes */
 
 /* Entre monitores grandes y pantallas ultra-wide pequeñas (Falta)*/
 @media only screen and (min-width: 1920px) and (max-width: 2239px) {
     /* Estilos específicos para pantallas ultra anchas */
-
        /*Ocultar elementos*/
        header h1 {
         display: none;
@@ -3393,23 +3337,28 @@ section.section_testimonials p.texto_test span.nk {
     /*Boton enter*/
     .enter_button {
         font-size: 18px;
-        /* Tamaño del texto */
-        cursor: pointer;
-        /* Cambia el cursor cuando pases sobre el botón */
-        border-radius: 5px;
-        /* Bordes redondeados */
-
     }
 
     /*Icono Flotante*/
     .icon_help {
-        bottom: 7vh;
-        right: 35px;
+        bottom: 9vh;
+        right: 2.8vh;
         transition: transform 0.4s ease;
         /* Usamos transform para la animación */
         cursor: pointer;
         height: 5vh;
         width: 5vh;
+    }
+
+    .up{
+        bottom: 1vh;
+        right: 2vh;
+        transition: transform 0.4s ease;
+        /* Usamos transform para la animación */
+        cursor: pointer;
+        height: 7vh;
+        width: 7vh;
+
     }
 
     /*logo central*/
@@ -3466,10 +3415,7 @@ section.section_testimonials p.texto_test span.nk {
 
 }
 
-
 /*------------------------------------------ Fin Query-------------------------------------------*/
-
-
 /* boton leer mas */
 
 
@@ -3542,3 +3488,6 @@ section.section_testimonials p.texto_test span.nk {
 
   }
   
+
+
+
