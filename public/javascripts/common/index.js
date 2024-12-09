@@ -736,3 +736,40 @@ document.addEventListener("DOMContentLoaded", () => {
     resetInactivityTimer();
   });
   
+
+//----------------------------- Contador de numeros -----------------------------//
+
+const startYear = 1900;
+const endYear = 2020;
+const duration = 3000; // Duración total del contador en milisegundos
+
+function startCounter() {
+    const yearElement = document.getElementById("year");
+    const stepTime = duration / (endYear - startYear);
+    let currentYear = startYear;
+
+    const interval = setInterval(() => {
+        yearElement.textContent = currentYear;
+        currentYear++;
+
+        if (currentYear > endYear) {
+            clearInterval(interval);
+        }
+    }, stepTime);
+}
+
+// Observer para detectar cuando la sección es visible
+const subtitleObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                startCounter();
+            }
+        });
+    },
+    { threshold: 0.5 } // Activa la animación cuando al menos el 50% de la sección esté visible
+);
+
+// Asocia el observer al elemento con el ID "subtitle"
+const subtitleSection = document.getElementById("subtitle");
+subtitleObserver.observe(subtitleSection);

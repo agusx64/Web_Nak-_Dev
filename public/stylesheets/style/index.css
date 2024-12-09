@@ -547,9 +547,12 @@ body.light-theme_i #up_screen {
 .subtitle {
     font-family: 'Times New Roman', Times, serif;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #FFF;
-
+    font-weight: 500;
+}
+.subtitle span{
+    font-family: 'Times New Roman', Times, serif
 }
 
 .text_presentation {
