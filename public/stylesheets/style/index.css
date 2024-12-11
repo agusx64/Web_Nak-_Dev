@@ -468,15 +468,18 @@ body.light-theme_i #up_screen {
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
         url(/images/huevos.jpg);
-    background-size: 1792px 1024px; /* Tamaño fijo de la imagen */
+    background-size: cover; /* La imagen cubre toda la pantalla */
     background-position: center;
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    background-attachment: fixed; /* Se mantiene para pantallas grandes */
+    background-attachment: fixed; /* La imagen permanece fija en pantallas grandes */
 }
+
+
 
 
 
