@@ -1229,6 +1229,14 @@ section.section_testimonials p.texto_test span.nk {
 /* Pantallas pequeñas (móviles Listo) */
 @media screen and (max-width: 767px) {
 
+    .h2txt {
+        font-size: .92rem; /* Tamaño de fuente */
+        margin-left: 5%; /* Margen izquierdo */
+    }
+    /* Estilos para el scrollbar */
+body::-webkit-scrollbar {
+    display: none;
+}
 
     /*Elementos flotantes*/
 
