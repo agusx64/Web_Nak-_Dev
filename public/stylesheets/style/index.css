@@ -1544,14 +1544,11 @@ body::-webkit-scrollbar {
         white-space: normal; /* Asegura que el texto se envuelva correctamente */
     }
 
-    .tarjetas_personal .read-more-btn {
-        align-items: center;
+    .descr_personal{
+        margin: 0vh;
     }
-
     .read-more-btn {
         display: block;
-        margin: 0 auto;
-        /* Centra el botón horizontalmente */
     }
 
     .svg_decorations_top {
