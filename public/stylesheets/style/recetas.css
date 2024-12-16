@@ -688,3 +688,33 @@ nav {
         padding-bottom: 20px;
       }
 }
+
+/* jsjs */
+.card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    word-wrap: break-word; /* Ajusta el texto que sea muy largo */
+    overflow: visible; /* Evita que se recorte el contenido */
+}
+
+.card-content, .extra-info {
+    max-width: 100%;
+    overflow-wrap: break-word; /* Asegura que el texto se ajuste */
+}
+.extra-info p, .card-content p {
+    max-height: 100%;
+    overflow-y: auto;
+}
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .card-content, .extra-info {
+        font-size: 0.9rem; /* Reduce ligeramente el tamaño del texto */
+        line-height: 1.4;  /* Asegura buena legibilidad */
+    }
+}
