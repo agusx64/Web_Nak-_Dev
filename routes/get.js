@@ -361,7 +361,7 @@ router.get('/get_descriptionTestimony_changes', function(req, res) {
     });
 });
 
-router.get('/get_location_changes',function(req, res) {
+router.get('/get_location_log',function(req, res) {
 
     let select_query = 'SELECT * FROM registro_ubicacion ORDER BY created_at DESC LIMIT 1;'
     

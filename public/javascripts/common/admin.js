@@ -162,6 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
   setInterval(getTestLog(), 4000);
   setInterval(getRecipesLog(), 4000);
   setInterval(getEggLog(), 4000);
+  setInterval(getLocation(), 4000);
   
 
 });
@@ -1926,34 +1927,99 @@ function getEggLog() {
 
 //Ubicación
 function getLocation() {
-  fetch('/get_location')
+  fetch('/get_location_log')
     .then(response => response.json())
     .then(data => {
+      
       console.log(data);
+      const tableBodyTest = document.getElementById('table_log_ubicacion');
+      tableBodyTest.innerHTML = ''; // Limpiar la tabla antes de insertar datos
+  
+      data.forEach(row => {
+        const id = row.id || 'N/A';
+        const descripcion = row.desc_ubicacion || 'Sin descripción';
+        const mapa = row.ubicacion || 'Sin mapa disponible';
+        const createdAt = row.created_at || 'Fecha no disponible';
 
-      // Obtén el contenedor donde se mostrará el mapa
-      const mapContainer = document.getElementById('mapContainer');
-      mapContainer.innerHTML = ''; // Limpia el contenido anterior
+        // Extraer el enlace del iframe (si existe)
+        let link = '#';
+        if (mapa.includes('<iframe')) {
+          const srcMatch = mapa.match(/src="([^"]+)"/);
+          link = srcMatch ? srcMatch[1] : '#';
+        }
 
-      // Crea un iframe para mostrar el mapa
-      const iframe = document.createElement('iframe');
-      iframe.src = data.src; // Usa el enlace obtenido del backend
-      iframe.width = '600'; // Ajusta el ancho del iframe
-      iframe.height = '450'; // Ajusta la altura del iframe
-      iframe.style.border = '0';
-      iframe.allowFullscreen = '';
-      iframe.loading = 'lazy';
-      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+        // Crear la fila de la tabla
+        const tableRow = document.createElement('tr');
+        tableRow.innerHTML = `
+          <td>
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="13" height="13" rx="4" stroke="#D2D2D2" stroke-width="2" />
+            </svg>
+          </td>
+          <td>${id}</td>
+          <td>${truncateText(descripcion, 30)}</td>
+          <td>
+            <a class="preview-link" href="#" data-iframe="${link}" target="_blank">Ver ubicación</a>
+          </td>
+          <td>${createdAt}</td>
+        `;
 
-      mapContainer.appendChild(iframe); // Añade el iframe al contenedor
+        // Agregar la fila a la tabla
+        tableBodyTest.appendChild(tableRow);
+      });
+      
+      // Agrega los eventos para la previsualización
+      handleIframePreview(); // Llamar a la función que maneja el hover y muestra el iframe flotante
+      
     })
     .catch(error => console.error('Error al obtener la ubicación:', error));
 }
+
+
+
 
 //Elementos de la tabla fin
 function truncateText(text, maxLength) {
   return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
 }
+
+//Previsualiza el iframe
+function handleIframePreview() {
+  const previewLinks = document.querySelectorAll('.preview-link');
+  const previewContainer = document.getElementById('iframe-preview-container'); // Cambiar a nuevo ID
+
+  previewLinks.forEach(link => {
+    link.addEventListener('mouseenter', event => {
+      const iframeSrc = event.target.dataset.iframe;
+
+      if (iframeSrc && iframeSrc !== '#') {
+        // Si el iframe src es válido, mostramos el iframe
+        previewContainer.innerHTML = `<iframe src="${iframeSrc}" width="300" height="200" frameborder="0" allowfullscreen></iframe>`;
+        previewContainer.style.display = 'block';
+      } else {
+        // Si no es válido, mostramos un mensaje
+        previewContainer.innerHTML = '<p>Mapa no disponible</p>';
+        previewContainer.style.display = 'block';
+      }
+    });
+
+    link.addEventListener('mousemove', event => {
+      // Ajustar la posición del contenedor al movimiento del mouse
+      previewContainer.style.top = `${event.pageY + 10}px`;
+      previewContainer.style.left = `${event.pageX + 10}px`;
+    });
+
+    link.addEventListener('mouseleave', () => {
+      // Ocultar el contenedor cuando el mouse sale
+      previewContainer.style.display = 'none';
+      previewContainer.innerHTML = ''; // Limpiar contenido
+    });
+  });
+}
+
+
+
 
 //Previsualiza las imagenes de las tablas
 function addPreviewEvents() {
