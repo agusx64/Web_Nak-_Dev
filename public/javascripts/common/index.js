@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(getTestimonyChanges(), 4000);
     setInterval(getDescTestimonyChanges(), 4000);
     setInterval( getLocationChanges(), 4000);
-    setInterval(getHuevoChanges(), 4000);
     // setInterval(getDescHistChangues(), 4000);
     
     

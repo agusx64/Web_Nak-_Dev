@@ -413,6 +413,19 @@ router.get('/get_egg_log', function (req, res) {
 
 });
 
+router.get('/get_location_changes', function (req, res) {
+
+    let locationQuery = 'SELECT * FROM registro_ubicacion ORDER BY created_at DESC LIMIT 1';
+
+    connection.query(locationQuery, function (err, result) {
+
+        if (err) throw err;
+        res.json(result);
+
+    });
+
+});
+
 
 module.exports = router;
 

@@ -1596,7 +1596,7 @@ function getStartLog() {
           <td>${id}</td>
           <td>${truncateText(descripcion, 30)}</td>
           <td>
-            <a href="${img}" class="preview-link" data-img="${img}">Imagen cargada</a>
+            <a href="${img}" class="preview-link-img" data-img="${img}">Imagen cargada</a>
           </td>
           <td>${truncateText(slogan, 30)}</td>
           <td>${created_at}</td>
@@ -1647,7 +1647,7 @@ function getProductsChanges() {
       <td>${truncateText(titulo, 30)}</td>
       <td>${truncateText(descripcion, 30)}</td>
       <td>${truncateText(precio, 30)}</td>
-      <td><a href="${img}" class="preview-link" data-img="${img}">Imagen</a></td>
+      <td><a href="${img}" class="preview-link-img" data-img="${img}">Imagen</a></td>
       <td>${truncateText(slogan, 30)}</td>
       <td>${created_at}</td>
     `;
@@ -1694,7 +1694,7 @@ function getUsLog() {
           </td>
           <td>${truncateText(vision, 30)}</td>
           <td>
-            <a href="${img_vision}" class="preview-link" data-img="${img_vision}">Imagen cargada</a>
+            <a href="${img_vision}" class="preview-link-img" data-img="${img_vision}">Imagen cargada</a>
           </td>
           <td>${created_at}</td>
         `;
@@ -1745,7 +1745,7 @@ function getHistoryLog() {
             <a href="${img_carousel_2}" class="preview-link" data-img="${img_carousel_2}">Imagen 2</a>
           </td>
           <td>
-            <a href="${img_carousel_3}" class="preview-link" data-img="${img_carousel_3}">Imagen 3</a>
+            <a href="${img_carousel_3}" class="preview-link-img" data-img="${img_carousel_3}">Imagen 3</a>
           </td>
           <td>${created_at}</td>
         `;
@@ -1794,7 +1794,7 @@ function getTeamLog() {
       <td>${truncateText(cargo, 30)}</td>
       <td>${truncateText(descripcion, 30)}</td>
 
-      <td><a href="${img}" class="preview-link" data-img="${img}">Imagen</a></td>
+      <td><a href="${img}" class="preview-link-img" data-img="${img}">Imagen</a></td>
 
       <td>${created_at}</td>
     `;
@@ -1834,7 +1834,7 @@ function getTestLog() {
       <td>${id}</td>
       <td>${truncateText(nombre, 30)}</td>
       <td>${truncateText(descripcion, 30)}</td>
-      <td><a href="${img}" class="preview-link" target="_blank" data-img="${img}">Imagen</a></td>
+      <td><a href="${img}" class="preview-link-img" target="_blank" data-img="${img}">Imagen</a></td>
       <td>${createdAt}</td>`;
       tableBodyTest.appendChild(tableRow);
     });
@@ -1878,7 +1878,7 @@ function getRecipesLog() {
       <td>${truncateText(descripcion, 30)}</td>
       <td>${truncateText(ingredientes, 30)}</td>
       <td>${truncateText(preparacion, 30)}</td>
-      <td><a href="${img}" class="preview-link" target="_blank" data-img="${img}">Imagen</a></td>
+      <td><a href="${img}" class="preview-link-img" target="_blank" data-img="${img}">Imagen</a></td>
       <td>${created_at}</td>`;
 
       tableBodyRecipes.appendChild(tableRow);
@@ -1913,7 +1913,7 @@ function getEggLog() {
       <td>${id}</td>
       <td>${truncateText(nombre, 30)}</td>
       <td>${truncateText(descripcion, 30)}</td>
-      <td><a href="${img}" class="preview-link" target="_blank" data-img="${img}">Imagen</a></td>
+      <td><a href="${img}" class="preview-link-img" target="_blank" data-img="${img}">Imagen</a></td>
       <td>${truncateText(precio, 30)}</td>
       <td>${createdAt}</td>`;
       tableBodyTest.appendChild(tableRow);
@@ -1960,7 +1960,7 @@ function getLocation() {
           <td>${id}</td>
           <td>${truncateText(descripcion, 30)}</td>
           <td>
-            <a class="preview-link" href="#" data-iframe="${link}" target="_blank">Ver ubicación</a>
+            <a class="preview-link-iframe" href="#" data-iframe="${link}" target="_blank">Ver ubicación</a>
           </td>
           <td>${createdAt}</td>
         `;
@@ -1986,34 +1986,30 @@ function truncateText(text, maxLength) {
 
 //Previsualiza el iframe
 function handleIframePreview() {
-  const previewLinks = document.querySelectorAll('.preview-link');
-  const previewContainer = document.getElementById('iframe-preview-container'); // Cambiar a nuevo ID
+  const previewLinksIframe = document.querySelectorAll('.preview-link-iframe');
+  const previewContainerIframe = document.getElementById('iframe-preview-container'); // Contenedor de iframes
 
-  previewLinks.forEach(link => {
+  previewLinksIframe.forEach(link => {
     link.addEventListener('mouseenter', event => {
       const iframeSrc = event.target.dataset.iframe;
 
       if (iframeSrc && iframeSrc !== '#') {
-        // Si el iframe src es válido, mostramos el iframe
-        previewContainer.innerHTML = `<iframe src="${iframeSrc}" width="300" height="200" frameborder="0" allowfullscreen></iframe>`;
-        previewContainer.style.display = 'block';
+        previewContainerIframe.innerHTML = `<iframe src="${iframeSrc}" width="300" height="200" frameborder="0"></iframe>`;
+        previewContainerIframe.style.display = 'block';
       } else {
-        // Si no es válido, mostramos un mensaje
-        previewContainer.innerHTML = '<p>Mapa no disponible</p>';
-        previewContainer.style.display = 'block';
+        previewContainerIframe.innerHTML = '<p>Mapa no disponible</p>';
+        previewContainerIframe.style.display = 'block';
       }
     });
 
     link.addEventListener('mousemove', event => {
-      // Ajustar la posición del contenedor al movimiento del mouse
-      previewContainer.style.top = `${event.pageY + 10}px`;
-      previewContainer.style.left = `${event.pageX + 10}px`;
+      previewContainerIframe.style.top = `${event.pageY + 10}px`;
+      previewContainerIframe.style.left = `${event.pageX + 10}px`;
     });
 
     link.addEventListener('mouseleave', () => {
-      // Ocultar el contenedor cuando el mouse sale
-      previewContainer.style.display = 'none';
-      previewContainer.innerHTML = ''; // Limpiar contenido
+      previewContainerIframe.style.display = 'none';
+      previewContainerIframe.innerHTML = '';
     });
   });
 }
@@ -2023,34 +2019,32 @@ function handleIframePreview() {
 
 //Previsualiza las imagenes de las tablas
 function addPreviewEvents() {
-  const previewLinks = document.querySelectorAll('.preview-link');
-  const previewContainer = document.getElementById('preview-container');
+  const previewLinksImg = document.querySelectorAll('.preview-link-img');
+  const previewContainerImg = document.getElementById('preview-container'); // Contenedor de imágenes
 
-  previewLinks.forEach(link => {
+  previewLinksImg.forEach(link => {
     link.addEventListener('mouseenter', event => {
       const imgSrc = event.target.dataset.img;
 
       if (imgSrc && imgSrc !== '#') {
-        // Si la URL de la imagen es válida, mostramos la imagen
-        previewContainer.style.backgroundImage = `url(${imgSrc})`;
-        previewContainer.innerHTML = ''; // Limpiar mensaje de imagen no disponible
+        previewContainerImg.style.backgroundImage = `url(${imgSrc})`;
+        previewContainerImg.style.display = 'block';
+        previewContainerImg.innerHTML = ''; // Limpiar mensaje
       } else {
-        // Si la URL no es válida, mostramos el mensaje de "Imagen no disponible"
-        previewContainer.style.backgroundImage = '';
-        previewContainer.innerHTML = '<p>Imagen no disponible</p>';
+        previewContainerImg.innerHTML = '<p>Imagen no disponible</p>';
+        previewContainerImg.style.backgroundImage = '';
+        previewContainerImg.style.display = 'block';
       }
-
-      previewContainer.style.display = 'block';
     });
 
     link.addEventListener('mousemove', event => {
-      previewContainer.style.top = `${event.pageY + 10}px`;
-      previewContainer.style.left = `${event.pageX + 10}px`;
+      previewContainerImg.style.top = `${event.pageY + 10}px`;
+      previewContainerImg.style.left = `${event.pageX + 10}px`;
     });
 
     link.addEventListener('mouseleave', () => {
-      previewContainer.style.display = 'none';
-      previewContainer.innerHTML = ''; // Limpiar contenido cuando el mouse sale
+      previewContainerImg.style.display = 'none';
+      previewContainerImg.style.backgroundImage = '';
     });
   });
 }
