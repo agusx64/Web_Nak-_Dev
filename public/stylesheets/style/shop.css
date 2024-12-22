@@ -1397,3 +1397,36 @@ h5, p, .title_granj, .preci, .pe, .prec {
     }
 }
 
+@media only screen and (width: 800px)  {
+    .formulario{
+        width: 100% ;
+        padding: 15px;
+        margin-top: -40% ;
+        border-radius: 10px ;
+        height: 50vh ;
+        margin-top: -24vh;
+    }
+
+    .btncasa {
+        width: 100px;
+        height: 90px;
+        margin-left: -90%;
+        margin-top: 60%;
+    }
+    .input_component{
+        height: 50px !important;
+
+    }
+    .style_input{
+        font-size: 24px;
+        height:10vh;
+    }
+    .enviar {
+        width: 200px;
+        height: 50px;
+        font-size: 20px;
+    }
+    .contenedor_central{
+        font-size: 30px;
+    }
+}
